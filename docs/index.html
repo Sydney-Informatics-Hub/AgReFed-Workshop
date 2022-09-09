@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.165">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Sydney Informatics Hub AgReFed Data Harvester - AgReFed Data Harvester Workshop For R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="lesson.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Sydney Informatics Hub AgReFed Data Harvester</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page">Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./setup.html">Setup</a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-session-1" role="button" data-bs-toggle="dropdown" aria-expanded="false">Session 1</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-session-1">    
+        <li>
+    <a class="dropdown-item" href="./episode00_intro.html">
+ <span class="dropdown-text">Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./R/Data-Harvester-R.html">
+ <span class="dropdown-text">R Data Harvester</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-session-2" role="button" data-bs-toggle="dropdown" aria-expanded="false">Session 2</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-session-2">    
+        <li>
+    <a class="dropdown-item" href="./Python/Data-Harvester-Python.html">
+ <span class="dropdown-text">Python Data Harvester</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#trainers" id="toc-trainers" class="nav-link active" data-scroll-target="#trainers">Trainers</a></li>
+  <li><a href="#course-pre-requisites-and-setup-requirements" id="toc-course-pre-requisites-and-setup-requirements" class="nav-link" data-scroll-target="#course-pre-requisites-and-setup-requirements">Course pre-requisites and setup requirements</a></li>
+  <li><a href="#venue-online-via-zoom" id="toc-venue-online-via-zoom" class="nav-link" data-scroll-target="#venue-online-via-zoom">Venue, online via Zoom</a></li>
+  <li><a href="#code-of-conduct" id="toc-code-of-conduct" class="nav-link" data-scroll-target="#code-of-conduct">Code of Conduct</a></li>
+  <li><a href="#setup-instructions" id="toc-setup-instructions" class="nav-link" data-scroll-target="#setup-instructions">Setup Instructions</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">AgReFed Data Harvester Workshop For R</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>This course is aimed at researchers, students, and industry professionals who want to learn about the capabilities of the Data Harvester and get experience using it with R. This course will expand on the foundations of R programming. We will utilise common geoscience data types (geospatial, temporal, vector, raster, etc) to demonstrate a variety of practical workflows and showcase fundamental capabilities of the Data Harvester. We will carry out exploratory, analytical, computational and machine learning analyses on these datasets. At the end of the course you will be able to adapt these workflows to your own datasets.</p>
+<p>The course is presented by the <a href="https://www.sydney.edu.au/research/facilities/sydney-informatics-hub.html">Sydney Informatics Hub</a> on behalf of the <a href="https://www.agrefed.org.au/AgReFedPlatform ">Agricultural Research Federation</a>.</p>
+<figure class="figure">
+<img src="fig/agrefed.png" style="margin:10px;width:400px" class="figure-img">
+</figure>
+<figure class="figure">
+<img src="fig/SIH_logo.jpg" style="margin:10px;width:400px" class="figure-img">
+</figure>
+<p>The Sydney Informatics Hub (SIH) is a <em><a href="https://sydney.edu.au/research/facilities.html">Core Research Facility</a></em> of the University of Sydney. Core Research Facilities centralise essential research equipment and services that would otherwise be too expensive or impractical for individual Faculties to purchase and maintain. We provide a wide range of research services to aid investigators, such as:</p>
+<ul>
+<li><a href="https://sydney.edu.au/research/facilities/sydney-informatics-hub/workshops-and-training.html">Training and workshops</a></li>
+<li><a href="https://sydney.edu.au/research/facilities/sydney-informatics-hub/project-support.html">Project consulting and assistance</a> with Statistics, Data Science, Research Engineering, Bioinformatics, Modeling/Simulation/Visualisation, High Performance Computing.</li>
+<li><a href="https://sydney.edu.au/research/facilities/sydney-informatics-hub/digital-research-infrastructure.html">Research data management</a> consulting and platform support.</li>
+</ul>
+<p>We also aim to cultivate a <strong>data community</strong>, organising monthly <a href="https://sydney.edu.au/research/facilities/sydney-informatics-hub/workshops-and-training/hacky-hour.html">Hacky Hours</a>, outside training events (eg NVIDIA, Pawsey Center), and data/coding-related events. Look out for everything happening on our <a href="https://www.sydney.edu.au/research/facilities/sydney-informatics-hub/workshops-and-training/training-calendar.html">calendar</a> or contact us (at sih.info@sydney.edu.au) to get some digital collaboration going.</p>
+<section id="trainers" class="level2">
+<h2 class="anchored" data-anchor-id="trainers">Trainers</h2>
+<ul>
+<li>Januar Harianto, januar.harianto@sydney.edu.au</li>
+<li>Sebastian Haan</li>
+<li>Nathaniel Butterworth</li>
+</ul>
+</section>
+<section id="course-pre-requisites-and-setup-requirements" class="level2">
+<h2 class="anchored" data-anchor-id="course-pre-requisites-and-setup-requirements">Course pre-requisites and setup requirements</h2>
+<p>A gentle understanind of R is encouraged, but we aime to make this a beginner friendly as possible. Training will be delivered online, so you will need access to a modern computer with a stable internet connection. Participants are encouraged to setup a local working environment on their local computer (as per the <a href="./setup.html">Setup Instructions</a> provided), but a full working online environment will be provided for all participants.</p>
+</section>
+<section id="venue-online-via-zoom" class="level2">
+<h2 class="anchored" data-anchor-id="venue-online-via-zoom">Venue, online via Zoom</h2>
+<p>Participants will be provided with a Zoom link. Trainers will be broadcasting from Sydney.</p>
+<section id="zoom-etiquette-and-how-we-interact" class="level4">
+<h4 class="anchored" data-anchor-id="zoom-etiquette-and-how-we-interact">Zoom etiquette and how we interact</h4>
+<p>Sessions will be recorded for attendees only, and it is set up to only record the host shared screen and host audio. We will try and get these uploaded to this site as soon as possible. Please interrupt whenever you want! Ideally, have your camera on and interact as much as possible. There will be someone monitoring the chat-window with any questions you would like to post there. Four hours is a long Zoom session so we have plenty of scheduled breaks combined with a mix of content to be delivered as demos, plus sections as independent exercises, but most of the course will be pretty-hands on with everyone writing their own code. We will use Zoom break-out rooms as needed with the Trainers and participants.</p>
+</section>
+</section>
+<section id="code-of-conduct" class="level2">
+<h2 class="anchored" data-anchor-id="code-of-conduct">Code of Conduct</h2>
+<p>We expect all attendees of our training to follow our code of conduct, including bullying, harassment and discrimination prevention policies.</p>
+<p>In order to foster a positive and professional learning environment we encourage the following kinds of behaviours at all our events and on our platforms:</p>
+<ul>
+<li>Use welcoming and inclusive language</li>
+<li>Be respectful of different viewpoints and experiences</li>
+<li>Gracefully accept constructive criticism</li>
+<li>Focus on what is best for the community</li>
+<li>Show courtesy and respect towards other community members</li>
+</ul>
+<p>Our full CoC, with incident reporting guidelines, is available at <a href="https://pages.github.sydney.edu.au/informatics/sih_codeofconduct/">https://pages.github.sydney.edu.au/informatics/sih_codeofconduct/</a></p>
+</section>
+<section id="setup-instructions" class="level2">
+<h2 class="anchored" data-anchor-id="setup-instructions">Setup Instructions</h2>
+<p>Please complete the <a href="./setup.html">Setup Instructions</a> <strong>before the course</strong>.</p>
+<p>If you have any trouble, please get in contact with us ASAP.</p>
+
+
+</section>
+
+<p>All materials copyright Sydney Informatics Hub, University of Sydney</p></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

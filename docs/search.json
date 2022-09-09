@@ -1,0 +1,79 @@
+[
+  {
+    "objectID": "episode00_intro.html",
+    "href": "episode00_intro.html",
+    "title": "AgReFed Data Harvester Workshop For R",
+    "section": "",
+    "text": "Objectives\n\nLearn about the AgReFed organisation.\nLearn about the functionalities of the Data Harvester tool.\nLearn about the wider AgReFed ecososytem and tools available.\n\n\nYou can make native Markdown files like this one and include them. Or else you can just put everything in the “R” or “Python” Folder and they will get rendered.\nThis course we will build upon the foundations of the R programming language and teach about the functionality availble within the Data Harvester.\nThe course is presented by the Sydney Informatics Hub on behalf of the Agriculture Research Federation.\n\nWhat is AgReFed?\nAgReFed is great\nMake a list:\n\nAutomate tasks (do things millions of times easily)\nCalculate big numbers (can solve most computational problems)\nFormat and analyse data\nProcess images\n\nThe back-end of the Data Harvester use Python. But we use the “reticulate” package to wrap python code and expose it in R! So you don’t need to worry about the details.\n\nAll free and open-source.\nThere is a large community of people using it all over the world on different projects, which means there is a lot of help and documentation.\nThis is AgReFed\n\n\n\nWhat is the Data-Harvester?\nIt is a R package and Python package, or would we think about it in another way? Here is some code.\nprint(\"Hello World\")\nThe End.\n\nKey points\n\nAgReFed is great.\nUse the Data Harvester.\n\n\n\n\n\n\nAll materials copyright Sydney Informatics Hub, University of Sydney"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "AgReFed Data Harvester Workshop For R",
+    "section": "",
+    "text": "This course is aimed at researchers, students, and industry professionals who want to learn about the capabilities of the Data Harvester and get experience using it with R. This course will expand on the foundations of R programming. We will utilise common geoscience data types (geospatial, temporal, vector, raster, etc) to demonstrate a variety of practical workflows and showcase fundamental capabilities of the Data Harvester. We will carry out exploratory, analytical, computational and machine learning analyses on these datasets. At the end of the course you will be able to adapt these workflows to your own datasets.\nThe course is presented by the Sydney Informatics Hub on behalf of the Agricultural Research Federation.\nThe Sydney Informatics Hub (SIH) is a Core Research Facility of the University of Sydney. Core Research Facilities centralise essential research equipment and services that would otherwise be too expensive or impractical for individual Faculties to purchase and maintain. We provide a wide range of research services to aid investigators, such as:\nWe also aim to cultivate a data community, organising monthly Hacky Hours, outside training events (eg NVIDIA, Pawsey Center), and data/coding-related events. Look out for everything happening on our calendar or contact us (at sih.info@sydney.edu.au) to get some digital collaboration going.\nAll materials copyright Sydney Informatics Hub, University of Sydney"
+  },
+  {
+    "objectID": "index.html#trainers",
+    "href": "index.html#trainers",
+    "title": "AgReFed Data Harvester Workshop For R",
+    "section": "Trainers",
+    "text": "Trainers\n\nJanuar Harianto, januar.harianto@sydney.edu.au\nSebastian Haan\nNathaniel Butterworth"
+  },
+  {
+    "objectID": "index.html#course-pre-requisites-and-setup-requirements",
+    "href": "index.html#course-pre-requisites-and-setup-requirements",
+    "title": "AgReFed Data Harvester Workshop For R",
+    "section": "Course pre-requisites and setup requirements",
+    "text": "Course pre-requisites and setup requirements\nA gentle understanind of R is encouraged, but we aime to make this a beginner friendly as possible. Training will be delivered online, so you will need access to a modern computer with a stable internet connection. Participants are encouraged to setup a local working environment on their local computer (as per the Setup Instructions provided), but a full working online environment will be provided for all participants."
+  },
+  {
+    "objectID": "index.html#venue-online-via-zoom",
+    "href": "index.html#venue-online-via-zoom",
+    "title": "AgReFed Data Harvester Workshop For R",
+    "section": "Venue, online via Zoom",
+    "text": "Venue, online via Zoom\nParticipants will be provided with a Zoom link. Trainers will be broadcasting from Sydney.\n\nZoom etiquette and how we interact\nSessions will be recorded for attendees only, and it is set up to only record the host shared screen and host audio. We will try and get these uploaded to this site as soon as possible. Please interrupt whenever you want! Ideally, have your camera on and interact as much as possible. There will be someone monitoring the chat-window with any questions you would like to post there. Four hours is a long Zoom session so we have plenty of scheduled breaks combined with a mix of content to be delivered as demos, plus sections as independent exercises, but most of the course will be pretty-hands on with everyone writing their own code. We will use Zoom break-out rooms as needed with the Trainers and participants."
+  },
+  {
+    "objectID": "index.html#code-of-conduct",
+    "href": "index.html#code-of-conduct",
+    "title": "AgReFed Data Harvester Workshop For R",
+    "section": "Code of Conduct",
+    "text": "Code of Conduct\nWe expect all attendees of our training to follow our code of conduct, including bullying, harassment and discrimination prevention policies.\nIn order to foster a positive and professional learning environment we encourage the following kinds of behaviours at all our events and on our platforms:\n\nUse welcoming and inclusive language\nBe respectful of different viewpoints and experiences\nGracefully accept constructive criticism\nFocus on what is best for the community\nShow courtesy and respect towards other community members\n\nOur full CoC, with incident reporting guidelines, is available at https://pages.github.sydney.edu.au/informatics/sih_codeofconduct/"
+  },
+  {
+    "objectID": "index.html#setup-instructions",
+    "href": "index.html#setup-instructions",
+    "title": "AgReFed Data Harvester Workshop For R",
+    "section": "Setup Instructions",
+    "text": "Setup Instructions\nPlease complete the Setup Instructions before the course.\nIf you have any trouble, please get in contact with us ASAP."
+  },
+  {
+    "objectID": "setup.html",
+    "href": "setup.html",
+    "title": "Setup",
+    "section": "",
+    "text": "We generally use and recommend the Miniconda Python distribution: https://docs.conda.io/en/latest/miniconda.html. But feel free to use whatever one works for you (and the course materials). We will be using Miniconda3-py39_4.11.0.\nYou can get this specific version here for:\n\nWindows 64 bit Download\nMac OSX Download\nLinux Download\n\nFollow the prompts (the default recommendations in the installer are generally fine.) Once installed, launch an “Anaconda Prompt” from the Start Menu / Applications Folder to begin your Python adventure.\nAll materials copyright Sydney Informatics Hub, University of Sydney"
+  },
+  {
+    "objectID": "setup.html#launching-the-jupyterpython-notebook",
+    "href": "setup.html#launching-the-jupyterpython-notebook",
+    "title": "Setup",
+    "section": "Launching the Jupyter/Python Notebook",
+    "text": "Launching the Jupyter/Python Notebook\nNow you have built your environment with all the packages we need, you can launch it. We will be working mostly with Python Notebooks to run Python (as opposed to running an interpreter on the command line/prompt). Each time you restart your work you will have to follow these steps:\n\nLaunch an Anaconda Prompt (or equivalent).\nChange directories to your workspace.\nActivate the geopy environment.\nLaunch the Jupyter/Python Notebook server.\n\ncd C:\\Users\\nbutter\\Desktop\\geopython\nconda activate geopy\njupyter notebook\n\nThis will launch the Notebook server (and may automatically launch a web-browser and take you to the page). If the Notebook does not automatically start, copy the generated link into a browser."
+  },
+  {
+    "objectID": "setup.html#jupyter-hub-in-the-cloud",
+    "href": "setup.html#jupyter-hub-in-the-cloud",
+    "title": "Setup",
+    "section": "Jupyter Hub in the Cloud",
+    "text": "Jupyter Hub in the Cloud\nIf the above options do not work for you, you can use an on-demand cloud instance. You will be given a web link, login with provided credentials. Done."
+  },
+  {
+    "objectID": "setup.html#docker",
+    "href": "setup.html#docker",
+    "title": "Setup",
+    "section": "Docker",
+    "text": "Docker\nIf you are familiar with Docker you may use our Docker image with something like:\nsudo docker run -it -p 8888:8888 nbutter/geopy:pesa2022 /bin/bash -c \"jupyter notebook --allow-root --ip=0.0.0.0 --no-browser\"\nThis will launch the Python notebook server in the /notebooks folder. Access the notebook by entering the generated link in a web-browser, e.g. http://127.0.0.1:8888/?token=9b16287ab91dc69d6b265e6c9c31a49586a35291bb20d0ab"
+  }
+]

@@ -1,0 +1,38 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Sydney Informatics Hub AgReFed Data Harvester"
+  navbar:
+    background: primary
+    left:
+      - href: index.qmd
+        text: Home
+      - href: setup.html
+        text: "Setup"
+      - text: "Session 1"
+        menu:
+        - text: "Introduction"
+          href: episode00_intro.html
+        - text: "R Data Harvester"
+          href: R/Data-Harvester-R.html
+
+      - text: "Session 2"
+        menu:
+        - text: "Python Data Harvester"
+          href: Python/Data-Harvester-Python.html
+
+  body-footer: "All materials copyright Sydney Informatics Hub, University of Sydney"
+          
+format:
+  html:
+    theme: simplex
+    css: lesson.css
+    toc: true
+    code-overflow: wrap
+    highlight-style: github
+
+
+
+
