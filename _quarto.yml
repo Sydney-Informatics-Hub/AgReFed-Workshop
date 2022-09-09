@@ -11,17 +11,17 @@ website:
         text: Home
       - href: setup.html
         text: "Setup"
-      - text: "Session 1"
+      - text: "R Stream"
         menu:
         - text: "Introduction"
           href: episode00_intro.html
         - text: "R Data Harvester"
           href: R/Data-Harvester-R.html
 
-      - text: "Session 2"
+      - text: "Python Stream"
         menu:
         - text: "Python Data Harvester"
-          href: Python/Data-Harvester-Python.html
+          href: Python/Data_Harvester.html
 
   body-footer: "All materials copyright Sydney Informatics Hub, University of Sydney"
           

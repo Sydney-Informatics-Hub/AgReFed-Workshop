@@ -1,0 +1,2247 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.165">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Sydney Informatics Hub AgReFed Data Harvester – data_harvest</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
+
+
+<link rel="stylesheet" href="../lesson.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Sydney Informatics Hub AgReFed Data Harvester</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html">Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../setup.html">Setup</a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-r-stream" role="button" data-bs-toggle="dropdown" aria-expanded="false">R Stream</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-r-stream">    
+        <li>
+    <a class="dropdown-item" href="../episode00_intro.html">
+ <span class="dropdown-text">Introduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../R/Data-Harvester-R.html">
+ <span class="dropdown-text">R Data Harvester</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-python-stream" role="button" data-bs-toggle="dropdown" aria-expanded="false">Python Stream</a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-python-stream">    
+        <li>
+    <a class="dropdown-item" href="../Python/Data_Harvester.html">
+ <span class="dropdown-text">Python Data Harvester</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#data-harvester-notebook" id="toc-data-harvester-notebook" class="nav-link active" data-scroll-target="#data-harvester-notebook"># DATA HARVESTER NOTEBOOK</a>
+  <ul class="collapse">
+  <li><a href="#initialize-settings-display" id="toc-initialize-settings-display" class="nav-link" data-scroll-target="#initialize-settings-display">Initialize Settings Display</a></li>
+  </ul></li>
+  <li><a href="#import-settings" id="toc-import-settings" class="nav-link" data-scroll-target="#import-settings">Import settings</a></li>
+  <li><a href="#setup-dataset-of-interest" id="toc-setup-dataset-of-interest" class="nav-link" data-scroll-target="#setup-dataset-of-interest">Setup dataset of interest</a></li>
+  <li><a href="#download-and-process-data-from-api-sources" id="toc-download-and-process-data-from-api-sources" class="nav-link" data-scroll-target="#download-and-process-data-from-api-sources">Download and process data from API sources</a>
+  <ul class="collapse">
+  <li><a href="#slga-download" id="toc-slga-download" class="nav-link" data-scroll-target="#slga-download">SLGA Download</a></li>
+  <li><a href="#silo-download" id="toc-silo-download" class="nav-link" data-scroll-target="#silo-download">SILO Download</a></li>
+  <li><a href="#dea-download" id="toc-dea-download" class="nav-link" data-scroll-target="#dea-download">DEA Download</a></li>
+  <li><a href="#dem-download" id="toc-dem-download" class="nav-link" data-scroll-target="#dem-download">DEM Download</a></li>
+  <li><a href="#landscape" id="toc-landscape" class="nav-link" data-scroll-target="#landscape">Landscape</a></li>
+  <li><a href="#radiometrics" id="toc-radiometrics" class="nav-link" data-scroll-target="#radiometrics">Radiometrics</a></li>
+  </ul></li>
+  <li><a href="#save-the-final-log-or-start-from-here-to-re-load-it-in." id="toc-save-the-final-log-or-start-from-here-to-re-load-it-in." class="nav-link" data-scroll-target="#save-the-final-log-or-start-from-here-to-re-load-it-in.">Save the final log or start from here to re-load it in.</a></li>
+  <li><a href="#points-extraction-from-downloadedprocessed-data" id="toc-points-extraction-from-downloadedprocessed-data" class="nav-link" data-scroll-target="#points-extraction-from-downloadedprocessed-data">Points extraction from downloaded/processed data</a>
+  <ul class="collapse">
+  <li><a href="#inspect-result-dataframe" id="toc-inspect-result-dataframe" class="nav-link" data-scroll-target="#inspect-result-dataframe">Inspect result dataframe</a></li>
+  <li><a href="#save-the-results-table" id="toc-save-the-results-table" class="nav-link" data-scroll-target="#save-the-results-table">Save the results table</a></li>
+  <li><a href="#overview-plot-of-all-processed-rasters" id="toc-overview-plot-of-all-processed-rasters" class="nav-link" data-scroll-target="#overview-plot-of-all-processed-rasters">Overview plot of all processed rasters</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="data-harvester-notebook" class="level2">
+<h2 class="anchored" data-anchor-id="data-harvester-notebook"># DATA HARVESTER NOTEBOOK</h2>
+<p>The Data Harvester enables researchers with reusable workflows for automatic data extraction from a range of data sources including spatial-temporal processing into useable formats. User provided data is auto-completed with a suitable set of spatial- and temporal-aligned covariates as a ready-made dataset for machine learning and agriculture models. In addition, all requested data layer maps are automatically extracted and aligned for a specific region and time period.</p>
+<p>The main workflow of the Harvester is as follows: 1) Options and user settings (e.g., data layer selections, spatial coverage, temporal constraints, i/o directory names) are defined by the user in the notebook settings menu or can be loaded with a settings yaml file (e.g., settings/settings_v0.2_saved.yaml). All settings are also saved in a yaml file for reusability. 2) The notebook imports settings and all Python modules that include functionality to download and extract data for each data source. After settings are read in, checked, and processed into valid data retrieval (API) queries, all selected data layers are sequentially downloaded and then processed into a clean dataframe table and co-registered raster maps. The entire workflow can be run either completely automatically or individually by selecting only certain process parts in the Notebook.</p>
+<p>Additional data sources can be best added by writing the API handlers and extraction functionalities as separate Python module, which are then imported by the Notebook. Currently the following data sources are supported by the following modules:</p>
+<ul>
+<li>‘getdata_slga.py’: Soil Data from Soil and Landscape Grid of Australia (SLGA)</li>
+<li>‘getdata_landscape’: Landscape data from Soil and Landscape Grid of Australia (SLGA)</li>
+<li>‘getdata_silo.py’: Climate Data from SILO</li>
+<li>’getdata_dem.py: ’National Digital Elevation Model (DEM) 1 Second plus Slope and Apect calculation</li>
+<li>’getdata_dea_nci.py: ’Digital Earth Australia’s (DEA) Geoscience Earth Observations via NCI server</li>
+<li>’getdata_dea.py: ’Digital Earth Australia’s (DEA) Geoscience Earth Observations via Open Web Service server provided by DEA</li>
+<li>‘getdata_radiometric.py’: Geoscience Australia National Geophysical Compilation Sub-collection Radiometrics</li>
+</ul>
+<p>For more details. please see README and the Data Overview page.</p>
+<p>This notebook is part of the Data Harvester project developed for the Agricultural Research Federation (AgReFed).</p>
+<p>Copyright 2022 Sydney Informatics Hub (SIH), The University of Sydney</p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Load general python libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> os.path <span class="im">import</span> exists</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> types <span class="im">import</span> SimpleNamespace </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Load local modules/functions/packages</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># See each python file for detailed options</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> getdata_silo </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> getdata_slga </span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> getdata_dea</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> getdata_dem</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> getdata_radiometric</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> getdata_landscape</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> utils</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> utils <span class="im">import</span> init_logtable, update_logtable</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> arc2meter <span class="im">import</span> calc_arc2meter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-tags="[&quot;parameters&quot;]">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This cell is tagged with "parameters" if notebook is run with papermill command line arguments (leave blank)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>load_settingsfilename <span class="op">=</span> <span class="st">''</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="initialize-settings-display" class="level3">
+<h3 class="anchored" data-anchor-id="initialize-settings-display">Initialize Settings Display</h3>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#NEW: For importing custom settings widgets</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> widgets <span class="im">import</span> harvesterwidgets <span class="im">as</span> hw</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>tab_nest, w_settings, names_settings, w_load <span class="op">=</span> hw.gen_maintab()</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>display(tab_nest) </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#Note: the display screen may take a couple of seconds more after loading</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>time.sleep(<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<script type="application/vnd.jupyter.widget-view+json">
+[{"model_id":"14fa77bcc12e4310b79cd1570c0ed4e4","version_major":2,"version_minor":0}]
+</script>
+</div>
+</div>
+</section>
+</section>
+<section id="import-settings" class="level2">
+<h2 class="anchored" data-anchor-id="import-settings">Import settings</h2>
+<p>Let’s start with loading all user settings and options as specified in the settings file. For this example we provide a template file <code>settings/settings_v0.1_default.yaml</code>. You can comfortable use the default settings in this file. Or you may changed the file directly, or point to a new file. Or override any of the defaults throughout this notebook.</p>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#For recording time:</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>start_time <span class="op">=</span> datetime.now()</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> load_settingsfilename <span class="op">!=</span> <span class="st">''</span>:</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># load settings fromm file given by command line argument</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Automatinc loading settings from </span><span class="sc">{</span>load_settingsfilename<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    settings <span class="op">=</span> hw.load_settings(load_settingsfilename)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> w_load.value <span class="op">==</span> <span class="va">None</span>:</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># if no settings file selected, convert widgets inputs above to settings</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    dict_settings <span class="op">=</span> hw.eval_widgets(w_settings, names_settings)</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convert settings from dictionary to SimpleNamespace (so all settings names available as settings.xxxname)</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    settings <span class="op">=</span> SimpleNamespace(<span class="op">**</span>dict_settings)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check if output path exists, if not create it:</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    os.makedirs(settings.outpath, exist_ok<span class="op">=</span><span class="va">True</span>) </span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Save settings to yaml file:</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    hw.save_dict_settings(dict_settings, os.path.join(settings.outpath, <span class="st">'settings_saved.yaml'</span>))</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Settings loaded from </span><span class="sc">{</span>w_load<span class="sc">.</span>value<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>    settings <span class="op">=</span> hw.load_settings(w_load.value)</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>hw.print_settings(settings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Settings saved to file ../dataresults_testnotebook/settings_saved.yaml
+Settings loaded:
+----------------
+settings.infile : /Users/seb/CTDS/Projects/AgReFed/Harvester/code/AgReFed-DataHarvester/testdata/Pointdata_Llara.csv
+settings.outpath : ../dataresults_testnotebook/
+settings.colname_lng : Long
+settings.colname_lat : Lat
+settings.target_bbox : 
+settings.target_res : 12.0
+settings.target_dates : (2021,)
+settings.temp_res : 365
+settings.target_sources:
+   'SLGA': {'Bulk_Density': ['0-5cm']}
+   'SILO': {'monthly_rain': ['Total']}
+   'DEA': ['landsat_barest_earth']
+   'DEM': ['DEM', 'Slope', 'Aspect']
+   'Radiometric': ['radmap2019_grid_dose_terr_filtered_awags_rad_2019']
+   'Landscape': ['Relief_300m']</code></pre>
+</div>
+</div>
+</section>
+<section id="setup-dataset-of-interest" class="level2">
+<h2 class="anchored" data-anchor-id="setup-dataset-of-interest">Setup dataset of interest</h2>
+<p>Here we are reading in the point locations for which we want to extract data. A custom bounding box for which to extract raster data can be set in the settings file. If no bounding box provided, rasters are extracted for the region given by the point location extent plus an additional padding of 0.05 deg in Lat/Long (see code below).</p>
+<div class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load in the dataset defining our location of interest as a geopandas dataframe</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>gdfpoints <span class="op">=</span> gpd.read_file(settings.infile)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># This particular dataset contains duplicate point locations at different depths.</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># We can take advantage of the Notebook environment to make small manipulations</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># to pull out just the data we need, i.e:</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>gdfpoints<span class="op">=</span>gdfpoints.loc[gdfpoints[<span class="st">'depth'</span>] <span class="op">==</span> <span class="st">"0-5 cm"</span>]</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Assing the data to well-named variables</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>longs <span class="op">=</span> gdfpoints[settings.colname_lng].astype(<span class="bu">float</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>lats <span class="op">=</span> gdfpoints[settings.colname_lat].astype(<span class="bu">float</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the data looks reasonable</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>gdfpoints.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="39">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>field_1</th>
+      <th>Lat</th>
+      <th>Long</th>
+      <th>Easting</th>
+      <th>Northing</th>
+      <th>depth</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>-30.264663</td>
+      <td>149.85268</td>
+      <td>774457.572546495</td>
+      <td>6648441.94497259</td>
+      <td>0-5 cm</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5</td>
+      <td>-30.265302</td>
+      <td>149.884838</td>
+      <td>777550.996253435</td>
+      <td>6648292.91822913</td>
+      <td>0-5 cm</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>9</td>
+      <td>-30.265302</td>
+      <td>149.884838</td>
+      <td>777550.996253435</td>
+      <td>6648292.91822913</td>
+      <td>0-5 cm</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>14</td>
+      <td>-30.278542</td>
+      <td>149.838791</td>
+      <td>773082.294868699</td>
+      <td>6646936.5315563</td>
+      <td>0-5 cm</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>19</td>
+      <td>-30.275437</td>
+      <td>149.830843</td>
+      <td>772325.998393026</td>
+      <td>6647299.91001948</td>
+      <td>0-5 cm</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use padding area of interest +/- 0.05 deg if no bbox provided. </span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (settings.target_bbox <span class="op">==</span> <span class="va">None</span>) <span class="op">|</span> (settings.target_bbox <span class="op">==</span> <span class="st">'None'</span>) <span class="op">|</span> (settings.target_bbox <span class="op">==</span> <span class="st">''</span>):</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    settings.target_bbox <span class="op">=</span> (<span class="bu">min</span>(longs)<span class="op">-</span><span class="fl">0.05</span>,<span class="bu">min</span>(lats)<span class="op">-</span><span class="fl">0.05</span>,<span class="bu">max</span>(longs)<span class="op">+</span><span class="fl">0.05</span>,<span class="bu">max</span>(lats)<span class="op">+</span><span class="fl">0.05</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Info: Selected bounding box: </span><span class="sc">{</span>settings<span class="sc">.</span>target_bbox<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate resolution in meters:</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>lat_center <span class="op">=</span> (settings.target_bbox[<span class="dv">1</span>]<span class="op">+</span>settings.target_bbox[<span class="dv">3</span>])<span class="op">/</span><span class="dv">2</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>xres_meters, yres_meters <span class="op">=</span> calc_arc2meter(settings.target_res, lat_center)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Info: </span><span class="sc">{</span>settings<span class="sc">.</span>target_res<span class="sc">}</span><span class="ss"> arcsec resolution corresponds to </span><span class="sc">{</span>xres_meters<span class="sc">:.1f}</span><span class="ss">m x </span><span class="sc">{</span>yres_meters<span class="sc">:.1f}</span><span class="ss">m in x,y direction respectively (at Latitude: </span><span class="sc">{</span>lat_center<span class="sc">:.2f}</span><span class="ss">).'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Info: Selected bounding box: (149.769345, -30.335861, 149.949173, -30.206271)
+Info: 6.0 arcsec resolution corresponds to 160.2m x 185.2m in x,y direction respectively (at Latitude: -30.27).</code></pre>
+</div>
+</div>
+</section>
+<section id="download-and-process-data-from-api-sources" class="level2">
+<h2 class="anchored" data-anchor-id="download-and-process-data-from-api-sources">Download and process data from API sources</h2>
+<p>From here we automatically download and process sequentially a range of data sources as specified in the settings file (see next subsections: SLGA, SILO, DEA, DEM). Note that you may retrieve info and parameter input options for any function easily by running a function/method with a preceeding ‘?’, e.g:</p>
+<pre><code>?getdata_slga.get_slga_layers
+?utils</code></pre>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initiate a dataframe for logging all data output names and layer titles.</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that the log table is later updated with update_logtable(), which also instantly saves a copy of the table of the current status.</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> init_logtable()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="slga-download" class="level3">
+<h3 class="anchored" data-anchor-id="slga-download">SLGA Download</h3>
+<p>Here we download all requested data layers from the Soil and Landscape Grid of Australia (SLGA) for the given bounding box. Note that for this example we select the top soil (0 - 5cm) only. Optionally other layers and depths including confidence intervals can be extracted as well; for more details and options see getdata_slga.py.</p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can set the input options for each function call, and additional parameters may be set</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># too. Check the documentation of each function for full list of options.</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>depth_min, depth_max <span class="op">=</span> getdata_slga.identifier2depthbounds(<span class="bu">list</span>(settings.target_sources[<span class="st">'SLGA'</span>].values())[<span class="dv">0</span>])</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>slga_layernames <span class="op">=</span> <span class="bu">list</span>(settings.target_sources[<span class="st">'SLGA'</span>].keys())</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>fnames_out_slga <span class="op">=</span> getdata_slga.get_slga_layers(</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    slga_layernames, </span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    settings.target_bbox, </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    settings.outpath, </span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    depth_min <span class="op">=</span> depth_min, </span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    depth_max<span class="op">=</span> depth_max, </span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    get_ci <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Downloading Bulk_Density...
+SLGA_Bulk_Density_0-5cm downloaded. Saved to:  ../../dataresults/SLGA_Bulk_Density_0-5cm.tif
+Downloading confidence intervals for Bulk_Density...
+SLGA_Bulk_Density_0-5cm CIs downloaded.
+Downloading Clay...
+../../dataresults/SLGA_Clay_0-5cm.tif already exists
+SLGA_Clay_0-5cm downloaded. Saved to:  ../../dataresults/SLGA_Clay_0-5cm.tif
+Downloading confidence intervals for Clay...
+../../dataresults/SLGA_Clay_0-5cm_5percentile.tif already exists
+../../dataresults/SLGA_Clay_0-5cm_95percentile.tif already exists
+SLGA_Clay_0-5cm CIs downloaded.
+SLGA Download complete.</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add download info to log dataframe</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> update_logtable(df_log, fnames_out_slga, slga_layernames, <span class="st">'SLGA'</span>, settings, layertitles <span class="op">=</span> [], loginfos <span class="op">=</span> <span class="st">'downloaded'</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>df_log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>layername</th>
+      <th>agfunction</th>
+      <th>dataset</th>
+      <th>layertitle</th>
+      <th>filename_out</th>
+      <th>loginfo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Bulk_Density</td>
+      <td>0-5cm</td>
+      <td>SLGA</td>
+      <td>Bulk_Density_0-5cm</td>
+      <td>../../dataresults/SLGA_Bulk_Density_0-5cm.tif</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Clay</td>
+      <td>0-5cm</td>
+      <td>SLGA</td>
+      <td>Clay_0-5cm</td>
+      <td>../../dataresults/SLGA_Clay_0-5cm.tif</td>
+      <td>downloaded</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="silo-download" class="level3">
+<h3 class="anchored" data-anchor-id="silo-download">SILO Download</h3>
+<p>Here we download climate data layers from SILO and extract raster for the given bounding box and year. For more details see getdata_silo.py</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Each data-source must be handled differently (as the data is stored in different ways)</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Here we must get each layer, one by one. The simplest way is to loop through them.</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get data for each layer</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>fnames_out_silo <span class="op">=</span> []</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>silo_layernames <span class="op">=</span> <span class="bu">list</span>(settings.target_sources[<span class="st">'SILO'</span>].keys())</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> layername <span class="kw">in</span> silo_layernames:</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># define output file name</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    outpath <span class="op">=</span> settings.outpath<span class="op">+</span><span class="st">'mvp_'</span><span class="op">+</span>layername<span class="op">+</span><span class="st">'_silo'</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># run the download</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    fnames_out <span class="op">=</span> getdata_silo.get_SILO_raster(</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>        layername, </span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>        settings.target_dates, </span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>        outpath, </span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>        bbox <span class="op">=</span> settings.target_bbox, </span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>        format_out <span class="op">=</span> <span class="st">'tif'</span>, </span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>        delete_temp<span class="op">=</span> <span class="va">False</span>)</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">#Save the layer name</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>    fnames_out_silo <span class="op">+=</span> fnames_out</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Add download info to log dataframe</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> update_logtable(df_log, fnames_out_silo, silo_layernames, <span class="st">'SILO'</span>, settings, layertitles <span class="op">=</span> [], loginfos <span class="op">=</span> <span class="st">'downloaded'</span>)</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>df_log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Downloading data for year 2021 from https://s3-ap-southeast-2.amazonaws.com/silo-open-data/Official/annual/monthly_rain/2021.monthly_rain.nc ...
+../../dataresults/mvp_monthly_rain_silo/2021.monthly_rain.nc already exists
+Saved monthly_rain for year 2021 as geotif: 
+../../dataresults/mvp_monthly_rain_silo/monthly_rain_2021_cropped.tif
+Downloading data for year 2021 from https://s3-ap-southeast-2.amazonaws.com/silo-open-data/Official/annual/max_temp/2021.max_temp.nc ...
+../../dataresults/mvp_max_temp_silo/2021.max_temp.nc already exists
+Saved max_temp for year 2021 as geotif: 
+../../dataresults/mvp_max_temp_silo/max_temp_2021_cropped.tif
+Downloading data for year 2021 from https://s3-ap-southeast-2.amazonaws.com/silo-open-data/Official/annual/min_temp/2021.min_temp.nc ...
+../../dataresults/mvp_min_temp_silo/2021.min_temp.nc already exists
+Saved min_temp for year 2021 as geotif: 
+../../dataresults/mvp_min_temp_silo/min_temp_2021_cropped.tif</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>layername</th>
+      <th>agfunction</th>
+      <th>dataset</th>
+      <th>layertitle</th>
+      <th>filename_out</th>
+      <th>loginfo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Bulk_Density</td>
+      <td>0-5cm</td>
+      <td>SLGA</td>
+      <td>Bulk_Density_0-5cm</td>
+      <td>../../dataresults/SLGA_Bulk_Density_0-5cm.tif</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Clay</td>
+      <td>0-5cm</td>
+      <td>SLGA</td>
+      <td>Clay_0-5cm</td>
+      <td>../../dataresults/SLGA_Clay_0-5cm.tif</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>monthly_rain</td>
+      <td>Total</td>
+      <td>SILO</td>
+      <td>monthly_rain_Total</td>
+      <td>../../dataresults/mvp_monthly_rain_silo/monthl...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>max_temp</td>
+      <td>Median</td>
+      <td>SILO</td>
+      <td>max_temp_Median</td>
+      <td>../../dataresults/mvp_max_temp_silo/max_temp_2...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>min_temp</td>
+      <td>Median</td>
+      <td>SILO</td>
+      <td>min_temp_Median</td>
+      <td>../../dataresults/mvp_min_temp_silo/min_temp_2...</td>
+      <td>downloaded</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+<section id="silo-processing" class="level4">
+<h4 class="anchored" data-anchor-id="silo-processing">SILO Processing</h4>
+<p>This is an example for further processing of the extracted SILO data. Here we are interested in generating a mean temperature raster given the already extracted min and max temperature rasters.</p>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Gere we want to immediately perform some data processing on the SILO layers.</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Sub select whatever files we want to aggregate, from the log file</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>file_list <span class="op">=</span> df_log[df_log[<span class="st">'layername'</span>].isin([<span class="st">'min_temp'</span>,<span class="st">'max_temp'</span>])].filename_out.to_list()</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(file_list) <span class="op">==</span> <span class="dv">2</span>:</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Both have a recommendation of running mean, so lets set that</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    agg <span class="op">=</span> [<span class="st">'mean'</span>]</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Set an output filename if wanted</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    outfile <span class="op">=</span> settings.outpath<span class="op">+</span><span class="st">'silo_temp_2019_ag'</span></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># And run the processing</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    outfname_agg <span class="op">=</span> utils.aggregate_rasters(</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>        file_list<span class="op">=</span>file_list,</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>        outfile<span class="op">=</span>outfile, </span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>        data_dir<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>        agg<span class="op">=</span>agg)</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add processed info to log dataframe</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>    df_log <span class="op">=</span> update_logtable(df_log, [outfname_agg[<span class="dv">0</span>]], [<span class="st">'mean_temp'</span>], <span class="st">'SILO'</span>, settings, layertitles <span class="op">=</span> [<span class="st">'mean_temp'</span>], agfunctions <span class="op">=</span> [<span class="st">'mean'</span>], loginfos <span class="op">=</span> <span class="st">'processed'</span>)</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>    df_log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Finding ['mean']  out of possible ['mean', 'median', 'sum', 'perc95', 'perc5']
+mean of filelist saved in:  ../../dataresults/silo_temp_2019_ag_mean.tif</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="dea-download" class="level3">
+<h3 class="anchored" data-anchor-id="dea-download">DEA Download</h3>
+<p>Here we download satellite data from Digital Earth Australia (DEA) within the given bounding box and for all available image capture dates that are available within the specified year(s). For more details see getdata_dea.py or getdata_dea_nci .py</p>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>dea_layernames <span class="op">=</span> settings.target_sources[<span class="st">'DEA'</span>]</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># These are multiple files, so we put them in a subdirectory to make subsequent processing easier.</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>outpath_dea <span class="op">=</span> os.path.join(settings.outpath,<span class="st">'mvp_dea'</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>outfnames <span class="op">=</span> getdata_dea.get_dea_layers(</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    dea_layernames, </span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    settings.target_dates, </span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    settings.target_bbox, </span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    settings.target_res, </span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    outpath_dea, </span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    crs <span class="op">=</span> <span class="st">'EPSG:4326'</span>, </span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    format_out <span class="op">=</span> <span class="st">'GeoTIFF'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of images for 2021 found: 0
+No dates found for year 2021. Trying to download without date.
+Downloading landsat_barest_earth for date None ...
+landsat_barest_earth for date None downloaded
+All layers downloads completed and saved in directory ../../dataresults/mvp_dea.</code></pre>
+</div>
+</div>
+<section id="dea-processing" class="level4">
+<h4 class="anchored" data-anchor-id="dea-processing">DEA Processing</h4>
+<p>This aggregates all images for the given year(s) and gnerates a combined image, here for example for the mean and 5th and 95th percentile each.</p>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Process DEA data over time aggregates</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>outfname_list, channel_list, agg_list <span class="op">=</span> utils.aggregate_multiband(</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    data_dir <span class="op">=</span> outpath_dea,</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    outfile <span class="op">=</span> settings.outpath<span class="op">+</span><span class="st">"mvp_dea"</span>,</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    agg <span class="op">=</span> [<span class="st">'mean'</span>,<span class="st">'perc95'</span>,<span class="st">'perc5'</span>],</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    file_list <span class="op">=</span> <span class="va">None</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Finding ['mean', 'perc95', 'perc5']  out of possible ['mean', 'median', 'sum', 'perc95', 'perc5']
+Reading all *.tif files in:  ../../dataresults/mvp_dea
+mean of filelist saved in:  ../../dataresults/mvp_dea_mean_channel_0.tif
+perc95 of filelist saved in:  ../../dataresults/mvp_dea_perc95_channel_0.tif
+perc5 of filelist saved in:  ../../dataresults/mvp_dea_perc5_channel_0.tif
+mean of filelist saved in:  ../../dataresults/mvp_dea_mean_channel_1.tif
+perc95 of filelist saved in:  ../../dataresults/mvp_dea_perc95_channel_1.tif
+perc5 of filelist saved in:  ../../dataresults/mvp_dea_perc5_channel_1.tif
+mean of filelist saved in:  ../../dataresults/mvp_dea_mean_channel_2.tif
+perc95 of filelist saved in:  ../../dataresults/mvp_dea_perc95_channel_2.tif
+perc5 of filelist saved in:  ../../dataresults/mvp_dea_perc5_channel_2.tif</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add extracted data info to log table</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>layernames <span class="op">=</span> [layername <span class="op">+</span> <span class="st">'_channel'</span> <span class="op">+</span> channel_list[i] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(channel_list))]</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> update_logtable(df_log, outfname_list, layernames, <span class="st">'DEA'</span>, settings, agfunctions <span class="op">=</span> agg_list, loginfos <span class="op">=</span> <span class="st">'processed'</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="co">#print(df_log.layertitle)</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>df_log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>layername</th>
+      <th>agfunction</th>
+      <th>dataset</th>
+      <th>layertitle</th>
+      <th>filename_out</th>
+      <th>loginfo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Bulk_Density</td>
+      <td>0-5cm</td>
+      <td>SLGA</td>
+      <td>Bulk_Density_0-5cm</td>
+      <td>../../dataresults/SLGA_Bulk_Density_0-5cm.tif</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Clay</td>
+      <td>0-5cm</td>
+      <td>SLGA</td>
+      <td>Clay_0-5cm</td>
+      <td>../../dataresults/SLGA_Clay_0-5cm.tif</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>monthly_rain</td>
+      <td>Total</td>
+      <td>SILO</td>
+      <td>monthly_rain_Total</td>
+      <td>../../dataresults/mvp_monthly_rain_silo/monthl...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>max_temp</td>
+      <td>Median</td>
+      <td>SILO</td>
+      <td>max_temp_Median</td>
+      <td>../../dataresults/mvp_max_temp_silo/max_temp_2...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>min_temp</td>
+      <td>Median</td>
+      <td>SILO</td>
+      <td>min_temp_Median</td>
+      <td>../../dataresults/mvp_min_temp_silo/min_temp_2...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>mean_temp</td>
+      <td>mean</td>
+      <td>SILO</td>
+      <td>mean_temp</td>
+      <td>../../dataresults/silo_temp_2019_ag_mean.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>min_temp_channel0</td>
+      <td>mean</td>
+      <td>DEA</td>
+      <td>min_temp_channel0_mean</td>
+      <td>../../dataresults/mvp_dea_mean_channel_0.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>min_temp_channel0</td>
+      <td>perc95</td>
+      <td>DEA</td>
+      <td>min_temp_channel0_perc95</td>
+      <td>../../dataresults/mvp_dea_perc95_channel_0.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>min_temp_channel0</td>
+      <td>perc5</td>
+      <td>DEA</td>
+      <td>min_temp_channel0_perc5</td>
+      <td>../../dataresults/mvp_dea_perc5_channel_0.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>min_temp_channel1</td>
+      <td>mean</td>
+      <td>DEA</td>
+      <td>min_temp_channel1_mean</td>
+      <td>../../dataresults/mvp_dea_mean_channel_1.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>min_temp_channel1</td>
+      <td>perc95</td>
+      <td>DEA</td>
+      <td>min_temp_channel1_perc95</td>
+      <td>../../dataresults/mvp_dea_perc95_channel_1.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>min_temp_channel1</td>
+      <td>perc5</td>
+      <td>DEA</td>
+      <td>min_temp_channel1_perc5</td>
+      <td>../../dataresults/mvp_dea_perc5_channel_1.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>min_temp_channel2</td>
+      <td>mean</td>
+      <td>DEA</td>
+      <td>min_temp_channel2_mean</td>
+      <td>../../dataresults/mvp_dea_mean_channel_2.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>min_temp_channel2</td>
+      <td>perc95</td>
+      <td>DEA</td>
+      <td>min_temp_channel2_perc95</td>
+      <td>../../dataresults/mvp_dea_perc95_channel_2.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>min_temp_channel2</td>
+      <td>perc5</td>
+      <td>DEA</td>
+      <td>min_temp_channel2_perc5</td>
+      <td>../../dataresults/mvp_dea_perc5_channel_2.tif</td>
+      <td>processed</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="dem-download" class="level3">
+<h3 class="anchored" data-anchor-id="dem-download">DEM Download</h3>
+<p>Here we download and extract the National Digital Elevation Model (DEM), and also generate slope and aspect rasters from the extracted DEM. For more details see getdata_dem.py</p>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>outpath <span class="op">=</span> os.path.join(settings.outpath, <span class="st">"mvp_dem"</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>dem_layernames <span class="op">=</span> settings.target_sources[<span class="st">'DEM'</span>]</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>outfnames <span class="op">=</span> getdata_dem.get_dem_layers(dem_layernames, outpath, settings.target_bbox, settings.target_res)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Add extracted data to log dataframe</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> update_logtable(</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    df_log, outfnames, </span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    dem_layernames, </span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'DEM'</span>, </span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    settings, </span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    layertitles <span class="op">=</span> dem_layernames,</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    loginfos <span class="op">=</span> <span class="st">'downloaded'</span>)</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>df_log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>DEM downloaded to: ../../dataresults/mvp_dem/DEM_SRTM_1_Second_Hydro_Enforced_2022-07-04.tif
+DEM slope from: ../../dataresults/mvp_dem/DEM_SRTM_1_Second_Hydro_Enforced_2022-07-04.tif  saved to: ../../dataresults/mvp_dem/Slope_DEM_SRTM_1_Second_Hydro_Enforced_2022-07-04.tif
+DEM aspect from: ../../dataresults/mvp_dem/DEM_SRTM_1_Second_Hydro_Enforced_2022-07-04.tif  saved to: ../../dataresults/mvp_dem/Aspect_DEM_SRTM_1_Second_Hydro_Enforced_2022-07-04.tif</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>layername</th>
+      <th>agfunction</th>
+      <th>dataset</th>
+      <th>layertitle</th>
+      <th>filename_out</th>
+      <th>loginfo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Bulk_Density</td>
+      <td>0-5cm</td>
+      <td>SLGA</td>
+      <td>Bulk_Density_0-5cm</td>
+      <td>../../dataresults/SLGA_Bulk_Density_0-5cm.tif</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Clay</td>
+      <td>0-5cm</td>
+      <td>SLGA</td>
+      <td>Clay_0-5cm</td>
+      <td>../../dataresults/SLGA_Clay_0-5cm.tif</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>monthly_rain</td>
+      <td>Total</td>
+      <td>SILO</td>
+      <td>monthly_rain_Total</td>
+      <td>../../dataresults/mvp_monthly_rain_silo/monthl...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>max_temp</td>
+      <td>Median</td>
+      <td>SILO</td>
+      <td>max_temp_Median</td>
+      <td>../../dataresults/mvp_max_temp_silo/max_temp_2...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>min_temp</td>
+      <td>Median</td>
+      <td>SILO</td>
+      <td>min_temp_Median</td>
+      <td>../../dataresults/mvp_min_temp_silo/min_temp_2...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>mean_temp</td>
+      <td>mean</td>
+      <td>SILO</td>
+      <td>mean_temp</td>
+      <td>../../dataresults/silo_temp_2019_ag_mean.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>min_temp_channel0</td>
+      <td>mean</td>
+      <td>DEA</td>
+      <td>min_temp_channel0_mean</td>
+      <td>../../dataresults/mvp_dea_mean_channel_0.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>min_temp_channel0</td>
+      <td>perc95</td>
+      <td>DEA</td>
+      <td>min_temp_channel0_perc95</td>
+      <td>../../dataresults/mvp_dea_perc95_channel_0.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>min_temp_channel0</td>
+      <td>perc5</td>
+      <td>DEA</td>
+      <td>min_temp_channel0_perc5</td>
+      <td>../../dataresults/mvp_dea_perc5_channel_0.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>min_temp_channel1</td>
+      <td>mean</td>
+      <td>DEA</td>
+      <td>min_temp_channel1_mean</td>
+      <td>../../dataresults/mvp_dea_mean_channel_1.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>min_temp_channel1</td>
+      <td>perc95</td>
+      <td>DEA</td>
+      <td>min_temp_channel1_perc95</td>
+      <td>../../dataresults/mvp_dea_perc95_channel_1.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>min_temp_channel1</td>
+      <td>perc5</td>
+      <td>DEA</td>
+      <td>min_temp_channel1_perc5</td>
+      <td>../../dataresults/mvp_dea_perc5_channel_1.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>min_temp_channel2</td>
+      <td>mean</td>
+      <td>DEA</td>
+      <td>min_temp_channel2_mean</td>
+      <td>../../dataresults/mvp_dea_mean_channel_2.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>min_temp_channel2</td>
+      <td>perc95</td>
+      <td>DEA</td>
+      <td>min_temp_channel2_perc95</td>
+      <td>../../dataresults/mvp_dea_perc95_channel_2.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>min_temp_channel2</td>
+      <td>perc5</td>
+      <td>DEA</td>
+      <td>min_temp_channel2_perc5</td>
+      <td>../../dataresults/mvp_dea_perc5_channel_2.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>DEM</td>
+      <td>None</td>
+      <td>DEM</td>
+      <td>DEM</td>
+      <td>../../dataresults/mvp_dem/DEM_SRTM_1_Second_Hy...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Slope</td>
+      <td>None</td>
+      <td>DEM</td>
+      <td>Slope</td>
+      <td>../../dataresults/mvp_dem/Slope_DEM_SRTM_1_Sec...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Aspect</td>
+      <td>None</td>
+      <td>DEM</td>
+      <td>Aspect</td>
+      <td>../../dataresults/mvp_dem/Aspect_DEM_SRTM_1_Se...</td>
+      <td>downloaded</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="landscape" class="level3">
+<h3 class="anchored" data-anchor-id="landscape">Landscape</h3>
+<p>Download landscape data from Soil and Landscape Grid of Australia (SLGA).</p>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download landscape data</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>layernames <span class="op">=</span> settings.target_sources[<span class="st">'Landscape'</span>]</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>layertitles <span class="op">=</span> [<span class="st">'Landscape_'</span> <span class="op">+</span> layername <span class="cf">for</span> layername <span class="kw">in</span> layernames]</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>outfnames <span class="op">=</span> getdata_landscape.get_landscape_layers(</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    layernames, </span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    settings.target_bbox, </span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    settings.outpath, </span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    resolution <span class="op">=</span> settings.target_res)</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Add extracted data to log dataframe</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> update_logtable(</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    df_log, outfnames, </span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>    layernames, </span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Landscape'</span>, </span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a>    settings, </span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>    layertitles <span class="op">=</span> layertitles,</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>    loginfos <span class="op">=</span> <span class="st">'downloaded'</span>)</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>df_log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Downloading Slope...
+Slope downloaded. Saved to:  ../../dataresults/Landscape_Slope.tif
+Downloading Aspect...
+Aspect downloaded. Saved to:  ../../dataresults/Landscape_Aspect.tif
+Downloading Relief_300m...
+Relief_300m downloaded. Saved to:  ../../dataresults/Landscape_Relief_300m.tif
+Landscape Download complete.</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>layername</th>
+      <th>agfunction</th>
+      <th>dataset</th>
+      <th>layertitle</th>
+      <th>filename_out</th>
+      <th>loginfo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Bulk_Density</td>
+      <td>0-5cm</td>
+      <td>SLGA</td>
+      <td>Bulk_Density_0-5cm</td>
+      <td>../../dataresults/SLGA_Bulk_Density_0-5cm.tif</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Clay</td>
+      <td>0-5cm</td>
+      <td>SLGA</td>
+      <td>Clay_0-5cm</td>
+      <td>../../dataresults/SLGA_Clay_0-5cm.tif</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>monthly_rain</td>
+      <td>Total</td>
+      <td>SILO</td>
+      <td>monthly_rain_Total</td>
+      <td>../../dataresults/mvp_monthly_rain_silo/monthl...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>max_temp</td>
+      <td>Median</td>
+      <td>SILO</td>
+      <td>max_temp_Median</td>
+      <td>../../dataresults/mvp_max_temp_silo/max_temp_2...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>min_temp</td>
+      <td>Median</td>
+      <td>SILO</td>
+      <td>min_temp_Median</td>
+      <td>../../dataresults/mvp_min_temp_silo/min_temp_2...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>mean_temp</td>
+      <td>mean</td>
+      <td>SILO</td>
+      <td>mean_temp</td>
+      <td>../../dataresults/silo_temp_2019_ag_mean.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>min_temp_channel0</td>
+      <td>mean</td>
+      <td>DEA</td>
+      <td>min_temp_channel0_mean</td>
+      <td>../../dataresults/mvp_dea_mean_channel_0.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>min_temp_channel0</td>
+      <td>perc95</td>
+      <td>DEA</td>
+      <td>min_temp_channel0_perc95</td>
+      <td>../../dataresults/mvp_dea_perc95_channel_0.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>min_temp_channel0</td>
+      <td>perc5</td>
+      <td>DEA</td>
+      <td>min_temp_channel0_perc5</td>
+      <td>../../dataresults/mvp_dea_perc5_channel_0.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>min_temp_channel1</td>
+      <td>mean</td>
+      <td>DEA</td>
+      <td>min_temp_channel1_mean</td>
+      <td>../../dataresults/mvp_dea_mean_channel_1.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>min_temp_channel1</td>
+      <td>perc95</td>
+      <td>DEA</td>
+      <td>min_temp_channel1_perc95</td>
+      <td>../../dataresults/mvp_dea_perc95_channel_1.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>min_temp_channel1</td>
+      <td>perc5</td>
+      <td>DEA</td>
+      <td>min_temp_channel1_perc5</td>
+      <td>../../dataresults/mvp_dea_perc5_channel_1.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>min_temp_channel2</td>
+      <td>mean</td>
+      <td>DEA</td>
+      <td>min_temp_channel2_mean</td>
+      <td>../../dataresults/mvp_dea_mean_channel_2.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>min_temp_channel2</td>
+      <td>perc95</td>
+      <td>DEA</td>
+      <td>min_temp_channel2_perc95</td>
+      <td>../../dataresults/mvp_dea_perc95_channel_2.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>min_temp_channel2</td>
+      <td>perc5</td>
+      <td>DEA</td>
+      <td>min_temp_channel2_perc5</td>
+      <td>../../dataresults/mvp_dea_perc5_channel_2.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>DEM</td>
+      <td>None</td>
+      <td>DEM</td>
+      <td>DEM</td>
+      <td>../../dataresults/mvp_dem/DEM_SRTM_1_Second_Hy...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Slope</td>
+      <td>None</td>
+      <td>DEM</td>
+      <td>Slope</td>
+      <td>../../dataresults/mvp_dem/Slope_DEM_SRTM_1_Sec...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Aspect</td>
+      <td>None</td>
+      <td>DEM</td>
+      <td>Aspect</td>
+      <td>../../dataresults/mvp_dem/Aspect_DEM_SRTM_1_Se...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Slope</td>
+      <td>None</td>
+      <td>Landscape</td>
+      <td>Landscape_Slope</td>
+      <td>../../dataresults/Landscape_Slope.tif</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Aspect</td>
+      <td>None</td>
+      <td>Landscape</td>
+      <td>Landscape_Aspect</td>
+      <td>../../dataresults/Landscape_Aspect.tif</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Relief_300m</td>
+      <td>None</td>
+      <td>Landscape</td>
+      <td>Landscape_Relief_300m</td>
+      <td>../../dataresults/Landscape_Relief_300m.tif</td>
+      <td>downloaded</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="radiometrics" class="level3">
+<h3 class="anchored" data-anchor-id="radiometrics">Radiometrics</h3>
+<p>Download maps of Geoscience Australia National Geophysical Compilation Sub-collection Radiometrics</p>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download radiometrics</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>layernames <span class="op">=</span> settings.target_sources[<span class="st">'Radiometric'</span>]</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>outfnames <span class="op">=</span> getdata_radiometric.get_radiometric_layers(</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    settings.outpath, </span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    layernames, </span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    bbox <span class="op">=</span> settings.target_bbox, </span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    resolution<span class="op">=</span>settings.target_res)</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a> <span class="co"># Add extracted data to log dataframe</span></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> update_logtable(</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>    df_log, outfnames, </span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>    layernames, </span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Radiometric'</span>, </span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>    settings, </span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>    layertitles <span class="op">=</span> layernames,</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>    loginfos <span class="op">=</span> <span class="st">'downloaded'</span>)</span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>df_log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Downloading image for layer radmap2019_grid_dose_terr_awags_rad_2019 ...
+Layer radmap2019_grid_dose_terr_awags_rad_2019 saved in ../../dataresults/radiometric_radmap2019_grid_dose_terr_awags_rad_2019.tif
+Downloading image for layer radmap2019_grid_dose_terr_filtered_awags_rad_2019 ...
+Layer radmap2019_grid_dose_terr_filtered_awags_rad_2019 saved in ../../dataresults/radiometric_radmap2019_grid_dose_terr_filtered_awags_rad_2019.tif</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>layername</th>
+      <th>agfunction</th>
+      <th>dataset</th>
+      <th>layertitle</th>
+      <th>filename_out</th>
+      <th>loginfo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Bulk_Density</td>
+      <td>0-5cm</td>
+      <td>SLGA</td>
+      <td>Bulk_Density_0-5cm</td>
+      <td>../../dataresults/SLGA_Bulk_Density_0-5cm.tif</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Clay</td>
+      <td>0-5cm</td>
+      <td>SLGA</td>
+      <td>Clay_0-5cm</td>
+      <td>../../dataresults/SLGA_Clay_0-5cm.tif</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>monthly_rain</td>
+      <td>Total</td>
+      <td>SILO</td>
+      <td>monthly_rain_Total</td>
+      <td>../../dataresults/mvp_monthly_rain_silo/monthl...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>max_temp</td>
+      <td>Median</td>
+      <td>SILO</td>
+      <td>max_temp_Median</td>
+      <td>../../dataresults/mvp_max_temp_silo/max_temp_2...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>min_temp</td>
+      <td>Median</td>
+      <td>SILO</td>
+      <td>min_temp_Median</td>
+      <td>../../dataresults/mvp_min_temp_silo/min_temp_2...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>mean_temp</td>
+      <td>mean</td>
+      <td>SILO</td>
+      <td>mean_temp</td>
+      <td>../../dataresults/silo_temp_2019_ag_mean.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>min_temp_channel0</td>
+      <td>mean</td>
+      <td>DEA</td>
+      <td>min_temp_channel0_mean</td>
+      <td>../../dataresults/mvp_dea_mean_channel_0.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>min_temp_channel0</td>
+      <td>perc95</td>
+      <td>DEA</td>
+      <td>min_temp_channel0_perc95</td>
+      <td>../../dataresults/mvp_dea_perc95_channel_0.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>min_temp_channel0</td>
+      <td>perc5</td>
+      <td>DEA</td>
+      <td>min_temp_channel0_perc5</td>
+      <td>../../dataresults/mvp_dea_perc5_channel_0.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>min_temp_channel1</td>
+      <td>mean</td>
+      <td>DEA</td>
+      <td>min_temp_channel1_mean</td>
+      <td>../../dataresults/mvp_dea_mean_channel_1.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>min_temp_channel1</td>
+      <td>perc95</td>
+      <td>DEA</td>
+      <td>min_temp_channel1_perc95</td>
+      <td>../../dataresults/mvp_dea_perc95_channel_1.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>min_temp_channel1</td>
+      <td>perc5</td>
+      <td>DEA</td>
+      <td>min_temp_channel1_perc5</td>
+      <td>../../dataresults/mvp_dea_perc5_channel_1.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>min_temp_channel2</td>
+      <td>mean</td>
+      <td>DEA</td>
+      <td>min_temp_channel2_mean</td>
+      <td>../../dataresults/mvp_dea_mean_channel_2.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>min_temp_channel2</td>
+      <td>perc95</td>
+      <td>DEA</td>
+      <td>min_temp_channel2_perc95</td>
+      <td>../../dataresults/mvp_dea_perc95_channel_2.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>min_temp_channel2</td>
+      <td>perc5</td>
+      <td>DEA</td>
+      <td>min_temp_channel2_perc5</td>
+      <td>../../dataresults/mvp_dea_perc5_channel_2.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>DEM</td>
+      <td>None</td>
+      <td>DEM</td>
+      <td>DEM</td>
+      <td>../../dataresults/mvp_dem/DEM_SRTM_1_Second_Hy...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Slope</td>
+      <td>None</td>
+      <td>DEM</td>
+      <td>Slope</td>
+      <td>../../dataresults/mvp_dem/Slope_DEM_SRTM_1_Sec...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Aspect</td>
+      <td>None</td>
+      <td>DEM</td>
+      <td>Aspect</td>
+      <td>../../dataresults/mvp_dem/Aspect_DEM_SRTM_1_Se...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Slope</td>
+      <td>None</td>
+      <td>Landscape</td>
+      <td>Landscape_Slope</td>
+      <td>../../dataresults/Landscape_Slope.tif</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Aspect</td>
+      <td>None</td>
+      <td>Landscape</td>
+      <td>Landscape_Aspect</td>
+      <td>../../dataresults/Landscape_Aspect.tif</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Relief_300m</td>
+      <td>None</td>
+      <td>Landscape</td>
+      <td>Landscape_Relief_300m</td>
+      <td>../../dataresults/Landscape_Relief_300m.tif</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>radmap2019_grid_dose_terr_awags_rad_2019</td>
+      <td>None</td>
+      <td>Radiometric</td>
+      <td>radmap2019_grid_dose_terr_awags_rad_2019</td>
+      <td>../../dataresults/radiometric_radmap2019_grid_...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>radmap2019_grid_dose_terr_filtered_awags_rad_2019</td>
+      <td>None</td>
+      <td>Radiometric</td>
+      <td>radmap2019_grid_dose_terr_filtered_awags_rad_2019</td>
+      <td>../../dataresults/radiometric_radmap2019_grid_...</td>
+      <td>downloaded</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="save-the-final-log-or-start-from-here-to-re-load-it-in." class="level2">
+<h2 class="anchored" data-anchor-id="save-the-final-log-or-start-from-here-to-re-load-it-in.">Save the final log or start from here to re-load it in.</h2>
+<p>We have now completed the data download section. You may add additional downlods and processing steps to your log file.</p>
+<div class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save out (or load in) the log file.</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>logfile <span class="op">=</span> settings.outpath<span class="op">+</span><span class="st">'log.csv'</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> exists(logfile):</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    df_log <span class="op">=</span> pd.read_csv(settings.outpath<span class="op">+</span><span class="st">'log.csv'</span>)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>    df_log.to_csv(settings.outpath<span class="op">+</span><span class="st">'log.csv'</span>,index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>df_log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>layername</th>
+      <th>agfunction</th>
+      <th>dataset</th>
+      <th>layertitle</th>
+      <th>filename_out</th>
+      <th>loginfo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Bulk_Density</td>
+      <td>0-5cm</td>
+      <td>SLGA</td>
+      <td>Bulk_Density_0-5cm</td>
+      <td>../../dataresults/SLGA_Bulk_Density_0-5cm.tif</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Clay</td>
+      <td>0-5cm</td>
+      <td>SLGA</td>
+      <td>Clay_0-5cm</td>
+      <td>../../dataresults/SLGA_Clay_0-5cm.tif</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>monthly_rain</td>
+      <td>Total</td>
+      <td>SILO</td>
+      <td>monthly_rain_Total</td>
+      <td>../../dataresults/mvp_monthly_rain_silo/monthl...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>max_temp</td>
+      <td>Median</td>
+      <td>SILO</td>
+      <td>max_temp_Median</td>
+      <td>../../dataresults/mvp_max_temp_silo/max_temp_2...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>min_temp</td>
+      <td>Median</td>
+      <td>SILO</td>
+      <td>min_temp_Median</td>
+      <td>../../dataresults/mvp_min_temp_silo/min_temp_2...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>mean_temp</td>
+      <td>mean</td>
+      <td>SILO</td>
+      <td>mean_temp</td>
+      <td>../../dataresults/silo_temp_2019_ag_mean.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>min_temp_channel0</td>
+      <td>mean</td>
+      <td>DEA</td>
+      <td>min_temp_channel0_mean</td>
+      <td>../../dataresults/mvp_dea_mean_channel_0.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>min_temp_channel0</td>
+      <td>perc95</td>
+      <td>DEA</td>
+      <td>min_temp_channel0_perc95</td>
+      <td>../../dataresults/mvp_dea_perc95_channel_0.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>min_temp_channel0</td>
+      <td>perc5</td>
+      <td>DEA</td>
+      <td>min_temp_channel0_perc5</td>
+      <td>../../dataresults/mvp_dea_perc5_channel_0.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>min_temp_channel1</td>
+      <td>mean</td>
+      <td>DEA</td>
+      <td>min_temp_channel1_mean</td>
+      <td>../../dataresults/mvp_dea_mean_channel_1.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>min_temp_channel1</td>
+      <td>perc95</td>
+      <td>DEA</td>
+      <td>min_temp_channel1_perc95</td>
+      <td>../../dataresults/mvp_dea_perc95_channel_1.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>min_temp_channel1</td>
+      <td>perc5</td>
+      <td>DEA</td>
+      <td>min_temp_channel1_perc5</td>
+      <td>../../dataresults/mvp_dea_perc5_channel_1.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>min_temp_channel2</td>
+      <td>mean</td>
+      <td>DEA</td>
+      <td>min_temp_channel2_mean</td>
+      <td>../../dataresults/mvp_dea_mean_channel_2.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>min_temp_channel2</td>
+      <td>perc95</td>
+      <td>DEA</td>
+      <td>min_temp_channel2_perc95</td>
+      <td>../../dataresults/mvp_dea_perc95_channel_2.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>min_temp_channel2</td>
+      <td>perc5</td>
+      <td>DEA</td>
+      <td>min_temp_channel2_perc5</td>
+      <td>../../dataresults/mvp_dea_perc5_channel_2.tif</td>
+      <td>processed</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>DEM</td>
+      <td>None</td>
+      <td>DEM</td>
+      <td>DEM</td>
+      <td>../../dataresults/mvp_dem/DEM_SRTM_1_Second_Hy...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Slope</td>
+      <td>None</td>
+      <td>DEM</td>
+      <td>Slope</td>
+      <td>../../dataresults/mvp_dem/Slope_DEM_SRTM_1_Sec...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Aspect</td>
+      <td>None</td>
+      <td>DEM</td>
+      <td>Aspect</td>
+      <td>../../dataresults/mvp_dem/Aspect_DEM_SRTM_1_Se...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Slope</td>
+      <td>None</td>
+      <td>Landscape</td>
+      <td>Landscape_Slope</td>
+      <td>../../dataresults/Landscape_Slope.tif</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Aspect</td>
+      <td>None</td>
+      <td>Landscape</td>
+      <td>Landscape_Aspect</td>
+      <td>../../dataresults/Landscape_Aspect.tif</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Relief_300m</td>
+      <td>None</td>
+      <td>Landscape</td>
+      <td>Landscape_Relief_300m</td>
+      <td>../../dataresults/Landscape_Relief_300m.tif</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>radmap2019_grid_dose_terr_awags_rad_2019</td>
+      <td>None</td>
+      <td>Radiometric</td>
+      <td>radmap2019_grid_dose_terr_awags_rad_2019</td>
+      <td>../../dataresults/radiometric_radmap2019_grid_...</td>
+      <td>downloaded</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>radmap2019_grid_dose_terr_filtered_awags_rad_2019</td>
+      <td>None</td>
+      <td>Radiometric</td>
+      <td>radmap2019_grid_dose_terr_filtered_awags_rad_2019</td>
+      <td>../../dataresults/radiometric_radmap2019_grid_...</td>
+      <td>downloaded</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="points-extraction-from-downloadedprocessed-data" class="level2">
+<h2 class="anchored" data-anchor-id="points-extraction-from-downloadedprocessed-data">Points extraction from downloaded/processed data</h2>
+<p>By default point values of all processed layers in df_log are extracted given by the input locations. However, you can select also only certain layers (see in code).</p>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select all processed data</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>df_sel <span class="op">=</span> df_log.copy()</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># or select only the rasters of interest, for example:</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="co">df_sel = df_log[df_log['layername'].isin(['DEM','Slope',</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co">'landsat8_nbart_16day_channel0', </span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co">'Organic_Carbon','Depth_of_Soil',</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="co">'mean_temp','monthly_rain'])]</span></span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>rasters<span class="op">=</span> df_sel[<span class="st">'filename_out'</span>].values.tolist()</span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>titles <span class="op">=</span> df_sel[<span class="st">'layertitle'</span>].values.tolist()</span>
+<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract datatable from rasters given input coordinates</span></span>
+<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> utils.raster_query(longs,lats,rasters,titles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Opening: ../../dataresults/SLGA_Bulk_Density_0-5cm.tif
+Raster pixel size: (156, 216)
+Opening: ../../dataresults/SLGA_Clay_0-5cm.tif
+Raster pixel size: (156, 216)
+Opening: ../../dataresults/mvp_monthly_rain_silo/monthly_rain_2021_cropped.tif
+Raster pixel size: (2, 3)
+Opening: ../../dataresults/mvp_max_temp_silo/max_temp_2021_cropped.tif
+Raster pixel size: (2, 3)
+Opening: ../../dataresults/mvp_min_temp_silo/min_temp_2021_cropped.tif
+Raster pixel size: (2, 3)
+Opening: ../../dataresults/silo_temp_2019_ag_mean.tif
+Raster pixel size: (2, 3)
+Opening: ../../dataresults/mvp_dea_mean_channel_0.tif
+Raster pixel size: (77, 107)
+Opening: ../../dataresults/mvp_dea_perc95_channel_0.tif
+Raster pixel size: (77, 107)
+Opening: ../../dataresults/mvp_dea_perc5_channel_0.tif
+Raster pixel size: (77, 107)
+Opening: ../../dataresults/mvp_dea_mean_channel_1.tif
+Raster pixel size: (77, 107)
+Opening: ../../dataresults/mvp_dea_perc95_channel_1.tif
+Raster pixel size: (77, 107)
+Opening: ../../dataresults/mvp_dea_perc5_channel_1.tif
+Raster pixel size: (77, 107)
+Opening: ../../dataresults/mvp_dea_mean_channel_2.tif
+Raster pixel size: (77, 107)
+Opening: ../../dataresults/mvp_dea_perc95_channel_2.tif
+Raster pixel size: (77, 107)
+Opening: ../../dataresults/mvp_dea_perc5_channel_2.tif
+Raster pixel size: (77, 107)
+Opening: ../../dataresults/mvp_dem/DEM_SRTM_1_Second_Hydro_Enforced_2022-07-04.tif
+Raster pixel size: (78, 108)
+Opening: ../../dataresults/mvp_dem/Slope_DEM_SRTM_1_Second_Hydro_Enforced_2022-07-04.tif
+Raster pixel size: (78, 108)
+Opening: ../../dataresults/mvp_dem/Aspect_DEM_SRTM_1_Second_Hydro_Enforced_2022-07-04.tif
+Raster pixel size: (78, 108)
+Opening: ../../dataresults/Landscape_Slope.tif
+Raster pixel size: (78, 108)
+Opening: ../../dataresults/Landscape_Aspect.tif
+Raster pixel size: (78, 108)
+Opening: ../../dataresults/Landscape_Relief_300m.tif
+Raster pixel size: (78, 108)
+Opening: ../../dataresults/radiometric_radmap2019_grid_dose_terr_awags_rad_2019.tif
+Raster pixel size: (466, 647)
+Opening: ../../dataresults/radiometric_radmap2019_grid_dose_terr_filtered_awags_rad_2019.tif
+Raster pixel size: (466, 647)</code></pre>
+</div>
+</div>
+<section id="inspect-result-dataframe" class="level3">
+<h3 class="anchored" data-anchor-id="inspect-result-dataframe">Inspect result dataframe</h3>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect either entire generated dataframe with </span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># gdf</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="co"># or only the first rows</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>gdf.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+
+<div>
+
+<table class="dataframe table table-sm table-striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Longitude</th>
+      <th>Latitude</th>
+      <th>geometry</th>
+      <th>Bulk_Density_0-5cm</th>
+      <th>Clay_0-5cm</th>
+      <th>monthly_rain_Total</th>
+      <th>max_temp_Median</th>
+      <th>min_temp_Median</th>
+      <th>mean_temp</th>
+      <th>min_temp_channel0_mean</th>
+      <th>...</th>
+      <th>min_temp_channel2_perc95</th>
+      <th>min_temp_channel2_perc5</th>
+      <th>DEM</th>
+      <th>Slope</th>
+      <th>Aspect</th>
+      <th>Landscape_Slope</th>
+      <th>Landscape_Aspect</th>
+      <th>Landscape_Relief_300m</th>
+      <th>radmap2019_grid_dose_terr_awags_rad_2019</th>
+      <th>radmap2019_grid_dose_terr_filtered_awags_rad_2019</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>149.852680</td>
+      <td>-30.264663</td>
+      <td>POINT (149.85268 -30.26466)</td>
+      <td>1.368779</td>
+      <td>27.214527</td>
+      <td>47.000000</td>
+      <td>37.500000</td>
+      <td>24.700001</td>
+      <td>20.678619</td>
+      <td>1059.0</td>
+      <td>...</td>
+      <td>541.0</td>
+      <td>541.0</td>
+      <td>244.658585</td>
+      <td>89.899475</td>
+      <td>265.249023</td>
+      <td>1.046624</td>
+      <td>209.138062</td>
+      <td>10.463379</td>
+      <td>33.151680</td>
+      <td>32.962944</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>149.884838</td>
+      <td>-30.265302</td>
+      <td>POINT (149.88484 -30.26530)</td>
+      <td>1.362662</td>
+      <td>31.956041</td>
+      <td>47.399902</td>
+      <td>37.299999</td>
+      <td>24.500000</td>
+      <td>20.548504</td>
+      <td>1082.0</td>
+      <td>...</td>
+      <td>540.0</td>
+      <td>540.0</td>
+      <td>264.428772</td>
+      <td>89.937111</td>
+      <td>291.358032</td>
+      <td>1.001000</td>
+      <td>279.542847</td>
+      <td>6.037811</td>
+      <td>35.969486</td>
+      <td>35.945480</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>149.884838</td>
+      <td>-30.265302</td>
+      <td>POINT (149.88484 -30.26530)</td>
+      <td>1.362662</td>
+      <td>31.956041</td>
+      <td>47.399902</td>
+      <td>37.299999</td>
+      <td>24.500000</td>
+      <td>20.548504</td>
+      <td>1082.0</td>
+      <td>...</td>
+      <td>540.0</td>
+      <td>540.0</td>
+      <td>264.428772</td>
+      <td>89.937111</td>
+      <td>291.358032</td>
+      <td>1.001000</td>
+      <td>279.542847</td>
+      <td>6.037811</td>
+      <td>35.969486</td>
+      <td>35.945480</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>149.838791</td>
+      <td>-30.278542</td>
+      <td>POINT (149.83879 -30.27854)</td>
+      <td>1.360451</td>
+      <td>32.675858</td>
+      <td>35.899902</td>
+      <td>37.600002</td>
+      <td>24.900000</td>
+      <td>20.803707</td>
+      <td>1092.0</td>
+      <td>...</td>
+      <td>601.0</td>
+      <td>601.0</td>
+      <td>233.005081</td>
+      <td>89.918648</td>
+      <td>250.619858</td>
+      <td>0.841430</td>
+      <td>242.743683</td>
+      <td>4.798782</td>
+      <td>29.618393</td>
+      <td>29.478428</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>149.830843</td>
+      <td>-30.275437</td>
+      <td>POINT (149.83084 -30.27544)</td>
+      <td>1.334362</td>
+      <td>35.097813</td>
+      <td>35.899902</td>
+      <td>37.600002</td>
+      <td>24.900000</td>
+      <td>20.803707</td>
+      <td>1160.0</td>
+      <td>...</td>
+      <td>626.0</td>
+      <td>626.0</td>
+      <td>230.575439</td>
+      <td>89.921860</td>
+      <td>194.598907</td>
+      <td>1.062537</td>
+      <td>242.921112</td>
+      <td>5.204880</td>
+      <td>25.061012</td>
+      <td>24.757614</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 26 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get some general info about result table:</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>gdf.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'geopandas.geodataframe.GeoDataFrame'&gt;
+Int64Index: 82 entries, 0 to 309
+Data columns (total 26 columns):
+ #   Column                                             Non-Null Count  Dtype   
+---  ------                                             --------------  -----   
+ 0   Longitude                                          82 non-null     float64 
+ 1   Latitude                                           82 non-null     float64 
+ 2   geometry                                           82 non-null     geometry
+ 3   Bulk_Density_0-5cm                                 82 non-null     float32 
+ 4   Clay_0-5cm                                         82 non-null     float32 
+ 5   monthly_rain_Total                                 82 non-null     float32 
+ 6   max_temp_Median                                    82 non-null     float32 
+ 7   min_temp_Median                                    82 non-null     float32 
+ 8   mean_temp                                          82 non-null     float32 
+ 9   min_temp_channel0_mean                             82 non-null     float32 
+ 10  min_temp_channel0_perc95                           82 non-null     float32 
+ 11  min_temp_channel0_perc5                            82 non-null     float32 
+ 12  min_temp_channel1_mean                             82 non-null     float32 
+ 13  min_temp_channel1_perc95                           82 non-null     float32 
+ 14  min_temp_channel1_perc5                            82 non-null     float32 
+ 15  min_temp_channel2_mean                             82 non-null     float32 
+ 16  min_temp_channel2_perc95                           82 non-null     float32 
+ 17  min_temp_channel2_perc5                            82 non-null     float32 
+ 18  DEM                                                82 non-null     float32 
+ 19  Slope                                              82 non-null     float32 
+ 20  Aspect                                             82 non-null     float32 
+ 21  Landscape_Slope                                    82 non-null     float32 
+ 22  Landscape_Aspect                                   82 non-null     float32 
+ 23  Landscape_Relief_300m                              82 non-null     float32 
+ 24  radmap2019_grid_dose_terr_awags_rad_2019           82 non-null     float32 
+ 25  radmap2019_grid_dose_terr_filtered_awags_rad_2019  82 non-null     float32 
+dtypes: float32(23), float64(2), geometry(1)
+memory usage: 9.9 KB</code></pre>
+</div>
+</div>
+</section>
+<section id="save-the-results-table" class="level3">
+<h3 class="anchored" data-anchor-id="save-the-results-table">Save the results table</h3>
+<p>Finally, the result dataframe table is saved as a csv file, which can be used now to do some awesome ML. In addition the results are also saved as a geo-spatial referenced geopackage (.gpkg), which can be used again as input for further analysis or to inspect and overlay data on other layers and basemaps. The geopackage is a standard georeferenced file format and can be opened with any geo-spatial package or interactive software (e.g., QGIS, Esri ArcGIS).</p>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the results table to a csv </span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>gdf.to_csv(os.path.join(settings.outpath, <span class="st">"results.csv"</span>), index <span class="op">=</span> <span class="va">True</span>, mode<span class="op">=</span><span class="st">'w'</span>)</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Save also as geopackage</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>gdf.to_file(os.path.join(settings.outpath, <span class="st">"results.gpkg"</span>), driver<span class="op">=</span><span class="st">"GPKG"</span>)</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: The deprecated warning below is a bug in geopandas and will be fixed in their bext version.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/Users/seb/mambaforge/envs/py39_agrefed/lib/python3.9/site-packages/geopandas/io/file.py:362: FutureWarning: pandas.Int64Index is deprecated and will be removed from pandas in a future version. Use pandas.Index with the appropriate dtype instead.
+  pd.Int64Index,</code></pre>
+</div>
+</div>
+</section>
+<section id="overview-plot-of-all-processed-rasters" class="level3">
+<h3 class="anchored" data-anchor-id="overview-plot-of-all-processed-rasters">Overview plot of all processed rasters</h3>
+<p>This provides a quick overview to inspect all processed data layers with an overlay of the requested location points.</p>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot one of that datasets with the points on top</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>utils.plot_rasters(rasters,longs,lats,titles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Data_Harvest_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print total time (only needed for testing if notebook kernel runs all at once):</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'FINISHED'</span>)</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> datetime.now()</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Duration: </span><span class="sc">{}</span><span class="st">'</span>.<span class="bu">format</span>(end_time <span class="op">-</span> start_time))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>FINISHED
+Duration: 0:34:37.200976</code></pre>
+</div>
+</div>
+
+
+</section>
+</section>
+
+<p>All materials copyright Sydney Informatics Hub, University of Sydney</p></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
