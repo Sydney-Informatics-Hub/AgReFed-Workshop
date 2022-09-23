@@ -65,6 +65,8 @@ website:
             href: pydocs/py02-introduction.qmd
           - text: W2 Usage
             href: pydocs/Data_Harvest.ipynb
+          - text: Data Harvester Notebook
+            href: pydocs/Data_Harvest.ipynb
 
       # R Workshop
       - text: "---"
@@ -88,12 +90,12 @@ website:
         href: https://sydney-informatics-hub.github.io/dataharvester/
       - text: FAQ
         href: faq.qmd
-      - section: folder/example.qmd
-        contents: 
-          - folder/rstudio.qmd
-          - folder/jupyter.md 
-      - href: another_example.qmd
-        text: This will change text in sidebar
+      # - section: folder/example.qmd
+      #   contents: 
+      #     - folder/rstudio.qmd
+      #     - folder/jupyter.md 
+      # - href: another_example.qmd
+      #   text: This will change text in sidebar
 
 
 format:
