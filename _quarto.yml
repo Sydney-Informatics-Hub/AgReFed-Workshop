@@ -8,9 +8,9 @@ execute:
 website: 
   page-navigation: true
   title: "AgReFed Data-Harvester" 
-  # site-url: https://sydney-informatics-hub.github.io/agrefed-workshop 
-  # repo-url: https://github.com/sydney-informatics-hub/agrefed-workshop 
-  # repo-actions: [issue]
+  site-url: https://sydney-informatics-hub.github.io/AgReFed-Workshop
+  repo-url: https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop
+  repo-actions: [issue]
   
   page-footer:
     right: "Site built with [Quarto](https://quarto.org/)."

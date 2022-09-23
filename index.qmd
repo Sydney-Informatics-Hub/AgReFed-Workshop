@@ -6,7 +6,7 @@ subtitle: "Presented by Sydney Informatics Hub and the Agricultural Research Fed
 ::: callout-tip
 ### Workshop information {.unnumbered}
 
-The next AgReFed Data-Harvester Workshop **in R** will be run on **Tue, 25 Oct, 2022** Please see XX for details.
+The next AgReFed Data-Harvester Workshop **in R** will be run on **Tue, 25 Oct, 2022** Please see the [R Workshop page](/rdocs/r00-workshop.qmd) for details.
 :::
 
 ## About
@@ -33,7 +33,7 @@ Hub**](https://www.sydney.edu.au/research/facilities/sydney-informatics-hub.html
 in collaboration with the [**Agricultural Research
 Federation**](https://www.agrefed.org.au/AgReFedPlatform).  -->
  
-FOr more information about the workshops, including who these workshops are made for, check the [FAQ](/faq.qmd).
+For more information about the workshops, including who these workshops are made for, check the [FAQ](/faq.qmd).
 
 ## Trainers
 
