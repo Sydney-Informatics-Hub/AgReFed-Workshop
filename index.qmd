@@ -3,10 +3,19 @@ title: "Data-Harvester Workshops"
 subtitle: "Presented by Sydney Informatics Hub and the Agricultural Research Federation"
 ---
 
+
 ::: callout-tip
 ### Workshop information {.unnumbered}
 
 The next AgReFed Data-Harvester Workshop **in R** will be run on **Tue, 25 Oct, 2022** Please see the [R Workshop page](/rdocs/r00-workshop.qmd) for details.
+:::
+
+::: callout-note
+### Python workshop {.unnumbered}
+**Interested in a Data-Harvester workshop run in {{< fa brands python >}} Python? [Let us know](https://sydney.au1.qualtrics.com/jfe/form/SV_9TUKiEjaNEFPifk).** 
+
+
+We'll be sending out an email to everyone who signed up for the course when it's ready to go.
 :::
 
 ## About
