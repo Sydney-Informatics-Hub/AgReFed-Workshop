@@ -1,5 +1,13 @@
 ---
-title: Introduction
+title: Advanced
 ---
 
-This section will introduce the `dataharvester` package and ensure proper installation. It will also introduce the settings YAML configuration.
+:::{.callout-tip}
+## In this workshop
+
+- Cloud masking (5 min)
+- Spectral indices (5 min)
+- Temporal Aggregation (10 min)
+- Exploring other datasets in Earth Engine (5 min)
+- Mission: Find and map the world's largest mangrove forest (10 min)
+:::

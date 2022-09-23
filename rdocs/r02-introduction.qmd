@@ -2,4 +2,22 @@
 title: Introduction
 ---
 
-This section will introduce the `dataharvester` package and ensure proper installation. It will also introduce the settings YAML configuration.
+:::{.callout-tip}
+## In this workshop
+
+- Is your computer prepared? (15 min)
+- An introduction to the `dataharvester` R package (5 min)
+- Understanding the settings YAML file (10 min)
+- Demonstrating a simple "headless" workflow (5 min)
+- Mission: try your own workflow (10 min)
+:::
+
+### Is your computer prepared?
+
+### An introduction to the `dataharvester` R package
+
+### Understanding the settings YAML file
+
+### Demonstrating a simple "headless" workflow
+
+### Mission: try your own workflow

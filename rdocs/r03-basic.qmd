@@ -1,5 +1,13 @@
 ---
-title: Introduction
+title: Basic
 ---
 
-This section will introduce the `dataharvester` package and ensure proper installation. It will also introduce the settings YAML configuration.
+:::{.callout-tip}
+## In this workshop
+
+- Data exploration (5 min)
+- Google Earth Engine in `dataharvester` (5 min)
+- Data aggregation and previewing (5 min)
+- Maps and visualisation (10 min)
+- Mission: Find the Eye of Sahara (10 min)
+:::
