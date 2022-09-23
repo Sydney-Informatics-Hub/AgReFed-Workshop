@@ -1,37 +1,27 @@
----
-title: "SIH AgReFed for R Workshop"
----
 
-# README AgReFed-Workshop
-Workshop documentation, workflows and use-case examples for AgReFed DataHarvester and GEE in Python and R.
+[![Render and Publish](https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop/actions/workflows/quarto-publish.yml/badge.svg)](https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop/actions/workflows/quarto-publish.yml)
 
-All of the jupyter notebooks are in the `Python` folder.
-All of the R workspaces are in the `R` folder.
+# AgReFed Data-Harvester -- Workshops
 
+This page contains the source for the [AgReFed Data-Harvester Workshop website](https://sydney-informatics-hub.github.io/AgReFed-Workshop/).
 
-Rendered at: https://sydney-informatics-hub.github.io/AgReFed-Workshop/
+## Students
 
-- All notebooks go into `R` or `Python` folder
-- Edit `index.qmd` to change the main landing page.
-- Edit `setup.qmd` to change the Setup instruction pages.
-- Edit `_quarto.yml` to change the dropdown menu options.
-- Add additional `*.md` files to the root dir to have them converted to html files (and add them to `_quarto.yml` to make them navigable).
-- Run the below commands to render the notebooks into markdown files and copy everything to the `/docs` folder, which will be what is hosted on the github pages.
-- You will need to have jupyter and quarto installed to convert the notebooks and render them for the web.
+If you are attending this workshop, simply click on the link to the workshop.
+The same link can also be found on the "About" section of this GitHub
+repository.
+## Trainers
 
-```
-quarto render
-#First time you create the file, add them to be tracked by github, e.g.
-git add docs/*
-git commit -am "your comments"
-git push
-```
-You can browse the result locally by exploring the html files created (note: sometimes figures display locally but not on web and the other way around too.)
+-   **Januar Harianto \|** [*januar.harianto at sydney.edu.au*]
+-   **Sebastian Haan**
+-   **Nathaniel Butterworth**
+-   *Darya Vanichkina* (support)
+-   *Henry Lydecker* (support)
+-   *Thomas Bishop* (support)
 
-***
+*Note that direct email links are removed as a poor attempt to prevent
+advertising and spam bots from indexing email addresses.*
 
-When you want to convert the notebooks to pdf for the students, use the following command:
-
-```sh
-jupyter nbconvert --execute --to pdf notebook.ipynb
-```
+If you are contributing to the website, please see the
+[contributor](https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop/tree/main/contributor)
+folder for more information.
