@@ -1,0 +1,23 @@
+name: dataharvester
+channels:
+  - conda-forge
+dependencies:
+  - python[version='>=3.9']
+  - rasterio[version<='1.2.10']
+  - ipykernel
+  - ipywidgets
+  - earthengine-api
+  - google-cloud-sdk
+  - rioxarray
+  - eemont
+  - geopandas
+  - numba
+  - owslib
+  - wxee
+  - pip
+  - jupyter
+  - notebook
+  - pip:
+    - alive-progress
+    - geedim
+    - termcolor

@@ -10,12 +10,21 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v2 
+      
+      - name: Create Python environment
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: 3.9    # set python version here
+          channels: conda-forge
+          mamba-version: "*"
+          activate-environment: quarto-import
+          environment-file: _import/environment.yml 
         
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
-          tinytex: true 
-          r-version: 4.2.1
+          tinytex: true  # enable if rendering PDF
+          r-version: 4.2.1 # enable if executing R code during render
 
       - name: Publish to GitHub Pages (and render)
         uses: quarto-dev/quarto-actions/publish@v2
