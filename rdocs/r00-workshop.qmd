@@ -1,0 +1,37 @@
+---
+title: "R Workshop"
+---
+
+The R Workshop is intended for researchers and students who are more familiar with the R and RStudio environments in their workflows. We have created an R package that allows you to interface with the Data-Harvester without running Python code. This workshop will cover the basics of the R `dataharvester` package and how to use it.
+
+## Before you begin
+
+Make sure that you have read the [Code of Conduct](/code-of-conduct.qmd) and the [FAQ](/faq.qmd), especially the "What are the pre-requisites?" section [here](/faq.qmd#pre-requisites). Essentially, you need to be familiar with R and RStudio.
+
+### Local installation
+
+The following should already be installed on your computer:
+
+- R
+- RStudio
+- Quarto
+
+If you do not have these installed, please follow the instructions in the [R Setup Page](/rdocs/r01-setup.qmd).
+
+### RStudio Cloud
+
+Alternatively, if you wish to use RStudio Cloud, you can do so by clicking the button here: **This link will NOT be active until the start of the workshop.** 
+ <!-- [![RStudio Cloud](https://img.shields.io/badge/RStudio-Cloud-blue)]() -->
+
+
+
+## Workshop details
+
+::: callout-tip
+### Workshop information {.unnumbered}
+
+The AgReFed Data-Harvester Workshop **in R** will be run on **Tue, 25 Oct, 2022** from **9:30 AM - 12:30 PM** (AEST).
+:::
+
+- {{< fa chalkboard-user >}} **Zoom link**: Click [here]() to join the Zoom meeting. (*Link will be available closer to the workshop date.*)
+- {{< fa download >}} **Workshop materials**: Click [here]() to download the workshop materials. (*Link will be available closer to the workshop date.*) 

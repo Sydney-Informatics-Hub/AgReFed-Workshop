@@ -1,79 +1,46 @@
 ---
-title: "AgReFed Data Harvester Workshop For R"
-output:
-  html_document:
-    toc: false
-    toc_float: false
+title: "Data-Harvester Workshops"
+subtitle: "Presented by Sydney Informatics Hub and the Agricultural Research Federation"
 ---
 
+::: callout-tip
+### Workshop information {.unnumbered}
 
-This course is aimed at researchers, students, and industry professionals who want to learn about the capabilities of the Data Harvester and get experience using it with R. This course will expand on the foundations of R programming. We will utilise common geoscience data types (geospatial, temporal, vector, raster, etc) to demonstrate a variety of practical workflows and showcase fundamental capabilities of the Data Harvester. We will carry out exploratory, analytical, computational and machine learning analyses on these datasets. At the end of the course you will be able to adapt these workflows to your own datasets.
+The next AgReFed Data-Harvester Workshop **in R** will be run on **Tue, 25 Oct, 2022** Please see XX for details.
+:::
 
-The course is presented by the <a href="https://www.sydney.edu.au/research/facilities/sydney-informatics-hub.html">Sydney Informatics Hub</a> on behalf of the <a href="https://www.agrefed.org.au/AgReFedPlatform ">Agricultural Research Federation</a>.
+## About
 
-<figure>
-  <img src="fig/agrefed.png" style="margin:10px;width:400px"/>
-</figure>
+Use the AgReFed Data-Harvester to **access, process and download** national (Australian) and global space/time data aimed at agricultural scientists, environmental scientists, ecologists and other researchers.
 
-<figure>
-  <img src="fig/SIH_logo.jpg" style="margin:10px;width:400px"/>
-</figure>
+In the workshops, we will show you how to download and summarise geospatial data from a range of sources including:
 
-The Sydney Informatics Hub (SIH) is a _[Core Research Facility](https://sydney.edu.au/research/facilities.html)_ of the University of Sydney. Core Research Facilities centralise essential research equipment and services that would otherwise be too expensive or impractical for individual Faculties to purchase and maintain. We provide a wide range of research services to aid investigators, such as:
+<!-- 1. **Data retrieval:** access and download a diverse range of geospatial and soil data sources and APIs
+2.  **Processing:** Spatial and temporal processing of data, which include image reduction/composition, access to satellite collections, cloud/shadow masking and calculation of spectral indices
+3.  **Output:** export data in GeoTIFF or data frames which are ready for modelling workflows
 
-* [Training and workshops](https://sydney.edu.au/research/facilities/sydney-informatics-hub/workshops-and-training.html)
-* [Project consulting and assistance](https://sydney.edu.au/research/facilities/sydney-informatics-hub/project-support.html) with Statistics, Data Science, Research Engineering, Bioinformatics, Modeling/Simulation/Visualisation, High Performance Computing.
-* [Research data management](https://sydney.edu.au/research/facilities/sydney-informatics-hub/digital-research-infrastructure.html) consulting and platform support.
+Exercises will involve data retrieval from national/global datasets including: -->
 
-We also aim to cultivate a **data community**, organising monthly [Hacky Hours](https://sydney.edu.au/research/facilities/sydney-informatics-hub/workshops-and-training/hacky-hour.html), outside training events (eg NVIDIA, Pawsey Center), and data/coding-related events. Look out for everything happening on our [calendar](https://www.sydney.edu.au/research/facilities/sydney-informatics-hub/workshops-and-training/training-calendar.html) or contact us (at sih.info@sydney.edu.au) to get some digital collaboration going.
+-   [Soil and Landscape Grid of Australia (SLGA)](https://is.gd/i8nF0Z)
+-   [SILO Climate Database](https://is.gd/ifJ8tB)
+-   [Digital Elevation Model (DEM) of Australia](https://is.gd/ZLFwGs)
+-   [Digital Earth Australia (DEA) Geoscience Earth Observations](https://is.gd/gRSlVG)
+-   [GSKY Data Server for DEA Geoscience Earth Observations](https://is.gd/zFHxfD)
+-   [Google Earth Engine](https://is.gd/VdO3Jx)
 
-
-
+<!-- Workshops are presented by the [**Sydney Informatics
+Hub**](https://www.sydney.edu.au/research/facilities/sydney-informatics-hub.html)
+in collaboration with the [**Agricultural Research
+Federation**](https://www.agrefed.org.au/AgReFedPlatform).  -->
+ 
+FOr more information about the workshops, including who these workshops are made for, check the [FAQ](/faq.qmd).
 
 ## Trainers
-* Januar Harianto, januar.harianto@sydney.edu.au
-* Sebastian Haan
-* Nathaniel Butterworth
-* Darya Vanichkina
-* Henry Lydecker
-* Thomas Bishop
 
+-   **Januar Harianto \|** *januar.harianto\@sydney.edu.au*
+-   **Sebastian Haan**
+-   **Nathaniel Butterworth**
+-   *Darya Vanichkina* (support)
+-   *Henry Lydecker* (support)
+-   *Thomas Bishop* (support)
 
-
-
-## Course pre-requisites and setup requirements
-
-A gentle understanind of R is encouraged, but we aime to make this a beginner friendly as possible. Training will be delivered online, so you will need access to a modern computer with a stable internet connection. Participants are encouraged to setup a local working environment on their local computer (as per the [Setup Instructions](./setup.html) provided), but a full working online environment will be provided for all participants.
-
-
-
-
-## Venue, online via Zoom
-Participants will be provided with a Zoom link. Trainers will be broadcasting from Sydney.
-
-#### Zoom etiquette and how we interact
-Sessions will be recorded for attendees only, and it is set up to only record the host shared screen and host audio. We will try and get these uploaded to this site as soon as possible. Please interrupt whenever you want! Ideally, have your camera on and interact as much as possible. There will be someone monitoring the chat-window with any questions you would like to post there.  Four hours is a long Zoom session so we have plenty of scheduled breaks combined with a mix of content to be delivered as demos, plus sections as independent exercises, but most of the course will be pretty-hands on with everyone writing their own code. We will use Zoom break-out rooms as needed with the Trainers and participants.
-
-
-
-
-## Code of Conduct
-We expect all attendees of our training to follow our code of conduct, including bullying, harassment and discrimination prevention policies.
-
-In order to foster a positive and professional learning environment we encourage the following kinds of behaviours at all our events and on our platforms:
-
-* Use welcoming and inclusive language
-* Be respectful of different viewpoints and experiences
-* Gracefully accept constructive criticism
-* Focus on what is best for the community
-* Show courtesy and respect towards other community members
-
-Our full CoC, with incident reporting guidelines, is available at [https://pages.github.sydney.edu.au/informatics/sih_codeofconduct/](https://pages.github.sydney.edu.au/informatics/sih_codeofconduct/)
-
-
-
-## Setup Instructions
-
-Please complete the [Setup Instructions](./setup.html) **before the course**.
-
-If you have any trouble, please get in contact with us ASAP.

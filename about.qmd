@@ -1,0 +1,37 @@
+---
+title: About Us
+---
+
+```{r fig.align="left", echo=FALSE, out.width = "280px"}
+knitr::include_graphics("images/agrefed_logo.png")
+```
+
+[**AgReFed**](https://www.agrefed.org.au/) is a cooperative of Data Provider Communities with a shared vision to enable **[Findable, Accessible, Interoperable and Reusable (FAIR](https://www.agrefed.org.au/FAIRdata))** agricultural data to accelerate innovation and increase the profitability and sustainability of Australian agriculture, through the creation of a unifying federation for the sharing of agricultural data amongst like-minded Data Provider Communities.
+
+AgReFed is committed to pursuing a shared mission to unlock the potential of agricultural data from Australian research organisations, government, agricultural producers and other agricultural industry players by providing a data sharing platform enabling the use of FAIR data to increase the application of knowledge, accelerate innovation and improve decision making.
+
+AgReFed pursues this mission by:
+
+- Bringing together and aligning independent organisations to make strategic and technical decisions about data sharing
+- Providing a governance and data stewardship framework for collective decision making
+- Providing the infrastructure, tools, and resources for Data Provider Communities to develop the capacity to make agricultural data FAIR
+- Enabling increasingly FAIR data from research organisations to be available for use by the broader agricultural research community
+- Incorporating and enabling access to complementary data important to agricultural research
+
+
+---
+
+```{r fig.align="left", echo=FALSE, out.width = "350px"}
+knitr::include_graphics("images/sih_logo_h.jpg")
+```
+
+<br />
+The Sydney Informatics Hub (SIH) is a [**Core Research Facility**](https://sydney.edu.au/research/facilities.html) of the University of Sydney. Core Research Facilities centralise essential research equipment and services that would otherwise be too expensive or impractical for individuals, Schools or Faculties to purchase and maintain.
+
+We provide a wide range of research services to aid investigators, such as:
+
+- [Training and workshops](https://sydney.edu.au/research/facilities/sydney-informatics-hub/workshops-and-training.html)
+- [Project consulting and assistance](https://sydney.edu.au/research/facilities/sydney-informatics-hub/project-support.html) with Statistics, Data Science, Research Engineering, Bioinformatics, Modeling/Simulation/Visualisation, High Performance Computing.
+- [Research data management](https://sydney.edu.au/research/facilities/sydney-informatics-hub/digital-research-infrastructure.html) consulting and platform support.
+
+We also aim to cultivate a data *community*, organising monthly [Hacky Hours](https://sydney.edu.au/research/facilities/sydney-informatics-hub/workshops-and-training/hacky-hour.html), outside training events (eg NVIDIA, Pawsey Center), and data/coding-related events. Look out for everything happening on our [calendar](https://www.sydney.edu.au/research/facilities/sydney-informatics-hub/workshops-and-training/training-calendar.html) or contact us at sih.info\@sydney.edu.au to get some digital collaboration going.

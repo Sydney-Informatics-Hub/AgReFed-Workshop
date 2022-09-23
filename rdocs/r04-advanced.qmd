@@ -1,0 +1,5 @@
+---
+title: Introduction
+---
+
+This section will introduce the `dataharvester` package and ensure proper installation. It will also introduce the settings YAML configuration.

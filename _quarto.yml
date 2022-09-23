@@ -1,38 +1,110 @@
-project:
+project: 
   type: website
-  output-dir: docs
+editor:
+  render-on-save: true
+execute:
+  freeze: auto  # re-render only when source changes  
 
-website:
-  title: "Sydney Informatics Hub AgReFed Data Harvester"
+website: 
+  page-navigation: true
+  title: "AgReFed Data-Harvester" 
+  # site-url: https://sydney-informatics-hub.github.io/agrefed-workshop 
+  # repo-url: https://github.com/sydney-informatics-hub/agrefed-workshop 
+  # repo-actions: [issue]
+  
+  page-footer:
+    right: "Site built with [Quarto](https://quarto.org/)."
+    left: "&copy; Sydney Informatics Hub, 2022"
+  
   navbar:
-    background: primary
+    title: "SIH -- Data-Harvester Workshop"
+    background: "#ff3333" # "#ff3333" "#424242"
+    logo: "images/logo_white.png"
+    pinned: false
     left:
-      - href: index.qmd
-        text: Home
-      - href: setup.html
-        text: "Setup"
-      - text: "R Stream"
-        menu:
-        - text: "Introduction"
-          href: episode00_intro.html
-        - text: "R Data Harvester"
-          href: R/Data-Harvester-R.html
+      - text: "{{< fa house-chimney >}}"
+        file: index.qmd
+    right:
+      - text: "{{< fa brands python >}} Python Workshop"
+        file: pydocs/py00-workshop.qmd
+      - text: "{{< fa brands r-project >}} Workshop"
+        file: rdocs/r00-workshop.qmd
 
-      - text: "Python Stream"
-        menu:
-        - text: "Python Data Harvester"
-          href: Python/Data_Harvest.html
+  sidebar:
+    logo: "images/sih_logo.svg" 
+    pinned: true
+    align: center
+    tools: 
+      - icon: globe
+        href: https://www.sydney.edu.au/research/facilities/sydney-informatics-hub.html
+        text: "SIH Website"
+      # - icon: github
+      #   href: https://github.com/sydney-informatics-hub/agrefed-workshop 
+      #   text: "GitHub Repository"
+    style: "floating" # "floating" "docked"
+    search: false
+    collapse-level: 1
+    contents:
+      - text: "Home"
+        href: index.qmd
+      - text: "About Us"
+        href: about.qmd
+      - text: "Code of Conduct"
+        href: code-of-conduct.qmd
+      # R Workshop
+      - text: "---"
+      - text: "R Workshop"
+        section: rdocs/r00-workshop.qmd
+        contents:
+          - text: Introduction
+            href: rdocs/r00-workshop.qmd
+          - text: Setting up
+            href: rdocs/r01-setup.qmd
+          - text: W1 Introduction
+            href: rdocs/r02-introduction.qmd
+          - text: W2 Basic Usage
+            href: rdocs/r03-basic
+          - text: W3 Advanced
+            href: rdocs/r04-advanced
 
-  body-footer: "All materials copyright Sydney Informatics Hub, University of Sydney"
-          
+      # Python Workshop 
+      - text: "---"
+      - text: "Python Workshop"
+        section: pydocs/py00-workshop.qmd
+        contents:
+          - text: Introduction
+            href: pydocs/py00-workshop.qmd
+      #     - text: Setting up
+      #       href: pydocs/py01-setup.qmd
+      #     - text: W1 Introduction
+      #       href: pydocs/py02-introduction.qmd
+      #     - text: W2 Usage
+      #       href: pydocs/Data_Harvest.ipynb
+      # - text: "---"
+      # - text: Documentation
+      #   href: https://sydney-informatics-hub.github.io/dataharvester/
+      # - text: FAQ
+      #   href: faq.qmd
+      # - section: folder/example.qmd
+      #   contents: 
+      #     - folder/rstudio.qmd
+      #     - folder/jupyter.md 
+      # - href: another_example.qmd
+      #   text: This will change text in sidebar
+
+
 format:
   html:
-    theme: simplex
-    css: lesson.css
-    toc: true
+    theme:
+      light: [cosmo, theme.scss] # from https://github.com/sta210-s22/website/blob/main/_quarto.yml
+      # dark: [cosmo, theme-dark.scss]
+    code-copy: true
     code-overflow: wrap
-    highlight-style: github
+    toc: true
 
 
+filters:
+  - include-files.lua
+  - quarto
 
-
+  
