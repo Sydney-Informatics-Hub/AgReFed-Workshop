@@ -1,1 +1,1 @@
-Sitemap: https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop/sitemap.xml
+Sitemap: https://sydney-informatics-hub.github.io/AgReFed-Workshop/sitemap.xml

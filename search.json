@@ -37,23 +37,23 @@
   {
     "objectID": "rdocs/r04-advanced.html",
     "href": "rdocs/r04-advanced.html",
-    "title": "Introduction",
+    "title": "Advanced",
     "section": "",
-    "text": "This section will introduce the dataharvester package and ensure proper installation. It will also introduce the settings YAML configuration."
+    "text": "In this workshop\n\n\n\n\nCloud masking (5 min)\nSpectral indices (5 min)\nTemporal Aggregation (10 min)\nExploring other datasets in Earth Engine (5 min)\nMission: Find and map the world’s largest mangrove forest (10 min)"
   },
   {
     "objectID": "rdocs/r02-introduction.html",
     "href": "rdocs/r02-introduction.html",
     "title": "Introduction",
     "section": "",
-    "text": "This section will introduce the dataharvester package and ensure proper installation. It will also introduce the settings YAML configuration."
+    "text": "Is your computer prepared?\n\n\nAn introduction to the dataharvester R package\n\n\nUnderstanding the settings YAML file\n\n\nDemonstrating a simple “headless” workflow\n\n\nMission: try your own workflow"
   },
   {
     "objectID": "rdocs/r03-basic.html",
     "href": "rdocs/r03-basic.html",
-    "title": "Introduction",
+    "title": "Basic",
     "section": "",
-    "text": "This section will introduce the dataharvester package and ensure proper installation. It will also introduce the settings YAML configuration."
+    "text": "In this workshop\n\n\n\n\nData exploration (5 min)\nGoogle Earth Engine in dataharvester (5 min)\nData aggregation and previewing (5 min)\nMaps and visualisation (10 min)\nMission: Find the Eye of Sahara (10 min)"
   },
   {
     "objectID": "about.html",
@@ -67,14 +67,14 @@
     "href": "index.html",
     "title": "Data-Harvester Workshops",
     "section": "",
-    "text": "Workshop information\n\n\n\nThe next AgReFed Data-Harvester Workshop in R will be run on Tue, 25 Oct, 2022 Please see XX for details."
+    "text": "Workshop information\n\n\n\nThe next AgReFed Data-Harvester Workshop in R will be run on Tue, 25 Oct, 2022 Please see the R Workshop page for details."
   },
   {
     "objectID": "index.html#about",
     "href": "index.html#about",
     "title": "Data-Harvester Workshops",
     "section": "About",
-    "text": "About\nUse the AgReFed Data-Harvester to access, process and download national (Australian) and global space/time data aimed at agricultural scientists, environmental scientists, ecologists and other researchers.\nIn the workshops, we will show you how to download and summarise geospatial data from a range of sources including:\n\n\nSoil and Landscape Grid of Australia (SLGA)\nSILO Climate Database\nDigital Elevation Model (DEM) of Australia\nDigital Earth Australia (DEA) Geoscience Earth Observations\nGSKY Data Server for DEA Geoscience Earth Observations\nGoogle Earth Engine\n\n\nFOr more information about the workshops, including who these workshops are made for, check the FAQ."
+    "text": "About\nUse the AgReFed Data-Harvester to access, process and download national (Australian) and global space/time data aimed at agricultural scientists, environmental scientists, ecologists and other researchers.\nIn the workshops, we will show you how to download and summarise geospatial data from a range of sources including:\n\n\nSoil and Landscape Grid of Australia (SLGA)\nSILO Climate Database\nDigital Elevation Model (DEM) of Australia\nDigital Earth Australia (DEA) Geoscience Earth Observations\nGSKY Data Server for DEA Geoscience Earth Observations\nGoogle Earth Engine\n\n\nFor more information about the workshops, including who these workshops are made for, check the FAQ."
   },
   {
     "objectID": "index.html#trainers",

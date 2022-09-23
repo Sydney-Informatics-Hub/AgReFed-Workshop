@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>AgReFed Data-Harvester - Introduction</title>
+<title>AgReFed Data-Harvester - Advanced</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,6 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../faq.html" rel="next">
+<link href="../rdocs/r03-basic.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -100,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Introduction</h1>
+      <h1 class="quarto-secondary-nav-title">Advanced</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -139,12 +141,43 @@ ul.task-list li input[type="checkbox"] {
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../rdocs/r00-workshop.html" class="sidebar-item-text sidebar-link">R Workshop</a>
+            <a href="../pydocs/py00-workshop.html" class="sidebar-item-text sidebar-link">Python Workshop</a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pydocs/py00-workshop.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pydocs/py01-setup.html" class="sidebar-item-text sidebar-link">Setting up</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pydocs/py02-introduction.html" class="sidebar-item-text sidebar-link">W1 Introduction</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pydocs/Data_Harvest.html" class="sidebar-item-text sidebar-link">W2 Usage</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../rdocs/r00-workshop.html" class="sidebar-item-text sidebar-link">R Workshop</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../rdocs/r00-workshop.html" class="sidebar-item-text sidebar-link">Introduction</a>
@@ -162,32 +195,48 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../rdocs/r03-basic" class="sidebar-item-text sidebar-link">W2 Basic Usage</a>
+  <a href="../rdocs/r03-basic.html" class="sidebar-item-text sidebar-link">W2 Basic Usage</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../rdocs/r04-advanced" class="sidebar-item-text sidebar-link">W3 Advanced</a>
+  <a href="../rdocs/r04-advanced.html" class="sidebar-item-text sidebar-link active">W3 Advanced</a>
   </div>
 </li>
       </ul>
   </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://sydney-informatics-hub.github.io/dataharvester/" class="sidebar-item-text sidebar-link">Documentation</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../faq.html" class="sidebar-item-text sidebar-link">FAQ</a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../pydocs/py00-workshop.html" class="sidebar-item-text sidebar-link">Python Workshop</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">folder/example.qmd</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../pydocs/py00-workshop.html" class="sidebar-item-text sidebar-link">Introduction</a>
-  </div>
-</li>
+  folder/rstudio.qmd
+  </li>
+          <li class="sidebar-item">
+  folder/jupyter.md
+  </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../another_example.qmd" class="sidebar-item-text sidebar-link">This will change text in sidebar</a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -200,7 +249,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Introduction</h1>
+<h1 class="title d-none d-lg-block">Advanced</h1>
 </div>
 
 
@@ -214,7 +263,25 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>This section will introduce the <code>dataharvester</code> package and ensure proper installation. It will also introduce the settings YAML configuration.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+In this workshop
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Cloud masking (5 min)</li>
+<li>Spectral indices (5 min)</li>
+<li>Temporal Aggregation (10 min)</li>
+<li>Exploring other datasets in Earth Engine (5 min)</li>
+<li>Mission: Find and map the world’s largest mangrove forest (10 min)</li>
+</ul>
+</div>
+</div>
 
 
 
@@ -317,6 +384,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../rdocs/r03-basic.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">W2 Basic Usage</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../faq.html" class="pagination-link">
+        <span class="nav-page-text">FAQ</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
