@@ -43,7 +43,7 @@ website:
       #   text: "GitHub Repository"
     style: "floating" # "floating" "docked"
     search: false
-    collapse-level: 1
+    collapse-level: 2
     contents:
       - text: "Home"
         href: index.qmd
@@ -59,14 +59,16 @@ website:
         contents:
           - text: Introduction
             href: pydocs/py00-workshop.qmd
-          - text: Setting up
-            href: pydocs/py01-setup.qmd
-          - text: W1 Introduction
-            href: pydocs/py02-introduction.qmd
-          - text: W2 Usage
-            href: pydocs/Data_Harvest.ipynb
-          - text: Data Harvester Notebook
-            href: pydocs/Data_Harvest.ipynb
+          # - text: Setting up
+          #   href: pydocs/py01-setup.qmd
+          # - text: W1 Introduction
+          #   href: pydocs/py02-introduction.qmd
+          # - text: W2 Usage
+          #   href: pydocs/py03-basic.qmd
+          # - text: W3 Advanced
+          #   href: pydocs/py04-advanced.qmd
+          # - text: Data Harvester Notebook
+          #   href: pydocs/Data_Harvest.ipynb
 
       # R Workshop
       - text: "---"
