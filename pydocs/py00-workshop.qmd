@@ -2,3 +2,6 @@
 title: Python Workshop
 ---
 
+The Python course is *almost* complete! We're still working on the final details, but we're hoping to have it ready by the end of the October
+
+**Interested in a Data-Harvester workshop run in {{< fa brands python >}} Python? [Let us know](https://sydney.au1.qualtrics.com/jfe/form/SV_9TUKiEjaNEFPifk).** We'll be sending out an email to everyone who signed up for the course when it's ready to go.
