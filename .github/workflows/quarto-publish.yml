@@ -7,6 +7,9 @@ name: Render and Publish
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash -l {0}
     steps:
       - name: Check out repository
         uses: actions/checkout@v2 
@@ -14,9 +17,11 @@ jobs:
       - name: Create Python environment
         uses: conda-incubator/setup-miniconda@v2
         with:
+          auto-update-conda: false
           python-version: 3.9    # set python version here
-          channels: conda-forge
           mamba-version: "*"
+          channels: conda-forge
+          channel-priority: true
           activate-environment: quarto-import
           environment-file: _import/environment.yml 
         
