@@ -1,0 +1,124 @@
+---
+title: "The YAML configuration file"
+---
+::: callout-note
+This section documents the YAML file format, but does not cover running a YAML file. For information on running the file, see the Introduction sections of the respective workshops
+:::
+
+YAML stands for **Y**AML **A**in't **M**arkup **L**anguage and is a human-readable data serialization format that is commonly used for configuration files. A YAML file is identified by its file extension, `.yaml`. 
+
+In the Data-Harvester, we can use YAML to configure data sources, filters and transformations to achieve minimal interaction with the command line. 
+
+## Brief overview
+
+The Data-Harvester has been configured to read YAML configuration files by default. 
+
+At a bare minimum, a YAML configuration file must contain:
+
+1. either a source file containing geospatial coordinate information (`infile`), or a bounding box that defines the area of interest (`target_bbox`);
+2. filters that define the type of data to be downloaded i.e. dates, resolution and products (`target_dates`, `target_res`, `target_sources`); and
+3. an output path that defines where the downloaded data will be saved (`outpath`).
+
+Below is a minimal example `.yaml` configuration file that downloads two products from one API source using a bounding box that is estimated from the input file `Llara.csv`:
+
+```yaml
+infile: Llara.csv
+outpath: downloads/
+colname_lat: Lat
+colname_lng: Long
+target_bbox: null
+target_dates: 2021
+target_res: 6.0
+
+target_sources:
+  DEA:
+    - landsat_barest_earth
+    - ga_ls_fc_pc_cyear_3
+```
+Using the configuration file is the simplest way to download data from the Data-Harvester. Therefore, this document will document the YAML configuration file in more detail below.
+
+## `infile`
+
+*String.*
+Path to a file containing geospatial coordinate information. The file must contain two columns, one for latitude and one for longitude. The column names can be specified using the **`colname_lat`** and **`colname_lng`** parameters. The file must be a .csv file. A relative path can be used.
+
+```yaml
+infile: Llara.csv
+```
+
+## `outpath`
+
+*String.*
+Path to the directory where the downloaded data will be saved. The directory will be created if it does not already exist. A relative path can be used.
+
+```yaml
+outpath: downloads/
+```
+
+## `colname_lat`
+
+*String.*
+Case-sensitive name of the column in the input file that contains latitude information. This parameter is only required if the input file is provided. Will be ignored if **`infile`** is `null`.
+
+```yaml
+colname_lat: Lat
+```
+
+## `colname_lng`
+
+*String.*
+Case-sensitive name of the column in the input file that contains longitude information. This parameter is only required if the input file is provided. Will be ignored if **`infile`** is `null`.
+
+## `target_bbox`
+
+*List of floats.*
+Bounding box that defines the area of interest. The bounding box must be provided as a list of four numbers: `[min_lat, min_lng, max_lat, max_lng]`. If the input file is provided, the bounding box will be estimated from the coordinates in the input file. 
+
+- If **`infile`** is **not** provided, the bounding box *must* be provided.
+
+```yaml
+infile: null
+target_bbox: [149.769345, -30.335861, 149.949173, -30.206271]
+```
+
+- If **`infile`** is provided, the bounding box *can* be provided. If the bounding box is not provided, the area of interested will be estimated from the coordinates in the input file.
+
+```yaml
+infile: Llara.csv
+target_bbox: null
+```
+
+## `target_dates`
+Date(s) that define the time period of interest. The dates must be provided as integers and in YYYY format.
+
+## `target_res`
+Spatial resolution of the data to be downloaded. The resolution must be provided as a float and is in arc-seconds.
+
+## `target_sources`
+API sources to download data from. Available sources are:
+
+- `DEA`
+- `DEM`
+- `GEE`
+- `Landscape`
+- `SILO`
+- `SLGA`
+- `Radiometric`
+
+Each API source has a list of products that can be downloaded. The products are listed under each API source. There are also different options for each source, so we will describe each source in detail below.
+
+### DEA
+
+The DEA API source contains a large number of products that can be downloaded. 
+
+### DEM
+
+### GEE
+
+### Landscape
+
+### SILO
+
+### SLGA
+
+### Radiometric
