@@ -2,27 +2,21 @@
 title: "R Workshop"
 ---
 
-The R Workshop is intended for researchers and students who are more familiar with the R and RStudio environments in their workflows. We have created an R package that allows you to interface with the Data-Harvester without running Python code. This workshop will cover the basics of the R `dataharvester` package and how to use it.
+The R Workshop is intended for researchers and students who are more familiar with the R and RStudio environments in their workflows. Using the `dataharvester` package, this workshop will will interface with the Data-Harvester without needing to interact with Python code.
 
-## Before you begin
+::: callout-important
+Make sure that you have read the [Code of Conduct](/code-of-conduct.qmd) and the [FAQ](/faq.qmd), especially the "What are the pre-requisites?" section [here](/faq.qmd#pre-requisites). Essentially, you need to be familiar with R and RStudio to get the most out of this workshop.
+:::
 
-Make sure that you have read the [Code of Conduct](/code-of-conduct.qmd) and the [FAQ](/faq.qmd), especially the "What are the pre-requisites?" section [here](/faq.qmd#pre-requisites). Essentially, you need to be familiar with R and RStudio.
+## RStudio Cloud
 
-### Local installation
+This workshop will be run in RStudio, but you may also use RStudio Cloud where *most* dependencies have been installed for you. The exception is Google Earth Engine authentication, which you will need to do yourself.
 
-The following should already be installed on your computer:
+If you are using RStudio Cloud, you will need to sign up for an account. You can do this [here](https://rstudio.cloud/). Once you have an account you can join our shared space by clicking the button below:
 
-- R
-- RStudio
-- Quarto
+[![](https://img.shields.io/badge/Join%20Shared%20Space-RStudio%20Cloud-yellow?style=for-the-badge&logo=appveyor)]()
 
 If you do not have these installed, please follow the instructions in the [R Setup Page](/rdocs/r01-setup.qmd).
-
-### RStudio Cloud
-
-Alternatively, if you wish to use RStudio Cloud, you can do so by clicking the button here: **This link will NOT be active until the start of the workshop.** 
- <!-- [![RStudio Cloud](https://img.shields.io/badge/RStudio-Cloud-blue)]() -->
-
 
 
 ## Workshop details
