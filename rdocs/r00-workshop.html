@@ -76,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
     <img src="../images/logo_white.png" alt="" class="navbar-logo">
     </a>
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">SIH – Data-Harvester Workshop</span>
+    <span class="navbar-title">SIH-AgReFed Workshop</span>
     </a>
   </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -149,7 +149,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../pydocs/py00-workshop.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  <a href="../pydocs/py00-workshop.html" class="sidebar-item-text sidebar-link">(Under Construction)</a>
   </div>
 </li>
       </ul>
@@ -198,6 +198,11 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../yaml_config.html" class="sidebar-item-text sidebar-link">YAML Config</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../faq.html" class="sidebar-item-text sidebar-link">FAQ</a>
   </div>
 </li>
@@ -210,11 +215,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#before-you-begin" id="toc-before-you-begin" class="nav-link active" data-scroll-target="#before-you-begin">Before you begin</a>
-  <ul class="collapse">
-  <li><a href="#local-installation" id="toc-local-installation" class="nav-link" data-scroll-target="#local-installation">Local installation</a></li>
-  <li><a href="#rstudio-cloud" id="toc-rstudio-cloud" class="nav-link" data-scroll-target="#rstudio-cloud">RStudio Cloud</a></li>
-  </ul></li>
+  <li><a href="#rstudio-cloud" id="toc-rstudio-cloud" class="nav-link active" data-scroll-target="#rstudio-cloud">RStudio Cloud</a></li>
   <li><a href="#workshop-details" id="toc-workshop-details" class="nav-link" data-scroll-target="#workshop-details">Workshop details</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -238,24 +239,30 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>The R Workshop is intended for researchers and students who are more familiar with the R and RStudio environments in their workflows. We have created an R package that allows you to interface with the Data-Harvester without running Python code. This workshop will cover the basics of the R <code>dataharvester</code> package and how to use it.</p>
-<section id="before-you-begin" class="level2">
-<h2 class="anchored" data-anchor-id="before-you-begin">Before you begin</h2>
-<p>Make sure that you have read the <a href="../code-of-conduct.html">Code of Conduct</a> and the <a href="../faq.html">FAQ</a>, especially the “What are the pre-requisites?” section <a href="../faq.html#pre-requisites">here</a>. Essentially, you need to be familiar with R and RStudio.</p>
-<section id="local-installation" class="level3">
-<h3 class="anchored" data-anchor-id="local-installation">Local installation</h3>
-<p>The following should already be installed on your computer:</p>
-<ul>
-<li>R</li>
-<li>RStudio</li>
-<li>Quarto</li>
-</ul>
+<p>The R Workshop is intended for researchers and students who are more familiar with the R and RStudio environments in their workflows. Using the <code>dataharvester</code> package, this workshop will will interface with the Data-Harvester without needing to interact with Python code.</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Make sure that you have read the <a href="../code-of-conduct.html">Code of Conduct</a> and the <a href="../faq.html">FAQ</a>, especially the “What are the pre-requisites?” section <a href="../faq.html#pre-requisites">here</a>. Essentially, you need to be familiar with R and RStudio to get the most out of this workshop.</p>
+</div>
+</div>
+<section id="rstudio-cloud" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-cloud">RStudio Cloud</h2>
+<p>This workshop will be run in RStudio, but you may also use RStudio Cloud where <em>most</em> dependencies have been installed for you. The exception is Google Earth Engine authentication, which you will need to do yourself.</p>
+<p>If you are using RStudio Cloud, you will need to sign up for an account. You can do this <a href="https://rstudio.cloud/">here</a>. Once you have an account you can join our shared space by clicking the button below:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href=""><img src="https://img.shields.io/badge/Join%20Shared%20Space-RStudio%20Cloud-yellow?style=for-the-badge&amp;logo=appveyor.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 <p>If you do not have these installed, please follow the instructions in the <a href="../rdocs/r01-setup.html">R Setup Page</a>.</p>
-</section>
-<section id="rstudio-cloud" class="level3">
-<h3 class="anchored" data-anchor-id="rstudio-cloud">RStudio Cloud</h3>
-<p>Alternatively, if you wish to use RStudio Cloud, you can do so by clicking the button here: <strong>This link will NOT be active until the start of the workshop.</strong> <!-- [![RStudio Cloud](https://img.shields.io/badge/RStudio-Cloud-blue)]() --></p>
-</section>
 </section>
 <section id="workshop-details" class="level2">
 <h2 class="anchored" data-anchor-id="workshop-details">Workshop details</h2>
