@@ -17,7 +17,7 @@ website:
     left: "&copy; Sydney Informatics Hub, 2022"
   
   navbar:
-    title: "SIH -- Data-Harvester Workshop"
+    title: "SIH-AgReFed Workshop"
     background: "#ff3333" # "#ff3333" "#424242"
     logo: "images/logo_white.png"
     pinned: false
