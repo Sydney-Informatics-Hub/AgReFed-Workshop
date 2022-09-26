@@ -17,7 +17,7 @@ website:
     left: "&copy; Sydney Informatics Hub, 2022"
   
   navbar:
-    title: "SIH -- Data-Harvester Workshop"
+    title: "SIH-AgReFed Workshop"
     background: "#ff3333" # "#ff3333" "#424242"
     logo: "images/logo_white.png"
     pinned: false
@@ -57,7 +57,7 @@ website:
       - text: "Python Workshop"
         section: pydocs/py00-workshop.qmd
         contents:
-          - text: Introduction
+          - text: (Under Construction)
             href: pydocs/py00-workshop.qmd
           # - text: Setting up
           #   href: pydocs/py01-setup.qmd
@@ -90,6 +90,8 @@ website:
       - text: "---"
       - text: Documentation
         href: https://sydney-informatics-hub.github.io/dataharvester/
+      - text: YAML Config
+        href: yaml_config.qmd
       - text: FAQ
         href: faq.qmd
       # - section: folder/example.qmd
