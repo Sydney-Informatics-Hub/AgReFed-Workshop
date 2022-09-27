@@ -22,7 +22,7 @@ jobs:
       #     activate-environment: quarto-import
       #     environment-file: _import/environment.yml 
         
-      - name: Set up Quarto
+      - name: Set up Quartow
         uses: quarto-dev/quarto-actions/setup@v2
         with:
           tinytex: true 
