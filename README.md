@@ -10,17 +10,8 @@ https://sydney-informatics-hub.github.io/AgReFed-Workshop/
 If you are attending this workshop, simply click on the link to the workshop.
 The same link can also be found on the "About" section of this GitHub
 repository.
-## Trainers
 
--   **Januar Harianto \|** [*januar.harianto at sydney.edu.au*]
--   **Sebastian Haan**
--   **Nathaniel Butterworth**
--   *Darya Vanichkina* (support)
--   *Henry Lydecker* (support)
--   *Thomas Bishop* (support)
-
-*Note that direct email links are removed as a poor attempt to prevent
-advertising and spam bots from indexing email addresses.*
+# Trainers/Contributors
 
 If you are contributing to the website, please see the
 [contributor](https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop/tree/main/contributor)
