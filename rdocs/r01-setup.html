@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>AgReFed Data-Harvester - Setting up</title>
+<title>AgReFed Data-Harvester - Setting up R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -102,7 +165,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Setting up</h1>
+      <h1 class="quarto-secondary-nav-title">Setting up R</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -170,7 +233,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../rdocs/r01-setup.html" class="sidebar-item-text sidebar-link active">Setting up</a>
+  <a href="../rdocs/r01-setup.html" class="sidebar-item-text sidebar-link active">Setting up R</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -188,22 +251,27 @@ ul.task-list li input[type="checkbox"] {
   <a href="../rdocs/r04-advanced.html" class="sidebar-item-text sidebar-link">W3 Advanced</a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rdocs/r99-troubleshooting.html" class="sidebar-item-text sidebar-link">Troubleshooting</a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="https://sydney-informatics-hub.github.io/dataharvester/" class="sidebar-item-text sidebar-link">Documentation</a>
+  <a href="../yaml_config.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-folder-tree" aria-hidden="true"></i> YAML Config</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../yaml_config.html" class="sidebar-item-text sidebar-link">YAML Config</a>
+  <a href="../faq.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> FAQ</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../faq.html" class="sidebar-item-text sidebar-link">FAQ</a>
+  <a href="https://sydney-informatics-hub.github.io/dataharvester/" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-book" aria-hidden="true"></i> <code>dataharvester</code></a>
   </div>
 </li>
     </ul>
@@ -211,14 +279,30 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#rstudio-cloud" id="toc-rstudio-cloud" class="nav-link active" data-scroll-target="#rstudio-cloud">RStudio Cloud</a></li>
+  <li><a href="#binder" id="toc-binder" class="nav-link" data-scroll-target="#binder">Binder</a></li>
+  <li><a href="#rstudio-desktop" id="toc-rstudio-desktop" class="nav-link" data-scroll-target="#rstudio-desktop">RStudio Desktop</a>
+  <ul class="collapse">
+  <li><a href="#step-1-installupdate-r-and-rstudio" id="toc-step-1-installupdate-r-and-rstudio" class="nav-link" data-scroll-target="#step-1-installupdate-r-and-rstudio"><strong>Step 1</strong>: Install/Update R and RStudio</a></li>
+  <li><a href="#step-2-install-and-load-the-dataharvester-package" id="toc-step-2-install-and-load-the-dataharvester-package" class="nav-link" data-scroll-target="#step-2-install-and-load-the-dataharvester-package"><strong>Step 2</strong>: Install and load the <code>dataharvester</code> package</a></li>
+  <li><a href="#step-3-install-dependencies" id="toc-step-3-install-dependencies" class="nav-link" data-scroll-target="#step-3-install-dependencies"><strong>Step 3</strong>: Install dependencies</a></li>
+  <li><a href="#step-4-final-authenticate-with-google-earth-engine" id="toc-step-4-final-authenticate-with-google-earth-engine" class="nav-link" data-scroll-target="#step-4-final-authenticate-with-google-earth-engine"><strong>Step 4 (Final)</strong>: Authenticate with Google Earth Engine</a></li>
+  <li><a href="#need-help" id="toc-need-help" class="nav-link" data-scroll-target="#need-help">Need help?</a></li>
+  </ul></li>
+  <li><a href="#whats-next" id="toc-whats-next" class="nav-link" data-scroll-target="#whats-next">What’s next?</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Setting up</h1>
+<h1 class="title d-none d-lg-block">Setting up R</h1>
 </div>
 
 
@@ -232,8 +316,115 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="rstudio-cloud" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-cloud">RStudio Cloud</h2>
+<p>We encourage you to use RStudio Cloud for the workshop as you do not need to install anything on your computer. Simply <a href="https://login.rstudio.cloud/login">log in</a> with your free account and follow along with the workshop. <strong>Join our shared space by clicking the button below</strong>:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href=""><img src="https://img.shields.io/badge/Join%20Shared%20Space-RStudio%20Cloud-yellow?style=for-the-badge&amp;logo=appveyor.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the near future, we will be able to provide you with a virtual machine on the Nectar Research Cloud. This will allow you to use RStudio Server on a virtual machine. Instructions will be provided when this is available.</p>
+</div>
+</div>
+</section>
+<section id="binder" class="level2">
+<h2 class="anchored" data-anchor-id="binder">Binder</h2>
+<p>Want to play around with <code>dataharvester</code> without an RStudio Cloud account? Launch our Binder instance by clicking on the button below. Binder should only be used in a test environment as Binder instances are not persistent and will be deleted after a period of inactivity.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href=""><img src="https://img.shields.io/badge/Launch%20Workshop-Binder-blue?style=for-the-badge&amp;logo=appveyor.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</section>
+<section id="rstudio-desktop" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-desktop">RStudio Desktop</h2>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Choosing this option means that you have decided to install R and RStudio on your computer. This is not recommended for beginners as it can be a complicated process. If you are unsure, please use RStudio Cloud.</p>
+<p>You must know how to debug issues if you choose to use RStudio Desktop. <strong>Please set up RStudio before the workshop so that you can debug early and focus on the content (see below).</strong></p>
+</div>
+</div>
+<section id="step-1-installupdate-r-and-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-installupdate-r-and-rstudio"><strong>Step 1</strong>: Install/Update R and RStudio</h3>
+<p>If you already have R and RStudio installed, make sure you have the latest versions. At a minimum, you will need <a href="https://cran.r-project.org/">R v4.21</a> and <a href="https://www.rstudio.com/products/rstudio/download/">RStudio v2022.07.2</a>.</p>
+</section>
+<section id="step-2-install-and-load-the-dataharvester-package" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-install-and-load-the-dataharvester-package"><strong>Step 2</strong>: Install and load the <code>dataharvester</code> package</h3>
+<p>Install the <code>"dataharvester"</code> package from GitHub. You will need either the <code>"devtools"</code> or <code>"remotes"</code> package (recommended) installed to do this.</p>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you are a Windows user and choose to use <code>"devtools"</code>, you may need to install <a href="https://cran.r-project.org/bin/windows/Rtools/">Rtools</a> first.</p>
+</div>
+</div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"Sydney-Informatics-Hub/dataharvester"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Don’t forget to load the package:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dataharvester)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="step-3-install-dependencies" class="level3">
+<h3 class="anchored" data-anchor-id="step-3-install-dependencies"><strong>Step 3</strong>: Install dependencies</h3>
+<p>The <code>dataharvester</code> package has a number of dependencies that you will need to install, since the code is in Python. Luckily, there is a function to install these dependencies for you. Run the following code:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">initialise_harvester</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This function must always be run prior to using <code>dataharvester</code> functions. It may take a few minutes to run the first time. For subsequent sessions, <code>initialise_harvester()</code> should take only a few seconds to run.</p>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>During this step, you may be asked to install <code>r-miniconda</code>. This is a package that allows you to install and use Python packages within R through the <a href="https://conda.io/projects/conda/en/latest/index.html">Conda binary package manager</a>.</p>
+<p>If you already have Python installed, R may still ask you to install <code>r-miniconda</code>. This is because <code>r-miniconda</code> is a separate package from Python, and is not the same as the Python package manager <code>pip</code>. Importantly, <a href="https://docs.conda.io/en/latest/miniconda.html">miniconda</a> is <em>almost</em> necessary for Windows users as it allows you to install certain Python <em>and</em> non-Python packages without having to install a full version of Python and running installation commands in the command line. These include the <a href="https://gdal.org/">GDAL</a> binary which is a translator library for raster and vector geospatial data formats, and the <a href="https://proj.org/">PROJ</a> library which is a cartographic projection and coordinate transformation library.</p>
+</div>
+</div>
+</section>
+<section id="step-4-final-authenticate-with-google-earth-engine" class="level3">
+<h3 class="anchored" data-anchor-id="step-4-final-authenticate-with-google-earth-engine"><strong>Step 4 (Final)</strong>: Authenticate with Google Earth Engine</h3>
+<p>If you have a <a href="https://earthengine.google.com/">Google Earth Engine</a> account, you can initialise the package with your credentials. This will allow you to access Google Earth Engine data.</p>
+<p>To activate Google Earth Engine, simply include <code>earthengine = TRUE</code> when initialising:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">initialise_harvester</span>(<span class="at">earthengine =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="need-help" class="level3">
+<h3 class="anchored" data-anchor-id="need-help">Need help?</h3>
+<p>If you are stuck at any point, we have a dedicated <a href="../rdocs/r99-troubleshooting.html">Troubleshooting</a> section that you can refer to. This section will be updated as we receive more questions.</p>
+</section>
+</section>
+<section id="whats-next" class="level1">
+<h1>What’s next?</h1>
+<p>Now that you have <code>dataharvester</code> installed, you are ready to start the workshop. Workshop links are available in the sidebar. You should also check out the landing page for the <a href="rdocs/r00-workshop.qmd">R Workshop</a> for updates.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

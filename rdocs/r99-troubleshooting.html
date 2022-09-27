@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>AgReFed Data-Harvester - Setting up</title>
+<title>AgReFed Data-Harvester -  Troubleshooting</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,6 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../yaml_config.html" rel="next">
+<link href="../rdocs/r04-advanced.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -100,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Setting up</h1>
+      <h1 class="quarto-secondary-nav-title"><i class="fa-brands fa-r-project" aria-hidden="true"></i> Troubleshooting</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -188,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../rdocs/r99-troubleshooting.html" class="sidebar-item-text sidebar-link">Troubleshooting</a>
+  <a href="../rdocs/r99-troubleshooting.html" class="sidebar-item-text sidebar-link active">Troubleshooting</a>
   </div>
 </li>
       </ul>
@@ -214,14 +216,23 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#installing-miniconda" id="toc-installing-miniconda" class="nav-link active" data-scroll-target="#installing-miniconda">Installing miniconda</a></li>
+  <li><a href="#activating-a-conda-environment" id="toc-activating-a-conda-environment" class="nav-link" data-scroll-target="#activating-a-conda-environment">Activating a Conda environment</a></li>
+  <li><a href="#dependencies-and-gdal" id="toc-dependencies-and-gdal" class="nav-link" data-scroll-target="#dependencies-and-gdal">Dependencies and GDAL</a></li>
+  <li><a href="#google-earth-engine-authentication" id="toc-google-earth-engine-authentication" class="nav-link" data-scroll-target="#google-earth-engine-authentication">Google Earth Engine authentication</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Setting up</h1>
+<h1 class="title d-none d-lg-block"><i class="fa-brands fa-r-project" aria-hidden="true"></i> Troubleshooting</h1>
 </div>
 
 
@@ -235,8 +246,48 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This section is for troubleshooting issues with the <i class="fa-brands fa-r-project" aria-hidden="true"></i> <code>dataharvester</code> package, including setup and installation.</p>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Found a bug? <a href="https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop/issues"><strong>Open an issue</strong></a> on the <code>dataharvester</code> GitHub repository by clicking the “New Issue” button in the “Issues” tab.</p>
+</div>
+</div>
+<section id="installing-miniconda" class="level3">
+<h3 class="anchored" data-anchor-id="installing-miniconda">Installing miniconda</h3>
+<p>During installation of the <code>dataharvester</code> package, you may be asked to install <code>r-miniconda</code>. This is a package that allows you to install and use Python packages within R through the <a href="https://conda.io/projects/conda/en/latest/index.html">Conda binary package manager</a>.</p>
+<p>If you already have Python installed, R may still ask you to install <code>r-miniconda</code>. This is because <code>r-miniconda</code> is a separate package from Python, and is not the same as the Python package manager <code>pip</code>. Importantly, <a href="https://docs.conda.io/en/latest/miniconda.html">miniconda</a> is <em>almost</em> necessary for Windows users as it allows you to install certain Python <em>and</em> non-Python packages without having to install a full version of Python and running installation commands in the command line. These include the <a href="https://gdal.org/">GDAL</a> binary which is a translator library for raster and vector geospatial data formats, and the <a href="https://proj.org/">PROJ</a> library which is a cartographic projection and coordinate transformation library.</p>
+</section>
+<section id="activating-a-conda-environment" class="level3">
+<h3 class="anchored" data-anchor-id="activating-a-conda-environment">Activating a Conda environment</h3>
+</section>
+<section id="dependencies-and-gdal" class="level3">
+<h3 class="anchored" data-anchor-id="dependencies-and-gdal">Dependencies and GDAL</h3>
+</section>
+<section id="google-earth-engine-authentication" class="level3">
+<h3 class="anchored" data-anchor-id="google-earth-engine-authentication">Google Earth Engine authentication</h3>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -337,6 +388,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../rdocs/r04-advanced.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">W3 Advanced</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../yaml_config.html" class="pagination-link">
+        <span class="nav-page-text"><i class="fa-solid fa-folder-tree" aria-hidden="true"></i> YAML Config</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
