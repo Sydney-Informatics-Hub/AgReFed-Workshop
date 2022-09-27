@@ -1,6 +1,8 @@
 ---
 title: "Data-Harvester Workshops"
 subtitle: "Presented by Sydney Informatics Hub and the Agricultural Research Federation"
+markdown:
+    canonical: true
 ---
 
 

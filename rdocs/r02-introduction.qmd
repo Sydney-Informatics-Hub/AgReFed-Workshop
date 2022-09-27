@@ -1,5 +1,7 @@
 ---
 title: Introduction
+markdown:
+    canonical: true
 ---
 
 :::{.callout-tip}

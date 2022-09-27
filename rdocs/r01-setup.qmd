@@ -1,5 +1,7 @@
 ---
 title: Setting up R
+markdown:
+    canonical: true
 ---
 
 ## RStudio Cloud

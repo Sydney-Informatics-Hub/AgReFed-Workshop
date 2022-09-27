@@ -1,14 +1,16 @@
 ---
 title: Advanced
+markdown:
+    canonical: true
 ---
 
 :::{.callout-tip}
 ## In this workshop
 
 - Downloading large images from Google Earth Engine (5 min)
+- Temporal Aggregation (10 min)
 - Previewing multiple images and timelapse (5 min)
 - Exploring other datasets in Earth Engine (5 min)
 - **Exercise**: Cloud and shadow masking (5 min)
 - **Exercise**: Spectral indices (5 min)
-- **Exercise**: Temporal Aggregation (10 min)
 :::
