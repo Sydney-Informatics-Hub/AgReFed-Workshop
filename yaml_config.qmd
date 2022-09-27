@@ -109,20 +109,11 @@ API sources to download data from. Available sources are:
 - `SLGA`
 - `Radiometric`
 
-Each API source has a list of products that can be downloaded. The products are listed under each API source. There are also different options for each source, so we will describe each source in detail below.
+Each API source has a list of products that can be downloaded. These product names can be obtained from the respective API websites, or from our [{{< fa book >}} Data Overview](). Google Earth Engine (GEE) datasets are updated on the [Earth Engine Catalog](https://developers.google.com/earth-engine/datasets).
 
-### DEA
-
-The DEA API source contains a large number of products that can be downloaded. 
-
-### DEM
-
-### GEE
-
-### Landscape
+SILO (Scientific Information for Land Owners) and GEE have additional parameters that can be specified. These parameters are desribed below.
 
 ### SILO
 
-### SLGA
+### GEE
 
-### Radiometric

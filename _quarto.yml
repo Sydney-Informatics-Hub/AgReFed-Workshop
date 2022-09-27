@@ -51,6 +51,8 @@ website:
         href: about.qmd
       - text: "Code of Conduct"
         href: code-of-conduct.qmd
+      - text: "{{< fa circle-question >}} FAQ"
+        href: faq.qmd
 
       # Python Workshop 
       - text: "---"
@@ -90,10 +92,8 @@ website:
 
       # Additional links
       - text: "---"
-      - text: "{{< fa folder-tree >}} YAML Config"
-        href: yaml_config.qmd
-      - text: "{{< fa circle-question >}} FAQ"
-        href: faq.qmd
+      - text: "{{< fa folder-tree >}} YAML Overview"
+        href: Settings_Overview.md
       - text: "{{< fa book >}} `dataharvester`"
         href: https://sydney-informatics-hub.github.io/dataharvester/
       # - section: folder/example.qmd
