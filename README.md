@@ -3,7 +3,7 @@
 
 # AgReFed Data-Harvester -- Workshops
 
-This page contains the source for the [AgReFed Data-Harvester Workshop website](https://sydney-informatics-hub.github.io/AgReFed-Workshop/).
+https://sydney-informatics-hub.github.io/AgReFed-Workshop/
 
 ## Students
 
