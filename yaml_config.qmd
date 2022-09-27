@@ -7,9 +7,9 @@ This section documents the YAML file format, but does not cover running a YAML f
 
 YAML stands for **Y**AML **A**in't **M**arkup **L**anguage and is a human-readable data serialization format that is commonly used for configuration files. A YAML file is identified by its file extension, `.yaml`. 
 
-In the Data-Harvester, we can use YAML to configure data sources, filters and transformations to achieve minimal interaction with the command line. 
+In the Data-Harvester, you can use YAML to configure data sources, filters and transformations to achieve minimal interaction with the command line. 
 
-## Brief overview
+<!-- ## Brief overview
 
 The Data-Harvester has been configured to read YAML configuration files by default. 
 
@@ -17,9 +17,9 @@ At a bare minimum, a YAML configuration file must contain:
 
 1. either a source file containing geospatial coordinate information (`infile`), or a bounding box that defines the area of interest (`target_bbox`);
 2. filters that define the type of data to be downloaded i.e. dates, resolution and products (`target_dates`, `target_res`, `target_sources`); and
-3. an output path that defines where the downloaded data will be saved (`outpath`).
+3. an output path that defines where the downloaded data will be saved (`outpath`). -->
 
-Below is a minimal example `.yaml` configuration file that downloads two products from one API source using a bounding box that is estimated from the input file `Llara.csv`:
+Below is a simple example of a YAML configuration file that downloads two products from one API source using a bounding box that is estimated from the input file `Llara.csv`:
 
 ```yaml
 infile: Llara.csv
@@ -35,7 +35,11 @@ target_sources:
     - landsat_barest_earth
     - ga_ls_fc_pc_cyear_3
 ```
-Using the configuration file is the simplest way to download data from the Data-Harvester. Therefore, this document will document the YAML configuration file in more detail below.
+Using the configuration file is the simplest way to make your downloads reproducible as it allows you to run the same command multiple times without having to specify the same parameters each time.
+
+In the future, *all* of the Data-Harvester code will be accessible through the YAML configuration file, but for now, there are limitations as new features are still being added and tested.
+
+# YAML configuration file structure
 
 ## `infile`
 

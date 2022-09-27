@@ -5,19 +5,11 @@ title: Introduction
 :::{.callout-tip}
 ## In this workshop
 
-- Is your computer prepared? (15 min)
 - An introduction to the `dataharvester` R package (5 min)
-- Understanding the settings YAML file (10 min)
+- Introduction to the settings YAML file (10 min)
 - Demonstrating a simple "headless" workflow (5 min)
-- Mission: try your own workflow (10 min)
+- Previewing your results (5 min)
+- **Exercise**: finding the right products in the Data-Harvester (5 min)
+- **Exercise**: try your own workflow (5 min)
 :::
 
-### Is your computer prepared?
-
-### An introduction to the `dataharvester` R package
-
-### Understanding the settings YAML file
-
-### Demonstrating a simple "headless" workflow
-
-### Mission: try your own workflow

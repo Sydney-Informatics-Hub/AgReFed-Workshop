@@ -1,4 +1,83 @@
 ---
-title: Setting up
+title: Setting up R
 ---
 
+## RStudio Cloud
+
+We encourage you to use RStudio Cloud for the workshop as you do not need to install anything on your computer. Simply [log in](https://login.rstudio.cloud/login) with your free account and follow along with the workshop. **Join our shared space by clicking the button below**:
+
+[![](https://img.shields.io/badge/Join%20Shared%20Space-RStudio%20Cloud-yellow?style=for-the-badge&logo=appveyor)]()
+
+::: callout-note
+In the near future, we will be able to provide you with a virtual machine on the Nectar Research Cloud. This will allow you to use RStudio Server on a virtual machine. Instructions will be provided when this is available.
+:::
+
+## Binder
+
+Want to play around with `dataharvester` without an RStudio Cloud account? Launch our Binder instance by clicking on the button below. Binder should only be used in a test environment as Binder instances are not persistent and will be deleted after a period of inactivity.
+
+[![](https://img.shields.io/badge/Launch%20Workshop-Binder-blue?style=for-the-badge&logo=appveyor)]()
+
+## RStudio Desktop
+
+::: callout-important
+Choosing this option means that you have decided to install R and RStudio on your computer. This is not recommended for beginners as it can be a complicated process. If you are unsure, please use RStudio Cloud.
+
+You must know how to debug issues if you choose to use RStudio Desktop. **Please set up RStudio before the workshop so that you can debug early and focus on the content (see below).**
+:::
+
+### **Step 1**: Install/Update R and RStudio
+
+ If you already have R and RStudio installed, make sure you have the latest versions. At a minimum, you will need [R v4.21](https://cran.r-project.org/) and [RStudio v2022.07.2](https://www.rstudio.com/products/rstudio/download/).
+
+### **Step 2**: Install and load the `dataharvester` package
+
+Install the `"dataharvester"` package from GitHub. You will need either the `"devtools"` or `"remotes"` package (recommended) installed to do this.
+
+::: callout-warning
+If you are a Windows user and choose to use `"devtools"`, you may need to install [Rtools](https://cran.r-project.org/bin/windows/Rtools/) first.
+:::
+
+
+```r
+install.packages("remotes")
+remotes::install_github("Sydney-Informatics-Hub/dataharvester")
+```
+Don't forget to load the package:
+
+```r
+library(dataharvester)
+```
+
+### **Step 3**: Install dependencies
+
+The `dataharvester` package has a number of dependencies that you will need to install, since the code is in Python. Luckily, there is a function to install these dependencies for you. Run the following code:
+
+```r
+initialise_harvester()
+```
+This function must always be run prior to using `dataharvester` functions. It may take a few minutes to run the first time. For subsequent sessions, `initialise_harvester()` should take only a few seconds to run.
+
+::: callout-important
+During this step, you may be asked to install `r-miniconda`. This is a package that allows you to install and use Python packages within R through the [Conda binary package manager](https://conda.io/projects/conda/en/latest/index.html). 
+
+If you already have Python installed, R may still ask you to install `r-miniconda`. This is because `r-miniconda` is a separate package from Python, and is not the same as the Python package manager `pip`. Importantly, [miniconda](https://docs.conda.io/en/latest/miniconda.html) is *almost* necessary for Windows users as it allows you to install certain Python *and* non-Python packages without having to install a full version of Python and running installation commands in the command line. These include the [GDAL](https://gdal.org/) binary which is a translator library for raster and vector geospatial data formats, and the [PROJ](https://proj.org/) library which is a cartographic projection and coordinate transformation library.
+:::
+
+### **Step 4 (Final)**: Authenticate with Google Earth Engine
+
+If you have a [Google Earth Engine](https://earthengine.google.com/) account, you can initialise the package with your credentials. This will allow you to access Google Earth Engine data.
+
+To activate Google Earth Engine, simply include `earthengine = TRUE` when initialising:
+  
+```r
+initialise_harvester(earthengine = TRUE)
+```
+
+### Need help?
+
+If you are stuck at any point, we have a dedicated [Troubleshooting](/rdocs/r99-troubleshooting.qmd) section that you can refer to. This section will be updated as we receive more questions.
+
+# What's next?
+
+Now that you have `dataharvester` installed, you are ready to start the workshop. Workshop links are available in the sidebar. You should also check out the landing page for the [R Workshop](rdocs/r00-workshop.qmd) for updates.

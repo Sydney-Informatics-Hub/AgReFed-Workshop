@@ -5,9 +5,10 @@ title: Advanced
 :::{.callout-tip}
 ## In this workshop
 
-- Cloud masking (5 min)
-- Spectral indices (5 min)
-- Temporal Aggregation (10 min)
+- Downloading large images from Google Earth Engine (5 min)
+- Previewing multiple images and timelapse (5 min)
 - Exploring other datasets in Earth Engine (5 min)
-- Mission: Find and map the world's largest mangrove forest (10 min)
+- **Exercise**: Cloud and shadow masking (5 min)
+- **Exercise**: Spectral indices (5 min)
+- **Exercise**: Temporal Aggregation (10 min)
 :::
