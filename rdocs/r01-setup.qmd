@@ -28,10 +28,13 @@ Choosing this option means that you have decided to install R and RStudio on you
 You must know how to debug issues if you choose to use RStudio Desktop. **Please set up RStudio before the workshop so that you can debug early and focus on the content (see below).**
 :::
 
+:::{.callout-note appearance="simple" collapse="true"}
 ### **Step 1**: Install/Update R and RStudio
 
  If you already have R and RStudio installed, make sure you have the latest versions. At a minimum, you will need [R v4.21](https://cran.r-project.org/) and [RStudio v2022.07.2](https://www.rstudio.com/products/rstudio/download/).
+:::
 
+:::{.callout-note appearance="simple" collapse="true"}
 ### **Step 2**: Install and load the `dataharvester` package
 
 Install the `"dataharvester"` package from GitHub. You will need either the `"devtools"` or `"remotes"` package (recommended) installed to do this.
@@ -39,7 +42,6 @@ Install the `"dataharvester"` package from GitHub. You will need either the `"de
 ::: callout-warning
 If you are a Windows user and choose to use `"devtools"`, you may need to install [Rtools](https://cran.r-project.org/bin/windows/Rtools/) first.
 :::
-
 
 ```r
 install.packages("remotes")
@@ -50,7 +52,9 @@ Don't forget to load the package:
 ```r
 library(dataharvester)
 ```
+:::
 
+:::{.callout-note appearance="simple" collapse="true"}
 ### **Step 3**: Install dependencies
 
 The `dataharvester` package has a number of dependencies that you will need to install, since the code is in Python. Luckily, there is a function to install these dependencies for you. Run the following code:
@@ -65,7 +69,9 @@ During this step, you may be asked to install `r-miniconda`. This is a package t
 
 If you already have Python installed, R may still ask you to install `r-miniconda`. This is because `r-miniconda` is a separate package from Python, and is not the same as the Python package manager `pip`. Importantly, [miniconda](https://docs.conda.io/en/latest/miniconda.html) is *almost* necessary for Windows users as it allows you to install certain Python *and* non-Python packages without having to install a full version of Python and running installation commands in the command line. These include the [GDAL](https://gdal.org/) binary which is a translator library for raster and vector geospatial data formats, and the [PROJ](https://proj.org/) library which is a cartographic projection and coordinate transformation library.
 :::
+:::
 
+:::{.callout-note appearance="simple" collapse="true"}
 ### **Step 4 (Final)**: Authenticate with Google Earth Engine
 
 If you have a [Google Earth Engine](https://earthengine.google.com/) account, you can initialise the package with your credentials. This will allow you to access Google Earth Engine data.
@@ -75,6 +81,7 @@ To activate Google Earth Engine, simply include `earthengine = TRUE` when initia
 ```r
 initialise_harvester(earthengine = TRUE)
 ```
+:::
 
 ### Need help?
 
