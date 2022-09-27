@@ -1,0 +1,28 @@
+---
+title: "{{< fa brands r-project >}} Troubleshooting"
+---
+
+::: callout-note
+This section is for troubleshooting issues with the {{< fa brands r-project >}} `dataharvester` package, including setup and installation. 
+:::
+
+::: callout-tip
+Found a bug? [**Open an issue**](https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop/issues) on the `dataharvester` GitHub repository by clicking the "New Issue" button in the "Issues" tab.
+:::
+
+
+### Installing miniconda
+
+During installation of the `dataharvester` package, you may be asked to install `r-miniconda`. This is a package that allows you to install and use Python packages within R through the [Conda binary package manager](https://conda.io/projects/conda/en/latest/index.html). 
+
+If you already have Python installed, R may still ask you to install `r-miniconda`. This is because `r-miniconda` is a separate package from Python, and is not the same as the Python package manager `pip`. Importantly, [miniconda](https://docs.conda.io/en/latest/miniconda.html) is *almost* necessary for Windows users as it allows you to install certain Python *and* non-Python packages without having to install a full version of Python and running installation commands in the command line. These include the [GDAL](https://gdal.org/) binary which is a translator library for raster and vector geospatial data formats, and the [PROJ](https://proj.org/) library which is a cartographic projection and coordinate transformation library.
+
+
+
+### Activating a Conda environment
+
+
+### Dependencies and GDAL
+
+
+### Google Earth Engine authentication
