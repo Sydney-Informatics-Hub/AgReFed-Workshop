@@ -92,8 +92,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./faq.html" rel="next">
-<link href="./rdocs/r99-troubleshooting.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -201,6 +199,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="./code-of-conduct.html" class="sidebar-item-text sidebar-link">Code of Conduct</a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./faq.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> FAQ</a>
+  </div>
+</li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -261,12 +264,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./yaml_config.html" class="sidebar-item-text sidebar-link active"><i class="fa-solid fa-folder-tree" aria-hidden="true"></i> YAML Config</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./faq.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> FAQ</a>
+  <a href="./Settings_Overview.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-folder-tree" aria-hidden="true"></i> YAML Overview</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -294,13 +292,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#target_res" id="toc-target_res" class="nav-link" data-scroll-target="#target_res"><code>target_res</code></a></li>
   <li><a href="#target_sources" id="toc-target_sources" class="nav-link" data-scroll-target="#target_sources"><code>target_sources</code></a>
   <ul class="collapse">
-  <li><a href="#dea" id="toc-dea" class="nav-link" data-scroll-target="#dea">DEA</a></li>
-  <li><a href="#dem" id="toc-dem" class="nav-link" data-scroll-target="#dem">DEM</a></li>
-  <li><a href="#gee" id="toc-gee" class="nav-link" data-scroll-target="#gee">GEE</a></li>
-  <li><a href="#landscape" id="toc-landscape" class="nav-link" data-scroll-target="#landscape">Landscape</a></li>
   <li><a href="#silo" id="toc-silo" class="nav-link" data-scroll-target="#silo">SILO</a></li>
-  <li><a href="#slga" id="toc-slga" class="nav-link" data-scroll-target="#slga">SLGA</a></li>
-  <li><a href="#radiometric" id="toc-radiometric" class="nav-link" data-scroll-target="#radiometric">Radiometric</a></li>
+  <li><a href="#gee" id="toc-gee" class="nav-link" data-scroll-target="#gee">GEE</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -419,28 +412,13 @@ At a bare minimum, a YAML configuration file must contain:
 <li><code>SLGA</code></li>
 <li><code>Radiometric</code></li>
 </ul>
-<p>Each API source has a list of products that can be downloaded. The products are listed under each API source. There are also different options for each source, so we will describe each source in detail below.</p>
-<section id="dea" class="level3">
-<h3 class="anchored" data-anchor-id="dea">DEA</h3>
-<p>The DEA API source contains a large number of products that can be downloaded.</p>
-</section>
-<section id="dem" class="level3">
-<h3 class="anchored" data-anchor-id="dem">DEM</h3>
-</section>
-<section id="gee" class="level3">
-<h3 class="anchored" data-anchor-id="gee">GEE</h3>
-</section>
-<section id="landscape" class="level3">
-<h3 class="anchored" data-anchor-id="landscape">Landscape</h3>
-</section>
+<p>Each API source has a list of products that can be downloaded. These product names can be obtained from the respective API websites, or from our <a href=""><i class="fa-solid fa-book" aria-hidden="true"></i> Data Overview</a>. Google Earth Engine (GEE) datasets are updated on the <a href="https://developers.google.com/earth-engine/datasets">Earth Engine Catalog</a>.</p>
+<p>SILO (Scientific Information for Land Owners) and GEE have additional parameters that can be specified. These parameters are desribed below.</p>
 <section id="silo" class="level3">
 <h3 class="anchored" data-anchor-id="silo">SILO</h3>
 </section>
-<section id="slga" class="level3">
-<h3 class="anchored" data-anchor-id="slga">SLGA</h3>
-</section>
-<section id="radiometric" class="level3">
-<h3 class="anchored" data-anchor-id="radiometric">Radiometric</h3>
+<section id="gee" class="level3">
+<h3 class="anchored" data-anchor-id="gee">GEE</h3>
 
 
 </section>
@@ -546,18 +524,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./rdocs/r99-troubleshooting.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Troubleshooting</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./faq.html" class="pagination-link">
-        <span class="nav-page-text"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> FAQ</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

@@ -201,6 +201,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../code-of-conduct.html" class="sidebar-item-text sidebar-link">Code of Conduct</a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../faq.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> FAQ</a>
+  </div>
+</li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
@@ -261,12 +266,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../yaml_config.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-folder-tree" aria-hidden="true"></i> YAML Config</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../faq.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> FAQ</a>
+  <a href="../Settings_Overview.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-folder-tree" aria-hidden="true"></i> YAML Overview</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -287,10 +287,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#binder" id="toc-binder" class="nav-link" data-scroll-target="#binder">Binder</a></li>
   <li><a href="#rstudio-desktop" id="toc-rstudio-desktop" class="nav-link" data-scroll-target="#rstudio-desktop">RStudio Desktop</a>
   <ul class="collapse">
-  <li><a href="#step-1-installupdate-r-and-rstudio" id="toc-step-1-installupdate-r-and-rstudio" class="nav-link" data-scroll-target="#step-1-installupdate-r-and-rstudio"><strong>Step 1</strong>: Install/Update R and RStudio</a></li>
-  <li><a href="#step-2-install-and-load-the-dataharvester-package" id="toc-step-2-install-and-load-the-dataharvester-package" class="nav-link" data-scroll-target="#step-2-install-and-load-the-dataharvester-package"><strong>Step 2</strong>: Install and load the <code>dataharvester</code> package</a></li>
-  <li><a href="#step-3-install-dependencies" id="toc-step-3-install-dependencies" class="nav-link" data-scroll-target="#step-3-install-dependencies"><strong>Step 3</strong>: Install dependencies</a></li>
-  <li><a href="#step-4-final-authenticate-with-google-earth-engine" id="toc-step-4-final-authenticate-with-google-earth-engine" class="nav-link" data-scroll-target="#step-4-final-authenticate-with-google-earth-engine"><strong>Step 4 (Final)</strong>: Authenticate with Google Earth Engine</a></li>
   <li><a href="#need-help" id="toc-need-help" class="nav-link" data-scroll-target="#need-help">Need help?</a></li>
   </ul></li>
   <li><a href="#whats-next" id="toc-whats-next" class="nav-link" data-scroll-target="#whats-next">What’s next?</a></li>
@@ -363,12 +359,34 @@ Important
 <p>You must know how to debug issues if you choose to use RStudio Desktop. <strong>Please set up RStudio before the workshop so that you can debug early and focus on the content (see below).</strong></p>
 </div>
 </div>
-<section id="step-1-installupdate-r-and-rstudio" class="level3">
-<h3 class="anchored" data-anchor-id="step-1-installupdate-r-and-rstudio"><strong>Step 1</strong>: Install/Update R and RStudio</h3>
+<div class="callout-note callout callout-style-simple callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<strong>Step 1</strong>: Install/Update R and RStudio
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>If you already have R and RStudio installed, make sure you have the latest versions. At a minimum, you will need <a href="https://cran.r-project.org/">R v4.21</a> and <a href="https://www.rstudio.com/products/rstudio/download/">RStudio v2022.07.2</a>.</p>
-</section>
-<section id="step-2-install-and-load-the-dataharvester-package" class="level3">
-<h3 class="anchored" data-anchor-id="step-2-install-and-load-the-dataharvester-package"><strong>Step 2</strong>: Install and load the <code>dataharvester</code> package</h3>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-simple callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<strong>Step 2</strong>: Install and load the <code>dataharvester</code> package
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>Install the <code>"dataharvester"</code> package from GitHub. You will need either the <code>"devtools"</code> or <code>"remotes"</code> package (recommended) installed to do this.</p>
 <div class="callout-warning callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -387,9 +405,21 @@ Warning
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"Sydney-Informatics-Hub/dataharvester"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Don’t forget to load the package:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dataharvester)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="step-3-install-dependencies" class="level3">
-<h3 class="anchored" data-anchor-id="step-3-install-dependencies"><strong>Step 3</strong>: Install dependencies</h3>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-simple callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<strong>Step 3</strong>: Install dependencies
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>The <code>dataharvester</code> package has a number of dependencies that you will need to install, since the code is in Python. Luckily, there is a function to install these dependencies for you. Run the following code:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">initialise_harvester</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>This function must always be run prior to using <code>dataharvester</code> functions. It may take a few minutes to run the first time. For subsequent sessions, <code>initialise_harvester()</code> should take only a few seconds to run.</p>
@@ -407,13 +437,27 @@ Important
 <p>If you already have Python installed, R may still ask you to install <code>r-miniconda</code>. This is because <code>r-miniconda</code> is a separate package from Python, and is not the same as the Python package manager <code>pip</code>. Importantly, <a href="https://docs.conda.io/en/latest/miniconda.html">miniconda</a> is <em>almost</em> necessary for Windows users as it allows you to install certain Python <em>and</em> non-Python packages without having to install a full version of Python and running installation commands in the command line. These include the <a href="https://gdal.org/">GDAL</a> binary which is a translator library for raster and vector geospatial data formats, and the <a href="https://proj.org/">PROJ</a> library which is a cartographic projection and coordinate transformation library.</p>
 </div>
 </div>
-</section>
-<section id="step-4-final-authenticate-with-google-earth-engine" class="level3">
-<h3 class="anchored" data-anchor-id="step-4-final-authenticate-with-google-earth-engine"><strong>Step 4 (Final)</strong>: Authenticate with Google Earth Engine</h3>
+</div>
+</div>
+</div>
+<div class="callout-note callout callout-style-simple callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<strong>Step 4 (Final)</strong>: Authenticate with Google Earth Engine
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p>If you have a <a href="https://earthengine.google.com/">Google Earth Engine</a> account, you can initialise the package with your credentials. This will allow you to access Google Earth Engine data.</p>
 <p>To activate Google Earth Engine, simply include <code>earthengine = TRUE</code> when initialising:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">initialise_harvester</span>(<span class="at">earthengine =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
+</div>
+</div>
+</div>
 <section id="need-help" class="level3">
 <h3 class="anchored" data-anchor-id="need-help">Need help?</h3>
 <p>If you are stuck at any point, we have a dedicated <a href="../rdocs/r99-troubleshooting.html">Troubleshooting</a> section that you can refer to. This section will be updated as we receive more questions.</p>
