@@ -77,7 +77,7 @@ website:
         contents:
           - text: Introduction
             href: rdocs/r00-workshop.qmd
-          - text: Setting up
+          - text: Setting up R
             href: rdocs/r01-setup.qmd
           - text: W1 Introduction
             href: rdocs/r02-introduction.qmd
@@ -85,15 +85,17 @@ website:
             href: rdocs/r03-basic.qmd
           - text: W3 Advanced
             href: rdocs/r04-advanced.qmd
+          - text: Troubleshooting
+            href: rdocs/r99-troubleshooting.qmd
 
       # Additional links
       - text: "---"
-      - text: Documentation
-        href: https://sydney-informatics-hub.github.io/dataharvester/
-      - text: YAML Config
+      - text: "{{< fa folder-tree >}} YAML Config"
         href: yaml_config.qmd
-      - text: FAQ
+      - text: "{{< fa circle-question >}} FAQ"
         href: faq.qmd
+      - text: "{{< fa book >}} `dataharvester`"
+        href: https://sydney-informatics-hub.github.io/dataharvester/
       # - section: folder/example.qmd
       #   contents: 
       #     - folder/rstudio.qmd
