@@ -2,30 +2,23 @@
 title: "R Workshop"
 ---
 
-The R Workshop is intended for researchers and students who are more familiar with the R and RStudio environments in their workflows. Using the `dataharvester` package, this workshop will will interface with the Data-Harvester without needing to interact with Python code.
+The R workshop is aimed at people who are already familiar with R and RStudio. You can choose to use either RStudio Desktop or [RStudio Cloud](https://rstudio.cloud/) to run the code examples. 
 
 ::: callout-important
-Make sure that you have read the [Code of Conduct](/code-of-conduct.qmd) and the [FAQ](/faq.qmd), especially the "What are the pre-requisites?" section [here](/faq.qmd#pre-requisites). Essentially, you need to be familiar with R and RStudio to get the most out of this workshop.
+**Please read the [Code of Conduct](/code-of-conduct.qmd), [FAQ](/faq.qmd), and [Setting up](/rdocs/r01-setup.qmd) before joining the workshop.**
 :::
 
-## RStudio Cloud
-
-This workshop will be run in RStudio, but you may also use RStudio Cloud where *most* dependencies have been installed for you. The exception is Google Earth Engine authentication, which you will need to do yourself.
-
-If you are using RStudio Cloud, you will need to sign up for an account. You can do this [here](https://rstudio.cloud/). Once you have an account you can join our shared space by clicking the button below:
-
-[![](https://img.shields.io/badge/Join%20Shared%20Space-RStudio%20Cloud-yellow?style=for-the-badge&logo=appveyor)]()
-
-If you do not have these installed, please follow the instructions in the [R Setup Page](/rdocs/r01-setup.qmd).
-
-
-## Workshop details
+## Join us
 
 ::: callout-tip
 ### Workshop information {.unnumbered}
 
 The AgReFed Data-Harvester Workshop **in R** will be run on **Tue, 25 Oct, 2022** from **9:30 AM - 12:30 PM** (AEST).
+
+<script src="https://cdn.logwork.com/widget/countdown.js"></script>
+<a href="https://logwork.com/countdown-w5fs" class="countdown-timer" data-style="circles" data-timezone="Australia/Sydney" data-date="2022-10-25 09:30">Workshop starts in...</a>
 :::
 
-- {{< fa chalkboard-user >}} **Zoom link**: Click [here]() to join the Zoom meeting. (*Link will be available closer to the workshop date.*)
-- {{< fa download >}} **Workshop materials**: Click [here]() to download the workshop materials. (*Link will be available closer to the workshop date.*) 
+
+- {{< fa chalkboard-user >}} **Zoom link**: [Register online](https://www.eventbrite.com.au/e/agrefed-data-harvester-workshop-tickets-425515517367r) and link to the workshop will be sent, via email, closer to the workshop date.
+- {{< fa download >}} **Workshop material**: Click [here]() to download the workshop material. (*Link will be available closer to the workshop date.*) 

@@ -5,9 +5,10 @@ title: Basic
 :::{.callout-tip}
 ## In this workshop
 
-- Data exploration (5 min)
+- Downloading without the configuration file (10 min)
 - Google Earth Engine in `dataharvester` (5 min)
-- Data aggregation and previewing (5 min)
-- Maps and visualisation (10 min)
-- Mission: Find the Eye of Sahara (10 min)
+- Exploring Google Earth Engine functions (10 min)
+- **Exercise**: Deciding on a study area (10 min)
+- **Exercise**: Exploring image bands (10 min)
+- **Exercise**: Maps and visualisation (10 min)
 :::

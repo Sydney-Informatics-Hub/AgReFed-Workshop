@@ -7,7 +7,10 @@ subtitle: "Presented by Sydney Informatics Hub and the Agricultural Research Fed
 ::: callout-tip
 ### Workshop information {.unnumbered}
 
-The next AgReFed Data-Harvester Workshop **in R** will be run on **Tue, 25 Oct, 2022** Please see the [R Workshop page](/rdocs/r00-workshop.qmd) for details.
+The next AgReFed Data-Harvester Workshop **in R** will be run on **Tue, 25 Oct, 2022**. Please see [R Workshop](/rdocs/r00-workshop.qmd) for details.
+
+<script src="https://cdn.logwork.com/widget/countdown.js"></script>
+<a href="https://logwork.com/countdown-w5fs" class="countdown-timer" data-style="circles" data-timezone="Australia/Sydney" data-date="2022-10-25 09:30">Workshop starts in...</a>
 :::
 
 ::: callout-note
@@ -34,6 +37,8 @@ Exercises will involve data retrieval from national/global datasets including: -
 -   [GSKY Data Server for DEA Geoscience Earth Observations](https://is.gd/zFHxfD)
 -   [Google Earth Engine](https://is.gd/VdO3Jx)
 
+In addition, we will present some spatial and temporal aggregation, visualisation, and simple summary techniques.
+
 <!-- Workshops are presented by the [**Sydney Informatics
 Hub**](https://www.sydney.edu.au/research/facilities/sydney-informatics-hub.html)
 in collaboration with the [**Agricultural Research
@@ -43,10 +48,11 @@ For more information about the workshops, including who these workshops are made
 
 ## Trainers
 
--   **Januar Harianto \|** *januar.harianto\@sydney.edu.au*
--   **Sebastian Haan**
--   **Nathaniel Butterworth**
--   *Darya Vanichkina* (support)
+-   **Januar Harianto** (R Workshop Trainer)
+-   **Nathaniel Butterworth** (Python Workshop Trainer)
+-   *Sebastian Haan* (support)
 -   *Henry Lydecker* (support)
+-   *Eden Zhang* (support)
+-   *Darya Vanichkina* (support)
 -   *Thomas Bishop* (support)
 
