@@ -109,6 +109,7 @@ format:
     theme:
       light: [cosmo, theme.scss] # from https://github.com/sta210-s22/website/blob/main/_quarto.yml
       # dark: [cosmo, theme-dark.scss]
+    fontsize: 13pt
     code-copy: true
     code-overflow: wrap
     toc: true

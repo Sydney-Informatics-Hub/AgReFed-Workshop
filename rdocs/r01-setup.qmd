@@ -8,7 +8,7 @@ markdown:
 
 We encourage you to use RStudio Cloud for the workshop as you do not need to install anything on your computer. Simply [log in](https://login.rstudio.cloud/login) with your free account and follow along with the workshop. **Join our shared space by clicking the button below**:
 
-[![](https://img.shields.io/badge/Join%20Shared%20Space-RStudio%20Cloud-yellow?style=for-the-badge&logo=appveyor)]()
+[![](https://img.shields.io/badge/Join%20Shared%20Space-RStudio%20Cloud-yellow?style=for-the-badge&logo=appveyor)](){target="_blank"}
 
 ::: callout-note
 In the near future, we will be able to provide you with a virtual machine on the Nectar Research Cloud. This will allow you to use RStudio Server on a virtual machine. Instructions will be provided when this is available.
@@ -18,7 +18,7 @@ In the near future, we will be able to provide you with a virtual machine on the
 
 Want to play around with `dataharvester` without an RStudio Cloud account? Launch our Binder instance by clicking on the button below. Binder should only be used in a test environment as Binder instances are not persistent and will be deleted after a period of inactivity.
 
-[![](https://img.shields.io/badge/Launch%20Workshop-Binder-blue?style=for-the-badge&logo=appveyor)]()
+[![](https://img.shields.io/badge/Launch%20Workshop-Binder-blue?style=for-the-badge&logo=appveyor)](https://mybinder.org/v2/gh/januarharianto/dataharvester_on_binder/HEAD?urlpath=rstudio){target="_blank"}
 
 ## RStudio Desktop
 
@@ -31,7 +31,7 @@ You must know how to debug issues if you choose to use RStudio Desktop. **Please
 :::{.callout-note appearance="simple" collapse="true"}
 ### **Step 1**: Install/Update R and RStudio
 
- If you already have R and RStudio installed, make sure you have the latest versions. At a minimum, you will need [R v4.21](https://cran.r-project.org/) and [RStudio v2022.07.2](https://www.rstudio.com/products/rstudio/download/).
+ If you already have R and RStudio installed, make sure you have the latest versions. At a minimum, you will need [R v4.21](https://cran.r-project.org/){target="_blank"} and [RStudio v2022.07.2](https://www.rstudio.com/products/rstudio/download/){target="_blank"}.
 :::
 
 :::{.callout-note appearance="simple" collapse="true"}
@@ -40,7 +40,7 @@ You must know how to debug issues if you choose to use RStudio Desktop. **Please
 Install the `"dataharvester"` package from GitHub. You will need either the `"devtools"` or `"remotes"` package (recommended) installed to do this.
 
 ::: callout-warning
-If you are a Windows user and choose to use `"devtools"`, you may need to install [Rtools](https://cran.r-project.org/bin/windows/Rtools/) first.
+If you are a Windows user and choose to use `"devtools"`, you may need to install [Rtools](https://cran.r-project.org/bin/windows/Rtools/){target="_blank"} first.
 :::
 
 ```r
@@ -65,22 +65,23 @@ initialise_harvester()
 This function must always be run prior to using `dataharvester` functions. It may take a few minutes to run the first time. For subsequent sessions, `initialise_harvester()` should take only a few seconds to run.
 
 ::: callout-important
-During this step, you may be asked to install `r-miniconda`. This is a package that allows you to install and use Python packages within R through the [Conda binary package manager](https://conda.io/projects/conda/en/latest/index.html). 
+During this step, you may be asked to install `r-miniconda`, which is basically [miniconda](https://docs.conda.io/en/latest/miniconda.html){target="_blank"}. This is a package that allows you to install and use Python packages within R through the [Conda binary package manager](https://conda.io/projects/conda/en/latest/index.html){target="_blank"}. 
 
-If you already have Python installed, R may still ask you to install `r-miniconda`. This is because `r-miniconda` is a separate package from Python, and is not the same as the Python package manager `pip`. Importantly, [miniconda](https://docs.conda.io/en/latest/miniconda.html) is *almost* necessary for Windows users as it allows you to install certain Python *and* non-Python packages without having to install a full version of Python and running installation commands in the command line. These include the [GDAL](https://gdal.org/) binary which is a translator library for raster and vector geospatial data formats, and the [PROJ](https://proj.org/) library which is a cartographic projection and coordinate transformation library.
+If you already have Python installed, R may still ask you to install miniconda. This is because miniconda is a separate package from Python, and is not the same as the Python package manager `pip`. Importantly, miniconda is *almost* necessary for Windows users as it allows you to install certain Python *and* non-Python packages without having to install a full version of Python and running installation commands in the command line. These include the [GDAL](https://gdal.org/){target="_blank"} binary which is a translator library for raster and vector geospatial data formats, and the [PROJ](https://proj.org/){target="_blank"} library which is a cartographic projection and coordinate transformation library.
 :::
 :::
 
 :::{.callout-note appearance="simple" collapse="true"}
 ### **Step 4 (Final)**: Authenticate with Google Earth Engine
 
-If you have a [Google Earth Engine](https://earthengine.google.com/) account, you can initialise the package with your credentials. This will allow you to access Google Earth Engine data.
+If you have a [Google Earth Engine](https://earthengine.google.com/){target="_blank"} account, you can initialise the package with your credentials. This will allow you to access Google Earth Engine data.
 
 To activate Google Earth Engine, simply include `earthengine = TRUE` when initialising:
   
 ```r
 initialise_harvester(earthengine = TRUE)
 ```
+Follow the instructions carefully, as Google Earth Engine requires you to authenticate with a Google account. You will need to copy and paste a link into your browser, and then copy and paste the resulting code back into R.
 :::
 
 ### Need help?
