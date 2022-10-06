@@ -317,7 +317,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We encourage you to use RStudio Cloud for the workshop as you do not need to install anything on your computer. Simply <a href="https://login.rstudio.cloud/login">log in</a> with your free account and follow along with the workshop. <strong>Join our shared space by clicking the button below</strong>:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href=""><img src="https://img.shields.io/badge/Join%20Shared%20Space-RStudio%20Cloud-yellow?style=for-the-badge&amp;logo=appveyor.png" class="img-fluid figure-img"></a></p>
+<p><a href="" target="_blank"><img src="https://img.shields.io/badge/Join%20Shared%20Space-RStudio%20Cloud-yellow?style=for-the-badge&amp;logo=appveyor.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -339,7 +339,7 @@ Note
 <p>Want to play around with <code>dataharvester</code> without an RStudio Cloud account? Launch our Binder instance by clicking on the button below. Binder should only be used in a test environment as Binder instances are not persistent and will be deleted after a period of inactivity.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href=""><img src="https://img.shields.io/badge/Launch%20Workshop-Binder-blue?style=for-the-badge&amp;logo=appveyor.png" class="img-fluid figure-img"></a></p>
+<p><a href="https://mybinder.org/v2/gh/januarharianto/dataharvester_on_binder/HEAD?urlpath=rstudio" target="_blank"><img src="https://img.shields.io/badge/Launch%20Workshop-Binder-blue?style=for-the-badge&amp;logo=appveyor.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
 </section>
@@ -371,7 +371,7 @@ Important
 </div>
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>If you already have R and RStudio installed, make sure you have the latest versions. At a minimum, you will need <a href="https://cran.r-project.org/">R v4.21</a> and <a href="https://www.rstudio.com/products/rstudio/download/">RStudio v2022.07.2</a>.</p>
+<p>If you already have R and RStudio installed, make sure you have the latest versions. At a minimum, you will need <a href="https://cran.r-project.org/" target="_blank">R v4.21</a> and <a href="https://www.rstudio.com/products/rstudio/download/" target="_blank">RStudio v2022.07.2</a>.</p>
 </div>
 </div>
 </div>
@@ -398,7 +398,7 @@ Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you are a Windows user and choose to use <code>"devtools"</code>, you may need to install <a href="https://cran.r-project.org/bin/windows/Rtools/">Rtools</a> first.</p>
+<p>If you are a Windows user and choose to use <code>"devtools"</code>, you may need to install <a href="https://cran.r-project.org/bin/windows/Rtools/" target="_blank">Rtools</a> first.</p>
 </div>
 </div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
@@ -433,8 +433,8 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>During this step, you may be asked to install <code>r-miniconda</code>. This is a package that allows you to install and use Python packages within R through the <a href="https://conda.io/projects/conda/en/latest/index.html">Conda binary package manager</a>.</p>
-<p>If you already have Python installed, R may still ask you to install <code>r-miniconda</code>. This is because <code>r-miniconda</code> is a separate package from Python, and is not the same as the Python package manager <code>pip</code>. Importantly, <a href="https://docs.conda.io/en/latest/miniconda.html">miniconda</a> is <em>almost</em> necessary for Windows users as it allows you to install certain Python <em>and</em> non-Python packages without having to install a full version of Python and running installation commands in the command line. These include the <a href="https://gdal.org/">GDAL</a> binary which is a translator library for raster and vector geospatial data formats, and the <a href="https://proj.org/">PROJ</a> library which is a cartographic projection and coordinate transformation library.</p>
+<p>During this step, you may be asked to install <code>r-miniconda</code>, which is basically <a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank">miniconda</a>. This is a package that allows you to install and use Python packages within R through the <a href="https://conda.io/projects/conda/en/latest/index.html" target="_blank">Conda binary package manager</a>.</p>
+<p>If you already have Python installed, R may still ask you to install miniconda. This is because miniconda is a separate package from Python, and is not the same as the Python package manager <code>pip</code>. Importantly, miniconda is <em>almost</em> necessary for Windows users as it allows you to install certain Python <em>and</em> non-Python packages without having to install a full version of Python and running installation commands in the command line. These include the <a href="https://gdal.org/" target="_blank">GDAL</a> binary which is a translator library for raster and vector geospatial data formats, and the <a href="https://proj.org/" target="_blank">PROJ</a> library which is a cartographic projection and coordinate transformation library.</p>
 </div>
 </div>
 </div>
@@ -452,9 +452,10 @@ Important
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>If you have a <a href="https://earthengine.google.com/">Google Earth Engine</a> account, you can initialise the package with your credentials. This will allow you to access Google Earth Engine data.</p>
+<p>If you have a <a href="https://earthengine.google.com/" target="_blank">Google Earth Engine</a> account, you can initialise the package with your credentials. This will allow you to access Google Earth Engine data.</p>
 <p>To activate Google Earth Engine, simply include <code>earthengine = TRUE</code> when initialising:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">initialise_harvester</span>(<span class="at">earthengine =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Follow the instructions carefully, as Google Earth Engine requires you to authenticate with a Google account. You will need to copy and paste a link into your browser, and then copy and paste the resulting code back into R.</p>
 </div>
 </div>
 </div>
