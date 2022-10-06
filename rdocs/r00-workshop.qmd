@@ -2,7 +2,9 @@
 title: "R Workshop"
 ---
 
-The R workshop is aimed at people who are already familiar with R and RStudio. You can choose to use either RStudio Desktop or [RStudio Cloud](https://rstudio.cloud/) to run the code examples. 
+**The AgReFed Data-Harvester can be run in Python or R. **
+
+This R workshop is aimed at people who are already familiar with R and RStudio. If you prefer to use Python, see the [Python Workshop](/pydocs/py00-workshop.qmd) for details.
 
 ::: callout-important
 **Please read the [Code of Conduct](/code-of-conduct.qmd), [FAQ](/faq.qmd), and [Setting up](/rdocs/r01-setup.qmd) before joining the workshop.**
@@ -13,10 +15,12 @@ The R workshop is aimed at people who are already familiar with R and RStudio. Y
 ::: callout-tip
 ### Workshop information {.unnumbered}
 
-The AgReFed Data-Harvester Workshop **in R** will be run on **Tue, 25 Oct, 2022** from **9:30 AM - 12:30 PM** (AEST).
+The next AgReFed Data-Harvester Workshop **in R** will be run on **Tue, 25 Oct, 2022, at 09:30am AEST (Sydney)**. 
 
 <script src="https://cdn.logwork.com/widget/countdown.js"></script>
 <a href="https://logwork.com/countdown-w5fs" class="countdown-timer" data-style="circles" data-timezone="Australia/Sydney" data-date="2022-10-25 09:30">Workshop starts in...</a>
+
+{{< fa comment >}} **Note**: The above workshop is open to staff and students of The University of Sydney only. The next workshop, also **in R**, can be registered by anyone and is now [open for registration](https://www.eventbrite.com.au/e/agrefed-data-harvester-workshop-tickets-425515517367). This workshop will be run on Thu, 03 Nov, 2022, at 01:30pm AEST (Sydney).
 :::
 
 
