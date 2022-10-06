@@ -7,11 +7,227 @@ markdown:
 :::{.callout-tip}
 ## In this workshop
 
-- An introduction to the `dataharvester` R package (5 min)
-- Introduction to the settings YAML file (10 min)
-- Demonstrating a simple "headless" workflow (5 min)
-- Previewing your results (5 min)
-- **Exercise**: finding the right products in the Data-Harvester (5 min)
-- **Exercise**: try your own workflow (5 min)
+1. Learn about AgReFed and the `dataharvester` package
+2. Use `dataharvester` to access and analyse data with a YAML configuration file
+3. Preview and manipulate downloaded data in GeoTIFF and .csv formats
+:::
+
+## Introduction
+
+Hello and welcome to **Workshop 1**. In this workshop, we will learn about AgReFed and the `dataharvester` package and access data with a YAML configuration file.
+
+In **Workshop 2**, we will preview and manipulate downloaded data manually without the YAML config, and explore some Google Earth Engine functionality.
+
+**Workshop 3** will introduce to you some of the more advanced features of `dataharvester` including the ability to preprocess data and create custom data products.
+
+::: callout-note
+**We highly recommend you to run the workshop in RStudio Cloud.** Make sure that you have looked at [Setting up R](/rdocs/r01-setup.qmd) as you must authenticate to Google Earth Engine (GEE) to access some data.
+:::
+
+## How to follow this workshop
+
+::: callout-important
+**If you get stuck, ask for help!**
+:::
+
+##### [{{< fa person-chalkboard >}} Demo]{style="color: green;"}
+When you see this icon [{{< fa person-chalkboard >}}]{style="color: green;"}, the content will be demonstrated to you by the instructor. You should follow along and run the code in your own environment as you go. 
+
+##### [{{< fa keyboard >}} Exercises]{style="color: blue;"}
+Throughout the workshop, you will be asked to complete some exercises. These will be marked with this icon [{{< fa keyboard >}}]{style="color: blue;"}. These tasks are designed to help you practice what you have learned. They should take no more than 5 minutes each.
+
+##  [{{< fa person-chalkboard >}} Demo 1: Authentication]{style="color: green;"}
+
+::: {.callout-tip icon="false"}
+## Agenda
+
+In this demo, we will: 
+
+- check that your `reticulate` environment is set up correctly;
+- intialise Google Earth Engine (GEE), and authenticate to a Google account; and
+- perform a simple test to validate that the Data-Harvester is working.
+
+:::
+
+Run the following code in your RStudio session:
+
+```r
+library(dataharvester)
+initialise_harvester(envname = "r-reticulate", earthengine = TRUE)
+```
+When you evaluate `initialise_harvester()`, a few actions are performed:
+
+1. The function verifies that the environment `envname` is available and contains all the required dependencies. If it does not, it will install them for you.
+2. The function will also try to authenticate to Google Earth Engine if `earthengine = TRUE`. This might involve opening a browser window and copying a code into the console.
+
+You **must** initialise and authenticate to Google Earth Engine as each authentication key is tied to a specific Google account. Detailed instructions on authentication can also be found on the `dataharvester` package documentationon online.
+
+##  [{{< fa person-chalkboard >}} Demo 2: YAML config]{style="color: green;"}
+
+::: {.callout-tip icon="false"}
+## Agenda
+
+To warm-up, we will:
+
+1. run a simple YAML configuration file to demonstrate how it works;
+2. preview the output data; and
+3. learn more about different configuration options.
+
+:::
+
+
+
+The Data-Harvester uses a YAML configuration file to perform bulk downloads in a single command.
+
+::: {.callout-caution collapse="true"}
+### What is YAML?
+YAML is a human-readable data-serialization language. It is commonly used for configuration files and in applications where data is being stored or transmitted. YAML files are easy to read and write, and are often used to configure software applications. A typical YAML file looks like this:
+
+```yaml
+---
+name: "John Smith"
+age: 42
+occupation: "gardener"
+```
+
+Looks familiar? If you have used Markdown or R Markdown, YAML is used to define the metadata for the document.
+
+A YAML configuration file helps to keep track of the data you have downloaded and the analyses you have performed. It also allows you to easily reproduce your analyses and share them with others.
+:::
+
+
+
+#### Basic usage
+
+Below is the YAML file for `basic_config.yaml` which can be found in the `assets` folder in RStudio Cloud. The file can also be downloaded from the [GitHub repository]().
+
+```yaml
+---
+infile: 
+colname_lat: 
+colname_lng: 
+outpath: downloads/
+target_bbox: [149.769345, -30.335861, 149.949173, -30.206271]
+target_dates: [2021]
+target_res: 6.0
+target_sources:
+  DEA: [landsat_barest_earth]
+```
+To run the configuration file, we use the `harvest()` function. The function takes a single argument, `path_to_config`, which is the path to the YAML file. The path can be either relative or absolute.
+
+::: {.callout-caution collapse="true"}
+
+### Relative and absolute path strings
+A relative path is a path that is relative to the current working directory. For example, if you are working in the `dataharvester` directory, the path to the `basic_config.yaml` file, stored in the `assets` folder, is `assets/basic_config.yaml`.
+
+An absolute path is a path that starts from the root directory. For example, the absolute path to the `basic_config.yaml` file is `/home/rstudio/dataharvester/assets/basic_config.yaml`. 
+
+Relative paths are useful when you are working in a project directory, as they are shorter and easier to remember. Relative paths also allow you to share your code with others, as they will not need to change the path in the configuration file as long as they are working in the same folder. Absolute paths are useful when you are working in a different directory, or when you are working on a local machine.
+:::
+
+```r
+harvest("assets/basic_config.yaml")
+```
+Several optional arguments are available to customise the output of `harvest()`:
+
+- `log_name`: the name of the log file output which stores some information about the download. The default is `"download_log.txt"`.
+- `preview`: if `TRUE`, the function will preview the output raster data
+- `contour`: if `TRUE`, the function will add a contour plot to the output raster data
+
+```r
+harvest("assets/basic_config.yaml", 
+  log_name = "basic_config", 
+  preview = TRUE, 
+  contour = TRUE)
+```
+
+Note how the function recognises that a file has been downloaded and will not re-download it. This is useful if you want to re-run the configuration file to add more data sources -- we will see this in action later.
+
+#### Adding multiple data sources
+
+Additional data sources can be added to the configuration file by adding a new key to the `target_sources` list. Below we have added sources from DEM, Landscape, SILO and SLGA collections. Copy the new lines and add them to `basic_config.yaml`:
+
+```yaml
+---
+infile:  
+outpath: downloads/
+colname_lat:  
+colname_lng:  
+target_bbox: [149.769345, -30.335861, 149.949173, -30.206271]
+target_dates: [2021]
+target_res: 6.0
+
+target_sources:
+  DEA: [landsat_barest_earth]
+  # copy and add the new lines below ----------
+  DEM: [DEM]
+  Landscape: [Relief_300m]
+  SILO:
+    monthly_rain: [sum]
+  SLGA:
+    Bulk_Density: [0-5cm]
+    Clay: [0-5cm]
+```
+
+Let's run the above configuration file and preview the output data. You should already have the `DEA` data downloaded, so the function will only download the new data sources. In addition, the `preview` and `contour` arguments have been set to `TRUE` to preview the output data. We will also create a new log file, called `"multi_config.txt"` for this run.
+
+```r
+harvest("assets/multi_config.yaml", 
+  log_name = "multi_config", 
+  preview = TRUE, 
+  contour = TRUE)
+```
+
+## [{{< fa keyboard >}} Exercise 1: Update config]{style="color: blue;"}
+
+::: {.callout-note icon="false"}
+## {{< fa keyboard >}} On your own
+
+Refer to the [YAML Overview](/Settings_Overview.md) section and update the `basic_config.yaml` file to download the following data sources:
+
+- Slope and aspect from the Landscape collection
+- Total (sum) maximum temperature from the SILO collection
+
+Then, run `harvest()` on the configuration file and preview the output.
+
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## {{< fa keyboard >}} Solution
+
+```yaml
+---
+infile:  
+outpath: downloads/
+colname_lat:  
+colname_lng:  
+target_bbox: [149.769345, -30.335861, 149.949173, -30.206271]
+target_dates: [2021]
+target_res: 6.0
+
+target_sources:
+  DEA: [landsat_barest_earth]
+  DEM: [DEM]
+  Landscape: [Relief_300m, Slope, Aspect]  # <- edit this line
+  SILO:
+    monthly_rain: [sum]
+    max_temp: [sum]  # <- add this line
+  SLGA:
+    Bulk_Density: [0-5cm]
+    Clay: [0-5cm]
+```
+:::
+
+##  [{{< fa person-chalkboard >}} Demo 3: Google Earth Engine]{style="color: green;"}
+
+
+::: {.callout-tip icon="false"}
+## Agenda
+
+Time to tap into the Google Earth Engine API. This demo will:
+
+- Introduce using the YAML configuration file to download data from Google Earth Engine
+- Discuss what can and cannot be done with the YAML configuration file
+
 :::
 
