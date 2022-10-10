@@ -30,7 +30,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../rdocs/r01-setup.html" rel="next">
-<link href="../pydocs/py00-workshop.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -140,21 +139,31 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="../pydocs/py00-workshop.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Settings_Overview.html" class="sidebar-item-text sidebar-link">YAML Overview</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="../faq.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> FAQ</a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../pydocs/py00-workshop.html" class="sidebar-item-text sidebar-link">Python Workshop</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">Python Workshop</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../pydocs/py00-workshop.html" class="sidebar-item-text sidebar-link">(Under Construction)</a>
+  <a href="../pydocs/py00-workshop.html" class="sidebar-item-text sidebar-link">Introduction</a>
   </div>
 </li>
       </ul>
@@ -162,7 +171,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../rdocs/r00-workshop.html" class="sidebar-item-text sidebar-link active">R Workshop</a>
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">R Workshop</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -180,37 +189,27 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../rdocs/r02-introduction.html" class="sidebar-item-text sidebar-link">W1 Introduction</a>
+  <a href="../rdocs/r99-troubleshooting.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-life-ring" aria-hidden="true"></i> Troubleshooting</a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rdocs/r02-introduction.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 1: Introduction</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../rdocs/r03-basic.html" class="sidebar-item-text sidebar-link">W2 Basic Usage</a>
+  <a href="../rdocs/r03-basic.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 2: Custom Workflows</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../rdocs/r04-advanced.html" class="sidebar-item-text sidebar-link">W3 Advanced</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../rdocs/r99-troubleshooting.html" class="sidebar-item-text sidebar-link">Troubleshooting</a>
+  <a href="../rdocs/r04-advanced.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 3: Advanced Features</a>
   </div>
 </li>
       </ul>
   </li>
-        <li class="px-0"><hr class="sidebar-divider hi "></li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../Settings_Overview.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-folder-tree" aria-hidden="true"></i> YAML Overview</a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="https://sydney-informatics-hub.github.io/dataharvester/" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-book" aria-hidden="true"></i> <code>dataharvester</code></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -220,7 +219,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#join-us" id="toc-join-us" class="nav-link active" data-scroll-target="#join-us">Join us</a></li>
+  <li><a href="#how-to-follow-the-workshops" id="toc-how-to-follow-the-workshops" class="nav-link active" data-scroll-target="#how-to-follow-the-workshops">How to follow the workshops</a>
+  <ul class="collapse">
+  <li><a href="#fa-person-chalkboard-demo" id="toc-fa-person-chalkboard-demo" class="nav-link" data-scroll-target="#fa-person-chalkboard-demo"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo</span></a></li>
+  <li><a href="#fa-keyboard-exercises" id="toc-fa-keyboard-exercises" class="nav-link" data-scroll-target="#fa-keyboard-exercises"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercises</span></a></li>
+  </ul></li>
+  <li><a href="#join-us" id="toc-join-us" class="nav-link" data-scroll-target="#join-us">Join us</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -258,6 +262,17 @@ Important
 <p><strong>Please read the <a href="../code-of-conduct.html">Code of Conduct</a>, <a href="../faq.html">FAQ</a>, and <a href="../rdocs/r01-setup.html">Setting up</a> before joining the workshop.</strong></p>
 </div>
 </div>
+<section id="how-to-follow-the-workshops" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-follow-the-workshops">How to follow the workshops</h2>
+<section id="fa-person-chalkboard-demo" class="level3">
+<h3 class="anchored" data-anchor-id="fa-person-chalkboard-demo"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo</span></h3>
+<p>When you see this icon <span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i></span>, the content will be demonstrated to you by the instructor. You should follow along and run the code in your own environment as you go.</p>
+</section>
+<section id="fa-keyboard-exercises" class="level3">
+<h3 class="anchored" data-anchor-id="fa-keyboard-exercises"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercises</span></h3>
+<p>Throughout the workshop, you will be asked to complete some exercises. These will be marked with this icon <span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i></span>. These tasks are designed to help you practice what you have learned. They should take no more than 5 minutes each.</p>
+</section>
+</section>
 <section id="join-us" class="level2">
 <h2 class="anchored" data-anchor-id="join-us">Join us</h2>
 <div class="callout-tip callout callout-style-default callout-captioned">
@@ -385,9 +400,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../pydocs/py00-workshop.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Python Workshop</span>
-      </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="../rdocs/r01-setup.html" class="pagination-link">
