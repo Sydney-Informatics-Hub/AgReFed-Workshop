@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: "{{< fa brands r-project >}} Introduction"
 markdown:
     canonical: true
 ---
@@ -16,7 +16,7 @@ markdown:
 
 Hello and welcome to **Workshop 1**. In this workshop, we will learn about AgReFed and the `dataharvester` package and access data with a YAML configuration file.
 
-In **Workshop 2**, we will preview and manipulate downloaded data manually without the YAML config, and explore some Google Earth Engine functionality.
+<!-- In **Workshop 2**, we will preview and manipulate downloaded data manually without the YAML config, and explore some Google Earth Engine functionality.
 
 **Workshop 3** will introduce to you some of the more advanced features of `dataharvester` including the ability to preprocess data and create custom data products. -->
 
@@ -41,12 +41,17 @@ Run the following code in your RStudio session:
 
 ```r
 library(dataharvester)
-initialise_harvester(envname = "r-reticulate", earthengine = TRUE)
+initialise_harvester("r-reticulate")
 ```
-When you evaluate `initialise_harvester()`, a few actions are performed:
+The function will verify that the environment "r-reticulate" is available and contains all the required dependencies. If it does not, it will install them for you.
 
-1. The function verifies that the environment `envname` is available and contains all the required dependencies. If it does not, it will install them for you.
-2. The function will also try to authenticate to Google Earth Engine if `earthengine = TRUE`. This might involve opening a browser window and copying a code into the console.
+Once this is complete, you may want to authenticate to Google Earth Engine (GEE). This is not required for all data products, but it is required for some. To do this, add the following argument to the same code:
+
+```r
+initialise_harvester("r-reticulate", earthengine = TRUE)
+```
+
+The function will now try to authenticate to Google Earth Engine. This might involve opening a browser window and copying a code into the console.
 
 You **must** initialise and authenticate to Google Earth Engine as each authentication key is tied to a specific Google account. Detailed instructions on authentication can also be found on the `dataharvester` package documentationon online.
 
@@ -91,9 +96,6 @@ Below is the YAML file for `basic_config.yaml` which can be found in the `assets
 
 ```yaml
 ---
-infile: 
-colname_lat: 
-colname_lng: 
 outpath: downloads/
 target_bbox: [149.769345, -30.335861, 149.949173, -30.206271]
 target_dates: [2021]
@@ -137,17 +139,14 @@ Additional data sources can be added to the configuration file by adding a new k
 
 ```yaml
 ---
-infile:  
 outpath: downloads/
-colname_lat:  
-colname_lng:  
 target_bbox: [149.769345, -30.335861, 149.949173, -30.206271]
 target_dates: [2021]
 target_res: 6.0
 
 target_sources:
   DEA: [landsat_barest_earth]
-  # copy and add the new lines below ----------
+  # add the new lines below --------------------
   DEM: [DEM]
   Landscape: [Relief_300m]
   SILO:
@@ -185,10 +184,7 @@ Then, run `harvest()` on the configuration file and preview the output.
 
 ```yaml
 ---
-infile:  
 outpath: downloads/
-colname_lat:  
-colname_lng:  
 target_bbox: [149.769345, -30.335861, 149.949173, -30.206271]
 target_dates: [2021]
 target_res: 6.0
@@ -219,3 +215,66 @@ Time to tap into the Google Earth Engine API. This demo will:
 
 :::
 
+We will continue to use the same configuration file, `basic_config.yaml`, to download data from **Google Earth Engine**. Below, we add a new key to the `target_sources` list, called `GEE`. **Workshop 2** will cover how to use the GEE API in more detail, but for now, we will preview how the YAML configuration file can be used download data from GEE.
+
+
+```yaml
+---
+infile:  
+outpath: downloads/
+colname_lat:  
+colname_lng:  
+target_bbox: [149.769345, -30.335861, 149.949173, -30.206271]
+target_dates: [2021]
+target_res: 6.0
+
+target_sources:
+  DEA: [landsat_barest_earth]
+  DEM: [DEM]
+  Landscape: [Relief_300m, Slope, Aspect]  
+  SILO:
+    monthly_rain: [sum]
+    max_temp: [sum] 
+  SLGA:
+    Bulk_Density: [0-5cm]
+    Clay: [0-5cm]
+  # add the new lines below --------------------
+  GEE:
+    preprocess:
+      collection: LANDSAT/LC09/C02/T1_L2
+      mask_clouds: True
+      reduce: median
+      spectral: [NDVI]
+    download:
+      bands: [NDVI, SR_B2, SR_B3, SR_B4]
+      scale: 100
+```
+The configuration will download a Landsat 9 images for the year 2021, composite them all to a single image using the `median` reducer, and calculate the `NDVI` spectral index. The output image will be downloaded as a GeoTIFF file, with the `NDVI` spectral index and the RGB bands (`SR_B2`, `SR_B3`, `SR_B4`) included in the raster image.
+
+## [{{< fa keyboard >}} Exercise 2: GEE config]{style="color: blue;"}
+
+::: {.callout-note icon="false"}
+## {{< fa keyboard >}} On your own
+
+Let's download from a different data source by referring to the [Earth Engine Data Catalog](https://developers.google.com/earth-engine/datasets/catalog). Have a look at the different sections and tabs (Description
+Bands, Image Properties, Terms of Use).
+
+**Task**
+
+Change the `collection` attribute in `basic_config.yaml` to one of [Landsat](https://developers.google.com/earth-engine/datasets/catalog/landsat), [Sentinel](https://developers.google.com/earth-engine/datasets/catalog/sentinel) or [MODIS](https://developers.google.com/earth-engine/datasets/catalog/modis) **surface reflectance** collections. Then, run `harvest()` on the configuration file and preview the output.
+
+**Questions**
+
+- What happens when you provide an incorrect dataset name?
+- Which other attribute(s) needed to be changed in the configuration file to download data from a different collection?
+- What happens when you provide an incorrect band name?
+
+:::
+
+Your instructor will discuss this exercise in the next workshop.
+
+## Wrapping up
+
+This is the end of **Workshop 1**. In this workshop we have covered setup and using the YAML connfiguration file to download from multiple API sources. In the next workshop ([**Workshop 2**](/rdocs/r03-basic.qmd)), we will cover how to use individual download functions to create custom workflows for downloading data.
+
+See you there!

@@ -1,5 +1,5 @@
 ---
-title: Advanced
+title: "{{< fa brands r-project >}}  Advanced features"
 markdown:
     canonical: true
 ---
@@ -11,6 +11,7 @@ markdown:
 - Temporal Aggregation (10 min)
 - Previewing multiple images and timelapse (5 min)
 - Exploring other datasets in Earth Engine (5 min)
+- Sampling point data from rasters (10 min)
 - **Exercise**: Cloud and shadow masking (5 min)
 - **Exercise**: Spectral indices (5 min)
 :::

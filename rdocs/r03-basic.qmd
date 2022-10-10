@@ -1,5 +1,5 @@
 ---
-title: Basic
+title: "{{< fa brands r-project >}} Custom workflows"
 markdown:
     canonical: true
 ---
@@ -7,10 +7,323 @@ markdown:
 :::{.callout-tip}
 ## In this workshop
 
-- Downloading without the configuration file (10 min)
+<!-- - Downloading without the configuration file (10 min)
 - Google Earth Engine in `dataharvester` (5 min)
 - Exploring Google Earth Engine functions (10 min)
 - **Exercise**: Deciding on a study area (10 min)
 - **Exercise**: Exploring image bands (10 min)
-- **Exercise**: Maps and visualisation (10 min)
+- **Exercise**: Maps and visualisation (10 min) -->
+
+1. Manually download data without the YAML configuration file
+2. Access and view Google Earth Engine data 
+3. Extract samples from downloaded rasters
 :::
+
+## Introduction
+
+Welcome to **Workshop 2**. 
+
+The `harvest()` function used in the last workshop was a wrapper for several `download_*()` functions already available in `dataharvester` (see [source](https://github.com/Sydney-Informatics-Hub/dataharvester/blob/main/inst/python/harvest.py)). In this workshop, we willl show you how to call these functions directly for more control over the data download process:
+
+- `download_dem()` for Geoscience Australia DEM grid data
+- `download_slga()` for Soil and Landscape Grid Australia (SLGA) - Soil Atributes
+- `download_landscape()` for SLGA - Landscape Attributes
+- `download_radiometric()` for Geosciences Australia's Radiometric Map of Australia
+- `download_silo()` for Scientific Information for Land Owners (SILO) climate data
+- `collect_ee()`, `preprocess_ee()` and `download_ee()` for access to datasets available in the Google Earth Engine Data Catalog
+
+We will also show you how to extract single-band samples from downloaded rasters. **This is useful if you already have raster images and want to extract samples from them.**
+
+### Before you begin
+
+If you have not already done so, initialise the Data-Harvester:
+
+```r
+library(dataharvester)
+initialise_harvester("r-reticulate")
+```
+
+## [{{< fa person-chalkboard >}} Demo 1: Manual downloads]{style="color: green;"}
+
+#### Function syntax
+
+Each `download_*()` function has similar syntax:
+
+```r
+download_*(layer,
+           out_path, 
+           bounding_box, 
+           <<other arguments>>)
+```
+where:
+
+- `layer` determines the name(s) of the layer(s) to download
+- `out_path` is the path to the folder where the data should be saved
+- `bounding_box` is the EPSG:4328 coordinates used to define the area to download as a bounding box
+
+For example, to download the Hydrologically Enforced DEM (DEM-H) layer from Geoscience Australia's DEM grid data, you would use:
+
+```r
+download_dem(
+    layer = "DEM",
+    out_path = "downloads/",
+    bounding_box = c(149.769345, -30.335861, 149.949173, -30.206271)
+)
+```
+
+::: callout-note
+## Reminder
+
+The bounding box is defined as `c(xmin, ymin, xmax, ymax)` in [EPSG:4326](https://epsg.io/4326)
+:::
+
+Let's define some areas of interest as bounding boxes for the rest of this Demo:
+
+```r
+llara <- c(149.769, -30.335, 149.969, -30.135)       # NSW
+corrigin <- c(118.015, -32.356, 118.215, -32.156)    # WA
+nedscorner <- c(141.215, -34.241, 141.415, -34.0414) # VIC
+```
+
+These are locations on the Australian continent as most APIs we use are specific to Australia (with the exception of functions that use the Google Earth Engine API). 
+
+::: {.callout-caution collapse="true"}
+## Interested in generating your own bounding box?
+You can try to find the bounding box for your area of interest using [this bounding box tool](https://boundingbox.klokantech.com/). Make sure to select "CSV" output for easier copy and paste.
+:::
+
+#### How do we know what layers are available?
+
+Each `download_*()` function has a `layers` argument that accepts a pre-defined list of layers. These are documented in the function `help()` or `?`. For example, to see the available layers for the `download_dem()` function, you can use:
+
+```r
+?download_dem
+```
+The documentation will show you the available layers and their descriptions. Try the following:
+
+```r
+?download_slga
+?download_landscape
+?download_radiometric
+```
+<!-- # TODO
+In addition, it is possible to use the `list_layers()` function to see the available layers for each function. For example, to see the available layers for the `download_dem()` function, you can use:
+
+```r
+#TODO
+``` -->
+
+There are also some additional arguments available to each `download_*()` function. For example, `download_slga()` has the arguments `depth_min`, `depth_max` and `get_ci` to specify the minimum and maximum soil depth and whether to download the soil confidence interval (CI) layers:
+
+<!-- Therefore, you can filter the available layers by these arguments. For example, to download the soil texture layers for the `download_slga()` function, you can use: -->
+
+```r
+download_slga(
+    layer = "Clay",
+    out_path = "downloads/",
+    bounding_box = llara,
+    depth_min = 0,
+    depth_max = 5,
+    get_ci = TRUE
+)
+```
+It is quite clear that you will want to read the documentation for each function to understand what arguments are available and how to use them.
+
+## [{{< fa person-chalkboard >}} Demo 2: Google Earth Engine]{style="color: green;"}
+
+The Google Earth Engine (GEE) API is a cloud-based platform for planetary-scale geospatial analysis. It provides access to a large collection of satellite imagery, elevation data, and other geospatial datasets. We provide limited access to the GEE API through the `dataharvester` package, which allows you to download data from the GEE Data Catalogue.
+
+For full functionality, we recommend that you use the [GEE Python API](https://developers.google.com/earth-engine/python_install) directly, or use the R wrapper package, [`rgee`](https://github.com/r-spatial/rgee). If you are not familiar with the GEE API or wish to explore what is possible, then `dataharvester` provides a simplified interface to the GEE API while giving users access to a full range of features.
+
+#### Function syntax
+
+Accessing GEE is simple once you have an account and have initialised the `dataharvester` package:
+
+- The `collect_ee()` function is used to search the GEE Data Catalogue and return a list of available datasets based on pre-determined filters.
+- The `preprocess_ee()` function is used to calculate summaries within the datasets before downloading or mapping. 
+- The `map_ee()` and `download_ee()` functions are then available to map and download the data.
+
+#### Workflow
+
+The workflow for using the GEE API is as follows:
+
+1. Use `collect_ee()` to search the GEE Data Catalogue and return a list of available datasets based on pre-determined filters.
+2. Use `preprocess_ee()` to calculate summaries. For example, you can composite multiple images into a single image. Or, you can calculate a spectral index like NDVI. If accessing some supported satellites, you may even be able to mask clouds and shadows, or apply scaling and offsets automatically.
+3. Use `map_ee()` to map the data (optional), and `download_ee()` to download the data.
+
+::: callout-important
+Note that the order of processing **must** follow the above, or there may be unintended consequences. If you find any irregular behaviour, let us know! The `dataharvester` package is in early development and we are keen to fix any undocumented issues.
+:::
+
+Once the data has been downloaded as images, you may manually extract samples like how you would with any other GeoTIFF - we will discuss that in **Workshop 3**. 
+
+For now, let's use a full example to demonstrate and explain these functions. Make sure that you have initialised the `dataharvester` package with your GEE credentials:
+
+```r
+initialise_harvester("r-reticulate", earthengine = TRUE)
+img <- collect_ee(
+  collection = "LANDSAT/LC09/C02/T1_L2",
+  coords = llara,
+  date = "2021-06-01",
+  end_date = "2022-06-01"
+)
+img <- preprocess_ee(object = img, reduce = "median")
+img <- map_ee(img, bands = c("SR_B2", "SR_B3", "SR_B4"))
+img <- download_ee(img, bands = c("SR_B2", "SR_B3", "SR_B4"), 
+  out_path = "downloads/"
+```
+
+The code above can also be streamlined with pipes: 
+
+```r
+img <- 
+  collect_ee(
+    collection = "LANDSAT/LC09/C02/T1_L2",
+    coords = llara,
+    date = "2021-06-01",
+    end_date = "2022-06-01") %>% 
+  preprocess_ee(reduce = "median") %>% 
+  map_ee(bands = c("SR_B2", "SR_B3", "SR_B4")) %>% 
+  download_ee(bands = c("SR_B2", "SR_B3", "SR_B4"), 
+    out_path = "downloads/"
+```
+
+Your instructor will demonstrate more examples during the workshop.
+
+
+## [{{< fa keyboard >}} Exercise 1: Cloud and shadow masking]{style="color: blue;"}
+
+::: {.callout-note icon="false"}
+## {{< fa keyboard >}} On your own
+
+In this exercise, you will use the `dataharvester` package to download Landsat 8 data from the GEE Data Catalogue. You will then use the `preprocess_ee()` function to mask clouds and shadows, and then download the data.
+
+1. Use `collect_ee()` to search the GEE Data Catalogue and return a list of available datasets based on pre-determined filters. Use the following arguments:
+    - `collection = "LANDSAT/LC08/C01/T1_SR"`
+    - `coords = llara`
+    - `date = "2021-06-01"`
+    - `end_date = "2021-08-01"`
+2. Use `preprocess_ee()` to create two different products, i.e. save them as different objects, e.g. `img_masked` and `img`. Use the following arguments:
+    - The first will mask clouds using the following argument:
+        - `mask_clouds = TRUE`
+    - The second will not mask clouds:
+        - `mask_clouds = FALSE`
+3. Use `map_ee()` to map the data. Use the following arguments:
+    - `bands = c("B4", "B3", "B2")`
+
+Your instructor will discuss the results.
+:::
+
+##  [{{< fa person-chalkboard >}} Demo 3: Preview rasters]{style="color: green;"}
+
+::: {.callout-tip icon="false"}
+## Agenda
+
+Time to preview the downloaded data. This demo will:
+
+- Introduce plotting of raster data using `terra`
+- Discuss how to plot single-band and multi-band rasters
+
+:::
+
+Once data has been downloaded, it is a trivial task to  preview the data using the `terra` package. The `terra` package is a powerful package for working with raster data in R. First, we will load the `terra` package which is automatically installed when you install the `dataharvester` package:
+
+```r
+library(terra)
+```
+
+Any image that you have downloaded using the `dataharvester` package will need to be converted to a SpatRaster object in R using the `rast()` function. For example, to conver the SLGA image that we downloaded earlier, we can use:
+
+```r
+raster <- rast("downloads/SLGA_Clay_0-5cm.tif")
+```
+
+Then, to plot, we can use the `plot()` function:
+
+```r
+plot(raster)
+```
+
+The `plot()` function will automatically plot the raster using the default colour palette. However, you can also specify the colour palette using the `col` argument. For example, to plot the raster using the `viridis` colour palette, we can use:
+
+```r
+plot(raster, col = "viridis")
+```
+#### Plotting objects created by `download_*()` functions
+
+If you use the `download_*()` functions and save the output to an object, then you can use the `plot()` function to plot the data immediately. The plots will be identical to what was produced in `terra`, since the package is used to create the S3 plot object.
+
+As an example, to plot the data downloaded using the `download_dea()` function, we can use:
+
+```r
+dea <- download_dea(
+  layer = c("landsat_barest_earth", "ga_ls_fc_pc_cyear_3"),
+  bounding_box = llara,
+  out_path = "downloads/",
+  years = 2021,
+  resolution = 6
+)
+plot(dea)
+```
+
+The code above will plot all layers and their bands in the same plot. 
+
+## [{{< fa keyboard >}} Exercise 2: More plots]{style="color: blue;"}
+
+::: {.callout-note icon="false"}
+## {{< fa keyboard >}} On your own
+
+For objects that are created using the `download_*()` functions, additional arguments can be used to refine the plots. For example, if you want to plot each layer separately, then you can use the `plot()` function with the `choose` argument:
+
+```r
+plot(x, choose = 1)
+```
+
+In a data layer, mutltiple bands can also be plotted separately. To do so, you can use the `plot()` function with the `index` argument:
+
+```r
+plot(x, choose = 1, index = 1)
+# or
+# plot(x, 1, 1)
+```
+## Task
+
+Using the same code as above to download data from DEA:
+
+Modify the code and:
+
+1. save the output to an object called `dea`
+2. plot the data using the `plot()` function
+3. plot only the second layer `"ga_ls_fc_pc_cyear_3"`
+4. plot only the `pv_pc_50` band from the second layer
+
+:::
+
+::: {.callout-caution icon="false" collapse="true"}
+## {{< fa keyboard >}} Solution
+
+```r
+# 1 
+dea <- download_dea(
+  layer = c("landsat_barest_earth", "ga_ls_fc_pc_cyear_3"),
+  bounding_box = llara,
+  out_path = "downloads/",
+  years = 2021,
+  resolution = 6
+)
+
+# 2
+plot(dea)
+
+# 3
+plot(dea, 2)
+
+# 4 
+plot(dea, 2, 2)
+
+```
+:::
+
+## Wrapping up
+
+This is the end of **Workshop 2**. In this workshop we looked at using manual methods to download data from various API sources and the GEE Catalog. We also briefly looked at how to plot the data using the `terra` package as well as the `plot()` function for objects created using the `download_*()` functions.
