@@ -18,23 +18,11 @@ Hello and welcome to **Workshop 1**. In this workshop, we will learn about AgReF
 
 In **Workshop 2**, we will preview and manipulate downloaded data manually without the YAML config, and explore some Google Earth Engine functionality.
 
-**Workshop 3** will introduce to you some of the more advanced features of `dataharvester` including the ability to preprocess data and create custom data products.
+**Workshop 3** will introduce to you some of the more advanced features of `dataharvester` including the ability to preprocess data and create custom data products. -->
 
 ::: callout-note
 **We highly recommend you to run the workshop in RStudio Cloud.** Make sure that you have looked at [Setting up R](/rdocs/r01-setup.qmd) as you must authenticate to Google Earth Engine (GEE) to access some data.
 :::
-
-## How to follow this workshop
-
-::: callout-important
-**If you get stuck, ask for help!**
-:::
-
-##### [{{< fa person-chalkboard >}} Demo]{style="color: green;"}
-When you see this icon [{{< fa person-chalkboard >}}]{style="color: green;"}, the content will be demonstrated to you by the instructor. You should follow along and run the code in your own environment as you go. 
-
-##### [{{< fa keyboard >}} Exercises]{style="color: blue;"}
-Throughout the workshop, you will be asked to complete some exercises. These will be marked with this icon [{{< fa keyboard >}}]{style="color: blue;"}. These tasks are designed to help you practice what you have learned. They should take no more than 5 minutes each.
 
 ##  [{{< fa person-chalkboard >}} Demo 1: Authentication]{style="color: green;"}
 

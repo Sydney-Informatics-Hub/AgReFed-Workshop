@@ -10,6 +10,19 @@ This R workshop is aimed at people who are already familiar with R and RStudio. 
 **Please read the [Code of Conduct](/code-of-conduct.qmd), [FAQ](/faq.qmd), and [Setting up](/rdocs/r01-setup.qmd) before joining the workshop.**
 :::
 
+## How to follow the workshops
+
+
+### [{{< fa person-chalkboard >}} Demo]{style="color: green;"}
+
+When you see this icon [{{< fa person-chalkboard >}}]{style="color: green;"}, the content will be demonstrated to you by the instructor. You should follow along and run the code in your own environment as you go. 
+
+
+### [{{< fa keyboard >}} Exercises]{style="color: blue;"}
+
+Throughout the workshop, you will be asked to complete some exercises. These will be marked with this icon [{{< fa keyboard >}}]{style="color: blue;"}. These tasks are designed to help you practice what you have learned. They should take no more than 5 minutes each.
+
+
 ## Join us
 
 ::: callout-tip
