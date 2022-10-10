@@ -43,7 +43,7 @@ website:
       #   text: "GitHub Repository"
     style: "floating" # "floating" "docked"
     search: false
-    collapse-level: 2
+    collapse-level: 1
     contents:
       - text: "Home"
         href: index.qmd
@@ -51,15 +51,20 @@ website:
         href: about.qmd
       - text: "Code of Conduct"
         href: code-of-conduct.qmd
+      - text: "Python Workshop"
+        href: pydocs/py00-workshop.qmd
+      - text: "YAML Overview"
+        href: Settings_Overview.md
+      # - text: "{{< fa link >}} `dataharvester`"
+      #   href: https://sydney-informatics-hub.github.io/dataharvester/
       - text: "{{< fa circle-question >}} FAQ"
         href: faq.qmd
 
       # Python Workshop 
       - text: "---"
-      - text: "Python Workshop"
-        section: pydocs/py00-workshop.qmd
+      - section: "Python Workshop"
         contents:
-          - text: (Under Construction)
+          - text: Introduction
             href: pydocs/py00-workshop.qmd
           # - text: Setting up
           #   href: pydocs/py01-setup.qmd
@@ -74,28 +79,25 @@ website:
 
       # R Workshop
       - text: "---"
-      - text: "R Workshop"
-        section: rdocs/r00-workshop.qmd
+      # - text: "R Workshop"
+      #   href: rdocs/r00-workshop.qmd
+      - section: "R Workshop"
         contents:
-          - text: Introduction
+          - text: "Introduction"
             href: rdocs/r00-workshop.qmd
-          - text: Setting up R
+          - text: "Setting up R"
             href: rdocs/r01-setup.qmd
-          - text: W1 Introduction
-            href: rdocs/r02-introduction.qmd
-          - text: W2 Basic Usage
-            href: rdocs/r03-basic.qmd
-          - text: W3 Advanced
-            href: rdocs/r04-advanced.qmd
-          - text: Troubleshooting
+          - text: "{{< fa life-ring >}} Troubleshooting"
             href: rdocs/r99-troubleshooting.qmd
+          - text: "---"
+          - text: "[{{< fa hammer >}} 1: Introduction"
+            href: rdocs/r02-introduction.qmd
+          - text: "{{< fa hammer >}} 2: Custom Workflows"
+            href: rdocs/r03-basic.qmd
+          - text: "{{< fa hammer >}} 3: Advanced Features"
+            href: rdocs/r04-advanced.qmd
 
       # Additional links
-      - text: "---"
-      - text: "{{< fa folder-tree >}} YAML Overview"
-        href: Settings_Overview.md
-      - text: "{{< fa book >}} `dataharvester`"
-        href: https://sydney-informatics-hub.github.io/dataharvester/
       # - section: folder/example.qmd
       #   contents: 
       #     - folder/rstudio.qmd
