@@ -81,7 +81,6 @@ YAML is a human-readable data-serialization language. It is commonly used for co
 name: "John Smith"
 age: 42
 occupation: "gardener"
----
 ```
 
 Looks familiar? If you have used Markdown or R Markdown, YAML is used to define the metadata for the document.
