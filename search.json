@@ -329,6 +329,27 @@
     "text": "In this workshop\n\n\n\n\nExploring other datasets in Earth Engine (5 min)\nDownloading large images from Google Earth Engine (5 min)\nTemporal Aggregation (10 min)\nSampling point data from rasters (10 min)\nExercise: Revisiting the YAML for sampling\nExercise: Sampling point data from rasters"
   },
   {
+    "objectID": "rdocs/r04-advanced.html#available-datasets-in-earth-engine",
+    "href": "rdocs/r04-advanced.html#available-datasets-in-earth-engine",
+    "title": " Advanced features",
+    "section": "Available datasets in Earth Engine",
+    "text": "Available datasets in Earth Engine\nUnder construction.\n\nDiscuss Landsat, Sentinel, MODIS supporting cloud masking and spectral indices\nDiscuss use of other datasets, but with reduced functionality\nAttribute Python packages eemont for cloud masking and spectral indices functionality, geemap for mapping, geedim for large image downloads\nRun examples (show swapping of datasets, and locations outside of Australia)"
+  },
+  {
+    "objectID": "rdocs/r04-advanced.html#aggregating-raster-data",
+    "href": "rdocs/r04-advanced.html#aggregating-raster-data",
+    "title": " Advanced features",
+    "section": "Aggregating raster data",
+    "text": "Aggregating raster data\nUnder construction.\n\nDiscuss how to aggregate raster data\nExplore temporal aggregation using the aggregate_temporal() function\nRun examples\nOptional: discuss upcoming aggregate() method in GEE"
+  },
+  {
+    "objectID": "rdocs/r04-advanced.html#sampling-point-data-from-rasters",
+    "href": "rdocs/r04-advanced.html#sampling-point-data-from-rasters",
+    "title": " Advanced features",
+    "section": "Sampling point data from rasters",
+    "text": "Sampling point data from rasters\nUnder construction.\n\nTalk about how to sample point data from rasters based on available point dataset using\n\nraster_query()\nYAML config\n\nRun examples"
+  },
+  {
     "objectID": "rdocs/r99-troubleshooting.html",
     "href": "rdocs/r99-troubleshooting.html",
     "title": " Troubleshooting",
