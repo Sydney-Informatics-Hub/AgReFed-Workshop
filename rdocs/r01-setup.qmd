@@ -45,7 +45,7 @@ If you are a Windows user and choose to use `"devtools"`, you may need to instal
 
 ```r
 install.packages("remotes")
-remotes::install_github("Sydney-Informatics-Hub/dataharvester")
+remotes::install_github("sydney-informatics-hub/dataharvester")
 ```
 Don't forget to load the package:
 
@@ -79,9 +79,11 @@ If you have a [Google Earth Engine](https://earthengine.google.com/){target="_bl
 To activate Google Earth Engine, simply include `earthengine = TRUE` when initialising:
   
 ```r
-initialise_harvester(earthengine = TRUE)
+initialise_harvester("r-reticulate", earthengine = TRUE)
 ```
 Follow the instructions carefully, as Google Earth Engine requires you to authenticate with a Google account. You will need to copy and paste a link into your browser, and then copy and paste the resulting code back into R.
+
+If you are authenticating from a server environment or RStudio Cloud, you may need to use a different authentication method. See the [Troubleshooting](/rdocs/r99-troubleshooting.qmd) section and look for the section "Google Earth Engine authentication".
 :::
 
 ### Need help?

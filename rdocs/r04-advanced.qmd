@@ -7,11 +7,10 @@ markdown:
 :::{.callout-tip}
 ## In this workshop
 
+- Exploring other datasets in Earth Engine (5 min)
 - Downloading large images from Google Earth Engine (5 min)
 - Temporal Aggregation (10 min)
-- Previewing multiple images and timelapse (5 min)
-- Exploring other datasets in Earth Engine (5 min)
 - Sampling point data from rasters (10 min)
-- **Exercise**: Cloud and shadow masking (5 min)
-- **Exercise**: Spectral indices (5 min)
+- Exercise: Revisiting the YAML for sampling
+- Exercise: Sampling point data from rasters
 :::
