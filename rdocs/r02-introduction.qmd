@@ -32,7 +32,7 @@ Hello and welcome to **Workshop 1**. In this workshop, we will learn about AgReF
 In this demo, we will: 
 
 - check that your `reticulate` environment is set up correctly;
-- intialise Google Earth Engine (GEE), and authenticate to a Google account; and
+- initialise Google Earth Engine (GEE), and authenticate to a Google account; and
 - perform a simple test to validate that the Data-Harvester is working.
 
 :::
@@ -53,7 +53,7 @@ initialise_harvester("r-reticulate", earthengine = TRUE)
 
 The function will now try to authenticate to Google Earth Engine. This might involve opening a browser window and copying a code into the console.
 
-You **must** initialise and authenticate to Google Earth Engine as each authentication key is tied to a specific Google account. Detailed instructions on authentication can also be found on the `dataharvester` package documentationon online.
+You **must** initialise and authenticate to Google Earth Engine as each authentication key is tied to a specific Google account. Detailed instructions on authentication can also be found on the `dataharvester` package documentation online.
 
 ##  [{{< fa person-chalkboard >}} Demo 2: YAML config]{style="color: green;"}
 
@@ -81,6 +81,7 @@ YAML is a human-readable data-serialization language. It is commonly used for co
 name: "John Smith"
 age: 42
 occupation: "gardener"
+---
 ```
 
 Looks familiar? If you have used Markdown or R Markdown, YAML is used to define the metadata for the document.
