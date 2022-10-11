@@ -319,7 +319,7 @@
     "href": "rdocs/r02-introduction.html#wrapping-up",
     "title": " Introduction",
     "section": "Wrapping up",
-    "text": "Wrapping up\nThis is the end of Workshop 1. In this workshop we have covered setup and using the YAML connfiguration file to download from multiple API sources. In the next workshop (Workshop 2), we will cover how to use individual download functions to create custom workflows for downloading data.\nSee you there!"
+    "text": "Wrapping up\nThis is the end of Workshop 1. In this workshop we have covered setup and using the YAML configuration file to download from multiple API sources. In the next workshop (Workshop 2), we will cover how to use individual download functions to create custom workflows for downloading data.\nSee you there!"
   },
   {
     "objectID": "rdocs/r04-advanced.html",
