@@ -10,19 +10,64 @@ This section is for troubleshooting issues with the {{< fa brands r-project >}} 
 Found a bug? [**Open an issue**](https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop/issues) on the `dataharvester` GitHub repository by clicking the "New Issue" button in the "Issues" tab.
 :::
 
-
-### Installing miniconda
-
-During installation of the `dataharvester` package, you may be asked to install `r-miniconda`. This is a package that allows you to install and use Python packages within R through the [Conda binary package manager](https://conda.io/projects/conda/en/latest/index.html). 
-
-If you already have Python installed, R may still ask you to install `r-miniconda`. This is because `r-miniconda` is a separate package from Python, and is not the same as the Python package manager `pip`. Importantly, [miniconda](https://docs.conda.io/en/latest/miniconda.html) is *almost* necessary for Windows users as it allows you to install certain Python *and* non-Python packages without having to install a full version of Python and running installation commands in the command line. These include the [GDAL](https://gdal.org/) binary which is a translator library for raster and vector geospatial data formats, and the [PROJ](https://proj.org/) library which is a cartographic projection and coordinate transformation library.
-
-
-
+<!-- 
 ### Activating a Conda environment
 
 
-### Dependencies and GDAL
+### GDAL
 
+### Google Cloud CLI -->
 
 ### Google Earth Engine authentication
+
+
+#### RStudio Cloud/Binder
+
+::: callout-warning
+Google has migrated to OAuth 2.0 for authentication protocols on October 3, 2022. Part of the upgrade [protects users from phising and app impersonation attacks](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html).
+
+Unfortunately, this has temporarily broken Google Earth Engine (GEE) authentication on RStudio Cloud and Binder. A workaround is available and documented below.
+:::
+
+To authenticate with Google Earth Engine (GEE), you will need to have an existing Google account. If you do not have one, you can create one [here](https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&flowEntry=SignUp).
+
+Once you have an account, authenticate with GEE by running the following code in the RStudio console:
+
+```r
+library(dataharvester)
+authenticate_harvester("r-reticulate", 
+                       earthengine = TRUE,
+                       auth_mode = "rstudiocloud")
+```
+Make sure that `auth_mode` is set to `"rstudiocloud"` as it is currently the **only option** available for RStudio Cloud and Binder (see warning callout above).
+
+What happens next will look confusing, but *is actually working*. You will be prompted to open a new browser window, but because RStudio Cloud and Binder do not allow this, several warning messages will appear. **Ignore them - copy the URL produced and paste it into a new browser window** (Fig 1). 
+
+
+![Fig 1. Copy the URL and paste it in a new browser window.](../images/gee/gee00.jpg)
+
+You will then need to sign in to an existing Google account. A couple of prompts will appear depending on whether you have already authenticated with GEE before. At some point, you will link your Google account to a GEE notebook (Fig 2).
+
+::: {layout="[1,1]"}
+![Fig 2a. Sign in and click "Next".](../images/gee/gee01.jpg)
+
+![Fig 2b. Link to GEE notebook.](../images/gee/gee02.jpg)
+:::
+
+Next, you will be prompted to generate a token. The option "Use read-only scopes" can be left unchecked since you are working with data (Fig 3).
+
+![Fig 3. Generate the token.](../images/gee/gee03.jpg)
+
+Google will warn you once more about linking the notebook (that it created) to your Google Earth Engine data. Click "Continue" (Fig 4).
+
+![Fig 4. Verify once again that the GEE notebook will accesss your Google Account by clicking on "Continue".](../images/gee/gee04.jpg)
+
+You will then be redirected to a page where you need to explicitly grant access to the GEE notebook (Fig 5). Check the two boxes and click "Continue" (Fig 5).
+
+![Fig 5. Check the boxes to understand what you are allowing the notebook to access. Then, click "Continue".](../images/gee/gee05.jpg)
+
+Finally, you will be redirected to a page that contains an Authorization Code (Fig 6). Copy the code and paste it into the RStudio console (Fig 7).
+
+![Fig 6. Copy the token on this page under "Authorization code".](../images/gee/gee06.jpg)
+
+![Fig 7. Paste the token in the RStudio console at "Enter verification code". The token is saved and should last the workshop session.](../images/gee/gee07.jpg)
