@@ -276,6 +276,6 @@ Your instructor will discuss this exercise in the next workshop.
 
 ## Wrapping up
 
-This is the end of **Workshop 1**. In this workshop we have covered setup and using the YAML connfiguration file to download from multiple API sources. In the next workshop ([**Workshop 2**](/rdocs/r03-basic.qmd)), we will cover how to use individual download functions to create custom workflows for downloading data.
+This is the end of **Workshop 1**. In this workshop we have covered setup and using the YAML configuration file to download from multiple API sources. In the next workshop ([**Workshop 2**](/rdocs/r03-basic.qmd)), we will cover how to use individual download functions to create custom workflows for downloading data.
 
 See you there!
