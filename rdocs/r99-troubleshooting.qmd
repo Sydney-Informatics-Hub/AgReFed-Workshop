@@ -24,7 +24,7 @@ Found a bug? [**Open an issue**](https://github.com/Sydney-Informatics-Hub/AgReF
 #### RStudio Cloud/Binder
 
 ::: callout-warning
-Google has migrated to OAuth 2.0 for authentication protocols on October 3, 2022. Part of the upgrade [protects users from phising and app impersonation attacks](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html).
+Google has migrated to OAuth 2.0 for authentication protocols on October 3, 2022. Part of the upgrade [protects users from phishing and app impersonation attacks](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html).
 
 Unfortunately, this has temporarily broken Google Earth Engine (GEE) authentication on RStudio Cloud and Binder. A workaround is available and documented below.
 :::
