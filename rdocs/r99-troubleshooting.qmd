@@ -71,3 +71,49 @@ Finally, you will be redirected to a page that contains an Authorization Code (F
 ![Fig 6. Copy the token on this page under "Authorization code".](../images/gee/gee06.jpg)
 
 ![Fig 7. Paste the token in the RStudio console at "Enter verification code". The token is saved and should last the workshop session.](../images/gee/gee07.jpg)
+
+## Alternative Conda environment installation
+
+If you are a Python user, you may encounter trouble installing Python environments for `dataharvester` due to Python binary conflicts. One easy way to bypass this is to install Conda environment separately in the Terminal. As long as it is a conda environment, `dataharvester` will be able to find it by name. The text to include in your `environment.yml` is below - rename `name: dataharvester` to anything you like.
+
+```yaml
+name: dataharvester
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9
+  - rasterio
+  - gdal
+  - google-cloud-sdk
+  - rioxarray
+  - xarray
+  - h5netcdf
+  - pip
+  - pip:
+    - alive-progress
+    - eemont
+    - geemap
+    - geedim
+    - geopandas
+    - jupyter
+    - notebook
+    - numba
+    - owslib
+    - ipykernel
+    - ipywidgets==7.6.5
+    - earthengine-api
+    - wxee
+    - termcolor
+```
+To install the environment, run the following in the Terminal:
+
+```bash
+conda env create -f environment.yml
+```
+where `environment.yml` is the path to the file you created above. The installation should take anywhere from 5 to 10 minutes. Once it is done, you can use the environment in `dataharvester` by running the following code:
+
+```r
+library(dataharvester)
+authenticate_harvester("conda_env")
+```
+where `"conda_env"` is the name of the environment you created above (e.g. `"dataharvester"`)
