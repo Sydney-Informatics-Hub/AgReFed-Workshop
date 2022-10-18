@@ -23,7 +23,7 @@ Want to play around with `dataharvester` without an RStudio Cloud account? Launc
 ## RStudio Desktop
 
 ::: callout-important
-Choosing this option means that you have decided to install R and RStudio on your computer. This is not recommended for beginners as it can be a complicated process. If you are unsure, please use RStudio Cloud.
+Choosing this option means that you have decided to install R and RStudio on your computer. **Note** this is not recommended for the workshop as there may be issues to troubleshoot we cannot support. If you are unsure, please use RStudio Cloud.
 
 You must know how to debug issues if you choose to use RStudio Desktop. **Please set up RStudio before the workshop so that you can debug early and focus on the content (see below).**
 :::
