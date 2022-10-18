@@ -321,7 +321,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-In this workshop
+In this session
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -340,8 +340,8 @@ In this workshop
 </div>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Welcome to <strong>Workshop 2</strong>.</p>
-<p>The <code>harvest()</code> function used in the last workshop was a wrapper for several <code>download_*()</code> functions already available in <code>dataharvester</code> (see <a href="https://github.com/Sydney-Informatics-Hub/dataharvester/blob/main/inst/python/harvest.py">source</a>). In this workshop, we willl show you how to call these functions directly for more control over the data download process:</p>
+<p>Welcome to <strong>Session 2</strong>.</p>
+<p>The <code>harvest()</code> function used in the last session was a wrapper for several <code>download_*()</code> functions already available in <code>dataharvester</code> (see <a href="https://github.com/Sydney-Informatics-Hub/dataharvester/blob/main/inst/python/harvest.py">source</a>). In this session, we willl show you how to call these functions directly for more control over the data download process:</p>
 <ul>
 <li><code>download_dem()</code> for Geoscience Australia DEM grid data</li>
 <li><code>download_slga()</code> for Soil and Landscape Grid Australia (SLGA) - Soil Atributes</li>
@@ -364,8 +364,8 @@ In this workshop
 <h4 class="anchored" data-anchor-id="function-syntax">Function syntax</h4>
 <p>Each <code>download_*()</code> function has similar syntax:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>download_<span class="sc">*</span>(layer,</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>           out_path, </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>           bounding_box, </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>           out_path,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>           bounding_box,</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>           <span class="sc">&lt;</span><span class="er">&lt;</span>other arguments<span class="sc">&gt;</span><span class="er">&gt;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>where:</p>
 <ul>
@@ -475,7 +475,7 @@ Important
 <p>Note that the order of processing <strong>must</strong> follow the above, or there may be unintended consequences. If you find any irregular behaviour, let us know! The <code>dataharvester</code> package is in early development and we are keen to fix any undocumented issues.</p>
 </div>
 </div>
-<p>Once the data has been downloaded as images, you may manually extract samples like how you would with any other GeoTIFF - we will discuss that in <strong>Workshop 3</strong>.</p>
+<p>Once the data has been downloaded as images, you may manually extract samples like how you would with any other GeoTIFF - we will discuss that in <strong>Session 3</strong>.</p>
 <p>For now, let’s use a full example to demonstrate and explain these functions. Make sure that you have initialised the <code>dataharvester</code> package with your GEE credentials:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">initialise_harvester</span>(<span class="st">"r-reticulate"</span>, <span class="at">earthengine =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">collect_ee</span>(</span>
@@ -486,20 +486,20 @@ Important
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">preprocess_ee</span>(<span class="at">object =</span> img, <span class="at">reduce =</span> <span class="st">"median"</span>)</span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">map_ee</span>(img, <span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>))</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">download_ee</span>(img, <span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>), </span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">download_ee</span>(img, <span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>),</span>
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_path =</span> <span class="st">"downloads/"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The code above can also be streamlined with pipes:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> </span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect_ee</span>(</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">collection =</span> <span class="st">"LANDSAT/LC09/C02/T1_L2"</span>,</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">coords =</span> llara,</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">date =</span> <span class="st">"2021-06-01"</span>,</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">end_date =</span> <span class="st">"2022-06-01"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">preprocess_ee</span>(<span class="at">reduce =</span> <span class="st">"median"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_ee</span>(<span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download_ee</span>(<span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>), </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">end_date =</span> <span class="st">"2022-06-01"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">preprocess_ee</span>(<span class="at">reduce =</span> <span class="st">"median"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_ee</span>(<span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download_ee</span>(<span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>),</span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">out_path =</span> <span class="st">"downloads/"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Your instructor will demonstrate more examples during the workshop.</p>
+<p>Your instructor will demonstrate more examples during the session.</p>
 </section>
 </section>
 <section id="fa-keyboard-exercise-1-cloud-and-shadow-masking" class="level2">
@@ -628,7 +628,7 @@ Agenda
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 </span></span>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>dea <span class="ot">&lt;-</span> <span class="fu">download_dea</span>(</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">layer =</span> <span class="fu">c</span>(<span class="st">"landsat_barest_earth"</span>, <span class="st">"ga_ls_fc_pc_cyear_3"</span>),</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">bounding_box =</span> llara,</span>
@@ -643,7 +643,7 @@ Agenda
 <span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 3</span></span>
 <span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dea, <span class="dv">2</span>)</span>
 <span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 4 </span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 4</span></span>
 <span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dea, <span class="dv">2</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
@@ -651,7 +651,7 @@ Agenda
 </section>
 <section id="wrapping-up" class="level2">
 <h2 class="anchored" data-anchor-id="wrapping-up">Wrapping up</h2>
-<p>This is the end of <strong>Workshop 2</strong>. In this workshop we looked at using manual methods to download data from various API sources and the GEE Catalog. We also briefly looked at how to plot the data using the <code>terra</code> package as well as the <code>plot()</code> function for objects created using the <code>download_*()</code> functions.</p>
+<p>This is the end of <strong>Session 2</strong>. In this session we looked at using manual methods to download data from various API sources and the GEE Catalog. We also briefly looked at how to plot the data using the <code>terra</code> package as well as the <code>plot()</code> function for objects created using the <code>download_*()</code> functions.</p>
 
 
 </section>
