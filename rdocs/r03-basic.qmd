@@ -5,7 +5,7 @@ markdown:
 ---
 
 :::{.callout-tip}
-## In this workshop
+## In this session
 
 <!-- - Downloading without the configuration file (10 min)
 - Google Earth Engine in `dataharvester` (5 min)
@@ -15,15 +15,15 @@ markdown:
 - **Exercise**: Maps and visualisation (10 min) -->
 
 1. Manually download data without the YAML configuration file
-2. Access and view Google Earth Engine data 
+2. Access and view Google Earth Engine data
 3. Extract samples from downloaded rasters
 :::
 
 ## Introduction
 
-Welcome to **Workshop 2**. 
+Welcome to **Session 2**.
 
-The `harvest()` function used in the last workshop was a wrapper for several `download_*()` functions already available in `dataharvester` (see [source](https://github.com/Sydney-Informatics-Hub/dataharvester/blob/main/inst/python/harvest.py)). In this workshop, we willl show you how to call these functions directly for more control over the data download process:
+The `harvest()` function used in the last session was a wrapper for several `download_*()` functions already available in `dataharvester` (see [source](https://github.com/Sydney-Informatics-Hub/dataharvester/blob/main/inst/python/harvest.py)). In this session, we willl show you how to call these functions directly for more control over the data download process:
 
 - `download_dem()` for Geoscience Australia DEM grid data
 - `download_slga()` for Soil and Landscape Grid Australia (SLGA) - Soil Atributes
@@ -51,8 +51,8 @@ Each `download_*()` function has similar syntax:
 
 ```r
 download_*(layer,
-           out_path, 
-           bounding_box, 
+           out_path,
+           bounding_box,
            <<other arguments>>)
 ```
 where:
@@ -85,7 +85,7 @@ corrigin <- c(118.015, -32.356, 118.215, -32.156)    # WA
 nedscorner <- c(141.215, -34.241, 141.415, -34.0414) # VIC
 ```
 
-These are locations on the Australian continent as most APIs we use are specific to Australia (with the exception of functions that use the Google Earth Engine API). 
+These are locations on the Australian continent as most APIs we use are specific to Australia (with the exception of functions that use the Google Earth Engine API).
 
 ::: {.callout-caution collapse="true"}
 ## Interested in generating your own bounding box?
@@ -140,7 +140,7 @@ For full functionality, we recommend that you use the [GEE Python API](https://d
 Accessing GEE is simple once you have an account and have initialised the `dataharvester` package:
 
 - The `collect_ee()` function is used to search the GEE Data Catalogue and return a list of available datasets based on pre-determined filters.
-- The `preprocess_ee()` function is used to calculate summaries within the datasets before downloading or mapping. 
+- The `preprocess_ee()` function is used to calculate summaries within the datasets before downloading or mapping.
 - The `map_ee()` and `download_ee()` functions are then available to map and download the data.
 
 #### Workflow
@@ -155,7 +155,7 @@ The workflow for using the GEE API is as follows:
 Note that the order of processing **must** follow the above, or there may be unintended consequences. If you find any irregular behaviour, let us know! The `dataharvester` package is in early development and we are keen to fix any undocumented issues.
 :::
 
-Once the data has been downloaded as images, you may manually extract samples like how you would with any other GeoTIFF - we will discuss that in **Workshop 3**. 
+Once the data has been downloaded as images, you may manually extract samples like how you would with any other GeoTIFF - we will discuss that in **Session 3**.
 
 For now, let's use a full example to demonstrate and explain these functions. Make sure that you have initialised the `dataharvester` package with your GEE credentials:
 
@@ -169,26 +169,26 @@ img <- collect_ee(
 )
 img <- preprocess_ee(object = img, reduce = "median")
 img <- map_ee(img, bands = c("SR_B2", "SR_B3", "SR_B4"))
-img <- download_ee(img, bands = c("SR_B2", "SR_B3", "SR_B4"), 
+img <- download_ee(img, bands = c("SR_B2", "SR_B3", "SR_B4"),
   out_path = "downloads/"
 ```
 
-The code above can also be streamlined with pipes: 
+The code above can also be streamlined with pipes:
 
 ```r
-img <- 
+img <-
   collect_ee(
     collection = "LANDSAT/LC09/C02/T1_L2",
     coords = llara,
     date = "2021-06-01",
-    end_date = "2022-06-01") %>% 
-  preprocess_ee(reduce = "median") %>% 
-  map_ee(bands = c("SR_B2", "SR_B3", "SR_B4")) %>% 
-  download_ee(bands = c("SR_B2", "SR_B3", "SR_B4"), 
+    end_date = "2022-06-01") %>%
+  preprocess_ee(reduce = "median") %>%
+  map_ee(bands = c("SR_B2", "SR_B3", "SR_B4")) %>%
+  download_ee(bands = c("SR_B2", "SR_B3", "SR_B4"),
     out_path = "downloads/"
 ```
 
-Your instructor will demonstrate more examples during the workshop.
+Your instructor will demonstrate more examples during the session.
 
 
 ## [{{< fa keyboard >}} Exercise 1: Cloud and shadow masking]{style="color: blue;"}
@@ -266,7 +266,7 @@ dea <- download_dea(
 plot(dea)
 ```
 
-The code above will plot all layers and their bands in the same plot. 
+The code above will plot all layers and their bands in the same plot.
 
 ## [{{< fa keyboard >}} Exercise 2: More plots]{style="color: blue;"}
 
@@ -303,7 +303,7 @@ Modify the code and:
 ## {{< fa keyboard >}} Solution
 
 ```r
-# 1 
+# 1
 dea <- download_dea(
   layer = c("landsat_barest_earth", "ga_ls_fc_pc_cyear_3"),
   bounding_box = llara,
@@ -318,7 +318,7 @@ plot(dea)
 # 3
 plot(dea, 2)
 
-# 4 
+# 4
 plot(dea, 2, 2)
 
 ```
@@ -326,4 +326,4 @@ plot(dea, 2, 2)
 
 ## Wrapping up
 
-This is the end of **Workshop 2**. In this workshop we looked at using manual methods to download data from various API sources and the GEE Catalog. We also briefly looked at how to plot the data using the `terra` package as well as the `plot()` function for objects created using the `download_*()` functions.
+This is the end of **Session 2**. In this session we looked at using manual methods to download data from various API sources and the GEE Catalog. We also briefly looked at how to plot the data using the `terra` package as well as the `plot()` function for objects created using the `download_*()` functions.

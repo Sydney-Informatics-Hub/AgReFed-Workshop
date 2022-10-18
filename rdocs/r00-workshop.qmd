@@ -10,12 +10,12 @@ This R workshop is aimed at people who are already familiar with R and RStudio. 
 **Please read the [Code of Conduct](/code-of-conduct.qmd), [FAQ](/faq.qmd), and [Setting up](/rdocs/r01-setup.qmd) before joining the workshop.**
 :::
 
-## How to follow the workshops
+## How to follow the sessions
 
 
 ### [{{< fa person-chalkboard >}} Demo]{style="color: green;"}
 
-When you see this icon [{{< fa person-chalkboard >}}]{style="color: green;"}, the content will be demonstrated to you by the instructor. You should follow along and run the code in your own environment as you go. 
+When you see this icon [{{< fa person-chalkboard >}}]{style="color: green;"}, the content will be demonstrated to you by the instructor. You should follow along and run the code in your own environment as you go.
 
 
 ### [{{< fa keyboard >}} Exercises]{style="color: blue;"}
@@ -28,7 +28,7 @@ Throughout the workshop, you will be asked to complete some exercises. These wil
 ::: callout-tip
 ### Workshop information {.unnumbered}
 
-The next AgReFed Data-Harvester Workshop **in R** will be run on **Tue, 25 Oct, 2022, at 09:30am AEST (Sydney)**. 
+The next AgReFed Data-Harvester Workshop **in R** will be run on **Tue, 25 Oct, 2022, at 09:30am AEST (Sydney)**.
 
 <script src="https://cdn.logwork.com/widget/countdown.js"></script>
 <a href="https://logwork.com/countdown-w5fs" class="countdown-timer" data-style="circles" data-timezone="Australia/Sydney" data-date="2022-10-25 09:30">Workshop starts in...</a>
@@ -38,4 +38,4 @@ The next AgReFed Data-Harvester Workshop **in R** will be run on **Tue, 25 Oct, 
 
 
 - {{< fa chalkboard-user >}} **Zoom link**: [Register online](https://www.eventbrite.com.au/e/agrefed-data-harvester-workshop-tickets-425515517367r) and link to the workshop will be sent, via email, closer to the workshop date.
-- {{< fa download >}} **Workshop material**: Click [here]() to download the workshop material. (*Link will be available closer to the workshop date.*) 
+- {{< fa download >}} **Workshop material**: Click [here]() to download the workshop material. (*Link will be available closer to the workshop date.*)

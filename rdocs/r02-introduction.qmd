@@ -5,7 +5,7 @@ markdown:
 ---
 
 :::{.callout-tip}
-## In this workshop
+## In this session
 
 1. Learn about AgReFed and the `dataharvester` package
 2. Use `dataharvester` to access and analyse data with a YAML configuration file
@@ -14,11 +14,11 @@ markdown:
 
 ## Introduction
 
-Hello and welcome to **Workshop 1**. In this workshop, we will learn about AgReFed and the `dataharvester` package and access data with a YAML configuration file.
+Hello and welcome to **Session 1**. In this session, we will learn about AgReFed and the `dataharvester` package and access data with a YAML configuration file.
 
-<!-- In **Workshop 2**, we will preview and manipulate downloaded data manually without the YAML config, and explore some Google Earth Engine functionality.
+<!-- In **Session 2**, we will preview and manipulate downloaded data manually without the YAML config, and explore some Google Earth Engine functionality.
 
-**Workshop 3** will introduce to you some of the more advanced features of `dataharvester` including the ability to preprocess data and create custom data products. -->
+**Session 3** will introduce to you some of the more advanced features of `dataharvester` including the ability to preprocess data and create custom data products. -->
 
 ::: callout-note
 **We highly recommend you to run the workshop in RStudio Cloud.** Make sure that you have looked at [Setting up R](/rdocs/r01-setup.qmd) as you must authenticate to Google Earth Engine (GEE) to access some data.
@@ -29,7 +29,7 @@ Hello and welcome to **Workshop 1**. In this workshop, we will learn about AgReF
 ::: {.callout-tip icon="false"}
 ## Agenda
 
-In this demo, we will: 
+In this demo, we will:
 
 - check that your `reticulate` environment is set up correctly;
 - initialise Google Earth Engine (GEE), and authenticate to a Google account; and
@@ -110,7 +110,7 @@ To run the configuration file, we use the `harvest()` function. The function tak
 ### Relative and absolute path strings
 A relative path is a path that is relative to the current working directory. For example, if you are working in the `dataharvester` directory, the path to the `basic_config.yaml` file, stored in the `assets` folder, is `assets/basic_config.yaml`.
 
-An absolute path is a path that starts from the root directory. For example, the absolute path to the `basic_config.yaml` file is `/home/rstudio/dataharvester/assets/basic_config.yaml`. 
+An absolute path is a path that starts from the root directory. For example, the absolute path to the `basic_config.yaml` file is `/home/rstudio/dataharvester/assets/basic_config.yaml`.
 
 Relative paths are useful when you are working in a project directory, as they are shorter and easier to remember. Relative paths also allow you to share your code with others, as they will not need to change the path in the configuration file as long as they are working in the same folder. Absolute paths are useful when you are working in a different directory, or when you are working on a local machine.
 :::
@@ -125,9 +125,9 @@ Several optional arguments are available to customise the output of `harvest()`:
 - `contour`: if `TRUE`, the function will add a contour plot to the output raster data
 
 ```r
-harvest("assets/basic_config.yaml", 
-  log_name = "basic_config", 
-  preview = TRUE, 
+harvest("assets/basic_config.yaml",
+  log_name = "basic_config",
+  preview = TRUE,
   contour = TRUE)
 ```
 
@@ -159,9 +159,9 @@ target_sources:
 Let's run the above configuration file and preview the output data. You should already have the `DEA` data downloaded, so the function will only download the new data sources. In addition, the `preview` and `contour` arguments have been set to `TRUE` to preview the output data. We will also create a new log file, called `"multi_config.txt"` for this run.
 
 ```r
-harvest("assets/multi_config.yaml", 
-  log_name = "multi_config", 
-  preview = TRUE, 
+harvest("assets/multi_config.yaml",
+  log_name = "multi_config",
+  preview = TRUE,
   contour = TRUE)
 ```
 
@@ -215,15 +215,15 @@ Time to tap into the Google Earth Engine API. This demo will:
 
 :::
 
-We will continue to use the same configuration file, `basic_config.yaml`, to download data from **Google Earth Engine**. Below, we add a new key to the `target_sources` list, called `GEE`. **Workshop 2** will cover how to use the GEE API in more detail, but for now, we will preview how the YAML configuration file can be used download data from GEE.
+We will continue to use the same configuration file, `basic_config.yaml`, to download data from **Google Earth Engine**. Below, we add a new key to the `target_sources` list, called `GEE`. **Session 2** will cover how to use the GEE API in more detail, but for now, we will preview how the YAML configuration file can be used download data from GEE.
 
 
 ```yaml
 ---
-infile:  
+infile:
 outpath: downloads/
-colname_lat:  
-colname_lng:  
+colname_lat:
+colname_lng:
 target_bbox: [149.769345, -30.335861, 149.949173, -30.206271]
 target_dates: [2021]
 target_res: 6.0
@@ -231,10 +231,10 @@ target_res: 6.0
 target_sources:
   DEA: [landsat_barest_earth]
   DEM: [DEM]
-  Landscape: [Relief_300m, Slope, Aspect]  
+  Landscape: [Relief_300m, Slope, Aspect]
   SILO:
     monthly_rain: [sum]
-    max_temp: [sum] 
+    max_temp: [sum]
   SLGA:
     Bulk_Density: [0-5cm]
     Clay: [0-5cm]
@@ -271,10 +271,10 @@ Change the `collection` attribute in `basic_config.yaml` to one of [Landsat](htt
 
 :::
 
-Your instructor will discuss this exercise in the next workshop.
+Your instructor will discuss this exercise in the next session.
 
 ## Wrapping up
 
-This is the end of **Workshop 1**. In this workshop we have covered setup and using the YAML configuration file to download from multiple API sources. In the next workshop ([**Workshop 2**](/rdocs/r03-basic.qmd)), we will cover how to use individual download functions to create custom workflows for downloading data.
+This is the end of **Session 1**. In this session we have covered setup and using the YAML configuration file to download from multiple API sources. In the next session ([**Session 2**](/rdocs/r03-basic.qmd)), we will cover how to use individual download functions to create custom workflows for downloading data.
 
 See you there!
