@@ -283,11 +283,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#fa-person-chalkboard-demo-1-manual-downloads" id="toc-fa-person-chalkboard-demo-1-manual-downloads" class="nav-link" data-scroll-target="#fa-person-chalkboard-demo-1-manual-downloads"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 1: Manual downloads</span></a>
   <ul class="collapse">
-  <li><a href="#before-you-begin" id="toc-before-you-begin" class="nav-link" data-scroll-target="#before-you-begin">Before you begin</a></li>
+  <li><a href="#bounding-boxes" id="toc-bounding-boxes" class="nav-link" data-scroll-target="#bounding-boxes">Bounding boxes</a></li>
   </ul></li>
-  <li><a href="#fa-person-chalkboard-demo-1-manual-downloads" id="toc-fa-person-chalkboard-demo-1-manual-downloads" class="nav-link" data-scroll-target="#fa-person-chalkboard-demo-1-manual-downloads"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 1: Manual downloads</span></a></li>
   <li><a href="#fa-person-chalkboard-demo-2-google-earth-engine" id="toc-fa-person-chalkboard-demo-2-google-earth-engine" class="nav-link" data-scroll-target="#fa-person-chalkboard-demo-2-google-earth-engine"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 2: Google Earth Engine</span></a></li>
   <li><a href="#fa-keyboard-exercise-1-cloud-and-shadow-masking" id="toc-fa-keyboard-exercise-1-cloud-and-shadow-masking" class="nav-link" data-scroll-target="#fa-keyboard-exercise-1-cloud-and-shadow-masking"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercise 1: Cloud and shadow masking</span></a></li>
   <li><a href="#fa-person-chalkboard-demo-3-preview-rasters" id="toc-fa-person-chalkboard-demo-3-preview-rasters" class="nav-link" data-scroll-target="#fa-person-chalkboard-demo-3-preview-rasters"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 3: Preview rasters</span></a></li>
@@ -315,33 +315,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>Welcome to <strong>Session 2</strong>.</p>
+<p>The <code>harvest()</code> function used in the last session was a wrapper for several <code>download_*()</code> functions already available in <code>dataharvester</code> (see <a href="https://github.com/Sydney-Informatics-Hub/dataharvester/blob/main/inst/python/harvest.py">source</a>). In this session, we willl show you how to call these functions directly for more control over the data download process.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-In this session
+All available <code>download_*()</code> functions
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<!-- - Downloading without the configuration file (10 min)
-- Google Earth Engine in `dataharvester` (5 min)
-- Exploring Google Earth Engine functions (10 min)
-- **Exercise**: Deciding on a study area (10 min)
-- **Exercise**: Exploring image bands (10 min)
-- **Exercise**: Maps and visualisation (10 min) -->
-<ol type="1">
-<li>Manually download data without the YAML configuration file</li>
-<li>Access and view Google Earth Engine data</li>
-<li>Extract samples from downloaded rasters</li>
-</ol>
-</div>
-</div>
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>Welcome to <strong>Session 2</strong>.</p>
-<p>The <code>harvest()</code> function used in the last session was a wrapper for several <code>download_*()</code> functions already available in <code>dataharvester</code> (see <a href="https://github.com/Sydney-Informatics-Hub/dataharvester/blob/main/inst/python/harvest.py">source</a>). In this session, we willl show you how to call these functions directly for more control over the data download process:</p>
 <ul>
 <li><code>download_dem()</code> for Geoscience Australia DEM grid data</li>
 <li><code>download_slga()</code> for Soil and Landscape Grid Australia (SLGA) - Soil Atributes</li>
@@ -350,23 +339,19 @@ In this session
 <li><code>download_silo()</code> for Scientific Information for Land Owners (SILO) climate data</li>
 <li><code>collect_ee()</code>, <code>preprocess_ee()</code> and <code>download_ee()</code> for access to datasets available in the Google Earth Engine Data Catalog</li>
 </ul>
-<p>We will also show you how to extract single-band samples from downloaded rasters. <strong>This is useful if you already have raster images and want to extract samples from them.</strong></p>
-<section id="before-you-begin" class="level3">
-<h3 class="anchored" data-anchor-id="before-you-begin">Before you begin</h3>
-<p>If you have not already done so, initialise the Data-Harvester:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dataharvester)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">initialise_harvester</span>(<span class="st">"r-reticulate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
+</div>
+</div>
+</div>
 </section>
 <section id="fa-person-chalkboard-demo-1-manual-downloads" class="level2">
 <h2 class="anchored" data-anchor-id="fa-person-chalkboard-demo-1-manual-downloads"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 1: Manual downloads</span></h2>
 <section id="function-syntax" class="level4">
 <h4 class="anchored" data-anchor-id="function-syntax">Function syntax</h4>
 <p>Each <code>download_*()</code> function has similar syntax:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>download_<span class="sc">*</span>(layer,</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>           out_path,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>           bounding_box,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>           <span class="sc">&lt;</span><span class="er">&lt;</span>other arguments<span class="sc">&gt;</span><span class="er">&gt;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>download_<span class="sc">*</span>(layer,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>           out_path,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>           bounding_box,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>           <span class="sc">&lt;</span><span class="er">&lt;</span>other arguments<span class="sc">&gt;</span><span class="er">&gt;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>where:</p>
 <ul>
 <li><code>layer</code> determines the name(s) of the layer(s) to download</li>
@@ -374,18 +359,21 @@ In this session
 <li><code>bounding_box</code> is the EPSG:4328 coordinates used to define the area to download as a bounding box</li>
 </ul>
 <p>For example, to download the Hydrologically Enforced DEM (DEM-H) layer from Geoscience Australia’s DEM grid data, you would use:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download_dem</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">layer =</span> <span class="st">"DEM"</span>,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">out_path =</span> <span class="st">"downloads/"</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">bounding_box =</span> <span class="fu">c</span>(<span class="fl">149.769345</span>, <span class="sc">-</span><span class="fl">30.335861</span>, <span class="fl">149.949173</span>, <span class="sc">-</span><span class="fl">30.206271</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download_dem</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">layer =</span> <span class="st">"DEM"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">out_path =</span> <span class="st">"downloads/"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">bounding_box =</span> <span class="fu">c</span>(<span class="fl">149.769345</span>, <span class="sc">-</span><span class="fl">30.335861</span>, <span class="fl">149.949173</span>, <span class="sc">-</span><span class="fl">30.206271</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="bounding-boxes" class="level3">
+<h3 class="anchored" data-anchor-id="bounding-boxes">Bounding boxes</h3>
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Reminder
+Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -393,17 +381,16 @@ Reminder
 </div>
 </div>
 <p>Let’s define some areas of interest as bounding boxes for the rest of this Demo:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>llara <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">149.769</span>, <span class="sc">-</span><span class="fl">30.335</span>, <span class="fl">149.969</span>, <span class="sc">-</span><span class="fl">30.135</span>)       <span class="co"># NSW</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>corrigin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">118.015</span>, <span class="sc">-</span><span class="fl">32.356</span>, <span class="fl">118.215</span>, <span class="sc">-</span><span class="fl">32.156</span>)    <span class="co"># WA</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>nedscorner <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">141.215</span>, <span class="sc">-</span><span class="fl">34.241</span>, <span class="fl">141.415</span>, <span class="sc">-</span><span class="fl">34.0414</span>) <span class="co"># VIC</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>These are locations on the Australian continent as most APIs we use are specific to Australia (with the exception of functions that use the Google Earth Engine API).</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>llara <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">149.769</span>, <span class="sc">-</span><span class="fl">30.335</span>, <span class="fl">149.969</span>, <span class="sc">-</span><span class="fl">30.135</span>)       <span class="co"># NSW</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>corrigin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">118.015</span>, <span class="sc">-</span><span class="fl">32.356</span>, <span class="fl">118.215</span>, <span class="sc">-</span><span class="fl">32.156</span>)    <span class="co"># WA</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>nedscorner <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">141.215</span>, <span class="sc">-</span><span class="fl">34.241</span>, <span class="fl">141.415</span>, <span class="sc">-</span><span class="fl">34.0414</span>) <span class="co"># VIC</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout-caution callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Interested in generating your own bounding box?
+Want to generate your own bounding box?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -413,15 +400,14 @@ Interested in generating your own bounding box?
 </div>
 </div>
 </div>
-</section>
-<section id="how-do-we-know-what-layers-are-available" class="level4">
-<h4 class="anchored" data-anchor-id="how-do-we-know-what-layers-are-available">How do we know what layers are available?</h4>
-<p>Each <code>download_*()</code> function has a <code>layers</code> argument that accepts a pre-defined list of layers. These are documented in the function <code>help()</code> or <code>?</code>. For example, to see the available layers for the <code>download_dem()</code> function, you can use:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>?download_dem</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="finding-products-to-download-layers" class="level4">
+<h4 class="anchored" data-anchor-id="finding-products-to-download-layers">Finding products to download (layers)</h4>
+<p>Each <code>download_*()</code> function has a <code>layers</code> argument that accepts a pre-defined list of products. These are documented in the function <code>help()</code> or <code>?</code>. For example, to see the available layers for the <code>download_dem()</code> function, you can use:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>?download_dem</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The documentation will show you the available layers and their descriptions. Try the following:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>?download_slga</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>?download_landscape</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>?download_radiometric</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>?download_slga</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>?download_landscape</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>?download_radiometric</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <!-- # TODO
 In addition, it is possible to use the `list_layers()` function to see the available layers for each function. For example, to see the available layers for the `download_dem()` function, you can use:
 
@@ -430,21 +416,37 @@ In addition, it is possible to use the `list_layers()` function to see the avail
 ``` -->
 <p>There are also some additional arguments available to each <code>download_*()</code> function. For example, <code>download_slga()</code> has the arguments <code>depth_min</code>, <code>depth_max</code> and <code>get_ci</code> to specify the minimum and maximum soil depth and whether to download the soil confidence interval (CI) layers:</p>
 <!-- Therefore, you can filter the available layers by these arguments. For example, to download the soil texture layers for the `download_slga()` function, you can use: -->
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download_slga</span>(</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">layer =</span> <span class="st">"Clay"</span>,</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">out_path =</span> <span class="st">"downloads/"</span>,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">bounding_box =</span> llara,</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">depth_min =</span> <span class="dv">0</span>,</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">depth_max =</span> <span class="dv">5</span>,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">get_ci =</span> <span class="cn">TRUE</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>It is quite clear that you will want to read the documentation for each function to understand what arguments are available and how to use them.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download_slga</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">layer =</span> <span class="st">"Clay"</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">out_path =</span> <span class="st">"downloads/"</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">bounding_box =</span> llara,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">depth_min =</span> <span class="dv">0</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">depth_max =</span> <span class="dv">5</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">get_ci =</span> <span class="cn">TRUE</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Make sure to read the documentation for each function to see what additional arguments are available.</p>
+</section>
 </section>
 </section>
 <section id="fa-person-chalkboard-demo-2-google-earth-engine" class="level2">
 <h2 class="anchored" data-anchor-id="fa-person-chalkboard-demo-2-google-earth-engine"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 2: Google Earth Engine</span></h2>
-<p>The Google Earth Engine (GEE) API is a cloud-based platform for planetary-scale geospatial analysis. It provides access to a large collection of satellite imagery, elevation data, and other geospatial datasets. We provide limited access to the GEE API through the <code>dataharvester</code> package, which allows you to download data from the GEE Data Catalogue.</p>
-<p>For full functionality, we recommend that you use the <a href="https://developers.google.com/earth-engine/python_install">GEE Python API</a> directly, or use the R wrapper package, <a href="https://github.com/r-spatial/rgee"><code>rgee</code></a>. If you are not familiar with the GEE API or wish to explore what is possible, then <code>dataharvester</code> provides a simplified interface to the GEE API while giving users access to a full range of features.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+About Google Earth Engine
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The Google Earth Engine (GEE) API is a cloud-based platform for planetary-scale geospatial analysis. It provides access to a large collection of satellite imagery, elevation data, and other geospatial datasets. We provide curated access to the GEE API through the <code>dataharvester</code> package, which allows you to download data from the GEE Data Catalogue.</p>
+</div>
+</div>
+</div>
+<!-- For full functionality, we recommend that you use the [GEE Python API](https://developers.google.com/earth-engine/python_install) directly, or use the R wrapper package, [`rgee`](https://github.com/r-spatial/rgee). If you are not familiar with the GEE API or wish to explore what is possible, then `dataharvester` provides a simplified interface to the GEE API while giving users access to a full range of features. -->
 <section id="function-syntax-1" class="level4">
 <h4 class="anchored" data-anchor-id="function-syntax-1">Function syntax</h4>
 <p>Accessing GEE is simple once you have an account and have initialised the <code>dataharvester</code> package:</p>
@@ -475,31 +477,44 @@ Important
 <p>Note that the order of processing <strong>must</strong> follow the above, or there may be unintended consequences. If you find any irregular behaviour, let us know! The <code>dataharvester</code> package is in early development and we are keen to fix any undocumented issues.</p>
 </div>
 </div>
-<p>Once the data has been downloaded as images, you may manually extract samples like how you would with any other GeoTIFF - we will discuss that in <strong>Session 3</strong>.</p>
-<p>For now, let’s use a full example to demonstrate and explain these functions. Make sure that you have initialised the <code>dataharvester</code> package with your GEE credentials:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">initialise_harvester</span>(<span class="st">"r-reticulate"</span>, <span class="at">earthengine =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">collect_ee</span>(</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">collection =</span> <span class="st">"LANDSAT/LC09/C02/T1_L2"</span>,</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">coords =</span> llara,</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="st">"2021-06-01"</span>,</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">end_date =</span> <span class="st">"2022-06-01"</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">preprocess_ee</span>(<span class="at">object =</span> img, <span class="at">reduce =</span> <span class="st">"median"</span>)</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">map_ee</span>(img, <span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>))</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">download_ee</span>(img, <span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>),</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_path =</span> <span class="st">"downloads/"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The code above can also be streamlined with pipes:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect_ee</span>(</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">collection =</span> <span class="st">"LANDSAT/LC09/C02/T1_L2"</span>,</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">coords =</span> llara,</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">date =</span> <span class="st">"2021-06-01"</span>,</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">end_date =</span> <span class="st">"2022-06-01"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">preprocess_ee</span>(<span class="at">reduce =</span> <span class="st">"median"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_ee</span>(<span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download_ee</span>(<span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>),</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">out_path =</span> <span class="st">"downloads/"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Your instructor will demonstrate more examples during the session.</p>
+<p>Let’s use a full example to demonstrate and explain these functions. Make sure that you have initialised the <code>dataharvester</code> package with your GEE credentials:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">initialise_harvester</span>(<span class="st">"r-reticulate"</span>, <span class="at">earthengine =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">collect_ee</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">collection =</span> <span class="st">"LANDSAT/LC09/C02/T1_L2"</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">coords =</span> llara,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="st">"2021-06-01"</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">end_date =</span> <span class="st">"2022-06-01"</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">preprocess_ee</span>(<span class="at">object =</span> img, <span class="at">reduce =</span> <span class="st">"median"</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">map_ee</span>(img, <span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>))</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">download_ee</span>(img, <span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>),</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_path =</span> <span class="st">"downloads/"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Using <code>dplyr</code> pipes to streamline the same code above
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">collect_ee</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">collection =</span> <span class="st">"LANDSAT/LC09/C02/T1_L2"</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">coords =</span> llara,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">date =</span> <span class="st">"2021-06-01"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">end_date =</span> <span class="st">"2022-06-01"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">preprocess_ee</span>(<span class="at">reduce =</span> <span class="st">"median"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_ee</span>(<span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download_ee</span>(<span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>),</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">out_path =</span> <span class="st">"downloads/"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Your instructor may demonstrate more examples during the session.</p>
 </section>
 </section>
 <section id="fa-keyboard-exercise-1-cloud-and-shadow-masking" class="level2">
@@ -563,25 +578,25 @@ Agenda
 </div>
 </div>
 <p>Once data has been downloaded, it is a trivial task to preview the data using the <code>terra</code> package. The <code>terra</code> package is a powerful package for working with raster data in R. First, we will load the <code>terra</code> package which is automatically installed when you install the <code>dataharvester</code> package:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Any image that you have downloaded using the <code>dataharvester</code> package will need to be converted to a SpatRaster object in R using the <code>rast()</code> function. For example, to conver the SLGA image that we downloaded earlier, we can use:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>raster <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"downloads/SLGA_Clay_0-5cm.tif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>raster <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"downloads/SLGA_Clay_0-5cm.tif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Then, to plot, we can use the <code>plot()</code> function:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(raster)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(raster)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The <code>plot()</code> function will automatically plot the raster using the default colour palette. However, you can also specify the colour palette using the <code>col</code> argument. For example, to plot the raster using the <code>viridis</code> colour palette, we can use:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(raster, <span class="at">col =</span> <span class="st">"viridis"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(raster, <span class="at">col =</span> <span class="st">"viridis"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="plotting-objects-created-by-download_-functions" class="level4">
 <h4 class="anchored" data-anchor-id="plotting-objects-created-by-download_-functions">Plotting objects created by <code>download_*()</code> functions</h4>
 <p>If you use the <code>download_*()</code> functions and save the output to an object, then you can use the <code>plot()</code> function to plot the data immediately. The plots will be identical to what was produced in <code>terra</code>, since the package is used to create the S3 plot object.</p>
 <p>As an example, to plot the data downloaded using the <code>download_dea()</code> function, we can use:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>dea <span class="ot">&lt;-</span> <span class="fu">download_dea</span>(</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">layer =</span> <span class="fu">c</span>(<span class="st">"landsat_barest_earth"</span>, <span class="st">"ga_ls_fc_pc_cyear_3"</span>),</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">bounding_box =</span> llara,</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_path =</span> <span class="st">"downloads/"</span>,</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">years =</span> <span class="dv">2021</span>,</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">resolution =</span> <span class="dv">6</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dea)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dea <span class="ot">&lt;-</span> <span class="fu">download_dea</span>(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">layer =</span> <span class="fu">c</span>(<span class="st">"landsat_barest_earth"</span>, <span class="st">"ga_ls_fc_pc_cyear_3"</span>),</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">bounding_box =</span> llara,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_path =</span> <span class="st">"downloads/"</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">years =</span> <span class="dv">2021</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">resolution =</span> <span class="dv">6</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dea)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The code above will plot all layers and their bands in the same plot.</p>
 </section>
 </section>
@@ -598,11 +613,11 @@ Agenda
 </div>
 <div class="callout-body-container callout-body">
 <p>For objects that are created using the <code>download_*()</code> functions, additional arguments can be used to refine the plots. For example, if you want to plot each layer separately, then you can use the <code>plot()</code> function with the <code>choose</code> argument:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">choose =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">choose =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>In a data layer, mutltiple bands can also be plotted separately. To do so, you can use the <code>plot()</code> function with the <code>index</code> argument:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">choose =</span> <span class="dv">1</span>, <span class="at">index =</span> <span class="dv">1</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># plot(x, 1, 1)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(x, <span class="at">choose =</span> <span class="dv">1</span>, <span class="at">index =</span> <span class="dv">1</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># or</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># plot(x, 1, 1)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="task" class="level2">
 <h2 class="anchored" data-anchor-id="task">Task</h2>
 <p>Using the same code as above to download data from DEA:</p>
@@ -617,7 +632,7 @@ Agenda
 </div>
 </div>
 <div class="callout-caution callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -626,32 +641,32 @@ Agenda
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>dea <span class="ot">&lt;-</span> <span class="fu">download_dea</span>(</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">layer =</span> <span class="fu">c</span>(<span class="st">"landsat_barest_earth"</span>, <span class="st">"ga_ls_fc_pc_cyear_3"</span>),</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">bounding_box =</span> llara,</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_path =</span> <span class="st">"downloads/"</span>,</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">years =</span> <span class="dv">2021</span>,</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">resolution =</span> <span class="dv">6</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 2</span></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dea)</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 3</span></span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dea, <span class="dv">2</span>)</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 4</span></span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dea, <span class="dv">2</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>dea <span class="ot">&lt;-</span> <span class="fu">download_dea</span>(</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">layer =</span> <span class="fu">c</span>(<span class="st">"landsat_barest_earth"</span>, <span class="st">"ga_ls_fc_pc_cyear_3"</span>),</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">bounding_box =</span> llara,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_path =</span> <span class="st">"downloads/"</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">years =</span> <span class="dv">2021</span>,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">resolution =</span> <span class="dv">6</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 2</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dea)</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 3</span></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dea, <span class="dv">2</span>)</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 4</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dea, <span class="dv">2</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="wrapping-up" class="level2">
 <h2 class="anchored" data-anchor-id="wrapping-up">Wrapping up</h2>
-<p>This is the end of <strong>Session 2</strong>. In this session we looked at using manual methods to download data from various API sources and the GEE Catalog. We also briefly looked at how to plot the data using the <code>terra</code> package as well as the <code>plot()</code> function for objects created using the <code>download_*()</code> functions.</p>
+<p>This is the end of <strong>Session 2</strong>. In this session we looked at using manual methods to download data from various API sources and the GEE Catalog. We also briefly looked at how to preview the data. In the next session, we will look at more Google Earth Engine processing and how to extract samples from the downloaded images.</p>
 
 
 </section>

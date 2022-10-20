@@ -20,69 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -283,12 +220,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#rstudio-cloud" id="toc-rstudio-cloud" class="nav-link active" data-scroll-target="#rstudio-cloud">RStudio Cloud</a></li>
-  <li><a href="#binder" id="toc-binder" class="nav-link" data-scroll-target="#binder">Binder</a></li>
-  <li><a href="#rstudio-desktop" id="toc-rstudio-desktop" class="nav-link" data-scroll-target="#rstudio-desktop">RStudio Desktop</a>
+  <li><a href="#google-earth-engine" id="toc-google-earth-engine" class="nav-link active" data-scroll-target="#google-earth-engine">Google Earth Engine</a></li>
+  <li><a href="#rstudio-cloud" id="toc-rstudio-cloud" class="nav-link" data-scroll-target="#rstudio-cloud">RStudio Cloud</a>
   <ul class="collapse">
-  <li><a href="#need-help" id="toc-need-help" class="nav-link" data-scroll-target="#need-help">Need help?</a></li>
+  <li><a href="#setting-up-rstudio-cloud" id="toc-setting-up-rstudio-cloud" class="nav-link" data-scroll-target="#setting-up-rstudio-cloud">Setting up RStudio Cloud</a></li>
   </ul></li>
+  <li><a href="#binder-optional" id="toc-binder-optional" class="nav-link" data-scroll-target="#binder-optional">Binder (optional)</a></li>
+  <li><a href="#rstudio-desktop-optional" id="toc-rstudio-desktop-optional" class="nav-link" data-scroll-target="#rstudio-desktop-optional">RStudio Desktop (optional)</a></li>
+  <li><a href="#need-help" id="toc-need-help" class="nav-link" data-scroll-target="#need-help">Need help?</a></li>
   <li><a href="#whats-next" id="toc-whats-next" class="nav-link" data-scroll-target="#whats-next">What’s next?</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -312,30 +251,59 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
+<section id="google-earth-engine" class="level2">
+<h2 class="anchored" data-anchor-id="google-earth-engine">Google Earth Engine</h2>
+<p>To use Google Earth Engine, you must link an existing Google acccount to the service. Click <a href="https://earthengine.google.com/signup/">here</a>, follow the instructions to log in (or create a Google Account, if you do not already have one). Eventually, you will be asked to fill in a web form.</p>
+<p><strong>Make sure to fill in the form with genuine answers.</strong> In the section asking <em>“What would you like to accomplish with Earth Engine?”</em>, provide a reasonable explanation of how you would utilise the geospatial data obtained from Earth Engine in a couple of sentences. A proper description will almost guarantee that you will be approved in minutes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/gee_signup.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Fill in the form, submit and wait for an email confirmation</figcaption><p></p>
+</figure>
+</div>
+<p>Once you have submitted, you should receive a confirmation via email within minutes (to a couple of hours). This is why signing up now is important - you may not be able to use Google Earth Engine functionality if you sign up during the workshop.</p>
+</section>
 <section id="rstudio-cloud" class="level2">
 <h2 class="anchored" data-anchor-id="rstudio-cloud">RStudio Cloud</h2>
-<p>We encourage you to use RStudio Cloud for the workshop as you do not need to install anything on your computer. Simply <a href="https://login.rstudio.cloud/login">log in</a> with your free account and follow along with the workshop. <strong>Join our shared space by clicking the button below</strong>:</p>
+<p>RStudio Cloud is a free, web-based RStudio IDE that you can use to run R code in your browser. It is a great way to get started with R without having to install anything on your computer. You can also use it to share your code with others. We encourage you to use RStudio Cloud for the workshop as you do not need to install anything on your computer. If you do not have an RStudio account, follow the steps below.</p>
+<section id="setting-up-rstudio-cloud" class="level3">
+<h3 class="anchored" data-anchor-id="setting-up-rstudio-cloud">Setting up RStudio Cloud</h3>
+<p>Go to <a href="https://rstudio.cloud/">https://rstudio.cloud/</a> and sign up on the “Cloud Free” Plan.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/rstudiocloud_signup.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Sign up to the Cloud Free Plan on RStudio Cloud</figcaption><p></p>
+</figure>
+</div>
+<p>You will need to provide an email address and a password. You can also sign up using your Google or Github account – simply click on those buttons, and follow the authentication steps.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 20.0%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: center;">
+<p><img src="assets/rstudiocloud_login.jpg" class="img-fluid"></p>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 20.0%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+</div>
+</div>
+<p>You will be automatically directed to the RStudio Cloud home page, which looks like this:</p>
+<p><img src="assets/rstudiocloud_projview.jpg" class="img-fluid"></p>
+<p><strong>Join our shared space by clicking the button below</strong>:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="" target="_blank"><img src="https://img.shields.io/badge/Join%20Shared%20Space-RStudio%20Cloud-yellow?style=for-the-badge&amp;logo=appveyor.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In the near future, we will be able to provide you with a virtual machine on the Nectar Research Cloud. This will allow you to use RStudio Server on a virtual machine. Instructions will be provided when this is available.</p>
-</div>
-</div>
+<!-- ::: callout-note
+In the near future, we will be able to provide AgReFed workshop participants with a virtual machine on the Nectar Research Cloud. This will allow you to use RStudio Server on a virtual machine. Instructions will be provided when this is available.
+::: -->
 </section>
-<section id="binder" class="level2">
-<h2 class="anchored" data-anchor-id="binder">Binder</h2>
+</section>
+<section id="binder-optional" class="level2">
+<h2 class="anchored" data-anchor-id="binder-optional">Binder (optional)</h2>
 <p>Want to play around with <code>dataharvester</code> without an RStudio Cloud account? Launch our Binder instance by clicking on the button below. Binder should only be used in a test environment as Binder instances are not persistent and will be deleted after a period of inactivity.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -343,131 +311,81 @@ Note
 </figure>
 </div>
 </section>
-<section id="rstudio-desktop" class="level2">
-<h2 class="anchored" data-anchor-id="rstudio-desktop">RStudio Desktop</h2>
-<div class="callout-important callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Choosing this option means that you have decided to install R and RStudio on your computer. <strong>Note</strong> this is not recommended for the workshop as there may be issues to troubleshoot we cannot support. If you are unsure, please use RStudio Cloud.</p>
-<p>You must know how to debug issues if you choose to use RStudio Desktop. <strong>Please set up RStudio before the workshop so that you can debug early and focus on the content (see below).</strong></p>
-</div>
-</div>
-<div class="callout-note callout callout-style-simple callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-<strong>Step 1</strong>: Install/Update R and RStudio
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>If you already have R and RStudio installed, make sure you have the latest versions. At a minimum, you will need <a href="https://cran.r-project.org/" target="_blank">R v4.21</a> and <a href="https://www.rstudio.com/products/rstudio/download/" target="_blank">RStudio v2022.07.2</a>.</p>
-</div>
-</div>
-</div>
-<div class="callout-note callout callout-style-simple callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-<strong>Step 2</strong>: Install and load the <code>dataharvester</code> package
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Install the <code>"dataharvester"</code> package from GitHub. You will need either the <code>"devtools"</code> or <code>"remotes"</code> package (recommended) installed to do this.</p>
-<div class="callout-warning callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>If you are a Windows user and choose to use <code>"devtools"</code>, you may need to install <a href="https://cran.r-project.org/bin/windows/Rtools/" target="_blank">Rtools</a> first.</p>
-</div>
-</div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"sydney-informatics-hub/dataharvester"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Don’t forget to load the package:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dataharvester)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<div class="callout-note callout callout-style-simple callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-<strong>Step 3</strong>: Install dependencies
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>The <code>dataharvester</code> package has a number of dependencies that you will need to install, since the code is in Python. Luckily, there is a function to install these dependencies for you. Run the following code, which will install dependencies in a conda environment called “r-reticulate”:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">initialise_harvester</span>(<span class="st">"r-reticulate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This function must always be run prior to using <code>dataharvester</code> functions. It may take a few minutes to run the first time. For subsequent sessions, <code>initialise_harvester()</code> should take only a few seconds to run.</p>
-<div class="callout-important callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>During this step, you may be asked to install <code>r-miniconda</code>, which is basically <a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank">miniconda</a>. This is a package that allows you to install and use Python packages within R through the <a href="https://conda.io/projects/conda/en/latest/index.html" target="_blank">Conda binary package manager</a>.</p>
-<p>If you already have Python installed, R may still ask you to install miniconda. This is because miniconda is a separate package from Python, and is not the same as the Python package manager <code>pip</code>. Importantly, miniconda is <em>almost</em> necessary for Windows users as it allows you to install certain Python <em>and</em> non-Python packages without having to install a full version of Python and running installation commands in the command line. These include the <a href="https://gdal.org/" target="_blank">GDAL</a> binary which is a translator library for raster and vector geospatial data formats, and the <a href="https://proj.org/" target="_blank">PROJ</a> library which is a cartographic projection and coordinate transformation library.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="callout-note callout callout-style-simple callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-<strong>Step 4 (Final)</strong>: Authenticate with Google Earth Engine
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>If you have a <a href="https://earthengine.google.com/" target="_blank">Google Earth Engine</a> account, you can initialise the package with your credentials. This will allow you to access Google Earth Engine data.</p>
-<p>To activate Google Earth Engine, simply include <code>earthengine = TRUE</code> when initialising:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">initialise_harvester</span>(<span class="st">"r-reticulate"</span>, <span class="at">earthengine =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Follow the instructions carefully, as Google Earth Engine requires you to authenticate with a Google account. You will need to copy and paste a link into your browser, and then copy and paste the resulting code back into R.</p>
-<p>If you are authenticating from a server environment or RStudio Cloud, you may need to use a different authentication method. See the <a href="../rdocs/r99-troubleshooting.html">Troubleshooting</a> section and look for the section “Google Earth Engine authentication”.</p>
-</div>
-</div>
-</div>
-<section id="need-help" class="level3">
-<h3 class="anchored" data-anchor-id="need-help">Need help?</h3>
+<section id="rstudio-desktop-optional" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-desktop-optional">RStudio Desktop (optional)</h2>
+<p>If you prefer to use RStudio Desktop, a setup vignette is available here. Note that we will <strong>not</strong> be able to provide support for RStudio Desktop during the workshop.</p>
+<!-- 
+::: callout-important
+Choosing this option means that you have decided to install R and RStudio on your computer. **Note** this is not recommended for the workshop as there may be issues to troubleshoot we cannot support. If you are unsure, please use RStudio Cloud.
+
+You must know how to debug issues if you choose to use RStudio Desktop. **Please set up RStudio before the workshop so that you can debug early and focus on the content (see below).**
+:::
+
+:::{.callout-note appearance="simple" collapse="true"}
+### **Step 1**: Install/Update R and RStudio
+
+ If you already have R and RStudio installed, make sure you have the latest versions. At a minimum, you will need [R v4.21](https://cran.r-project.org/){target="_blank"} and [RStudio v2022.07.2](https://www.rstudio.com/products/rstudio/download/){target="_blank"}.
+:::
+
+:::{.callout-note appearance="simple" collapse="true"}
+### **Step 2**: Install and load the `dataharvester` package
+
+Install the `"dataharvester"` package from GitHub. You will need either the `"devtools"` or `"remotes"` package (recommended) installed to do this.
+
+::: callout-warning
+If you are a Windows user and choose to use `"devtools"`, you may need to install [Rtools](https://cran.r-project.org/bin/windows/Rtools/){target="_blank"} first.
+:::
+
+```r
+install.packages("remotes")
+remotes::install_github("sydney-informatics-hub/dataharvester")
+```
+Don't forget to load the package:
+
+```r
+library(dataharvester)
+```
+:::
+
+:::{.callout-note appearance="simple" collapse="true"}
+### **Step 3**: Install dependencies
+
+The `dataharvester` package has a number of dependencies that you will need to install, since the code is in Python. Luckily, there is a function to install these dependencies for you. Run the following code, which will install dependencies in a conda environment called "r-reticulate":
+
+```r
+initialise_harvester("r-reticulate")
+```
+This function must always be run prior to using `dataharvester` functions. It may take a few minutes to run the first time. For subsequent sessions, `initialise_harvester()` should take only a few seconds to run.
+
+::: callout-important
+During this step, you may be asked to install `r-miniconda`, which is basically [miniconda](https://docs.conda.io/en/latest/miniconda.html){target="_blank"}. This is a package that allows you to install and use Python packages within R through the [Conda binary package manager](https://conda.io/projects/conda/en/latest/index.html){target="_blank"}. 
+
+If you already have Python installed, R may still ask you to install miniconda. This is because miniconda is a separate package from Python, and is not the same as the Python package manager `pip`. Importantly, miniconda is *almost* necessary for Windows users as it allows you to install certain Python *and* non-Python packages without having to install a full version of Python and running installation commands in the command line. These include the [GDAL](https://gdal.org/){target="_blank"} binary which is a translator library for raster and vector geospatial data formats, and the [PROJ](https://proj.org/){target="_blank"} library which is a cartographic projection and coordinate transformation library.
+:::
+:::
+
+:::{.callout-note appearance="simple" collapse="true"}
+### **Step 4 (Final)**: Authenticate with Google Earth Engine
+
+If you have a [Google Earth Engine](https://earthengine.google.com/){target="_blank"} account, you can initialise the package with your credentials. This will allow you to access Google Earth Engine data.
+
+To activate Google Earth Engine, simply include `earthengine = TRUE` when initialising:
+  
+```r
+initialise_harvester("r-reticulate", earthengine = TRUE)
+```
+Follow the instructions carefully, as Google Earth Engine requires you to authenticate with a Google account. You will need to copy and paste a link into your browser, and then copy and paste the resulting code back into R.
+
+If you are authenticating from a server environment or RStudio Cloud, you may need to use a different authentication method. See the [Troubleshooting](/rdocs/r99-troubleshooting.qmd) section and look for the section "Google Earth Engine authentication".
+::: -->
+</section>
+<section id="need-help" class="level2">
+<h2 class="anchored" data-anchor-id="need-help">Need help?</h2>
 <p>If you are stuck at any point, we have a dedicated <a href="../rdocs/r99-troubleshooting.html">Troubleshooting</a> section that you can refer to. This section will be updated as we receive more questions.</p>
 </section>
-</section>
-<section id="whats-next" class="level1">
-<h1>What’s next?</h1>
-<p>Now that you have <code>dataharvester</code> installed, you are ready to start the workshop. Workshop links are available in the sidebar. You should also check out the landing page for the <a href="rdocs/r00-workshop.qmd">R Workshop</a> for updates.</p>
+<section id="whats-next" class="level2">
+<h2 class="anchored" data-anchor-id="whats-next">What’s next?</h2>
+<p>Now that you have <code>dataharvester</code> iwnstalled, you are ready to start the workshop. Workshop links are available in the sidebar. You should also check out the landing page for the <a href="../rdocs/r00-workshop.html">R Workshop</a> for updates.</p>
 
 
 </section>

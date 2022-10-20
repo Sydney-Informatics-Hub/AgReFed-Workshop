@@ -287,7 +287,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#table-of-contents" id="toc-table-of-contents" class="nav-link" data-scroll-target="#table-of-contents">Table of Contents</a></li>
   <li><a href="#yaml-file-format" id="toc-yaml-file-format" class="nav-link" data-scroll-target="#yaml-file-format">YAML File Format</a></li>
-  <li><a href="#jupyter-settings-widget" id="toc-jupyter-settings-widget" class="nav-link" data-scroll-target="#jupyter-settings-widget">Jupyter Settings Widget</a></li>
+  <li><a href="#jupyter-settings-widget-python-only" id="toc-jupyter-settings-widget-python-only" class="nav-link" data-scroll-target="#jupyter-settings-widget-python-only">Jupyter Settings Widget (Python only)</a></li>
   <li><a href="#settings-validation" id="toc-settings-validation" class="nav-link" data-scroll-target="#settings-validation">Settings Validation</a></li>
   <li><a href="#input-and-output-settings" id="toc-input-and-output-settings" class="nav-link" data-scroll-target="#input-and-output-settings">Input and Output Settings</a></li>
   <li><a href="#spatial-and-temporal-settings" id="toc-spatial-and-temporal-settings" class="nav-link" data-scroll-target="#spatial-and-temporal-settings">Spatial and Temporal Settings</a></li>
@@ -330,12 +330,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="table-of-contents" class="level2">
 <h2 class="anchored" data-anchor-id="table-of-contents">Table of Contents</h2>
 <ul>
+<li><a href="#overview-and-description-of-settings-for-the-agrefed-data-harvester">Overview and Description of Settings for the AgReFed Data-Harvester</a>
+<ul>
+<li><a href="#table-of-contents">Table of Contents</a></li>
 <li><a href="#yaml-file-format">YAML File Format</a></li>
-<li><a href="#jupyter-settings-widget">Jupyter Settings Widget</a></li>
+<li><a href="#jupyter-settings-widget-python-only">Jupyter Settings Widget (Python only)</a></li>
 <li><a href="#settings-validation">Settings Validation</a></li>
 <li><a href="#input-and-output-settings">Input and Output Settings</a></li>
 <li><a href="#spatial-and-temporal-settings">Spatial and Temporal Settings</a></li>
-<li><a href="#data-selection-settings">Data Selection Settings</a></li>
+<li><a href="#data-selection-settings">Data Selection Settings</a>
+<ul>
+<li><a href="#satellite-data-from-digital-earth-australia">Satellite data from Digital Earth Australia:</a></li>
+<li><a href="#digital-elevation-model-dem">Digital Elevation Model (DEM):</a></li>
+<li><a href="#landscape-from-slga">Landscape from SLGA</a></li>
+<li><a href="#radiometric">Radiometric</a></li>
+<li><a href="#silo-climate-database">SILO Climate Database</a></li>
+<li><a href="#soil-data-from-slga">Soil data from SLGA</a></li>
+<li><a href="#google-earth-engine--data">Google Earth Engine Data</a></li>
+</ul></li>
+</ul></li>
 </ul>
 </section>
 <section id="yaml-file-format" class="level2">
@@ -343,8 +356,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The settings are specified by the user in a .yaml settings file (see e.g., settings/settings_v0.3.yaml). A YAML file is a Unicode based language and is designed for human interaction and to work well with modern programming languages, and is typically used for configuration settings and reusable workflows. YAML uses the .yaml extension (alternatively .yml) for its files. Its syntax is independent of a specific programming language.</p>
 <p>Templates for the .yaml settings file are provided in the folder <code>settings</code>. More information about YAML Syntax can be found <a href="https://docs.fileformat.com/programming/yaml/">here</a>.</p>
 </section>
-<section id="jupyter-settings-widget" class="level2">
-<h2 class="anchored" data-anchor-id="jupyter-settings-widget">Jupyter Settings Widget</h2>
+<section id="jupyter-settings-widget-python-only" class="level2">
+<h2 class="anchored" data-anchor-id="jupyter-settings-widget-python-only">Jupyter Settings Widget (Python only)</h2>
 <p>Alternatively, settings can be selected in the interactive widget of the Jupyter Notebook, which also automatically saves all settings for a run in a .yaml file as well. The interactive widgets are powered by ipywidgets and are currently supported for the Jupyter Notebooks. The widget also allows the user to load a saved .yaml file.</p>
 <p>Note for developers: To make changes to the functionality of the widgets (e.g, extending with new settings or options), please see the script <code>harvesterwidgets.py</code> in the folder <code>widgets</code>.</p>
 </section>
@@ -398,28 +411,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The requested layers are specified in the settings <code>target_sources</code>. The following data sources are currently supported:</p>
 <section id="satellite-data-from-digital-earth-australia" class="level3">
 <h3 class="anchored" data-anchor-id="satellite-data-from-digital-earth-australia">Satellite data from Digital Earth Australia:</h3>
-<p>These are pre-processed and national calibrated satellite image layers provided Digital Earth Australia (DEA) Geoscience Earth Observations. Multiple layers can be given as list in the settings. For more details see <a href="Data_Overview.md#digital-earth-australia-geoscience-earth-observations">Data Overview DEA</a>.</p>
+<p>These are pre-processed and national calibrated satellite image layers provided Digital Earth Australia (DEA) Geoscience Earth Observations. Multiple layers can be given as list in the settings. For more details see <a href="./Data_Overview.html#digital-earth-australia-geoscience-earth-observations">Data Overview DEA</a>.</p>
 </section>
 <section id="digital-elevation-model-dem" class="level3">
 <h3 class="anchored" data-anchor-id="digital-elevation-model-dem">Digital Elevation Model (DEM):</h3>
-<p>The DEM data is given by the National Digital Elevation Model 1 Second Hydrologically Enforced. Options are: ‘DEM’, ‘Slope’, and ‘Aspect’. For more info see <a href="Data_Overview.md#national-digital-elevation-model-1-second-hydrologically-enforced">Data Overview DEM</a>.</p>
+<p>The DEM data is given by the National Digital Elevation Model 1 Second Hydrologically Enforced. Options are: ‘DEM’, ‘Slope’, and ‘Aspect’. For more info see <a href="./Data_Overview.html#national-digital-elevation-model-1-second-hydrologically-enforced">Data Overview DEM</a>.</p>
 </section>
 <section id="landscape-from-slga" class="level3">
 <h3 class="anchored" data-anchor-id="landscape-from-slga">Landscape from SLGA</h3>
-<p>Landscape data can be retrieved from SLGA. For an overview of all available layers see <a href="Data_Overview.md#landscape-data-slga">Data Overview Landscape</a>.</p>
+<p>Landscape data can be retrieved from SLGA. For an overview of all available layers see <a href="./Data_Overview.html#landscape-data-slga">Data Overview Landscape</a>.</p>
 </section>
 <section id="radiometric" class="level3">
 <h3 class="anchored" data-anchor-id="radiometric">Radiometric</h3>
-<p>For an overview of the radiometric layer options see <a href="Data_Overview.md#radiometric-data">Data Overview Radiometric</a>.</p>
+<p>For an overview of the radiometric layer options see <a href="./Data_Overview.html#radiometric-data">Data Overview Radiometric</a>.</p>
 </section>
 <section id="silo-climate-database" class="level3">
 <h3 class="anchored" data-anchor-id="silo-climate-database">SILO Climate Database</h3>
-<p>SILO is containing continuous daily climate data for Australia. An overview of the available data layers is provided in <a href="Data_Overview.md#silo-climate-database">Data Overview SILO</a>.</p>
+<p>SILO is containing continuous daily climate data for Australia. An overview of the available data layers is provided in <a href="./Data_Overview.html#silo-climate-database">Data Overview SILO</a>.</p>
 <p>For each requested SILO data layer, at least one temporal aggregation method has to be provided, which will be applied to aggregate climate data over the specified temporal range. The following aptions are available: ‘mean’, ‘median’, ‘sum’, ‘std’, ‘perc95’, ‘perc5’, ‘max’, ‘min’</p>
 </section>
 <section id="soil-data-from-slga" class="level3">
 <h3 class="anchored" data-anchor-id="soil-data-from-slga">Soil data from SLGA</h3>
-<p>An overview of the soil attributes is given in in <a href="Data_Overview.md#soil-data-3d-slga">Data Overview SLGA</a>.</p>
+<p>An overview of the soil attributes is given in in <a href="./Data_Overview.html#soil-data-3d-slga">Data Overview SLGA</a>.</p>
 <p>Each soil attribute has six depth layers (plus their upper and lower confidence limits), with the following options:‘0-5cm’, ‘5-15cm’, ‘15-30cm’, ‘30-60cm’, ‘60-100cm’ and ‘100-200cm’.</p>
 </section>
 <section id="google-earth-engine-data" class="level3">
