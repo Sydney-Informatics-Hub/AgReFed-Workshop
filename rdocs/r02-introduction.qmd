@@ -1,8 +1,15 @@
 ---
 title: "{{< fa brands r-project >}} Introduction"
-markdown:
-    canonical: true
+
 ---
+
+```{r}
+#| eval: true
+#| include: false
+library(dataharvester)
+initialise_harvester("r-reticulate")
+```
+
 
 :::{.callout-tip}
 ## In this workshop
@@ -31,9 +38,8 @@ Hello and welcome to **Workshop 1**. In this workshop, we will learn about AgReF
 
 In this demo, we will: 
 
-- check that your `reticulate` environment is set up correctly;
-- initialise Google Earth Engine (GEE), and authenticate to a Google account; and
-- perform a simple test to validate that the Data-Harvester is working.
+- Check that your `reticulate` environment is set up correctly
+- Intialise Google Earth Engine (GEE), and authenticate to a Google account
 
 :::
 
@@ -43,17 +49,15 @@ Run the following code in your RStudio session:
 library(dataharvester)
 initialise_harvester("r-reticulate")
 ```
-The function will verify that the environment "r-reticulate" is available and contains all the required dependencies. If it does not, it will install them for you.
+The function will verify that the environment `"r-reticulate"` is available and contains all the required dependencies. 
 
-Once this is complete, you may want to authenticate to Google Earth Engine (GEE). This is not required for all data products, but it is required for some. To do this, add the following argument to the same code:
+Once this is complete, you may want to authenticate to Google Earth Engine (GEE). To do this, add the following argument to the same code:
 
 ```r
 initialise_harvester("r-reticulate", earthengine = TRUE)
 ```
 
-The function will now try to authenticate to Google Earth Engine. This might involve opening a browser window and copying a code into the console.
-
-You **must** initialise and authenticate to Google Earth Engine as each authentication key is tied to a specific Google account. Detailed instructions on authentication can also be found on the `dataharvester` package documentation online.
+The function will now try to authenticate to Google Earth Engine. This might involve opening a browser window and copying a code into the console. 
 
 ##  [{{< fa person-chalkboard >}} Demo 2: YAML config]{style="color: green;"}
 
@@ -62,9 +66,9 @@ You **must** initialise and authenticate to Google Earth Engine as each authenti
 
 To warm-up, we will:
 
-1. run a simple YAML configuration file to demonstrate how it works;
-2. preview the output data; and
-3. learn more about different configuration options.
+1. Learn about YAML configuration files
+2. Explore a basic and a more "advanced" YAML config
+3. Run a simple YAML file to download data
 
 :::
 
@@ -110,7 +114,9 @@ To run the configuration file, we use the `harvest()` function. The function tak
 ### Relative and absolute path strings
 A relative path is a path that is relative to the current working directory. For example, if you are working in the `dataharvester` directory, the path to the `basic_config.yaml` file, stored in the `assets` folder, is `assets/basic_config.yaml`.
 
-An absolute path is a path that starts from the root directory. For example, the absolute path to the `basic_config.yaml` file is `/home/rstudio/dataharvester/assets/basic_config.yaml`. 
+An absolute path is a path that starts from the root directory. For example, the absolute path to the `basic_config.yaml` file might be `/home/rstudio/dataharvester/assets/basic_config.yaml` (note: this is not the actual path to the file).
+
+**Both paths point to the same file.**
 
 Relative paths are useful when you are working in a project directory, as they are shorter and easier to remember. Relative paths also allow you to share your code with others, as they will not need to change the path in the configuration file as long as they are working in the same folder. Absolute paths are useful when you are working in a different directory, or when you are working on a local machine.
 :::
@@ -131,7 +137,7 @@ harvest("assets/basic_config.yaml",
   contour = TRUE)
 ```
 
-Note how the function recognises that a file has been downloaded and will not re-download it. This is useful if you want to re-run the configuration file to add more data sources -- we will see this in action later.
+If you run the same config again, he function recognises that a file has been downloaded and will not re-download it. This is useful if you want to re-run the configuration file to add more data sources -- we will see this in action later.
 
 #### Adding multiple data sources
 
