@@ -36,6 +36,10 @@ The next AgReFed Data-Harvester Workshop **in R** will be run on **Tue, 25 Oct, 
 {{< fa comment >}} **Note**: The above workshop is open to staff and students of The University of Sydney only. The next workshop, also **in R**, can be registered by anyone and is now [open for registration](https://www.eventbrite.com.au/e/agrefed-data-harvester-workshop-tickets-425515517367). This workshop will be run on Thu, 03 Nov, 2022, at 01:30pm AEST (Sydney).
 :::
 
+::: callout-important
+
+Please sign up for **Google Earth Engine** access and an **RStudio Cloud** account before the workshop. See [Setting up R](r01-setup.qmd) for instructions.
+:::
 
 - {{< fa chalkboard-user >}} **Zoom link**: [Register online](https://www.eventbrite.com.au/e/agrefed-data-harvester-workshop-tickets-425515517367r) and link to the workshop will be sent, via email, closer to the workshop date.
 - {{< fa download >}} **Workshop material**: Click [here]() to download the workshop material. (*Link will be available closer to the workshop date.*)

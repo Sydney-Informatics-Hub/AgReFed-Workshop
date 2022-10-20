@@ -7,12 +7,21 @@ title: Settings Overview
 The following documentation outlines the available settings for the Data Harvester
 
 ## Table of Contents
-- [YAML File Format](#yaml-file-format)
-- [Jupyter Settings Widget](#jupyter-settings-widget)
-- [Settings Validation](#settings-validation)
-- [Input and Output Settings](#input-and-output-settings)
-- [Spatial and Temporal Settings](#spatial-and-temporal-settings)
-- [Data Selection Settings](#data-selection-settings)
+- [Overview and Description of Settings for the AgReFed Data-Harvester](#overview-and-description-of-settings-for-the-agrefed-data-harvester)
+  - [Table of Contents](#table-of-contents)
+  - [YAML File Format](#yaml-file-format)
+  - [Jupyter Settings Widget (Python only)](#jupyter-settings-widget-python-only)
+  - [Settings Validation](#settings-validation)
+  - [Input and Output Settings](#input-and-output-settings)
+  - [Spatial and Temporal Settings](#spatial-and-temporal-settings)
+  - [Data Selection Settings](#data-selection-settings)
+    - [Satellite data from Digital Earth Australia:](#satellite-data-from-digital-earth-australia)
+    - [Digital Elevation Model (DEM):](#digital-elevation-model-dem)
+    - [Landscape from SLGA](#landscape-from-slga)
+    - [Radiometric](#radiometric)
+    - [SILO Climate Database](#silo-climate-database)
+    - [Soil data from SLGA](#soil-data-from-slga)
+    - [Google Earth Engine  Data](#google-earth-engine--data)
 
 
 ## YAML File Format
@@ -22,7 +31,7 @@ Templates for the .yaml settings file are provided in the folder `settings`. Mor
 
 
 
-## Jupyter Settings Widget
+## Jupyter Settings Widget (Python only)
 Alternatively, settings can be selected in the interactive widget of the Jupyter Notebook, which also automatically saves all settings for a run in a .yaml file as well. The interactive widgets are powered by ipywidgets and are currently supported for the Jupyter Notebooks. The widget also allows the user to load a saved .yaml file.
 
 Note for developers: To make changes to the functionality of the widgets (e.g, extending with new settings or options), please see the script `harvesterwidgets.py` in the folder `widgets`.
