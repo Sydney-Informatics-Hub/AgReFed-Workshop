@@ -21,7 +21,7 @@ Found a bug? [**Open an issue**](https://github.com/Sydney-Informatics-Hub/AgReF
 ### Google Earth Engine authentication
 
 
-#### RStudio Cloud/Binder
+#### RStudio Cloud
 
 ::: callout-warning
 Google has migrated to OAuth 2.0 for authentication protocols on October 3, 2022. Part of the upgrade [protects users from phishing and app impersonation attacks](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html).
@@ -116,4 +116,4 @@ where `environment.yml` is the path to the file you created above. The installat
 library(dataharvester)
 authenticate_harvester("conda_env")
 ```
-where `"conda_env"` is the name of the environment you created above (e.g. `"dataharvester"`)
+where `"conda_env"` is the name of the environment you created above (e.g. `"dataharvester"`).

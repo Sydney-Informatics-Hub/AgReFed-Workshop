@@ -4,21 +4,7 @@ markdown:
     canonical: true
 ---
 
-:::{.callout-tip}
-## In this Session
-
-<!-- - Downloading without the configuration file (10 min)
-- Google Earth Engine in `dataharvester` (5 min)
-- Exploring Google Earth Engine functions (10 min)
-- **Exercise**: Deciding on a study area (10 min)
-- **Exercise**: Exploring image bands (10 min)
-- **Exercise**: Maps and visualisation (10 min) -->
-
-1. Manually download data without the YAML configuration file
-2. Access and view Google Earth Engine data 
-:::
-
-## Introduction
+## Summary
 
 Welcome to **Session 2**. 
 
@@ -35,16 +21,6 @@ The `harvest()` function used in the last workshop was a wrapper for several `do
 - `collect_ee()`, `preprocess_ee()` and `download_ee()` for access to datasets available in the Google Earth Engine Data Catalog
 :::
 
-We will also show you how to extract samples from downloaded rasters using the `extract_values()` function.
-
-### Before you begin
-
-If you have not already done so, initialise the Data-Harvester:
-
-```r
-library(dataharvester)
-initialise_harvester("r-reticulate")
-```
 
 ## [{{< fa person-chalkboard >}} Demo 1: Manual downloads]{style="color: green;"}
 
@@ -135,9 +111,12 @@ Make sure to read the documentation for each function to see what additional arg
 
 ## [{{< fa person-chalkboard >}} Demo 2: Google Earth Engine]{style="color: green;"}
 
-The Google Earth Engine (GEE) API is a cloud-based platform for planetary-scale geospatial analysis. It provides access to a large collection of satellite imagery, elevation data, and other geospatial datasets. We provide limited access to the GEE API through the `dataharvester` package, which allows you to download data from the GEE Data Catalogue.
+::: {.callout-note collapse="true"}
 
-For full functionality, we recommend that you use the [GEE Python API](https://developers.google.com/earth-engine/python_install) directly, or use the R wrapper package, [`rgee`](https://github.com/r-spatial/rgee). If you are not familiar with the GEE API or wish to explore what is possible, then `dataharvester` provides a simplified interface to the GEE API while giving users access to a full range of features.
+## About Google Earth Engine 
+The Google Earth Engine (GEE) API is a cloud-based platform for planetary-scale geospatial analysis. It provides access to a large collection of satellite imagery, elevation data, and other geospatial datasets. We provide curated access to the GEE API through the `dataharvester` package, which allows you to download data from the GEE Data Catalogue.
+:::
+<!-- For full functionality, we recommend that you use the [GEE Python API](https://developers.google.com/earth-engine/python_install) directly, or use the R wrapper package, [`rgee`](https://github.com/r-spatial/rgee). If you are not familiar with the GEE API or wish to explore what is possible, then `dataharvester` provides a simplified interface to the GEE API while giving users access to a full range of features. -->
 
 #### Function syntax
 
@@ -175,7 +154,9 @@ img <- download_ee(img, bands = c("SR_B2", "SR_B3", "SR_B4"),
   out_path = "downloads/"
 ```
 
-The code above can also be streamlined with pipes: 
+::: {.callout-note collapse="true"}
+
+## Using `dplyr` pipes to streamline the same code above
 
 ```r
 img <- 
@@ -189,8 +170,9 @@ img <-
   download_ee(bands = c("SR_B2", "SR_B3", "SR_B4"), 
     out_path = "downloads/"
 ```
+:::
 
-Your instructor will demonstrate more examples during the workshop.
+Your instructor may demonstrate more examples during the workshop.
 
 
 ## [{{< fa keyboard >}} Exercise 1: Cloud and shadow masking]{style="color: blue;"}

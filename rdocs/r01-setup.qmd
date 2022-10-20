@@ -1,37 +1,28 @@
 ---
 title: Setting up R
-markdown:
-    canonical: true
 ---
 
 ## Google Earth Engine
 
-::: callout-important
+To use Google Earth Engine, you must link an existing Google acccount to the service. Click [here](https://earthengine.google.com/signup/), follow the instructions to log in (or create a Google Account, if you do not already have one). Eventually, you will be asked to fill in a web form.
 
-To save time, it is important to sign up for **Google Earth Engine** access and 
-an **RStudio Cloud** account before the workshop.
-:::
-
-To use Google Earth Engine, you must link an existing Google acccount to the service. The signup link is [here](https://earthengine.google.com/signup/). Once you have logged into Google, you will be presented with a signup form.
-
-**Make sure to fill in the form with genuine answers.** In the section asking *"What would you like to accomplish with Earth Engine?"*,  please provide a proper learning/academic reason, e.g. "I want to use Google Earth Engine to learn about remote sensing and image processing for my research". **Do not just copy and paste the response from here as Google may reject your application.**
+**Make sure to fill in the form with genuine answers.** In the section asking *"What would you like to accomplish with Earth Engine?"*, provide a reasonable explanation of how you would utilise the geospatial data obtained from Earth Engine in a couple of sentences. A proper description will almost guarantee that you will be approved in minutes.
 
 ![Fill in the form, submit and wait for an email confirmation](assets/gee_signup.jpg)
 
-Once you have submitted, you should receive a confirmation via email within minutes (to a couple of hours).
+Once you have submitted, you should receive a confirmation via email within minutes (to a couple of hours). This is why signing up now is important - you may not be able to use Google Earth Engine functionality if you sign up during the workshop.
 
 ## RStudio Cloud
 
-RStudio Cloud is a free, web-based RStudio IDE that you can use to run R code in your browser. It is a great way to get started with R without having to install anything on your computer. You can also use it to share your code with others. If this is the first time you're using RStudio Cloud, you can find a guide [here](https://rstudio.cloud/learn/guide). Expand the section below to learn how to sign up and get started.
+RStudio Cloud is a free, web-based RStudio IDE that you can use to run R code in your browser. It is a great way to get started with R without having to install anything on your computer. You can also use it to share your code with others. We encourage you to use RStudio Cloud for the workshop as you do not need to install anything on your computer. If you do not have an RStudio account, follow the steps below.
 
-:::{.callout-note collapse="true"}
 ### Setting up RStudio Cloud
 
-Go to [https://rstudio.cloud/](https://rstudio.cloud/), and sign up on the "Cloud Free" Plan. 
+Go to [https://rstudio.cloud/](https://rstudio.cloud/) and sign up on the "Cloud Free" Plan. 
 
 ![Sign up to the Cloud Free Plan on RStudio Cloud](assets/rstudiocloud_signup.jpg)
 
-You will need to provide an email address and a password. You can also sign up using your Google or Github account -- simply click on those buttons, and follow the instructions (you may need to authorise RStudio Cloud to access these accounts).
+You will need to provide an email address and a password. You can also sign up using your Google or Github account -- simply click on those buttons, and follow the authentication steps.
 
 ::: {layout="[-20, 60, -20]"}
 ![](assets/rstudiocloud_login.jpg)
@@ -39,13 +30,6 @@ You will need to provide an email address and a password. You can also sign up u
 You will be automatically directed to the RStudio Cloud home page, which looks like this:
 
 ![](assets/rstudiocloud_projview.jpg)
-
-You are now ready to join the shared space for this course. See below for the link.
-
-:::
-
-We encourage you to use RStudio Cloud for the workshop as you do not need to install anything on your computer. Simply [log in](https://login.rstudio.cloud/login) with your free account and follow along with the workshop.
-
 
 
 **Join our shared space by clicking the button below**:
@@ -56,20 +40,16 @@ We encourage you to use RStudio Cloud for the workshop as you do not need to ins
 In the near future, we will be able to provide AgReFed workshop participants with a virtual machine on the Nectar Research Cloud. This will allow you to use RStudio Server on a virtual machine. Instructions will be provided when this is available.
 ::: -->
 
-## Binder
+## Binder (optional)
 
 Want to play around with `dataharvester` without an RStudio Cloud account? Launch our Binder instance by clicking on the button below. Binder should only be used in a test environment as Binder instances are not persistent and will be deleted after a period of inactivity.
 
 [![](https://img.shields.io/badge/Launch%20Workshop-Binder-blue?style=for-the-badge&logo=appveyor)](https://mybinder.org/v2/gh/januarharianto/dataharvester_on_binder/HEAD?urlpath=rstudio){target="_blank"}
 
-## RStudio Desktop 
+## RStudio Desktop (optional)
 
-::: callout-note
-If you prefer to use RStudio Desktop, a setup vignette is available on the `dataharvester` site. We will not support this option during the workshop, but you can use it to follow along with the workshop at your own pace. 
+If you prefer to use RStudio Desktop, a setup vignette is available here. Note that we will **not** be able to provide support for RStudio Desktop during the workshop.
 
-
-We will not be able to help you troubleshoot any issues you may encounter while we are teaching. You can, however, submit an issue on the `dataharvester` Github repository to document your problems and we will try to help you as best we can after the workshop sessions. 
-:::
 
 <!-- 
 ::: callout-important
@@ -142,4 +122,4 @@ If you are stuck at any point, we have a dedicated [Troubleshooting](/rdocs/r99-
 
 ## What's next?
 
-Now that you have `dataharvester` installed, you are ready to start the workshop. Workshop links are available in the sidebar. You should also check out the landing page for the [R Workshop](rdocs/r00-workshop.qmd) for updates.
+Now that you have `dataharvester` iwnstalled, you are ready to start the workshop. Workshop links are available in the sidebar. You should also check out the landing page for the [R Workshop](/rdocs/r00-workshop.qmd) for updates.
