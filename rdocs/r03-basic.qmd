@@ -8,7 +8,7 @@ markdown:
 
 Welcome to **Session 2**. 
 
-The `harvest()` function used in the last workshop was a wrapper for several `download_*()` functions already available in `dataharvester` (see [source](https://github.com/Sydney-Informatics-Hub/dataharvester/blob/main/inst/python/harvest.py)). In this workshop, we willl show you how to call these functions directly for more control over the data download process.
+The `harvest()` function used in the last session was a wrapper for several `download_*()` functions already available in `dataharvester` (see [source](https://github.com/Sydney-Informatics-Hub/dataharvester/blob/main/inst/python/harvest.py)). In this session, we willl show you how to call these functions directly for more control over the data download process.
 
 ::: {.callout-note collapse="true"}
 ## All available `download_*()` functions
@@ -172,7 +172,7 @@ img <-
 ```
 :::
 
-Your instructor may demonstrate more examples during the workshop.
+Your instructor may demonstrate more examples during the session.
 
 
 ## [{{< fa keyboard >}} Exercise 1: Cloud and shadow masking]{style="color: blue;"}
