@@ -5,7 +5,7 @@ markdown:
 ---
 
 :::{.callout-tip}
-## In this workshop
+## In this session
 
 - Exploring other datasets in Earth Engine (5 min)
 - Downloading large images from Google Earth Engine (5 min)
