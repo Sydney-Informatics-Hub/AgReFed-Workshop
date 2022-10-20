@@ -5,7 +5,7 @@ markdown:
 ---
 
 :::{.callout-tip}
-## In this workshop
+## In this Session
 
 <!-- - Downloading without the configuration file (10 min)
 - Google Earth Engine in `dataharvester` (5 min)
@@ -16,14 +16,16 @@ markdown:
 
 1. Manually download data without the YAML configuration file
 2. Access and view Google Earth Engine data 
-3. Extract samples from downloaded rasters
 :::
 
 ## Introduction
 
-Welcome to **Workshop 2**. 
+Welcome to **Session 2**. 
 
-The `harvest()` function used in the last workshop was a wrapper for several `download_*()` functions already available in `dataharvester` (see [source](https://github.com/Sydney-Informatics-Hub/dataharvester/blob/main/inst/python/harvest.py)). In this workshop, we willl show you how to call these functions directly for more control over the data download process:
+The `harvest()` function used in the last workshop was a wrapper for several `download_*()` functions already available in `dataharvester` (see [source](https://github.com/Sydney-Informatics-Hub/dataharvester/blob/main/inst/python/harvest.py)). In this workshop, we willl show you how to call these functions directly for more control over the data download process.
+
+::: {.callout-note collapse="true"}
+## All available `download_*()` functions
 
 - `download_dem()` for Geoscience Australia DEM grid data
 - `download_slga()` for Soil and Landscape Grid Australia (SLGA) - Soil Atributes
@@ -31,8 +33,9 @@ The `harvest()` function used in the last workshop was a wrapper for several `do
 - `download_radiometric()` for Geosciences Australia's Radiometric Map of Australia
 - `download_silo()` for Scientific Information for Land Owners (SILO) climate data
 - `collect_ee()`, `preprocess_ee()` and `download_ee()` for access to datasets available in the Google Earth Engine Data Catalog
+:::
 
-We will also show you how to extract single-band samples from downloaded rasters. **This is useful if you already have raster images and want to extract samples from them.**
+We will also show you how to extract samples from downloaded rasters using the `extract_values()` function.
 
 ### Before you begin
 
@@ -71,11 +74,13 @@ download_dem(
 )
 ```
 
-::: callout-note
-## Reminder
+### Bounding boxes 
+
+::: callout-tip
 
 The bounding box is defined as `c(xmin, ymin, xmax, ymax)` in [EPSG:4326](https://epsg.io/4326)
 :::
+
 
 Let's define some areas of interest as bounding boxes for the rest of this Demo:
 
@@ -85,16 +90,14 @@ corrigin <- c(118.015, -32.356, 118.215, -32.156)    # WA
 nedscorner <- c(141.215, -34.241, 141.415, -34.0414) # VIC
 ```
 
-These are locations on the Australian continent as most APIs we use are specific to Australia (with the exception of functions that use the Google Earth Engine API). 
-
 ::: {.callout-caution collapse="true"}
-## Interested in generating your own bounding box?
+## Want to generate your own bounding box?
 You can try to find the bounding box for your area of interest using [this bounding box tool](https://boundingbox.klokantech.com/). Make sure to select "CSV" output for easier copy and paste.
 :::
 
-#### How do we know what layers are available?
+#### Finding products to download (layers)
 
-Each `download_*()` function has a `layers` argument that accepts a pre-defined list of layers. These are documented in the function `help()` or `?`. For example, to see the available layers for the `download_dem()` function, you can use:
+Each `download_*()` function has a `layers` argument that accepts a pre-defined list of products. These are documented in the function `help()` or `?`. For example, to see the available layers for the `download_dem()` function, you can use:
 
 ```r
 ?download_dem
@@ -127,7 +130,8 @@ download_slga(
     get_ci = TRUE
 )
 ```
-It is quite clear that you will want to read the documentation for each function to understand what arguments are available and how to use them.
+Make sure to read the documentation for each function to see what additional arguments are available.
+
 
 ## [{{< fa person-chalkboard >}} Demo 2: Google Earth Engine]{style="color: green;"}
 
@@ -155,9 +159,7 @@ The workflow for using the GEE API is as follows:
 Note that the order of processing **must** follow the above, or there may be unintended consequences. If you find any irregular behaviour, let us know! The `dataharvester` package is in early development and we are keen to fix any undocumented issues.
 :::
 
-Once the data has been downloaded as images, you may manually extract samples like how you would with any other GeoTIFF - we will discuss that in **Workshop 3**. 
-
-For now, let's use a full example to demonstrate and explain these functions. Make sure that you have initialised the `dataharvester` package with your GEE credentials:
+Let's use a full example to demonstrate and explain these functions. Make sure that you have initialised the `dataharvester` package with your GEE credentials:
 
 ```r
 initialise_harvester("r-reticulate", earthengine = TRUE)
@@ -326,4 +328,4 @@ plot(dea, 2, 2)
 
 ## Wrapping up
 
-This is the end of **Workshop 2**. In this workshop we looked at using manual methods to download data from various API sources and the GEE Catalog. We also briefly looked at how to plot the data using the `terra` package as well as the `plot()` function for objects created using the `download_*()` functions.
+This is the end of **Session 2**. In this session we looked at using manual methods to download data from various API sources and the GEE Catalog. We also briefly looked at how to preview the data. In the next session, we will look at more Google Earth Engine processing and how to extract samples from the downloaded images.
