@@ -286,7 +286,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
   <li><a href="#fa-person-chalkboard-demo-1-authentication" id="toc-fa-person-chalkboard-demo-1-authentication" class="nav-link" data-scroll-target="#fa-person-chalkboard-demo-1-authentication"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 1: Authentication</span></a></li>
   <li><a href="#fa-person-chalkboard-demo-2-yaml-config" id="toc-fa-person-chalkboard-demo-2-yaml-config" class="nav-link" data-scroll-target="#fa-person-chalkboard-demo-2-yaml-config"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 2: YAML config</span></a></li>
-  <li><a href="#fa-keyboard-exercise-1-update-the-config" id="toc-fa-keyboard-exercise-1-update-the-config" class="nav-link" data-scroll-target="#fa-keyboard-exercise-1-update-the-config"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercise 1: Update the config</span></a></li>
+  <li><a href="#fa-keyboard-exercise-1-adding-even-more-sources" id="toc-fa-keyboard-exercise-1-adding-even-more-sources" class="nav-link" data-scroll-target="#fa-keyboard-exercise-1-adding-even-more-sources"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercise 1: Adding even more sources</span></a></li>
   <li><a href="#fa-person-chalkboard-demo-3-google-earth-engine" id="toc-fa-person-chalkboard-demo-3-google-earth-engine" class="nav-link" data-scroll-target="#fa-person-chalkboard-demo-3-google-earth-engine"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 3: Google Earth Engine</span></a></li>
   <li><a href="#fa-keyboard-exercise-2-gee" id="toc-fa-keyboard-exercise-2-gee" class="nav-link" data-scroll-target="#fa-keyboard-exercise-2-gee"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercise 2: GEE</span></a></li>
   <li><a href="#wrapping-up" id="toc-wrapping-up" class="nav-link" data-scroll-target="#wrapping-up">Wrapping up</a></li>
@@ -315,6 +315,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="summary" class="level2">
 <h2 class="anchored" data-anchor-id="summary">Summary</h2>
 <p>Welcome to <strong>Session 1</strong>. This session introduces you gently to the <code>dataharvester</code> package by showing you how to download files with minimal code input, which is achieved by running the <code>harvest()</code> function.</p>
+<p>Your instructor will briefly introduce the AgReFed Data-Harvester project and get you set up for the remainder of the workshop.</p>
 </section>
 <section id="fa-person-chalkboard-demo-1-authentication" class="level2">
 <h2 class="anchored" data-anchor-id="fa-person-chalkboard-demo-1-authentication"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 1: Authentication</span></h2>
@@ -337,9 +338,28 @@ Agenda
 <p>Run the following code in your RStudio session:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dataharvester)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">initialise_harvester</span>(<span class="st">"r-reticulate"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The function will verify that the environment <code>"r-reticulate"</code> is available and contains all the required dependencies. Once this is complete, you may want to authenticate to Google Earth Engine (GEE). To do this, add the following argument to the same code:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">initialise_harvester</span>(<span class="st">"r-reticulate"</span>, <span class="at">earthengine =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The function will now try to authenticate to Google Earth Engine. This might involve opening a browser window and copying a code into the console.</p>
+<p>The function will verify that the environment <code>"r-reticulate"</code> is available and contains all the required dependencies. Once this is complete, you may want to authenticate to Google Earth Engine (GEE). To do this, run the following code:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">authenticate_ee</span>(<span class="at">auth_mode =</span> <span class="st">"rstudiocloud"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Tip: simpler authentication
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>In the future, you can bundle the two functions above into a single call:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">initialise_harvester</span>(<span class="st">"r-reticulate"</span>, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">earthengine =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">auth_mode =</span> <span class="st">"rstudiocloud"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>The function will now try to authenticate to Google Earth Engine. This might involve opening a browser window and copying a code into the console. <strong>Because we are using RStudio Cloud, some warings will appear.</strong> Your instructor will explain what to do, but an explanation is also provided in the troubleshooting section <a href="../rdocs/r99-troubleshooting.html#google-earth-engine-authentication">here</a>.</p>
 </section>
 <section id="fa-person-chalkboard-demo-2-yaml-config" class="level2">
 <h2 class="anchored" data-anchor-id="fa-person-chalkboard-demo-2-yaml-config"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 2: YAML config</span></h2>
@@ -362,7 +382,7 @@ Agenda
 </div>
 <p>The Data-Harvester uses a YAML configuration file to perform bulk downloads in a single command.</p>
 <div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -371,13 +391,13 @@ What is YAML?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>YAML is a human-readable data-serialization language. It is commonly used for configuration files and in applications where data is being stored or transmitted. YAML files are easy to read and write, and are often used to configure software applications. A typical YAML file looks like this:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> </span><span class="st">"John Smith"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">age</span><span class="kw">:</span><span class="at"> </span><span class="dv">42</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">occupation</span><span class="kw">:</span><span class="at"> </span><span class="st">"gardener"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> </span><span class="st">"John Smith"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">age</span><span class="kw">:</span><span class="at"> </span><span class="dv">42</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">occupation</span><span class="kw">:</span><span class="at"> </span><span class="st">"gardener"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Looks familiar? If you have used Markdown or R Markdown, YAML is used to define the metadata for the document.</p>
 <p>A YAML configuration file helps to keep track of the data you have downloaded and the analyses you have performed. It also allows you to easily reproduce your analyses and share them with others.</p>
 </div>
@@ -385,17 +405,17 @@ What is YAML?
 </div>
 <section id="basic-usage" class="level4">
 <h4 class="anchored" data-anchor-id="basic-usage">Basic usage</h4>
-<p>Below is the YAML file for <code>basic_config.yaml</code> which can be found in the <code>assets</code> folder in RStudio Cloud. The file can also be downloaded from the <a href="">GitHub repository</a>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">outpath</span><span class="kw">:</span><span class="at"> downloads/</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">target_bbox</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="fl">149.769345</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.335861</span><span class="kw">,</span><span class="at"> </span><span class="fl">149.949173</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.206271</span><span class="kw">]</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">target_dates</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">2021</span><span class="kw">]</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">target_res</span><span class="kw">:</span><span class="at"> </span><span class="fl">6.0</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">target_sources</span><span class="kw">:</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">DEA</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">landsat_barest_earth</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Below is the YAML file for <code>basic_config.yaml</code> which can be found in the <code>assets</code> folder in RStudio Cloud.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">outpath</span><span class="kw">:</span><span class="at"> downloads/</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">target_bbox</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="fl">149.769345</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.335861</span><span class="kw">,</span><span class="at"> </span><span class="fl">149.949173</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.206271</span><span class="kw">]</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">target_dates</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">2021</span><span class="kw">]</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">target_res</span><span class="kw">:</span><span class="at"> </span><span class="fl">6.0</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">target_sources</span><span class="kw">:</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">DEA</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">landsat_barest_earth</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>To run the configuration file, we use the <code>harvest()</code> function. The function takes a single argument, <code>path_to_config</code>, which is the path to the YAML file. The path can be either relative or absolute.</p>
 <div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -404,7 +424,7 @@ Relative and absolute path strings
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>A relative path is a path that is relative to the current working directory. For example, if you are working in the <code>dataharvester</code> directory, the path to the <code>basic_config.yaml</code> file, stored in the <code>assets</code> folder, is <code>assets/basic_config.yaml</code>.</p>
 <p>An absolute path is a path that starts from the root directory. For example, the absolute path to the <code>basic_config.yaml</code> file might be <code>/home/rstudio/dataharvester/assets/basic_config.yaml</code> (note: this is not the actual path to the file).</p>
@@ -414,38 +434,38 @@ Relative and absolute path strings
 </div>
 </div>
 <p>Making sure that your path is correct (and it should be, since you are on RStudio Cloud), run the code below:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">harvest</span>(<span class="st">"assets/basic_config.yaml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>If you run the same config again, he function recognises that a file has been downloaded and will not re-download it. This is useful if you want to re-run the configuration file to add more data sources – we will see this in action later.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">harvest</span>(<span class="st">"assets/basic_config.yaml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>If you run the same config again, the function recognises that a file has been downloaded and will not re-download it. This is useful if you want to re-run the configuration file to add more data sources – we will see this in action later.</p>
 </section>
 <section id="adding-multiple-data-sources" class="level4">
 <h4 class="anchored" data-anchor-id="adding-multiple-data-sources">Adding multiple data sources</h4>
 <p>Additional data sources can be added to the configuration file by adding a new key to the <code>target_sources</code> list. Below we have added sources from DEM, Landscape, SILO and SLGA collections. Copy the new lines and add them to <code>basic_config.yaml</code>:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">outpath</span><span class="kw">:</span><span class="at"> downloads/</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">target_bbox</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="fl">149.769345</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.335861</span><span class="kw">,</span><span class="at"> </span><span class="fl">149.949173</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.206271</span><span class="kw">]</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">target_dates</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">2021</span><span class="kw">]</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">target_res</span><span class="kw">:</span><span class="at"> </span><span class="fl">6.0</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">target_sources</span><span class="kw">:</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">DEA</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">landsat_barest_earth</span><span class="kw">]</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co">  # add the new lines below --------------------</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">DEM</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">DEM</span><span class="kw">]</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">Landscape</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">Relief_300m</span><span class="kw">]</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">SILO</span><span class="kw">:</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">monthly_rain</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">sum</span><span class="kw">]</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">SLGA</span><span class="kw">:</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">Bulk_Density</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">0-5cm</span><span class="kw">]</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">Clay</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">0-5cm</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">outpath</span><span class="kw">:</span><span class="at"> downloads/</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">target_bbox</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="fl">149.769345</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.335861</span><span class="kw">,</span><span class="at"> </span><span class="fl">149.949173</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.206271</span><span class="kw">]</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">target_dates</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">2021</span><span class="kw">]</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">target_res</span><span class="kw">:</span><span class="at"> </span><span class="fl">6.0</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">target_sources</span><span class="kw">:</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">DEA</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">landsat_barest_earth</span><span class="kw">]</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">  # add the new lines below --------------------</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">DEM</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">DEM</span><span class="kw">]</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">Landscape</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">Relief_300m</span><span class="kw">]</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">SILO</span><span class="kw">:</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">monthly_rain</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">sum</span><span class="kw">]</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">SLGA</span><span class="kw">:</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">Bulk_Density</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">0-5cm</span><span class="kw">]</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">Clay</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">0-5cm</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Let’s run the above configuration file and preview the output data. You should already have the <code>DEA</code> data downloaded, so the function will only download the new data sources. This time, the argument <code>preview = TRUE</code> will be added to the <code>harvest()</code> function, which will allow us to preview the data that will be downloaded.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">harvest</span>(<span class="st">"assets/multi_config.yaml"</span>, </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_name =</span> <span class="st">"multi_config"</span>, </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">preview =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">harvest</span>(<span class="st">"assets/multi_config.yaml"</span>, </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_name =</span> <span class="st">"multi_config"</span>, </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">preview =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You should see a figure similar to the one below:</p>
 <p><img src="assets/figs1d2_preview.jpeg" class="img-fluid"></p>
 </section>
 </section>
-<section id="fa-keyboard-exercise-1-update-the-config" class="level2">
-<h2 class="anchored" data-anchor-id="fa-keyboard-exercise-1-update-the-config"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercise 1: Update the config</span></h2>
+<section id="fa-keyboard-exercise-1-adding-even-more-sources" class="level2">
+<h2 class="anchored" data-anchor-id="fa-keyboard-exercise-1-adding-even-more-sources"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercise 1: Adding even more sources</span></h2>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -456,7 +476,7 @@ Relative and absolute path strings
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Refer to the <a href="../Settings_Overview.html">YAML Overview</a> section and update the <code>basic_config.yaml</code> file to download the following data sources:</p>
+<p>Many different data layers are available for download as long as you know how to call their layer names. Refer to the <a href="../Settings_Overview.html">YAML Overview</a> section and update the <code>basic_config.yaml</code> file to download the following data sources:</p>
 <ul>
 <li>Slope and aspect from the Landscape collection</li>
 <li>Total (sum) maximum temperature from the SILO collection</li>
@@ -465,7 +485,7 @@ Relative and absolute path strings
 </div>
 </div>
 <div class="callout-caution callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -474,24 +494,24 @@ Relative and absolute path strings
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb8"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">outpath</span><span class="kw">:</span><span class="at"> downloads/</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">target_bbox</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="fl">149.769345</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.335861</span><span class="kw">,</span><span class="at"> </span><span class="fl">149.949173</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.206271</span><span class="kw">]</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">target_dates</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">2021</span><span class="kw">]</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">target_res</span><span class="kw">:</span><span class="at"> </span><span class="fl">6.0</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">target_sources</span><span class="kw">:</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">DEA</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">landsat_barest_earth</span><span class="kw">]</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">DEM</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">DEM</span><span class="kw">]</span></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">Landscape</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">Relief_300m</span><span class="kw">,</span><span class="at"> Slope</span><span class="kw">,</span><span class="at"> Aspect</span><span class="kw">]</span><span class="co">  # &lt;- edit this line</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">SILO</span><span class="kw">:</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">monthly_rain</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">sum</span><span class="kw">]</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">max_temp</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">sum</span><span class="kw">]</span><span class="co">  # &lt;- add this line</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">SLGA</span><span class="kw">:</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">Bulk_Density</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">0-5cm</span><span class="kw">]</span></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">Clay</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">0-5cm</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">outpath</span><span class="kw">:</span><span class="at"> downloads/</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">target_bbox</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="fl">149.769345</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.335861</span><span class="kw">,</span><span class="at"> </span><span class="fl">149.949173</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.206271</span><span class="kw">]</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">target_dates</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">2021</span><span class="kw">]</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">target_res</span><span class="kw">:</span><span class="at"> </span><span class="fl">6.0</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">target_sources</span><span class="kw">:</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">DEA</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">landsat_barest_earth</span><span class="kw">]</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">DEM</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">DEM</span><span class="kw">]</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">Landscape</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">Relief_300m</span><span class="kw">,</span><span class="at"> Slope</span><span class="kw">,</span><span class="at"> Aspect</span><span class="kw">]</span><span class="co">  # &lt;- edit this line</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">SILO</span><span class="kw">:</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">monthly_rain</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">sum</span><span class="kw">]</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">max_temp</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">sum</span><span class="kw">]</span><span class="co">  # &lt;- add this line</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">SLGA</span><span class="kw">:</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">Bulk_Density</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">0-5cm</span><span class="kw">]</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">Clay</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">0-5cm</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -515,35 +535,35 @@ Agenda
 </div>
 </div>
 <p>We will continue to use the same configuration file, <code>basic_config.yaml</code>, to download data from <strong>Google Earth Engine</strong>. Below, we add a new key to the <code>target_sources</code> list, called <code>GEE</code>. <strong>session 2</strong> will cover how to use the GEE API in more detail, but for now, we will preview how the YAML configuration file can be used download data from GEE.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">infile</span><span class="kw">:</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">outpath</span><span class="kw">:</span><span class="at"> downloads/</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colname_lat</span><span class="kw">:</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colname_lng</span><span class="kw">:</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">target_bbox</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="fl">149.769345</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.335861</span><span class="kw">,</span><span class="at"> </span><span class="fl">149.949173</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.206271</span><span class="kw">]</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">target_dates</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">2021</span><span class="kw">]</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">target_res</span><span class="kw">:</span><span class="at"> </span><span class="fl">6.0</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">target_sources</span><span class="kw">:</span></span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">DEA</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">landsat_barest_earth</span><span class="kw">]</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">DEM</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">DEM</span><span class="kw">]</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">Landscape</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">Relief_300m</span><span class="kw">,</span><span class="at"> Slope</span><span class="kw">,</span><span class="at"> Aspect</span><span class="kw">]</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">SILO</span><span class="kw">:</span></span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">monthly_rain</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">sum</span><span class="kw">]</span></span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">max_temp</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">sum</span><span class="kw">]</span></span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">SLGA</span><span class="kw">:</span></span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">Bulk_Density</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">0-5cm</span><span class="kw">]</span></span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">Clay</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">0-5cm</span><span class="kw">]</span></span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="co">  # add the new lines below --------------------</span></span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">GEE</span><span class="kw">:</span></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">preprocess</span><span class="kw">:</span></span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">collection</span><span class="kw">:</span><span class="at"> LANDSAT/LC09/C02/T1_L2</span></span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">mask_clouds</span><span class="kw">:</span><span class="at"> </span><span class="ch">True</span></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">reduce</span><span class="kw">:</span><span class="at"> median</span></span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">spectral</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">NDVI</span><span class="kw">]</span></span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">download</span><span class="kw">:</span></span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">bands</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">NDVI</span><span class="kw">,</span><span class="at"> SR_B2</span><span class="kw">,</span><span class="at"> SR_B3</span><span class="kw">,</span><span class="at"> SR_B4</span><span class="kw">]</span></span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">scale</span><span class="kw">:</span><span class="at"> </span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">infile</span><span class="kw">:</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">outpath</span><span class="kw">:</span><span class="at"> downloads/</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colname_lat</span><span class="kw">:</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colname_lng</span><span class="kw">:</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">target_bbox</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="fl">149.769345</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.335861</span><span class="kw">,</span><span class="at"> </span><span class="fl">149.949173</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.206271</span><span class="kw">]</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">target_dates</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="dv">2021</span><span class="kw">]</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">target_res</span><span class="kw">:</span><span class="at"> </span><span class="fl">6.0</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="fu">target_sources</span><span class="kw">:</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">DEA</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">landsat_barest_earth</span><span class="kw">]</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">DEM</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">DEM</span><span class="kw">]</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">Landscape</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">Relief_300m</span><span class="kw">,</span><span class="at"> Slope</span><span class="kw">,</span><span class="at"> Aspect</span><span class="kw">]</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">SILO</span><span class="kw">:</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">monthly_rain</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">sum</span><span class="kw">]</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">max_temp</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">sum</span><span class="kw">]</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">SLGA</span><span class="kw">:</span></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">Bulk_Density</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">0-5cm</span><span class="kw">]</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">Clay</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">0-5cm</span><span class="kw">]</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="co">  # add the new lines below --------------------</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">GEE</span><span class="kw">:</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">preprocess</span><span class="kw">:</span></span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">collection</span><span class="kw">:</span><span class="at"> LANDSAT/LC09/C02/T1_L2</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">mask_clouds</span><span class="kw">:</span><span class="at"> </span><span class="ch">True</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">reduce</span><span class="kw">:</span><span class="at"> median</span></span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">spectral</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">NDVI</span><span class="kw">]</span></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">download</span><span class="kw">:</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">bands</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">NDVI</span><span class="kw">,</span><span class="at"> SR_B2</span><span class="kw">,</span><span class="at"> SR_B3</span><span class="kw">,</span><span class="at"> SR_B4</span><span class="kw">]</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">scale</span><span class="kw">:</span><span class="at"> </span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The configuration will download a Landsat 9 images for the year 2021, composite them all to a single image using the <code>median</code> reducer, and calculate the <code>NDVI</code> spectral index. The output image will be downloaded as a GeoTIFF file, with the <code>NDVI</code> spectral index and the RGB bands (<code>SR_B2</code>, <code>SR_B3</code>, <code>SR_B4</code>) included in the raster image.</p>
 </section>
 <section id="fa-keyboard-exercise-2-gee" class="level2">
@@ -561,11 +581,10 @@ Agenda
 <p>Let’s download from a different data source by referring to the <a href="https://developers.google.com/earth-engine/datasets/catalog">Earth Engine Data Catalog</a>. Have a look at the different sections and tabs (Description Bands, Image Properties, Terms of Use).</p>
 <p><strong>Task</strong></p>
 <p>Change the <code>collection</code> attribute in <code>basic_config.yaml</code> to one of <a href="https://developers.google.com/earth-engine/datasets/catalog/landsat">Landsat</a>, <a href="https://developers.google.com/earth-engine/datasets/catalog/sentinel">Sentinel</a> or <a href="https://developers.google.com/earth-engine/datasets/catalog/modis">MODIS</a> <strong>surface reflectance</strong> collections. Then, run <code>harvest()</code> on the configuration file and preview the output.</p>
-<p><strong>Questions</strong></p>
+<p><strong>Food for thought</strong></p>
 <ul>
-<li>What happens when you provide an incorrect dataset name?</li>
+<li>What happens when you provide an incorrect dataset name or band name?</li>
 <li>Which other attribute(s) needed to be changed in the configuration file to download data from a different collection?</li>
-<li>What happens when you provide an incorrect band name?</li>
 </ul>
 </div>
 </div>
@@ -573,7 +592,7 @@ Agenda
 </section>
 <section id="wrapping-up" class="level2">
 <h2 class="anchored" data-anchor-id="wrapping-up">Wrapping up</h2>
-<p>This is the end of <strong>Session 1</strong>. In this session we have covered setup and using the YAML configuration file to download from multiple API sources. In the next session (<a href="../rdocs/r03-basic.html"><strong>session 2</strong></a>), we will cover how to use individual download functions to create custom workflows for downloading data.</p>
+<p>This is the end of <strong>Session 1</strong>. In this session we have covered setup and using the YAML configuration file to download from multiple API sources. In the next session (<a href="../rdocs/r03-basic.html"><strong>Session 2</strong></a>), we will cover how to use individual download functions to create custom workflows for downloading data.</p>
 <p>See you there!</p>
 
 

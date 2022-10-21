@@ -342,8 +342,8 @@ Tip
 ### Google Cloud CLI -->
 <section id="google-earth-engine-authentication" class="level3">
 <h3 class="anchored" data-anchor-id="google-earth-engine-authentication">Google Earth Engine authentication</h3>
-<section id="rstudio-cloud" class="level4">
-<h4 class="anchored" data-anchor-id="rstudio-cloud">RStudio Cloud</h4>
+<section id="rstudio-cloud-authentication---warnings" class="level4">
+<h4 class="anchored" data-anchor-id="rstudio-cloud-authentication---warnings">RStudio Cloud Authentication - warnings</h4>
 <div class="callout-warning callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -355,10 +355,10 @@ Warning
 </div>
 <div class="callout-body-container callout-body">
 <p>Google has migrated to OAuth 2.0 for authentication protocols on October 3, 2022. Part of the upgrade <a href="https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html">protects users from phishing and app impersonation attacks</a>.</p>
-<p>Unfortunately, this has temporarily broken Google Earth Engine (GEE) authentication on RStudio Cloud and Binder. A workaround is available and documented below.</p>
+<p>Unfortunately, this has temporarily broken Google Earth Engine (GEE) authentication on RStudio Cloud (and Binder), as Google Cloud gets confused when we try to authenticate using a cloud service. A workaround is available and documented below.</p>
 </div>
 </div>
-<p>To authenticate with Google Earth Engine (GEE), you will need to have an existing Google account. If you do not have one, you can create one <a href="https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&amp;flowEntry=SignUp">here</a>.</p>
+<p>To authenticate with Google Earth Engine (GEE), you will need to have an existing Google account. If you do not have one, you can create one reading the instructions <a href="">here</a></p>
 <p>Once you have an account, authenticate with GEE by running the following code in the RStudio console:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dataharvester)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">authenticate_harvester</span>(<span class="st">"r-reticulate"</span>, </span>
