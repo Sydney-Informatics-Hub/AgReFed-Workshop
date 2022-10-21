@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -219,9 +282,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#available-datasets-in-earth-engine" id="toc-available-datasets-in-earth-engine" class="nav-link active" data-scroll-target="#available-datasets-in-earth-engine">Available datasets in Earth Engine</a></li>
-  <li><a href="#aggregating-raster-data" id="toc-aggregating-raster-data" class="nav-link" data-scroll-target="#aggregating-raster-data">Aggregating raster data</a></li>
-  <li><a href="#sampling-point-data-from-rasters" id="toc-sampling-point-data-from-rasters" class="nav-link" data-scroll-target="#sampling-point-data-from-rasters">Sampling point data from rasters</a></li>
+  <li><a href="#fa-person-chalkboard-demo-1-additional-gee-functionality" id="toc-fa-person-chalkboard-demo-1-additional-gee-functionality" class="nav-link active" data-scroll-target="#fa-person-chalkboard-demo-1-additional-gee-functionality"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 1: Additional GEE Functionality</span></a>
+  <ul class="collapse">
+  <li><a href="#cloud-and-shadow-masking" id="toc-cloud-and-shadow-masking" class="nav-link" data-scroll-target="#cloud-and-shadow-masking">Cloud and shadow masking</a></li>
+  </ul></li>
+  <li><a href="#spectral-indices" id="toc-spectral-indices" class="nav-link" data-scroll-target="#spectral-indices">Spectral indices</a></li>
+  <li><a href="#fa-person-chalkboard-demo-2-sampling-data-from-images" id="toc-fa-person-chalkboard-demo-2-sampling-data-from-images" class="nav-link" data-scroll-target="#fa-person-chalkboard-demo-2-sampling-data-from-images"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 2: Sampling data from images</span></a>
+  <ul class="collapse">
+  <li><a href="#preparing-your-sample-locations" id="toc-preparing-your-sample-locations" class="nav-link" data-scroll-target="#preparing-your-sample-locations">Preparing your sample locations</a></li>
+  <li><a href="#preparing-your-images" id="toc-preparing-your-images" class="nav-link" data-scroll-target="#preparing-your-images">Preparing your images</a></li>
+  </ul></li>
+  <li><a href="#playground-and-final-remarks" id="toc-playground-and-final-remarks" class="nav-link" data-scroll-target="#playground-and-final-remarks">Playground and final remarks</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -255,46 +326,181 @@ In this session
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>Exploring other datasets in Earth Engine (5 min)</li>
-<li>Downloading large images from Google Earth Engine (5 min)</li>
-<li>Temporal Aggregation (10 min)</li>
-<li>Sampling point data from rasters (10 min)</li>
-<li>Exercise: Revisiting the YAML for sampling</li>
-<li>Exercise: Sampling point data from rasters</li>
+<li>Explore data in Google Earth Engine</li>
+<li>Download large images from Google Earth Engine</li>
+<li>Sample point data from rasters (10 min)</li>
 </ul>
 </div>
 </div>
-<section id="available-datasets-in-earth-engine" class="level2">
-<h2 class="anchored" data-anchor-id="available-datasets-in-earth-engine">Available datasets in Earth Engine</h2>
-<p>Under construction.</p>
+<section id="fa-person-chalkboard-demo-1-additional-gee-functionality" class="level2">
+<h2 class="anchored" data-anchor-id="fa-person-chalkboard-demo-1-additional-gee-functionality"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 1: Additional GEE Functionality</span></h2>
+<p>An advantage of using Google Earth Engine to access satellite imagery is that it is possible to preprocess the data in the cloud. This means that you can perform complex operations on large datasets without having to download the data to your local machine. In this demo, we will explore some of the additional functionality that is available in <code>dataharvester</code>.</p>
+<section id="cloud-and-shadow-masking" class="level3">
+<h3 class="anchored" data-anchor-id="cloud-and-shadow-masking">Cloud and shadow masking</h3>
+<p>Cloud masking in Google Earth Engine is a process that removes clouds from satellite imagery. This is important because clouds can obscure the features that we are interested in. If you are directly using the Google Earth Engine API to perform cloud and shadow masking, the process is <a href="https://developers.google.com/earth-engine/tutorials/community/sentinel-2-s2cloudless">quite complex</a>.</p>
+<p>Fortunately, <code>dataharvester</code> provides a simple argument that can be used to perform cloud and shadow masking, and these calculations are already included in the code. In the <code>preprocess_ee()</code> function, the <code>mask_clouds</code> argument can be set to <code>TRUE</code> and cloud masking will be performed automatically using a cloud probability threshold of 60% (note: in the future, we will expand this functionality to be customisable).</p>
+<p>Currently, the following datasets are supported for <em>near-instant</em> cloud masking thanks to the use of the <a href="https://github.com/davemlz/eemont"><code>eemont</code></a> package:</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+View supported datasets for cloud and shadow masking
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <ul>
-<li>Discuss Landsat, Sentinel, MODIS supporting cloud masking and spectral indices</li>
-<li>Discuss use of other datasets, but with reduced functionality</li>
-<li>Attribute Python packages eemont for cloud masking and spectral indices functionality, geemap for mapping, geedim for large image downloads</li>
-<li>Run examples (show swapping of datasets, and locations outside of Australia)</li>
+<li>Sentinel-3 OLCI EFR: Ocean and Land Color Instrument Earth Observation Full Resolution</li>
+<li>Sentinel-2 MSI: MultiSpectral Instrument, Level-2A</li>
+<li>Landsat 8 Surface Reflectance Tier 1 and 2</li>
+<li>Landsat 7 Surface Reflectance Tier 1 and 2</li>
+<li>Landsat 5 Surface Reflectance Tier 1 and 2</li>
+<li>Landsat 4 Surface Reflectance Tier 1 and 2</li>
+<li>MCD15A3H.006 MODIS Leaf Area Index/FPAR 4-Day Global 500m</li>
+<li>MOD09GA.006 Terra Surface Reflectance Daily Global 1km and 500m</li>
+<li>MOD09Q1.006 Terra Surface Reflectance 8-Day Global 250m</li>
+<li>MOD09A1.006 Terra Surface Reflectance 8-Day Global 500m</li>
+<li>MOD17A2H.006: Terra Gross Primary Productivity 8-Day Global 500M 500m</li>
+<li>MOD16A2.006: Terra Net Evapotranspiration 8-Day Global 500m</li>
+<li>MOD13Q1.006 Terra Vegetation Indices 16-Day Global 250m</li>
+<li>MOD13A1.006 Terra Vegetation Indices 16-Day Global 500m</li>
+<li>MOD13A2.006 Terra Vegetation Indices 16-Day Global 1km</li>
+<li>MYD09GA.006 Aqua Surface Reflectance Daily Global 1km and 500m</li>
+<li>MYD09Q1.006 Aqua Surface Reflectance 8-Day Global 250m</li>
+<li>MYD09A1.006 Aqua Surface Reflectance 8-Day Global 500m</li>
+<li>MYD17A2H.006: Aqua Gross Primary Productivity 8-Day Global 500M 500m</li>
+<li>MYD13Q1.006 Aqua Vegetation Indices 16-Day Global 250m</li>
+<li>MYD13A1.006 Aqua Vegetation Indices 16-Day Global 500m</li>
+<li>MYD13A2.006 Aqua Vegetation Indices 16-Day Global 1km</li>
+<li>VNP09GA: VIIRS Surface Reflectance Daily 500m and 1km</li>
+<li>VNP13A1: VIIRS Vegetation Indices 16-Day 500m</li>
 </ul>
+</div>
+</div>
+</div>
+<p>Let’s use the same bounding boxes as in the previous session.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Australian</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>llara_nsw <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">149.769</span>, <span class="sc">-</span><span class="fl">30.335</span>, <span class="fl">149.969</span>, <span class="sc">-</span><span class="fl">30.135</span>)  </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>corrigin_wa <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">118.015</span>, <span class="sc">-</span><span class="fl">32.356</span>, <span class="fl">118.215</span>, <span class="sc">-</span><span class="fl">32.156</span>)  </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>nedscorner_vic <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">141.215</span>, <span class="sc">-</span><span class="fl">34.241</span>, <span class="fl">141.415</span>, <span class="sc">-</span><span class="fl">34.0414</span>) </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Earth Engine only</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>atlantis <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">11.10</span>, <span class="fl">21.35</span>, <span class="sc">-</span><span class="fl">11.70</span>, <span class="fl">20.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>First, we will collect satellite imagery from Corrigin, WA using the Sentinel-2 MSI dataset, and see what it looks like. Note that cloud masking is automatically performed by default, so we do not need to specify the <code>mask_clouds</code> argument.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>corrigin <span class="ot">&lt;-</span> <span class="fu">collect_ee</span>(<span class="at">collection =</span> <span class="st">"COPERNICUS/S2_SR"</span>, </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">coords =</span> corrigin_wa,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="st">"2021-11-01"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">end_date =</span> <span class="st">"2021-11-28"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>corrigin <span class="ot">&lt;-</span> <span class="fu">preprocess_ee</span>(<span class="at">object =</span> corrigin)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>corrigin <span class="ot">&lt;-</span> <span class="fu">map_ee</span>(<span class="at">object =</span> corrigin, <span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"B2"</span>, <span class="st">"B3"</span>, <span class="st">"B4"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The image should look something like this:</p>
+<p><img src="assets/corrigin_maskcloud.png" class="img-fluid"></p>
+<p>What happens if we disable cloud masking? We can do this by setting the <code>mask_clouds</code> argument to <code>FALSE</code>.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+View Result
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>corrigin <span class="ot">&lt;-</span> <span class="fu">collect_ee</span>(<span class="at">collection =</span> <span class="st">"COPERNICUS/S2_SR"</span>, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">coords =</span> corrigin_wa,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="st">"2021-11-01"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">end_date =</span> <span class="st">"2021-11-28"</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>corrigin <span class="ot">&lt;-</span> <span class="fu">preprocess_ee</span>(<span class="at">object =</span> corrigin, <span class="at">mask_clouds =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>corrigin <span class="ot">&lt;-</span> <span class="fu">map_ee</span>(<span class="at">object =</span> corrigin, <span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"B2"</span>, <span class="st">"B3"</span>, <span class="st">"B4"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="assets/corrigin_clouds.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p>Whether to choose cloud masking or not is a decision that you will need to make based on your research question. If you are interested in the effects of clouds on your variable (e.g.&nbsp;vegetation), then you may want to disable cloud masking so that clouds are part of the data. However, if you are interested in the variable itself, then you will want to enable cloud masking so that the clouds do not obscure the data.</p>
 </section>
-<section id="aggregating-raster-data" class="level2">
-<h2 class="anchored" data-anchor-id="aggregating-raster-data">Aggregating raster data</h2>
-<p>Under construction.</p>
-<ul>
-<li>Discuss how to aggregate raster data</li>
-<li>Explore temporal aggregation using the <code>aggregate_temporal()</code> function</li>
-<li>Run examples</li>
-<li>Optional: discuss upcoming <code>aggregate()</code> method in GEE</li>
-</ul>
 </section>
-<section id="sampling-point-data-from-rasters" class="level2">
-<h2 class="anchored" data-anchor-id="sampling-point-data-from-rasters">Sampling point data from rasters</h2>
-<p>Under construction.</p>
+<section id="spectral-indices" class="level2">
+<h2 class="anchored" data-anchor-id="spectral-indices">Spectral indices</h2>
+<p>Spectral indices are mathematical combinations of spectral bands that are used to extract information from satellite imagery. For example, the Normalised Difference Vegetation Index (NDVI) is a common spectral index that is used to estimate the amount of vegetation in an area. With spectral indices, information about the spectral properties of the geospatial data can be extracted from the imagery.</p>
+<p>The <code>dataharvester</code> package provides support to a wide collection of spectral indices thanks to <a href="https://awesome-ee-spectral-indices.readthedocs.io/en/latest/">Awesome Spectral Indices</a>, and provides a simple interface to calculate these indices. In the <code>preprocess_ee()</code> function, the <code>spectral</code> argument can be used to specify which spectral indices should be calculated.</p>
+<p>There are a total of <strong>216</strong> spectral indices that are supported by <code>dataharvester</code>, and these are listed <a href="">here</a>. Note that the spectral indices are divided into several categories: Vegetation, Burn, Water, Snow, Drought, Urban, Kernel and RADAR.</p>
+<p><code>dataharvester</code> supports automatic calculation of spectral indices for the following datasets:</p>
 <ul>
-<li>Talk about how to sample point data from rasters based on available point dataset using
-<ul>
-<li><code>raster_query()</code></li>
-<li>YAML config</li>
-</ul></li>
-<li>Run examples</li>
+<li>Sentinel-2 MSI: MultiSpectral Instrument, Level-2A</li>
+<li>Sentinel-2 MSI: MultiSpectral Instrument, Level-1C</li>
+<li>Landsat 8 Surface Reflectance Tier 1 and 2</li>
+<li>Landsat 8 Level 2, Collection 2, Tier 1</li>
+<li>Landsat 7 Surface Reflectance Tier 1 and 2</li>
+<li>Landsat 7 Level 2, Collection 2, Tier 1</li>
+<li>Landsat 5 Surface Reflectance Tier 1 and 2</li>
+<li>Landsat 4 Surface Reflectance Tier 1 and 2</li>
 </ul>
+<p>Some MODIS satellite products may also be supported - perhaps try it out and let us know if it works!</p>
+<p>Let’s calculate some fancy spectral indices with the image in the above section. We will calculate the Normalised Difference Vegetation Index (<a href="https://www.indexdatabase.de/db/i-single.php?id=58">NDVI</a>), the Normalised Difference Water Index (NDWI; <a href="https://doi.org/10.1080/01431169608948714">McFeeters, 1996</a>), and the Normalised Difference Snow Index (NDSI, <a href="https://doi.org/10.1109/IGARSS.1994.399618">Riggs et al., 1994</a>).</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>corrigin <span class="ot">&lt;-</span> <span class="fu">collect_ee</span>(<span class="at">collection =</span> <span class="st">"COPERNICUS/S2_SR"</span>, </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">coords =</span> corrigin_wa,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="st">"2021-11-01"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">end_date =</span> <span class="st">"2021-11-28"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>corrigin <span class="ot">&lt;-</span> <span class="fu">preprocess_ee</span>(<span class="at">object =</span> corrigin, <span class="at">spectral =</span> <span class="fu">c</span>(<span class="st">"NDVI"</span>, <span class="st">"NDWI"</span>, <span class="st">"NDSI"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Importantly, when mapping single bands, you should use the <code>bands</code> argument to specify only one band. This will be optimised in the near future.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>corrigin <span class="ot">&lt;-</span> <span class="fu">map_ee</span>(<span class="at">object =</span> corrigin, <span class="at">bands =</span> <span class="st">"NDVI"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Once you have previewed one image, you can preview another.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>corrigin <span class="ot">&lt;-</span> <span class="fu">map_ee</span>(<span class="at">object =</span> corrigin, <span class="at">bands =</span> <span class="st">"NDSI"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We will spend some time playing with spectral indices over several locations.</p>
+</section>
+<section id="fa-person-chalkboard-demo-2-sampling-data-from-images" class="level2">
+<h2 class="anchored" data-anchor-id="fa-person-chalkboard-demo-2-sampling-data-from-images"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 2: Sampling data from images</span></h2>
+<p>In many cases, you will want to sample data from the satellite imagery. You have already seen this functionality with the <code>harvest()</code> package.</p>
+<p>Perhaps you have a list of sample locations and you want to extract the satellite data at those locations. Or perhaps you want to extract the satellite data at a regular grid of locations. <code>dataharvester</code> provides a simple interface to sample data from satellite imagery using the <code>extract_values()</code> function.</p>
+<section id="preparing-your-sample-locations" class="level3">
+<h3 class="anchored" data-anchor-id="preparing-your-sample-locations">Preparing your sample locations</h3>
+<p>You will need a list of sample locations/points that you want to extract data from. The function <code>extract_values()</code> accepts a <code>data.frame</code> or <code>matrix</code> object of two columns, where the first column is the longitude (x) and the second column is the latitude (y).</p>
+<!-- If you do not have a sample locations file, you can create one using the `sample_locations()` function. This function will create a regular grid of sample locations within a specified bounding box. -->
+<p>You may already posess a sample locations file. For example, it could be a dataset of sample locations from a field experiment. For this demo, we have one such file called <code>"Pointdata_Llara.csv"</code> that can be used on the <code>llara_nsw</code> bounding box.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>llara <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"Pointdata_Llara.csv"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(llara)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This data file might contain several columns of data, but we only need two columns, which are the longitude and latitude of the sample locations. We can extract these columns using the <code>[, c(x, y)]</code> syntax.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>coordinates <span class="ot">&lt;-</span> llara[, <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="preparing-your-images" class="level3">
+<h3 class="anchored" data-anchor-id="preparing-your-images">Preparing your images</h3>
+<p>You have already done this a couple of times, but for this exercise let’s download more data to sample. We will download from Landsat 8, calculate some spectral indices, and then sample the data.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>llara_img <span class="ot">&lt;-</span> <span class="fu">collect_ee</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">collection =</span> <span class="st">"LANDSAT/LC08/C02/T1_L2"</span>, </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">coords =</span> llara_nsw,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="st">"2018-01-01"</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">end_date =</span> <span class="st">"2019-01-01"</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>llara_img <span class="ot">&lt;-</span> <span class="fu">preprocess_ee</span>(</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">object =</span> llara, </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">mask_clouds =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">reduce =</span> <span class="st">"median"</span>, </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">spectral =</span> <span class="fu">c</span>(<span class="st">"kVARI"</span>, <span class="st">"VrNIRBI"</span>, <span class="st">"MuWIR"</span>))</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>llara_img <span class="ot">&lt;-</span> <span class="fu">download_ee</span>(<span class="at">object =</span> llara, </span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"kVARI"</span>, <span class="st">"VrNIRBI"</span>, <span class="st">"MuWIR"</span>),</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">scale =</span> <span class="dv">100</span>, </span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_path =</span> <span class="st">"llara"</span>)  </span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="fu">extract_values</span>(</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">path =</span> <span class="st">"llara/ee_LAN_20180101_20190101_kVARIVrNIRBIMuWIR_median_100.0m.tif"</span>, </span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">xy_coords =</span> coordinates)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="playground-and-final-remarks" class="level2">
+<h2 class="anchored" data-anchor-id="playground-and-final-remarks">Playground and final remarks</h2>
+<p>This is the end of the workshop. You have now learned how to download satellite imagery from Google Earth Engine, and how to sample data from the imagery.</p>
+<p>If you have any questions and/or suggestions, now is the time to make yourself heard! Meanwhile, here are some additional code for you to play with.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>TODO</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
