@@ -72,7 +72,7 @@ atlantis <- c(-11.10, 21.35, -11.70, 20.95)
 
 ::: {.callout-caution collapse="true"}
 ## Want to generate your own bounding box?
-You can try to find the bounding box for your area of interest using [this bounding box tool](https://boundingbox.klokantech.com/). Make sure to select "CSV" output for easier copy and paste.
+You can try to find the bounding box for your area of interest using [this bounding box tool](https://boundingbox.klokantech.com/). Make sure to select "CSV" output for easier copy and paste, and to pick an Australian location (unless using Google Earth Engine functions).
 :::
 
 #### Finding products to download (layers)
@@ -135,7 +135,7 @@ Accessing GEE is simple once you have an account and have initialised the `datah
 The workflow for using the GEE API is as follows:
 
 1. Use `collect_ee()` to search the GEE Data Catalogue and return a list of available datasets based on pre-determined filters.
-2. Use `preprocess_ee()` to calculate summaries. For example, you can composite multiple images into a single image. Or, you can calculate a spectral index like NDVI. If accessing some supported satellites, you may even be able to mask clouds and shadows, or apply scaling and offsets automatically.
+2. Use `preprocess_ee()` to generate summaries and spectral indices.
 3. Use `map_ee()` to map the data (optional), and `download_ee()` to download the data.
 
 ::: callout-important
@@ -145,16 +145,26 @@ Note that the order of processing **must** follow the above, or there may be uni
 Let's use a full example to demonstrate and explain these functions. Make sure that you have initialised the `dataharvester` package with your GEE credentials:
 
 ```r
-initialise_harvester("r-reticulate", earthengine = TRUE)
+# Intilaise, if you have not already done so
+initialise_harvester("r-reticulate", 
+  earthengine = TRUE)
+
+# Create the GEE object
 img <- collect_ee(
   collection = "LANDSAT/LC09/C02/T1_L2",
   coords = llara,
   date = "2021-06-01",
   end_date = "2022-06-01"
 )
+# Preprocess the image - scaling, offsetting and cloud masking 
+# are done by default
 img <- preprocess_ee(object = img, reduce = "median")
+
+# Preview
 img <- map_ee(img, bands = c("SR_B2", "SR_B3", "SR_B4"))
-img <- download_ee(img, bands = c("SR_B2", "SR_B3", "SR_B4"),
+
+# Download
+img <- download_ee(img, bands = c("SR_B2", "SR_B3", "SR_B4"), 
   out_path = "downloads/"
 ```
 
@@ -178,29 +188,6 @@ img <-
 
 Your instructor may demonstrate more examples during the session.
 
-
-## [{{< fa keyboard >}} Exercise 1: Cloud and shadow masking]{style="color: blue;"}
-
-::: {.callout-note icon="false"}
-## {{< fa keyboard >}} On your own
-
-In this exercise, you will use the `dataharvester` package to download Landsat 8 data from the GEE Data Catalogue. You will then use the `preprocess_ee()` function to mask clouds and shadows, and then download the data.
-
-1. Use `collect_ee()` to search the GEE Data Catalogue and return a list of available datasets based on pre-determined filters. Use the following arguments:
-    - `collection = "LANDSAT/LC08/C01/T1_SR"`
-    - `coords = llara`
-    - `date = "2021-06-01"`
-    - `end_date = "2021-08-01"`
-2. Use `preprocess_ee()` to create two different products, i.e. save them as different objects, e.g. `img_masked` and `img`. Use the following arguments:
-    - The first will mask clouds using the following argument:
-        - `mask_clouds = TRUE`
-    - The second will not mask clouds:
-        - `mask_clouds = FALSE`
-3. Use `map_ee()` to map the data. Use the following arguments:
-    - `bands = c("B4", "B3", "B2")`
-
-Your instructor will discuss the results.
-:::
 
 ##  [{{< fa person-chalkboard >}} Demo 3: Preview rasters]{style="color: green;"}
 
@@ -256,7 +243,15 @@ plot(dea)
 
 The code above will plot all layers and their bands in the same plot.
 
-## [{{< fa keyboard >}} Exercise 2: More plots]{style="color: blue;"}
+If the file has already been downloaded and you want to plot it, then you can use the above code using `terra`, or use the `plot_rasters()` function:
+
+```r
+plot_rasters("downloads/landsat_barest_earth.tif")
+```
+Note that `plot_rasters()` does not currently have the option to view each band individually.
+
+
+## [{{< fa keyboard >}} Exercise: More plots]{style="color: blue;"}
 
 ::: {.callout-note icon="false"}
 ## {{< fa keyboard >}} On your own
