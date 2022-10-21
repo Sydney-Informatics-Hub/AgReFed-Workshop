@@ -61,9 +61,13 @@ The bounding box is defined as `c(xmin, ymin, xmax, ymax)` in [EPSG:4326](https:
 Let's define some areas of interest as bounding boxes for the rest of this Demo:
 
 ```r
-llara <- c(149.769, -30.335, 149.969, -30.135)       # NSW
-corrigin <- c(118.015, -32.356, 118.215, -32.156)    # WA
-nedscorner <- c(141.215, -34.241, 141.415, -34.0414) # VIC
+# Australian
+llara_nsw <- c(149.769, -30.335, 149.969, -30.135)  
+corrigin_wa <- c(118.015, -32.356, 118.215, -32.156)  
+nedscorner_vic <- c(141.215, -34.241, 141.415, -34.0414) 
+
+# Earth Engine only
+atlantis <- c(-11.10, 21.35, -11.70, 20.95)
 ```
 
 ::: {.callout-caution collapse="true"}
