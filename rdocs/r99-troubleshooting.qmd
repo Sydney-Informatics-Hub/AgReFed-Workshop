@@ -21,15 +21,15 @@ Found a bug? [**Open an issue**](https://github.com/Sydney-Informatics-Hub/AgReF
 ### Google Earth Engine authentication
 
 
-#### RStudio Cloud
+#### RStudio Cloud Authentication - warnings
 
 ::: callout-warning
 Google has migrated to OAuth 2.0 for authentication protocols on October 3, 2022. Part of the upgrade [protects users from phishing and app impersonation attacks](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html).
 
-Unfortunately, this has temporarily broken Google Earth Engine (GEE) authentication on RStudio Cloud and Binder. A workaround is available and documented below.
+Unfortunately, this has temporarily broken Google Earth Engine (GEE) authentication on RStudio Cloud (and Binder), as Google Cloud gets confused when we try to authenticate using a cloud service. A workaround is available and documented below.
 :::
 
-To authenticate with Google Earth Engine (GEE), you will need to have an existing Google account. If you do not have one, you can create one [here](https://accounts.google.com/signup/v2/webcreateaccount?flowName=GlifWebSignIn&flowEntry=SignUp).
+To authenticate with Google Earth Engine (GEE), you will need to have an existing Google account. If you do not have one, you can create one reading the instructions [here]()
 
 Once you have an account, authenticate with GEE by running the following code in the RStudio console:
 
