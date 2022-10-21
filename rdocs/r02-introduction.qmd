@@ -7,6 +7,8 @@ title: "{{< fa brands r-project >}} Introduction"
 
 Welcome to **Session 1**. This session introduces you gently to the `dataharvester` package by showing you how to download files with minimal code input, which is achieved by running the `harvest()` function. 
 
+Your instructor will briefly introduce the AgReFed Data-Harvester project and get you set up for the remainder of the workshop.
+
 ##  [{{< fa person-chalkboard >}} Demo 1: Authentication]{style="color: green;"}
 
 ::: {.callout-tip icon="false"}
@@ -23,13 +25,26 @@ Run the following code in your RStudio session:
 library(dataharvester)
 initialise_harvester("r-reticulate")
 ```
-The function will verify that the environment `"r-reticulate"` is available and contains all the required dependencies. Once this is complete, you may want to authenticate to Google Earth Engine (GEE). To do this, add the following argument to the same code:
+The function will verify that the environment `"r-reticulate"` is available and contains all the required dependencies. Once this is complete, you may want to authenticate to Google Earth Engine (GEE). To do this, run the following code:
 
 ```r
-initialise_harvester("r-reticulate", earthengine = TRUE)
+authenticate_ee(auth_mode = "rstudiocloud")
+```
+::: {.callout-caution collapse="true"}
+
+## Tip: simpler authentication
+
+In the future, you can bundle the two functions above into a single call:
+
+```r
+initialise_harvester("r-reticulate", 
+  earthengine = TRUE, 
+  auth_mode = "rstudiocloud")
 ```
 
-The function will now try to authenticate to Google Earth Engine. This might involve opening a browser window and copying a code into the console. 
+:::
+
+The function will now try to authenticate to Google Earth Engine. This might involve opening a browser window and copying a code into the console. **Because we are using RStudio Cloud, some warings will appear.** Your instructor will explain what to do, but an explanation is also provided in the troubleshooting section [here](/rdocs/r99-troubleshooting.qmd#google-earth-engine-authentication).
 
 ##  [{{< fa person-chalkboard >}} Demo 2: YAML config]{style="color: green;"}
 
@@ -66,7 +81,7 @@ A YAML configuration file helps to keep track of the data you have downloaded an
 
 #### Basic usage
 
-Below is the YAML file for `basic_config.yaml` which can be found in the `assets` folder in RStudio Cloud. The file can also be downloaded from the [GitHub repository]().
+Below is the YAML file for `basic_config.yaml` which can be found in the `assets` folder in RStudio Cloud.
 
 ```yaml
 ---
@@ -97,7 +112,7 @@ Making sure that your path is correct (and it should be, since you are on RStudi
 harvest("assets/basic_config.yaml")
 ```
 
-If you run the same config again, he function recognises that a file has been downloaded and will not re-download it. This is useful if you want to re-run the configuration file to add more data sources -- we will see this in action later.
+If you run the same config again, the function recognises that a file has been downloaded and will not re-download it. This is useful if you want to re-run the configuration file to add more data sources -- we will see this in action later.
 
 #### Adding multiple data sources
 
@@ -133,12 +148,12 @@ You should see a figure similar to the one below:
 
 ![](assets/figs1d2_preview.jpeg)
 
-## [{{< fa keyboard >}} Exercise 1: Update the config]{style="color: blue;"}
+## [{{< fa keyboard >}} Exercise 1: Adding even more sources]{style="color: blue;"}
 
 ::: {.callout-note icon="false"}
 ## {{< fa keyboard >}} On your own
 
-Refer to the [YAML Overview](/Settings_Overview.md) section and update the `basic_config.yaml` file to download the following data sources:
+Many different data layers are available for download as long as you know how to call their layer names. Refer to the [YAML Overview](/Settings_Overview.md) section and update the `basic_config.yaml` file to download the following data sources:
 
 - Slope and aspect from the Landscape collection
 - Total (sum) maximum temperature from the SILO collection
@@ -229,11 +244,10 @@ Bands, Image Properties, Terms of Use).
 
 Change the `collection` attribute in `basic_config.yaml` to one of [Landsat](https://developers.google.com/earth-engine/datasets/catalog/landsat), [Sentinel](https://developers.google.com/earth-engine/datasets/catalog/sentinel) or [MODIS](https://developers.google.com/earth-engine/datasets/catalog/modis) **surface reflectance** collections. Then, run `harvest()` on the configuration file and preview the output.
 
-**Questions**
+**Food for thought**
 
-- What happens when you provide an incorrect dataset name?
+- What happens when you provide an incorrect dataset name or band name?
 - Which other attribute(s) needed to be changed in the configuration file to download data from a different collection?
-- What happens when you provide an incorrect band name?
 
 :::
 
@@ -241,6 +255,6 @@ Your instructor will discuss this exercise in the next session.
 
 ## Wrapping up
 
-This is the end of **Session 1**. In this session we have covered setup and using the YAML configuration file to download from multiple API sources. In the next session ([**session 2**](/rdocs/r03-basic.qmd)), we will cover how to use individual download functions to create custom workflows for downloading data.
+This is the end of **Session 1**. In this session we have covered setup and using the YAML configuration file to download from multiple API sources. In the next session ([**Session 2**](/rdocs/r03-basic.qmd)), we will cover how to use individual download functions to create custom workflows for downloading data.
 
 See you there!
