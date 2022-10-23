@@ -45,7 +45,7 @@ For example, to download the Hydrologically Enforced DEM (DEM-H) layer from Geos
 ```r
 download_dem(
     layer = "DEM",
-    out_path = "downloads/",
+    out_path = "downloads/session2/",
     bounding_box = c(149.769345, -30.335861, 149.949173, -30.206271)
 )
 ```
@@ -103,7 +103,7 @@ There are also some additional arguments available to each `download_*()` functi
 ```r
 download_slga(
     layer = "Clay",
-    out_path = "downloads/",
+    out_path = "downloads/session2/",
     bounding_box = llara,
     depth_min = 0,
     depth_max = 5,
@@ -145,27 +145,30 @@ Note that the order of processing **must** follow the above, or there may be uni
 Let's use a full example to demonstrate and explain these functions. Make sure that you have initialised the `dataharvester` package with your GEE credentials:
 
 ```r
-# Intilaise, if you have not already done so
-initialise_harvester("r-reticulate", 
+## Intilaise, if you have not already done so
+initialise_harvester(
+  envname = "r-reticulate",
   earthengine = TRUE)
 
-# Create the GEE object
+## Create the GEE object
 img <- collect_ee(
   collection = "LANDSAT/LC09/C02/T1_L2",
-  coords = llara,
+  coords = llara_nsw,
   date = "2021-06-01",
   end_date = "2022-06-01"
 )
-# Preprocess the image - scaling, offsetting and cloud masking 
-# are done by default
+## Preprocess the image - scaling, offsetting and cloud masking
+## are done by default
 img <- preprocess_ee(object = img, reduce = "median")
 
-# Preview
+## Preview
 img <- map_ee(img, bands = c("SR_B2", "SR_B3", "SR_B4"))
 
-# Download
-img <- download_ee(img, bands = c("SR_B2", "SR_B3", "SR_B4"), 
-  out_path = "downloads/"
+## Download
+img <- download_ee(
+  img, 
+  bands = c("SR_B2", "SR_B3", "SR_B4"),
+  out_path = "downloads/session2/")
 ```
 
 ::: {.callout-note collapse="true"}
@@ -182,7 +185,7 @@ img <-
   preprocess_ee(reduce = "median") %>%
   map_ee(bands = c("SR_B2", "SR_B3", "SR_B4")) %>%
   download_ee(bands = c("SR_B2", "SR_B3", "SR_B4"),
-    out_path = "downloads/"
+    out_path = "downloads/session2/"
 ```
 :::
 
@@ -210,20 +213,28 @@ library(terra)
 Any image that you have downloaded using the `dataharvester` package will need to be converted to a SpatRaster object in R using the `rast()` function. For example, to conver the SLGA image that we downloaded earlier, we can use:
 
 ```r
-raster <- rast("downloads/SLGA_Clay_0-5cm.tif")
+clay <- rast("downloads/session2/SLGA_Clay_0-5cm.tif")
 ```
 
 Then, to plot, we can use the `plot()` function:
 
 ```r
-plot(raster)
+plot(clay)
 ```
 
-The `plot()` function will automatically plot the raster using the default colour palette. However, you can also specify the colour palette using the `col` argument. For example, to plot the raster using the `viridis` colour palette, we can use:
+<!-- The `plot()` function will automatically plot the raster using the default colour palette. However, you can also specify the colour palette using the `col` argument. For example, to plot the raster using the `viridis` colour palette, we can use:
 
 ```r
-plot(raster, col = "viridis")
+plot(clay, col = "viridis")
+``` -->
+If the image contains multiple bands, you can still plot each band individually using the `plot()` function. For example, to plot the first band of the Landsat image that we downloaded earlier, we can use:
+
+```r
+gee_path <- paste0(img$outpath, img$filenames)
+gee_llara <- rast(gee_llara)
+plot(gee_llara, 1)
 ```
+
 #### Plotting objects created by `download_*()` functions
 
 If you use the `download_*()` functions and save the output to an object, then you can use the `plot()` function to plot the data immediately. The plots will be identical to what was produced in `terra`, since the package is used to create the S3 plot object.
@@ -233,8 +244,8 @@ As an example, to plot the data downloaded using the `download_dea()` function, 
 ```r
 dea <- download_dea(
   layer = c("landsat_barest_earth", "ga_ls_fc_pc_cyear_3"),
-  bounding_box = llara,
-  out_path = "downloads/",
+  bounding_box = llara_nsw,
+  out_path = "downloads/session2/",
   years = 2021,
   resolution = 6
 )
@@ -246,7 +257,7 @@ The code above will plot all layers and their bands in the same plot.
 If the file has already been downloaded and you want to plot it, then you can use the above code using `terra`, or use the `plot_rasters()` function:
 
 ```r
-plot_rasters("downloads/landsat_barest_earth.tif")
+plot_rasters("downloads/session2/landsat_barest_earth.tif")
 ```
 Note that `plot_rasters()` does not currently have the option to view each band individually.
 
@@ -273,12 +284,19 @@ plot(x, choose = 1, index = 1)
 
 Using the same code as above to download data from DEA:
 
-Modify the code and:
+```r
+dea <- download_dea(
+  layer = c("landsat_barest_earth", "ga_ls_fc_pc_cyear_3"),
+  bounding_box = llara_nsw,
+  out_path = "downloads/session2/",
+  years = 2021,
+  resolution = 6
+)
+```
 
-1. save the output to an object called `dea`
-2. plot the data using the `plot()` function
-3. plot only the second layer `"ga_ls_fc_pc_cyear_3"`
-4. plot only the `pv_pc_50` band from the second layer
+1. plot the data using the `plot()` function
+2. plot only the second layer `"ga_ls_fc_pc_cyear_3"`
+3. plot only the `pv_pc_50` band from the second layer
 
 :::
 
@@ -287,25 +305,17 @@ Modify the code and:
 
 ```r
 # 1
-dea <- download_dea(
-  layer = c("landsat_barest_earth", "ga_ls_fc_pc_cyear_3"),
-  bounding_box = llara,
-  out_path = "downloads/",
-  years = 2021,
-  resolution = 6
-)
-
-# 2
 plot(dea)
 
-# 3
+# 2
 plot(dea, 2)
 
-# 4
+# 3
 plot(dea, 2, 2)
 
 ```
 :::
+
 
 ## Wrapping up
 

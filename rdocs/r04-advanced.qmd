@@ -4,24 +4,37 @@ markdown:
     canonical: true
 ---
 
+## Summary
+
+In **Session 3**, we will cover additional featores of the Google Earth Engine API, including:
+
+- cloud and shadow masking
+- spectral indices
+
+We will also look at sampling points from downloaded images.
+
 :::{.callout-tip}
 ## In this session
 
 - Explore data in Google Earth Engine
 - Download large images from Google Earth Engine
-- Sample point data from rasters (10 min)
+- Sample point data from rasters
 
 :::
 
 ## [{{< fa person-chalkboard >}} Demo 1: Additional GEE Functionality]{style="color: green;"}
 
-An advantage of using Google Earth Engine to access satellite imagery is that it is possible to preprocess the data in the cloud. This means that you can perform complex operations on large datasets without having to download the data to your local machine. In this demo, we will explore some of the additional functionality that is available in `dataharvester`.
+An advantage of using Google Earth Engine to access satellite imagery is that it is possible to preprocess the data in the cloud. 
+This means that you can perform complex operations on large datasets without having to download the data to your local machine. 
+In this demo, we will explore some of the additional functionality that is available in `dataharvester`.
 
-### Cloud and shadow masking
+### {{< fa cloud-sun >}} Cloud and shadow masking
 
-Cloud masking in Google Earth Engine is a process that removes clouds from satellite imagery. This is important because clouds can obscure the features that we are interested in. If you are directly using the Google Earth Engine API to perform cloud and shadow masking, the process is [quite complex](https://developers.google.com/earth-engine/tutorials/community/sentinel-2-s2cloudless). 
+Cloud masking is a process that removes clouds from satellite imagery. This is useful because clouds can obscure the features that we are interested in. If you are directly using the Google Earth Engine API to perform cloud and shadow masking, the process is [quite complex](https://developers.google.com/earth-engine/tutorials/community/sentinel-2-s2cloudless). 
 
-Fortunately, `dataharvester` provides a simple argument that can be used to perform cloud and shadow masking, and these calculations are already included in the code. In the `preprocess_ee()` function, the `mask_clouds` argument can be set to `TRUE` and cloud masking will be performed automatically using a cloud probability threshold of 60% (note: in the future, we will expand this functionality to be customisable).
+Fortunately, `dataharvester` provides a simple argument, `mask_clouds`, that can be used to perform cloud and shadow masking automatically. 
+
+In `preprocess_ee()`, set `mask_clouds = TRUE` and cloud masking will be performed automatically using a cloud probability threshold of 60% (note: in the future, we will expand this functionality to be customisable).
 
 Currently, the following datasets are supported for *near-instant* cloud masking thanks to the use of the [`eemont`](https://github.com/davemlz/eemont) package:
 
@@ -83,40 +96,43 @@ corrigin <- map_ee(object = corrigin, bands = c("B2", "B3", "B4"))
 
 The image should look something like this:
 
-![](assets/corrigin_maskcloud.png)
+![](assets/corrigin_maskcloud.jpg)
 
 What happens if we disable cloud masking? We can do this by setting the `mask_clouds` argument to `FALSE`.
 
-::: {.callout-note collapse="true"}
-# View Result
 
 ```r
-
-corrigin <- collect_ee(collection = "COPERNICUS/S2_SR", 
-  coords = corrigin_wa,
-  date = "2021-11-01",
-  end_date = "2021-11-28")
-
-corrigin <- preprocess_ee(object = corrigin, mask_clouds = FALSE)
-corrigin <- map_ee(object = corrigin, bands = c("B2", "B3", "B4"))
+# Let's use the same `corrigins` object to preprocess without cloud masking
+corrigin_clouds <- preprocess_ee(object = corrigin, mask_clouds = FALSE)
+corrigin_clouds <- map_ee(object = corrigin_clouds, bands = c("B2", "B3", "B4"))
 
 ```
 
-![](assets/corrigin_clouds.png)
+![](assets/corrigin_cloud.jpg)
 
-:::
+Can you see the difference?
 
-Whether to choose cloud masking or not is a decision that you will need to make based on your research question. If you are interested in the effects of clouds on your variable (e.g. vegetation), then you may want to disable cloud masking so that clouds are part of the data. However, if you are interested in the variable itself, then you will want to enable cloud masking so that the clouds do not obscure the data.
+#### When to use cloud masking
 
-## Spectral indices
+**Cloud masking is enabled by default.**
+
+Depending on your research question, you will need to make a decision about cloud masking and whether it is appropriate. For example, if you want to study how clouds affect your variable, like vegetation, you may want to turn off cloud masking so that clouds are part of the data. 
+
+
+
+### {{< fa rainbow >}} Spectral indices
 
 Spectral indices are mathematical combinations of spectral bands that are used to extract information from satellite imagery. For example, the Normalised Difference Vegetation Index (NDVI) is a common spectral index that is used to estimate the amount of vegetation in an area. With spectral indices, information about the spectral properties of the geospatial data can be extracted from the imagery.
 
 The `dataharvester` package provides support to a wide collection of spectral indices thanks to [Awesome Spectral Indices](https://awesome-ee-spectral-indices.readthedocs.io/en/latest/), and provides a simple interface to calculate these indices. In the `preprocess_ee()` function, the `spectral` argument can be used to specify which spectral indices should be calculated. 
 
-There are a total of **216** spectral indices that are supported by `dataharvester`, and these are listed [here](). Note that the spectral indices are divided into several categories: Vegetation, Burn, Water, Snow, Drought, Urban, Kernel and RADAR. 
+There are a total of **216** spectral indices that are supported Awesome Spectral Indices. Note that the spectral indices are divided into several categories: Vegetation, Burn, Water, Snow, Drought, Urban, Kernel and RADAR. 
 
 `dataharvester` supports automatic calculation of spectral indices for the following datasets:
+
+::: {.callout-note collapse="true"}
+
+## View supported datasets for spectral indices
 
 - Sentinel-2 MSI: MultiSpectral Instrument, Level-2A
 - Sentinel-2 MSI: MultiSpectral Instrument, Level-1C
@@ -129,29 +145,43 @@ There are a total of **216** spectral indices that are supported by `dataharvest
 
 Some MODIS satellite products may also be supported - perhaps try it out and let us know if it works!
 
-Let's calculate some fancy spectral indices with the image in the above section. We will calculate the Normalised Difference Vegetation Index ([NDVI](https://www.indexdatabase.de/db/i-single.php?id=58)), the Normalised Difference Water Index (NDWI; [McFeeters, 1996](https://doi.org/10.1080/01431169608948714)), and the Normalised Difference Snow Index (NDSI, [Riggs et al., 1994](https://doi.org/10.1109/IGARSS.1994.399618)).
+:::
+
+Let's calculate some spectral indices on `nedscorner_vic`. We will calculate the Normalised Difference Vegetation Index ([NDVI](https://www.indexdatabase.de/db/i-single.php?id=58)), the Normalised Difference Water Index (NDWI; [McFeeters, 1996](https://doi.org/10.1080/01431169608948714)), and the Normalised Difference Snow Index (NDSI, [Riggs et al., 1994](https://doi.org/10.1109/IGARSS.1994.399618)).
 
 ```r
-corrigin <- collect_ee(collection = "COPERNICUS/S2_SR", 
-  coords = corrigin_wa,
+neds <- collect_ee(collection = "COPERNICUS/S2_SR", 
+  coords = nedscorner_vic,
   date = "2021-11-01",
   end_date = "2021-11-28")
 
-corrigin <- preprocess_ee(object = corrigin, spectral = c("NDVI", "NDWI", "NDSI"))
+neds <- preprocess_ee(object = neds, spectral = c("NDVI", "NDWI", "NDSI"))
 ```
 
 Importantly, when mapping single bands, you should use the `bands` argument to specify only one band. This will be optimised in the near future.
 
 ```r
-corrigin <- map_ee(object = corrigin, bands = "NDVI")
+neds <- map_ee(object = neds, bands = "NDVI")
 ```
 
 Once you have previewed one image, you can preview another.
 
 ```r
-corrigin <- map_ee(object = corrigin, bands = "NDSI")
+neds <- map_ee(object = neds, bands = "NDWI")
+neds <- map_ee(object = neds, bands = "NDSI")
 ```
 We will spend some time playing with spectral indices over several locations.
+
+
+## [{{< fa keyboard >}} Exercise 1: Google Earth Engine playground]{style="color: blue;"}
+
+::: {.callout-note icon="false"}
+## {{< fa keyboard >}} On your own
+
+Your instructor will present additional information about Google Earth Engine, including the `rgee` package that wraps the API, and you will have the opportunity to explore the platform on your own.
+
+
+:::
 
 ## [{{< fa person-chalkboard >}} Demo 2: Sampling data from images]{style="color: green;"}
 
@@ -205,13 +235,47 @@ extract_values(
   xy_coords = coordinates)
 ```
 
-## Playground and final remarks
+### What if I want to sample images by YAML using `dataharvester`?
 
-This is the end of the workshop. You have now learned how to download satellite imagery from Google Earth Engine, and how to sample data from the imagery.
+Good question! We can do this by providing a file that contains the sample locations, and then including the path to this file in the YAML file, as well as the names of the columns that contain the longitude and latitude coordinates. For example, we have a file called `"points_llara.csv"` in the assets folder, and it can be used like this:
 
-If you have any questions and/or suggestions, now is the time to make yourself heard! Meanwhile, here are some additional code for you to play with.
+```yaml
+---
+infile: assets/points_llara.csv
+colname_lat: Lat
+colname_lng: Long
+... # other YAML code
+```
+The `harvest()` function will sample these locations automatically, and plot the results if `plot = TRUE`.
+
+
+
+## [{{< fa keyboard >}} Exercise: Return to YAML configuration]{style="color: blue;"}
+
+::: {.callout-note icon="false"}
+## {{< fa keyboard >}} Exercise
+
+In this exercise we will return to the YAML configuration file that we created in the previous section, `basic_config.yaml`. Add the sample locations file to the YAML file, and then use the `harvest()` function to sample the data.
+
 
 ```r
-TODO
+harvest("assets/basic_config.yaml", 
+  log_name = "points_multi", 
+  preview = TRUE)
 ```
+
+:::
+
+
+
+
+## Final remarks
+
+This is the end of the workshop! Thanks for making it this far. 
+
+If you have any questions and/or suggestions, now is the time to make yourself heard. Meanwhile, we can discuss the following questions:
+
+- What is next for the `dataharvester` package? Will there be other packages?
+- What other data sources would you like to see supported?
+- What other functionality would you like to see added?
 
