@@ -360,7 +360,7 @@ All available <code>download_*()</code> functions
 <p>For example, to download the Hydrologically Enforced DEM (DEM-H) layer from Geoscience Australia’s DEM grid data, you would use:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download_dem</span>(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">layer =</span> <span class="st">"DEM"</span>,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">out_path =</span> <span class="st">"downloads/"</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">out_path =</span> <span class="st">"downloads/session2/"</span>,</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">bounding_box =</span> <span class="fu">c</span>(<span class="fl">149.769345</span>, <span class="sc">-</span><span class="fl">30.335861</span>, <span class="fl">149.949173</span>, <span class="sc">-</span><span class="fl">30.206271</span>)</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
@@ -421,7 +421,7 @@ In addition, it is possible to use the `list_layers()` function to see the avail
 <!-- Therefore, you can filter the available layers by these arguments. For example, to download the soil texture layers for the `download_slga()` function, you can use: -->
 <div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download_slga</span>(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">layer =</span> <span class="st">"Clay"</span>,</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">out_path =</span> <span class="st">"downloads/"</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">out_path =</span> <span class="st">"downloads/session2/"</span>,</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">bounding_box =</span> llara,</span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">depth_min =</span> <span class="dv">0</span>,</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">depth_max =</span> <span class="dv">5</span>,</span>
@@ -481,27 +481,30 @@ Important
 </div>
 </div>
 <p>Let’s use a full example to demonstrate and explain these functions. Make sure that you have initialised the <code>dataharvester</code> package with your GEE credentials:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Intilaise, if you have not already done so</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">initialise_harvester</span>(<span class="st">"r-reticulate"</span>, </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">earthengine =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the GEE object</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">collect_ee</span>(</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">collection =</span> <span class="st">"LANDSAT/LC09/C02/T1_L2"</span>,</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">coords =</span> llara,</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="st">"2021-06-01"</span>,</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">end_date =</span> <span class="st">"2022-06-01"</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Preprocess the image - scaling, offsetting and cloud masking </span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co"># are done by default</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">preprocess_ee</span>(<span class="at">object =</span> img, <span class="at">reduce =</span> <span class="st">"median"</span>)</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Preview</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">map_ee</span>(img, <span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>))</span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Download</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">download_ee</span>(img, <span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>), </span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_path =</span> <span class="st">"downloads/"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Intilaise, if you have not already done so</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">initialise_harvester</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">envname =</span> <span class="st">"r-reticulate"</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">earthengine =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Create the GEE object</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">collect_ee</span>(</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">collection =</span> <span class="st">"LANDSAT/LC09/C02/T1_L2"</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">coords =</span> llara_nsw,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="st">"2021-06-01"</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">end_date =</span> <span class="st">"2022-06-01"</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="do">## Preprocess the image - scaling, offsetting and cloud masking</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="do">## are done by default</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">preprocess_ee</span>(<span class="at">object =</span> img, <span class="at">reduce =</span> <span class="st">"median"</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="do">## Preview</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">map_ee</span>(img, <span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>))</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="do">## Download</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">download_ee</span>(</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  img, </span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>),</span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_path =</span> <span class="st">"downloads/session2/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -523,7 +526,7 @@ Using <code>dplyr</code> pipes to streamline the same code above
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">preprocess_ee</span>(<span class="at">reduce =</span> <span class="st">"median"</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map_ee</span>(<span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>)) <span class="sc">%&gt;%</span></span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download_ee</span>(<span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>),</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">out_path =</span> <span class="st">"downloads/"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">out_path =</span> <span class="st">"downloads/session2/"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -552,26 +555,33 @@ Agenda
 <p>Once data has been downloaded, it is a trivial task to preview the data using the <code>terra</code> package. The <code>terra</code> package is a powerful package for working with raster data in R. First, we will load the <code>terra</code> package which is automatically installed when you install the <code>dataharvester</code> package:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Any image that you have downloaded using the <code>dataharvester</code> package will need to be converted to a SpatRaster object in R using the <code>rast()</code> function. For example, to conver the SLGA image that we downloaded earlier, we can use:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>raster <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"downloads/SLGA_Clay_0-5cm.tif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>clay <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"downloads/session2/SLGA_Clay_0-5cm.tif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Then, to plot, we can use the <code>plot()</code> function:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(raster)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The <code>plot()</code> function will automatically plot the raster using the default colour palette. However, you can also specify the colour palette using the <code>col</code> argument. For example, to plot the raster using the <code>viridis</code> colour palette, we can use:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(raster, <span class="at">col =</span> <span class="st">"viridis"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(clay)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<!-- The `plot()` function will automatically plot the raster using the default colour palette. However, you can also specify the colour palette using the `col` argument. For example, to plot the raster using the `viridis` colour palette, we can use:
+
+```r
+plot(clay, col = "viridis")
+``` -->
+<p>If the image contains multiple bands, you can still plot each band individually using the <code>plot()</code> function. For example, to plot the first band of the Landsat image that we downloaded earlier, we can use:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>gee_path <span class="ot">&lt;-</span> <span class="fu">paste0</span>(img<span class="sc">$</span>outpath, img<span class="sc">$</span>filenames)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>gee_llara <span class="ot">&lt;-</span> <span class="fu">rast</span>(gee_llara)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gee_llara, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="plotting-objects-created-by-download_-functions" class="level4">
 <h4 class="anchored" data-anchor-id="plotting-objects-created-by-download_-functions">Plotting objects created by <code>download_*()</code> functions</h4>
 <p>If you use the <code>download_*()</code> functions and save the output to an object, then you can use the <code>plot()</code> function to plot the data immediately. The plots will be identical to what was produced in <code>terra</code>, since the package is used to create the S3 plot object.</p>
 <p>As an example, to plot the data downloaded using the <code>download_dea()</code> function, we can use:</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dea <span class="ot">&lt;-</span> <span class="fu">download_dea</span>(</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">layer =</span> <span class="fu">c</span>(<span class="st">"landsat_barest_earth"</span>, <span class="st">"ga_ls_fc_pc_cyear_3"</span>),</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">bounding_box =</span> llara,</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_path =</span> <span class="st">"downloads/"</span>,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">bounding_box =</span> llara_nsw,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_path =</span> <span class="st">"downloads/session2/"</span>,</span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">years =</span> <span class="dv">2021</span>,</span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">resolution =</span> <span class="dv">6</span></span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dea)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The code above will plot all layers and their bands in the same plot.</p>
 <p>If the file has already been downloaded and you want to plot it, then you can use the above code using <code>terra</code>, or use the <code>plot_rasters()</code> function:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_rasters</span>(<span class="st">"downloads/landsat_barest_earth.tif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_rasters</span>(<span class="st">"downloads/session2/landsat_barest_earth.tif"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Note that <code>plot_rasters()</code> does not currently have the option to view each band individually.</p>
 </section>
 </section>
@@ -596,9 +606,14 @@ Agenda
 <section id="task" class="level2">
 <h2 class="anchored" data-anchor-id="task">Task</h2>
 <p>Using the same code as above to download data from DEA:</p>
-<p>Modify the code and:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>dea <span class="ot">&lt;-</span> <span class="fu">download_dea</span>(</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">layer =</span> <span class="fu">c</span>(<span class="st">"landsat_barest_earth"</span>, <span class="st">"ga_ls_fc_pc_cyear_3"</span>),</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">bounding_box =</span> llara_nsw,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_path =</span> <span class="st">"downloads/session2/"</span>,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">years =</span> <span class="dv">2021</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">resolution =</span> <span class="dv">6</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ol type="1">
-<li>save the output to an object called <code>dea</code></li>
 <li>plot the data using the <code>plot()</code> function</li>
 <li>plot only the second layer <code>"ga_ls_fc_pc_cyear_3"</code></li>
 <li>plot only the <code>pv_pc_50</code> band from the second layer</li>
@@ -618,23 +633,14 @@ Agenda
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>dea <span class="ot">&lt;-</span> <span class="fu">download_dea</span>(</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">layer =</span> <span class="fu">c</span>(<span class="st">"landsat_barest_earth"</span>, <span class="st">"ga_ls_fc_pc_cyear_3"</span>),</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">bounding_box =</span> llara,</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_path =</span> <span class="st">"downloads/"</span>,</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">years =</span> <span class="dv">2021</span>,</span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">resolution =</span> <span class="dv">6</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 2</span></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dea)</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 3</span></span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dea, <span class="dv">2</span>)</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 4</span></span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dea, <span class="dv">2</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dea)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dea, <span class="dv">2</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dea, <span class="dv">2</span>, <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
