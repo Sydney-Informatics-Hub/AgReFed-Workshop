@@ -565,7 +565,7 @@ plot(clay, col = "viridis")
 ``` -->
 <p>If the image contains multiple bands, you can still plot each band individually using the <code>plot()</code> function. For example, to plot the first band of the Landsat image that we downloaded earlier, we can use:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>gee_path <span class="ot">&lt;-</span> <span class="fu">paste0</span>(img<span class="sc">$</span>outpath, img<span class="sc">$</span>filenames)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>gee_llara <span class="ot">&lt;-</span> <span class="fu">rast</span>(gee_llara)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>gee_llara <span class="ot">&lt;-</span> <span class="fu">rast</span>(gee_path)</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gee_llara, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <section id="plotting-objects-created-by-download_-functions" class="level4">
 <h4 class="anchored" data-anchor-id="plotting-objects-created-by-download_-functions">Plotting objects created by <code>download_*()</code> functions</h4>
