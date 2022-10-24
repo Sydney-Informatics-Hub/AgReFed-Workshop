@@ -231,7 +231,7 @@ If the image contains multiple bands, you can still plot each band individually 
 
 ```r
 gee_path <- paste0(img$outpath, img$filenames)
-gee_llara <- rast(gee_llara)
+gee_llara <- rast(gee_path)
 plot(gee_llara, 1)
 ```
 
