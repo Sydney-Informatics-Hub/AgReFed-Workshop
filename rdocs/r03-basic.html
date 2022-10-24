@@ -283,11 +283,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
-  <li><a href="#fa-person-chalkboard-demo-1-manual-downloads" id="toc-fa-person-chalkboard-demo-1-manual-downloads" class="nav-link" data-scroll-target="#fa-person-chalkboard-demo-1-manual-downloads"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 1: Manual downloads</span></a>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a>
   <ul class="collapse">
   <li><a href="#bounding-boxes" id="toc-bounding-boxes" class="nav-link" data-scroll-target="#bounding-boxes">Bounding boxes</a></li>
   </ul></li>
+  <li><a href="#fa-person-chalkboard-demo-1-manual-downloads" id="toc-fa-person-chalkboard-demo-1-manual-downloads" class="nav-link" data-scroll-target="#fa-person-chalkboard-demo-1-manual-downloads"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 1: Manual downloads</span></a></li>
   <li><a href="#fa-person-chalkboard-demo-2-google-earth-engine" id="toc-fa-person-chalkboard-demo-2-google-earth-engine" class="nav-link" data-scroll-target="#fa-person-chalkboard-demo-2-google-earth-engine"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 2: Google Earth Engine</span></a></li>
   <li><a href="#fa-person-chalkboard-demo-3-preview-rasters" id="toc-fa-person-chalkboard-demo-3-preview-rasters" class="nav-link" data-scroll-target="#fa-person-chalkboard-demo-3-preview-rasters"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 3: Preview rasters</span></a></li>
   <li><a href="#fa-keyboard-exercise-more-plots" id="toc-fa-keyboard-exercise-more-plots" class="nav-link" data-scroll-target="#fa-keyboard-exercise-more-plots"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercise: More plots</span></a></li>
@@ -341,29 +341,6 @@ All available <code>download_*()</code> functions
 </div>
 </div>
 </div>
-</section>
-<section id="fa-person-chalkboard-demo-1-manual-downloads" class="level2">
-<h2 class="anchored" data-anchor-id="fa-person-chalkboard-demo-1-manual-downloads"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 1: Manual downloads</span></h2>
-<section id="function-syntax" class="level4">
-<h4 class="anchored" data-anchor-id="function-syntax">Function syntax</h4>
-<p>Each <code>download_*()</code> function has similar syntax:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>download_<span class="sc">*</span>(layer,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>           out_path,</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>           bounding_box,</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>           <span class="sc">&lt;</span><span class="er">&lt;</span>other arguments<span class="sc">&gt;</span><span class="er">&gt;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>where:</p>
-<ul>
-<li><code>layer</code> determines the name(s) of the layer(s) to download</li>
-<li><code>out_path</code> is the path to the folder where the data should be saved</li>
-<li><code>bounding_box</code> is the EPSG:4328 coordinates used to define the area to download as a bounding box</li>
-</ul>
-<p>For example, to download the Hydrologically Enforced DEM (DEM-H) layer from Geoscience Australia’s DEM grid data, you would use:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">download_dem</span>(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">layer =</span> <span class="st">"DEM"</span>,</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">out_path =</span> <span class="st">"downloads/session2/"</span>,</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">bounding_box =</span> <span class="fu">c</span>(<span class="fl">149.769345</span>, <span class="sc">-</span><span class="fl">30.335861</span>, <span class="fl">149.949173</span>, <span class="sc">-</span><span class="fl">30.206271</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
 <section id="bounding-boxes" class="level3">
 <h3 class="anchored" data-anchor-id="bounding-boxes">Bounding boxes</h3>
 <div class="callout-tip callout callout-style-default callout-captioned">
@@ -380,13 +357,13 @@ Tip
 </div>
 </div>
 <p>Let’s define some areas of interest as bounding boxes for the rest of this Demo:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Australian</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>llara_nsw <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">149.769</span>, <span class="sc">-</span><span class="fl">30.335</span>, <span class="fl">149.969</span>, <span class="sc">-</span><span class="fl">30.135</span>)  </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>corrigin_wa <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">118.015</span>, <span class="sc">-</span><span class="fl">32.356</span>, <span class="fl">118.215</span>, <span class="sc">-</span><span class="fl">32.156</span>)  </span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>nedscorner_vic <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">141.215</span>, <span class="sc">-</span><span class="fl">34.241</span>, <span class="fl">141.415</span>, <span class="sc">-</span><span class="fl">34.0414</span>) </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Earth Engine only</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>atlantis <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">11.10</span>, <span class="fl">21.35</span>, <span class="sc">-</span><span class="fl">11.70</span>, <span class="fl">20.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Australian</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>llara_nsw <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">149.769</span>, <span class="sc">-</span><span class="fl">30.335</span>, <span class="fl">149.969</span>, <span class="sc">-</span><span class="fl">30.135</span>)  </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>corrigin_wa <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">118.015</span>, <span class="sc">-</span><span class="fl">32.356</span>, <span class="fl">118.215</span>, <span class="sc">-</span><span class="fl">32.156</span>)  </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>nedscorner_vic <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">141.215</span>, <span class="sc">-</span><span class="fl">34.241</span>, <span class="fl">141.415</span>, <span class="sc">-</span><span class="fl">34.0414</span>) </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Earth Engine only</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>atlantis <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">11.10</span>, <span class="fl">21.35</span>, <span class="sc">-</span><span class="fl">11.70</span>, <span class="fl">20.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout-caution callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -403,6 +380,30 @@ Want to generate your own bounding box?
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="fa-person-chalkboard-demo-1-manual-downloads" class="level2">
+<h2 class="anchored" data-anchor-id="fa-person-chalkboard-demo-1-manual-downloads"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 1: Manual downloads</span></h2>
+<section id="function-syntax" class="level4">
+<h4 class="anchored" data-anchor-id="function-syntax">Function syntax</h4>
+<p>Each <code>download_*()</code> function has similar syntax:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>download_<span class="sc">*</span>(layer,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>           out_path,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>           bounding_box,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>           <span class="sc">&lt;</span><span class="er">&lt;</span>other arguments<span class="sc">&gt;</span><span class="er">&gt;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>where:</p>
+<ul>
+<li><code>layer</code> determines the name(s) of the layer(s) to download</li>
+<li><code>out_path</code> is the path to the folder where the data should be saved</li>
+<li><code>bounding_box</code> is the EPSG:4328 coordinates used to define the area to download as a bounding box</li>
+</ul>
+<p>For example, to download the Radiometric Grid of Australia (Radmap) v4 2019 unfiltered terrestrial dose rate, you would use:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>radio <span class="ot">&lt;-</span> <span class="fu">download_radiometric</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">layer =</span> <span class="st">"radmap2019_grid_dose_terr_awags_rad_2019"</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">bounding_box =</span> corrigin_wa,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_path =</span> <span class="st">"downloads/session2/"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 <section id="finding-products-to-download-layers" class="level4">
 <h4 class="anchored" data-anchor-id="finding-products-to-download-layers">Finding products to download (layers)</h4>
 <p>Each <code>download_*()</code> function has a <code>layers</code> argument that accepts a pre-defined list of products. These are documented in the function <code>help()</code> or <code>?</code>. For example, to see the available layers for the <code>download_dem()</code> function, you can use:</p>
@@ -428,7 +429,6 @@ In addition, it is possible to use the `list_layers()` function to see the avail
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">get_ci =</span> <span class="cn">TRUE</span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Make sure to read the documentation for each function to see what additional arguments are available.</p>
-</section>
 </section>
 </section>
 <section id="fa-person-chalkboard-demo-2-google-earth-engine" class="level2">
@@ -481,30 +481,24 @@ Important
 </div>
 </div>
 <p>Let’s use a full example to demonstrate and explain these functions. Make sure that you have initialised the <code>dataharvester</code> package with your GEE credentials:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Intilaise, if you have not already done so</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">initialise_harvester</span>(</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">envname =</span> <span class="st">"r-reticulate"</span>,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">earthengine =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Create the GEE object</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">collect_ee</span>(</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">collection =</span> <span class="st">"LANDSAT/LC09/C02/T1_L2"</span>,</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">coords =</span> llara_nsw,</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="st">"2021-06-01"</span>,</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">end_date =</span> <span class="st">"2022-06-01"</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="do">## Preprocess the image - scaling, offsetting and cloud masking</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="do">## are done by default</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">preprocess_ee</span>(<span class="at">object =</span> img, <span class="at">reduce =</span> <span class="st">"median"</span>)</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="do">## Preview</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">map_ee</span>(img, <span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>))</span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="do">## Download</span></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">download_ee</span>(</span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  img, </span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>),</span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_path =</span> <span class="st">"downloads/session2/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Create the GEE object</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">collect_ee</span>(</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">collection =</span> <span class="st">"LANDSAT/LC09/C02/T1_L2"</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">coords =</span> llara_nsw,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="st">"2021-06-01"</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">end_date =</span> <span class="st">"2022-06-01"</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="do">## Preprocess - scaling, offsetting and cloud masking are done by default</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">preprocess_ee</span>(<span class="at">object =</span> img, <span class="at">reduce =</span> <span class="st">"median"</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="do">## Preview</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">map_ee</span>(img, <span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>))</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="do">## Download</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>img <span class="ot">&lt;-</span> <span class="fu">download_ee</span>(</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  img,</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"SR_B2"</span>, <span class="st">"SR_B3"</span>, <span class="st">"SR_B4"</span>),</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_path =</span> <span class="st">"downloads/session2/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
