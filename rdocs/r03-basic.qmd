@@ -10,6 +10,7 @@ Welcome to **Session 2**.
 
 The `harvest()` function used in the last session was a wrapper for several `download_*()` functions already available in `dataharvester` (see [source](https://github.com/Sydney-Informatics-Hub/dataharvester/blob/main/inst/python/harvest.py)). In this session, we willl show you how to call these functions directly for more control over the data download process.
 
+
 ::: {.callout-note collapse="true"}
 ## All available `download_*()` functions
 
@@ -21,34 +22,6 @@ The `harvest()` function used in the last session was a wrapper for several `dow
 - `collect_ee()`, `preprocess_ee()` and `download_ee()` for access to datasets available in the Google Earth Engine Data Catalog
 :::
 
-
-## [{{< fa person-chalkboard >}} Demo 1: Manual downloads]{style="color: green;"}
-
-#### Function syntax
-
-Each `download_*()` function has similar syntax:
-
-```r
-download_*(layer,
-           out_path,
-           bounding_box,
-           <<other arguments>>)
-```
-where:
-
-- `layer` determines the name(s) of the layer(s) to download
-- `out_path` is the path to the folder where the data should be saved
-- `bounding_box` is the EPSG:4328 coordinates used to define the area to download as a bounding box
-
-For example, to download the Hydrologically Enforced DEM (DEM-H) layer from Geoscience Australia's DEM grid data, you would use:
-
-```r
-download_dem(
-    layer = "DEM",
-    out_path = "downloads/session2/",
-    bounding_box = c(149.769345, -30.335861, 149.949173, -30.206271)
-)
-```
 
 ### Bounding boxes 
 
@@ -74,6 +47,34 @@ atlantis <- c(-11.10, 21.35, -11.70, 20.95)
 ## Want to generate your own bounding box?
 You can try to find the bounding box for your area of interest using [this bounding box tool](https://boundingbox.klokantech.com/). Make sure to select "CSV" output for easier copy and paste, and to pick an Australian location (unless using Google Earth Engine functions).
 :::
+
+## [{{< fa person-chalkboard >}} Demo 1: Manual downloads]{style="color: green;"}
+
+#### Function syntax
+
+Each `download_*()` function has similar syntax:
+
+```r
+download_*(layer,
+           out_path,
+           bounding_box,
+           <<other arguments>>)
+```
+where:
+
+- `layer` determines the name(s) of the layer(s) to download
+- `out_path` is the path to the folder where the data should be saved
+- `bounding_box` is the EPSG:4328 coordinates used to define the area to download as a bounding box
+
+For example, to download the Radiometric Grid of Australia (Radmap) v4 2019 unfiltered terrestrial dose rate, you would use:
+
+```r
+radio <- download_radiometric(
+  layer = "radmap2019_grid_dose_terr_awags_rad_2019",
+  bounding_box = corrigin_wa,
+  out_path = "downloads/session2/"
+)
+```
 
 #### Finding products to download (layers)
 
@@ -145,11 +146,6 @@ Note that the order of processing **must** follow the above, or there may be uni
 Let's use a full example to demonstrate and explain these functions. Make sure that you have initialised the `dataharvester` package with your GEE credentials:
 
 ```r
-## Intilaise, if you have not already done so
-initialise_harvester(
-  envname = "r-reticulate",
-  earthengine = TRUE)
-
 ## Create the GEE object
 img <- collect_ee(
   collection = "LANDSAT/LC09/C02/T1_L2",
@@ -157,8 +153,7 @@ img <- collect_ee(
   date = "2021-06-01",
   end_date = "2022-06-01"
 )
-## Preprocess the image - scaling, offsetting and cloud masking
-## are done by default
+## Preprocess - scaling, offsetting and cloud masking are done by default
 img <- preprocess_ee(object = img, reduce = "median")
 
 ## Preview
@@ -166,9 +161,10 @@ img <- map_ee(img, bands = c("SR_B2", "SR_B3", "SR_B4"))
 
 ## Download
 img <- download_ee(
-  img, 
+  img,
   bands = c("SR_B2", "SR_B3", "SR_B4"),
   out_path = "downloads/session2/")
+
 ```
 
 ::: {.callout-note collapse="true"}
