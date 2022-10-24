@@ -34,7 +34,7 @@ You will be automatically directed to the RStudio Cloud home page, which looks l
 
 **Join our shared space by clicking the button below**:
 
-[![](https://img.shields.io/badge/Join%20Shared%20Space-RStudio%20Cloud-yellow?style=for-the-badge&logo=appveyor)](){target="_blank"}
+[![](https://img.shields.io/badge/Join%20Shared%20Space-RStudio%20Cloud-yellow?style=for-the-badge&logo=appveyor)](https://rstudio.cloud/spaces/298376/join?access_code=TFXFJFamg5dIpSUiqZwOUdhNgtVcBR1JhjIhewee){target="_blank"}
 
 <!-- ::: callout-note
 In the near future, we will be able to provide AgReFed workshop participants with a virtual machine on the Nectar Research Cloud. This will allow you to use RStudio Server on a virtual machine. Instructions will be provided when this is available.
