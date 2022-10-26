@@ -270,21 +270,7 @@
     "href": "rdocs/r01-setup.html#rstudio-cloud",
     "title": "Setting up R",
     "section": "RStudio Cloud",
-    "text": "RStudio Cloud\nRStudio Cloud is a free, web-based RStudio IDE that you can use to run R code in your browser. It is a great way to get started with R without having to install anything on your computer. You can also use it to share your code with others. We encourage you to use RStudio Cloud for the workshop as you do not need to install anything on your computer. If you do not have an RStudio account, follow the steps below.\n\nSetting up RStudio Cloud\nGo to https://rstudio.cloud/ and sign up on the “Cloud Free” Plan.\n\n\n\nSign up to the Cloud Free Plan on RStudio Cloud\n\n\nYou will need to provide an email address and a password. You can also sign up using your Google or Github account – simply click on those buttons, and follow the authentication steps.\n\n\n\n \n\n\n\n\n\n \n\n\n\nYou will be automatically directed to the RStudio Cloud home page, which looks like this:\n\nJoin our shared space by clicking the button below:"
-  },
-  {
-    "objectID": "rdocs/r01-setup.html#binder-optional",
-    "href": "rdocs/r01-setup.html#binder-optional",
-    "title": "Setting up R",
-    "section": "Binder (optional)",
-    "text": "Binder (optional)\nWant to play around with dataharvester without an RStudio Cloud account? Launch our Binder instance by clicking on the button below. Binder should only be used in a test environment as Binder instances are not persistent and will be deleted after a period of inactivity."
-  },
-  {
-    "objectID": "rdocs/r01-setup.html#rstudio-desktop-optional",
-    "href": "rdocs/r01-setup.html#rstudio-desktop-optional",
-    "title": "Setting up R",
-    "section": "RStudio Desktop (optional)",
-    "text": "RStudio Desktop (optional)\nIf you prefer to use RStudio Desktop, a setup vignette is available here. Note that we will not be able to provide support for RStudio Desktop during the workshop."
+    "text": "RStudio Cloud\nRStudio Cloud is a free, web-based RStudio IDE that you can use to run R code in your browser. It is a great way to get started with R without having to install anything on your computer. You can also use it to share your code with others. We encourage you to use RStudio Cloud for the workshop as you do not need to install anything on your computer. If you do not have an RStudio account, follow the steps below.\n\nSetting up RStudio Cloud\nGo to https://rstudio.cloud/ and sign up on the “Cloud Free” Plan.\n\n\n\nSign up to the Cloud Free Plan on RStudio Cloud\n\n\nYou will need to provide an email address and a password. You can also sign up using your Google or Github account – simply click on those buttons, and follow the authentication steps.\n\n\n\n \n\n\n\n\n\n \n\n\n\nYou will be automatically directed to the RStudio Cloud home page, which looks like this:\n\nThe shared space will be activated closer to the workshop date."
   },
   {
     "objectID": "rdocs/r01-setup.html#need-help",
