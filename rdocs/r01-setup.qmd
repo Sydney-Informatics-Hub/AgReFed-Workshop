@@ -123,4 +123,4 @@ If you are stuck at any point, we have a dedicated [Troubleshooting](/rdocs/r99-
 
 ## What's next?
 
-Now that you have `dataharvester` iwnstalled, you are ready to start the workshop. Workshop links are available in the sidebar. You should also check out the landing page for the [R Workshop](/rdocs/r00-workshop.qmd) for updates.
+Now that you have `dataharvester` installed, you are ready to start the workshop. Workshop links are available in the sidebar. You should also check out the landing page for the [R Workshop](/rdocs/r00-workshop.qmd) for updates.
