@@ -288,15 +288,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#fa-cloud-sun-cloud-and-shadow-masking" id="toc-fa-cloud-sun-cloud-and-shadow-masking" class="nav-link" data-scroll-target="#fa-cloud-sun-cloud-and-shadow-masking"><i class="fa-solid fa-cloud-sun" aria-hidden="true"></i> Cloud and shadow masking</a></li>
   <li><a href="#fa-rainbow-spectral-indices" id="toc-fa-rainbow-spectral-indices" class="nav-link" data-scroll-target="#fa-rainbow-spectral-indices"><i class="fa-solid fa-rainbow" aria-hidden="true"></i> Spectral indices</a></li>
   </ul></li>
-  <li><a href="#fa-keyboard-exercise-1-google-earth-engine-playground" id="toc-fa-keyboard-exercise-1-google-earth-engine-playground" class="nav-link" data-scroll-target="#fa-keyboard-exercise-1-google-earth-engine-playground"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercise 1: Google Earth Engine playground</span></a></li>
   <li><a href="#fa-person-chalkboard-demo-2-sampling-data-from-images" id="toc-fa-person-chalkboard-demo-2-sampling-data-from-images" class="nav-link" data-scroll-target="#fa-person-chalkboard-demo-2-sampling-data-from-images"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 2: Sampling data from images</span></a>
   <ul class="collapse">
   <li><a href="#preparing-your-sample-locations" id="toc-preparing-your-sample-locations" class="nav-link" data-scroll-target="#preparing-your-sample-locations">Preparing your sample locations</a></li>
   <li><a href="#preparing-your-images" id="toc-preparing-your-images" class="nav-link" data-scroll-target="#preparing-your-images">Preparing your images</a></li>
   <li><a href="#what-if-i-want-to-sample-images-by-yaml-using-dataharvester" id="toc-what-if-i-want-to-sample-images-by-yaml-using-dataharvester" class="nav-link" data-scroll-target="#what-if-i-want-to-sample-images-by-yaml-using-dataharvester">What if I want to sample images by YAML using <code>dataharvester</code>?</a></li>
   </ul></li>
-  <li><a href="#fa-keyboard-exercise-return-to-yaml-configuration" id="toc-fa-keyboard-exercise-return-to-yaml-configuration" class="nav-link" data-scroll-target="#fa-keyboard-exercise-return-to-yaml-configuration"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercise: Return to YAML configuration</span></a></li>
-  <li><a href="#final-remarks" id="toc-final-remarks" class="nav-link" data-scroll-target="#final-remarks">Final remarks</a></li>
+  <li><a href="#fa-keyboard-exercise-1-google-earth-engine-playground" id="toc-fa-keyboard-exercise-1-google-earth-engine-playground" class="nav-link" data-scroll-target="#fa-keyboard-exercise-1-google-earth-engine-playground"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercise 1: Google Earth Engine playground</span></a></li>
+  <li><a href="#fa-keyboard-exercise-2-return-to-yaml-configuration" id="toc-fa-keyboard-exercise-2-return-to-yaml-configuration" class="nav-link" data-scroll-target="#fa-keyboard-exercise-2-return-to-yaml-configuration"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercise 2: Return to YAML configuration</span></a></li>
+  <li><a href="#thank-you" id="toc-thank-you" class="nav-link" data-scroll-target="#thank-you">Thank you</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -350,10 +350,10 @@ In this session
 <p>An advantage of using Google Earth Engine to access satellite imagery is that it is possible to preprocess the data in the cloud. This means that you can perform complex operations on large datasets without having to download the data to your local machine. In this demo, we will explore some of the additional functionality that is available in <code>dataharvester</code>.</p>
 <section id="fa-cloud-sun-cloud-and-shadow-masking" class="level3">
 <h3 class="anchored" data-anchor-id="fa-cloud-sun-cloud-and-shadow-masking"><i class="fa-solid fa-cloud-sun" aria-hidden="true"></i> Cloud and shadow masking</h3>
-<p>Cloud masking is a process that removes clouds from satellite imagery. This is useful because clouds can obscure the features that we are interested in. If you are directly using the Google Earth Engine API to perform cloud and shadow masking, the process is <a href="https://developers.google.com/earth-engine/tutorials/community/sentinel-2-s2cloudless">quite complex</a>.</p>
+<p>Cloud masking is a process that removes clouds from satellite imagery. This is useful because clouds can obscure the features that we are interested in. If you are directly using the Google Earth Engine API to perform cloud and shadow masking, the process can be <a href="https://developers.google.com/earth-engine/tutorials/community/sentinel-2-s2cloudless">quite lengthy</a>.</p>
 <p>Fortunately, <code>dataharvester</code> provides a simple argument, <code>mask_clouds</code>, that can be used to perform cloud and shadow masking automatically.</p>
-<p>In <code>preprocess_ee()</code>, set <code>mask_clouds = TRUE</code> and cloud masking will be performed automatically using a cloud probability threshold of 60% (note: in the future, we will expand this functionality to be customisable).</p>
-<p>Currently, the following datasets are supported for <em>near-instant</em> cloud masking thanks to the use of the <a href="https://github.com/davemlz/eemont"><code>eemont</code></a> package:</p>
+<p>In <code>preprocess_ee()</code>, set <code>mask_clouds = TRUE</code> and to perform cloud masking automatically, using a quality assessment band or a default cloud probability of 60 %. For example, the Sentinel-2 dataset uses a quality assessment band called <code>QA60</code>, and the Landsat 8 dataset uses a quality assessment band called <code>pixel_qa</code>.</p>
+<p>The following datasets support <em>near-instant</em> cloud masking thanks to the utility of the <a href="https://github.com/davemlz/eemont"><code>eemont</code></a> package:</p>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -367,8 +367,8 @@ View supported datasets for cloud and shadow masking
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
-<li>Sentinel-3 OLCI EFR: Ocean and Land Color Instrument Earth Observation Full Resolution</li>
 <li>Sentinel-2 MSI: MultiSpectral Instrument, Level-2A</li>
+<li>Sentinel-3 OLCI EFR: Ocean and Land Color Instrument Earth Observation Full Resolution</li>
 <li>Landsat 8 Surface Reflectance Tier 1 and 2</li>
 <li>Landsat 7 Surface Reflectance Tier 1 and 2</li>
 <li>Landsat 5 Surface Reflectance Tier 1 and 2</li>
@@ -472,22 +472,6 @@ View supported datasets for spectral indices
 <p>We will spend some time playing with spectral indices over several locations.</p>
 </section>
 </section>
-<section id="fa-keyboard-exercise-1-google-earth-engine-playground" class="level2">
-<h2 class="anchored" data-anchor-id="fa-keyboard-exercise-1-google-earth-engine-playground"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercise 1: Google Earth Engine playground</span></h2>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-<i class="fa-solid fa-keyboard" aria-hidden="true"></i> On your own
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Your instructor will present additional information about Google Earth Engine, including the <code>rgee</code> package that wraps the API, and you will have the opportunity to explore the platform on your own.</p>
-</div>
-</div>
-</section>
 <section id="fa-person-chalkboard-demo-2-sampling-data-from-images" class="level2">
 <h2 class="anchored" data-anchor-id="fa-person-chalkboard-demo-2-sampling-data-from-images"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 2: Sampling data from images</span></h2>
 <p>In many cases, you will want to sample data from the satellite imagery. You have already seen this functionality with the <code>harvest()</code> package.</p>
@@ -537,8 +521,24 @@ View supported datasets for spectral indices
 <p>The <code>harvest()</code> function will sample these locations automatically, and plot the results if <code>plot = TRUE</code>.</p>
 </section>
 </section>
-<section id="fa-keyboard-exercise-return-to-yaml-configuration" class="level2">
-<h2 class="anchored" data-anchor-id="fa-keyboard-exercise-return-to-yaml-configuration"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercise: Return to YAML configuration</span></h2>
+<section id="fa-keyboard-exercise-1-google-earth-engine-playground" class="level2">
+<h2 class="anchored" data-anchor-id="fa-keyboard-exercise-1-google-earth-engine-playground"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercise 1: Google Earth Engine playground</span></h2>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<i class="fa-solid fa-keyboard" aria-hidden="true"></i> On your own
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Explore Google Earth Engine functionality in <code>dataharvester</code> by yourself. Find a location of interest and download some satellite imagery. Calculate some spectral indices and sample the data.</p>
+</div>
+</div>
+</section>
+<section id="fa-keyboard-exercise-2-return-to-yaml-configuration" class="level2">
+<h2 class="anchored" data-anchor-id="fa-keyboard-exercise-2-return-to-yaml-configuration"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercise 2: Return to YAML configuration</span></h2>
 <div class="callout-note callout callout-style-default no-icon callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -549,17 +549,21 @@ View supported datasets for spectral indices
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In this exercise we will return to the YAML configuration file that we created in the previous section, <code>basic_config.yaml</code>. Add the sample locations file to the YAML file, and then use the <code>harvest()</code> function to sample the data.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">harvest</span>(<span class="st">"assets/basic_config.yaml"</span>, </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_name =</span> <span class="st">"points_multi"</span>, </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">preview =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Let’s sample a previously-downloaded group of images using the YAML configuration file. We will add the following lines to the YAML file:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">infile</span><span class="kw">:</span><span class="at"> assets/points_llara.csv</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colname_lat</span><span class="kw">:</span><span class="at"> Lat</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colname_lng</span><span class="kw">:</span><span class="at"> Long</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then, run the <code>harvest()</code> function with <code>plot = TRUE</code> to preview the results. Where is the file saved to?</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">harvest</span>(<span class="st">"assets/basic_config.yaml"</span>, </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_name =</span> <span class="st">"points_multi"</span>, </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">preview =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section>
-<section id="final-remarks" class="level2">
-<h2 class="anchored" data-anchor-id="final-remarks">Final remarks</h2>
-<p>This is the end of the workshop! Thanks for making it this far.</p>
-<p>If you have any questions and/or suggestions, now is the time to make yourself heard. Meanwhile, we can discuss the following questions:</p>
+<section id="thank-you" class="level2">
+<h2 class="anchored" data-anchor-id="thank-you">Thank you</h2>
+<p><strong>This is the end of the workshop!</strong> Thanks for making it this far.</p>
+<p>If you have any questions and/or suggestions, now is the time to make yourself heard. Meanwhile, perhaps there is time to discuss the following:</p>
 <ul>
 <li>What is next for the <code>dataharvester</code> package? Will there be other packages?</li>
 <li>What other data sources would you like to see supported?</li>
