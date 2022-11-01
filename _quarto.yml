@@ -1,21 +1,21 @@
-project: 
+project:
   type: website
 editor:
   render-on-save: true
 execute:
-  freeze: auto  # re-render only when source changes  
+  freeze: auto # re-render only when source changes
 
-website: 
+website:
   page-navigation: true
-  title: "AgReFed Data-Harvester" 
+  title: "AgReFed Data-Harvester"
   site-url: https://sydney-informatics-hub.github.io/AgReFed-Workshop
   repo-url: https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop
   repo-actions: [issue]
-  
+
   page-footer:
     right: "Site built with [Quarto](https://quarto.org/)."
     left: "&copy; Sydney Informatics Hub, 2022"
-  
+
   navbar:
     title: "SIH-AgReFed Workshop"
     background: "#ff3333" # "#ff3333" "#424242"
@@ -31,15 +31,15 @@ website:
         file: rdocs/r00-workshop.qmd
 
   sidebar:
-    logo: "images/sih_logo.svg" 
+    logo: "images/sih_logo.svg"
     pinned: true
     align: center
-    tools: 
+    tools:
       - icon: globe
         href: https://www.sydney.edu.au/research/facilities/sydney-informatics-hub.html
         text: "SIH Website"
       # - icon: github
-      #   href: https://github.com/sydney-informatics-hub/agrefed-workshop 
+      #   href: https://github.com/sydney-informatics-hub/agrefed-workshop
       #   text: "GitHub Repository"
     style: "floating" # "floating" "docked"
     search: false
@@ -51,8 +51,6 @@ website:
         href: about.qmd
       - text: "Code of Conduct"
         href: code-of-conduct.qmd
-      - text: "Python Workshop"
-        href: pydocs/py00-workshop.qmd
       - text: "YAML Overview"
         href: Settings_Overview.md
       # - text: "{{< fa link >}} `dataharvester`"
@@ -60,7 +58,7 @@ website:
       - text: "{{< fa circle-question >}} FAQ"
         href: faq.qmd
 
-      # Python Workshop 
+      # Python Workshop
       - text: "---"
       - section: "Python Workshop"
         contents:
@@ -99,12 +97,11 @@ website:
 
       # Additional links
       # - section: folder/example.qmd
-      #   contents: 
+      #   contents:
       #     - folder/rstudio.qmd
-      #     - folder/jupyter.md 
+      #     - folder/jupyter.md
       # - href: another_example.qmd
       #   text: This will change text in sidebar
-
 
 format:
   html:
@@ -116,9 +113,6 @@ format:
     code-overflow: wrap
     toc: true
 
-
 filters:
   - include-files.lua
   - quarto
-
-  
