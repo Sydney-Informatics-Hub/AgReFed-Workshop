@@ -2,11 +2,15 @@
 title: Frequently Asked Questions
 ---
 
+- [What is the AgReFed Data-Harvester?](#q-what-is-the-agrefed-data-harvester)
 - [Who should attend these workshops?](#q-who-should-attend-these-workshops)
 - [What are the pre-requisites?](#q-what-are-the-pre-requisites)
 - [What is the cost of attending these workshops?](#q-what-is-the-cost-of-attending-these-workshops)
 - [Why should I use the Data-Harvester over other tools?](#q-why-should-i-use-the-data-harvester-over-other-tools)
 <!-- - [Can you provide a certificate of completion?](#q-can-you-provide-a-certificate-of-completion) -->
+
+#### Q: What is the AgReFed Data-Harvester?
+AgReFed is the [Agriculturual Research Federation](https://www.agrefed.org.au/). The Data-Harvester is a set of open-source tools, developed by AgReFed and SIH, written in Python but interfaced through Python or R. The tools make geo-spatial/remote-sensing data more easily accessible, and make the data download and processing steps seamlessley reproducible. The Data-Harvester combines multiple sources so a user does not need to manually visit each repository and figure out how to download the data they need.
 
 #### Q: Who should attend these workshops?
 
