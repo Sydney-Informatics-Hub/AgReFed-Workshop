@@ -30,20 +30,20 @@ In this demo, we will explore some of the additional functionality that is avail
 
 ### {{< fa cloud-sun >}} Cloud and shadow masking
 
-Cloud masking is a process that removes clouds from satellite imagery. This is useful because clouds can obscure the features that we are interested in. If you are directly using the Google Earth Engine API to perform cloud and shadow masking, the process is [quite complex](https://developers.google.com/earth-engine/tutorials/community/sentinel-2-s2cloudless). 
+Cloud masking is a process that removes clouds from satellite imagery. This is useful because clouds can obscure the features that we are interested in. If you are directly using the Google Earth Engine API to perform cloud and shadow masking, the process can be [quite lengthy](https://developers.google.com/earth-engine/tutorials/community/sentinel-2-s2cloudless).
 
 Fortunately, `dataharvester` provides a simple argument, `mask_clouds`, that can be used to perform cloud and shadow masking automatically. 
 
-In `preprocess_ee()`, set `mask_clouds = TRUE` and cloud masking will be performed automatically using a cloud probability threshold of 60% (note: in the future, we will expand this functionality to be customisable).
+In `preprocess_ee()`, set `mask_clouds = TRUE` and to perform cloud masking automatically, using a quality assessment band or a default cloud probability of 60 %. For example, the Sentinel-2 dataset uses a quality assessment band called `QA60`, and the Landsat 8 dataset uses a quality assessment band called `pixel_qa`.
 
-Currently, the following datasets are supported for *near-instant* cloud masking thanks to the use of the [`eemont`](https://github.com/davemlz/eemont) package:
+The following datasets support *near-instant* cloud masking thanks to the utility of the [`eemont`](https://github.com/davemlz/eemont) package:
 
 ::: {.callout-note collapse="true"}
 
 ## View supported datasets for cloud and shadow masking
 
-- Sentinel-3 OLCI EFR: Ocean and Land Color Instrument Earth Observation Full Resolution
 - Sentinel-2 MSI: MultiSpectral Instrument, Level-2A
+- Sentinel-3 OLCI EFR: Ocean and Land Color Instrument Earth Observation Full Resolution
 - Landsat 8 Surface Reflectance Tier 1 and 2
 - Landsat 7 Surface Reflectance Tier 1 and 2
 - Landsat 5 Surface Reflectance Tier 1 and 2
@@ -173,15 +173,6 @@ neds <- map_ee(object = neds, bands = "NDSI")
 We will spend some time playing with spectral indices over several locations.
 
 
-## [{{< fa keyboard >}} Exercise 1: Google Earth Engine playground]{style="color: blue;"}
-
-::: {.callout-note icon="false"}
-## {{< fa keyboard >}} On your own
-
-Your instructor will present additional information about Google Earth Engine, including the `rgee` package that wraps the API, and you will have the opportunity to explore the platform on your own.
-
-
-:::
 
 ## [{{< fa person-chalkboard >}} Demo 2: Sampling data from images]{style="color: green;"}
 
@@ -249,31 +240,44 @@ colname_lng: Long
 The `harvest()` function will sample these locations automatically, and plot the results if `plot = TRUE`.
 
 
+## [{{< fa keyboard >}} Exercise 1: Google Earth Engine playground]{style="color: blue;"}
 
-## [{{< fa keyboard >}} Exercise: Return to YAML configuration]{style="color: blue;"}
+::: {.callout-note icon="false"}
+## {{< fa keyboard >}} On your own
+
+Explore Google Earth Engine functionality in `dataharvester` by yourself. Find a location of interest and download some satellite imagery. Calculate some spectral indices and sample the data.
+
+
+:::
+
+## [{{< fa keyboard >}} Exercise 2: Return to YAML configuration]{style="color: blue;"}
 
 ::: {.callout-note icon="false"}
 ## {{< fa keyboard >}} Exercise
 
-In this exercise we will return to the YAML configuration file that we created in the previous section, `basic_config.yaml`. Add the sample locations file to the YAML file, and then use the `harvest()` function to sample the data.
+Let's sample a previously-downloaded group of images using the YAML configuration file. We will add the following lines to the YAML file:
 
+```yaml
+infile: assets/points_llara.csv
+colname_lat: Lat
+colname_lng: Long
+```
+
+Then, run the `harvest()` function with `plot = TRUE` to preview the results. Where is the file saved to?
 
 ```r
 harvest("assets/basic_config.yaml", 
   log_name = "points_multi", 
   preview = TRUE)
 ```
-
 :::
 
 
+## Thank you
 
+**This is the end of the workshop!** Thanks for making it this far. 
 
-## Final remarks
-
-This is the end of the workshop! Thanks for making it this far. 
-
-If you have any questions and/or suggestions, now is the time to make yourself heard. Meanwhile, we can discuss the following questions:
+If you have any questions and/or suggestions, now is the time to make yourself heard. Meanwhile, perhaps there is time to discuss the following:
 
 - What is next for the `dataharvester` package? Will there be other packages?
 - What other data sources would you like to see supported?
