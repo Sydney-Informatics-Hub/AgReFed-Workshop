@@ -248,6 +248,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="pre-requisites" class="level4">
 <h4 class="anchored" data-anchor-id="pre-requisites">Q: What are the pre-requisites?</h4>
+<p>Knowlege of remote sensing and/or geospatial concepts is desired, but not required. The training material will cover the basics of obtaining data for research, and will only provide a gentle introduction to remote sensing concepts.</p>
 <p><strong>If you are attending a Python Workshop</strong>, you should have a basic understanding of Python and understand how to use a command line interface (e.g.&nbsp;Terminal on Mac or Linux, or Command Prompt on Windows).</p>
 <p><strong>If you are attending an R Workshop</strong>, you should have a basic understanding of R and be comfortable with writing lines of code to perform actions. If you are not familiar with R, we recommend that you take a look at the <a href="https://r4ds.had.co.nz/">R for Data Science</a> book. Before attending a workshop, you should also install the <a href="https://www.rstudio.com/products/rstudio/download/">RStudio IDE</a> and the latest version of <a href="https://cran.r-project.org/">R</a>.</p>
 </section>
@@ -258,6 +259,10 @@ ul.task-list li input[type="checkbox"] {
 <section id="q-why-should-i-use-the-data-harvester-over-other-tools" class="level4">
 <h4 class="anchored" data-anchor-id="q-why-should-i-use-the-data-harvester-over-other-tools">Q: Why should I use the Data-Harvester over other tools?</h4>
 <p>The Data-Harvester is a good starting point for those who are new to remote sensing and satellite data. It provides a simple interface to access data and perform basic analysis. Importantly, <strong>users are not limited to the data and analysis provided by the Data-Harvester</strong>. We have made sure that data objects are in accessible formats which can be easily exported for use in other packages. For example, users can use the Data-Harvester to access data from the <a href="https://earthengine.google.com/">Google Earth Engine</a>, and if they wish to perform additional transformations before exporting the data, they can export the Earth Engine object to the Earth Engine API in Python, or <a href="https://r-spatial.github.io/rgee/"><code>rgee</code></a> if using R. or, they may download data using other products, but use the Data-Harvester to perform pixel reduction or temporal aggregation.</p>
+</section>
+<section id="q-is-it-safe-to-authenticate-my-google-account-with-the-data-harvester" class="level4">
+<h4 class="anchored" data-anchor-id="q-is-it-safe-to-authenticate-my-google-account-with-the-data-harvester">Q: Is it safe to authenticate my Google account with the Data-Harvester?</h4>
+<p>Authentication is the process by which your identity is confirmed through the use of some kind of credential. When you use the Google Earth Engine (GEE) API, you are giving the Data-Harvester permission to access a <strong>very specific portion</strong> of your Google account - mainly a digital “notebook” that allows you to access GEE. This is the same as if you were to use the GEE API directly. The Data-Harvester does not store any of your credentials, and you can revoke access to the Data-Harvester at any time.</p>
 <!-- #### Q: Can you provide a certificate of completion?
 
 Yes, we can provide a certificate of completion for those who attend the workshop. Please let us know if you would like a certificate. -->

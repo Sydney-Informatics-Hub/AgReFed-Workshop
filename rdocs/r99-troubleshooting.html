@@ -353,14 +353,14 @@ Warning
 <p>Unfortunately, this has temporarily broken Google Earth Engine (GEE) authentication on RStudio Cloud (and Binder), as Google Cloud gets confused when we try to authenticate using a cloud service. A workaround is available and documented below.</p>
 </div>
 </div>
-<p>To authenticate with Google Earth Engine (GEE), you will need to have an existing Google account. If you do not have one, you can create one reading the instructions <a href="">here</a></p>
+<p>To authenticate with Google Earth Engine (GEE), you will need to have an existing Google account. If you do not have one, you can create one reading the instructions <a href="../rdocs/r01-setup.html">here</a>.</p>
 <p>Once you have an account, authenticate with GEE by running the following code in the RStudio console:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dataharvester)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">authenticate_harvester</span>(<span class="st">"r-reticulate"</span>, </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                       <span class="at">earthengine =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                       <span class="at">auth_mode =</span> <span class="st">"rstudiocloud"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Make sure that <code>auth_mode</code> is set to <code>"rstudiocloud"</code> as it is currently the <strong>only option</strong> available for RStudio Cloud and Binder (see warning callout above).</p>
-<p>What happens next will look confusing, but <em>is actually working</em>. You will be prompted to open a new browser window, but because RStudio Cloud and Binder do not allow this, several warning messages will appear. <strong>Ignore them - copy the URL produced and paste it into a new browser window</strong> (Fig 1).</p>
+<p>What happens next will look confusing, but <em>is actually working</em>. You will be prompted to open a new browser window, but because RStudio Cloud and Binder do not allow this, several warning messages will appear. <strong>Ignore them - copy the URL produced and paste it into a new browser window</strong> (Fig 1). Hint: triple-clicking (click-click-click) the address will highlight it completely for easy copy.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/gee/gee00.jpg" class="img-fluid figure-img"></p>
@@ -388,38 +388,44 @@ Warning
 </div>
 </div>
 </div>
-<p>Next, you will be prompted to generate a token. The option “Use read-only scopes” can be left unchecked since you are working with data (Fig 3).</p>
+<p>Make sure to create a cloud project before generating the token and give your project a unique name (Fig 3). You will then need to generate a token. The option “Use read-only scopes” can be left unchecked since you are working with data (Fig 3), but we have not seen issues if the option is enabled.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="../images/gee/gee03.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Fig 3. Generate the token.</figcaption><p></p>
+<p><img src="../images/gee/gee_token.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Fig 3. Generate the token, but create a Cloud Project if required (see below)</figcaption><p></p>
 </figure>
 </div>
-<p>Google will warn you once more about linking the notebook (that it created) to your Google Earth Engine data. Click “Continue” (Fig 4).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/gee/gee_cloud_project.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Fig 4. Create a Cloud Project - use a unique name</figcaption><p></p>
+</figure>
+</div>
+<p>Google will warn you once more about linking the notebook (that it created) to your Google Earth Engine data. Click “Continue” (Fig 5).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/gee/gee04.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Fig 4. Verify once again that the GEE notebook will accesss your Google Account by clicking on “Continue”.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Fig 5. Verify once again that the GEE notebook will accesss your Google Account by clicking on “Continue”.</figcaption><p></p>
 </figure>
 </div>
-<p>You will then be redirected to a page where you need to explicitly grant access to the GEE notebook (Fig 5). Check the two boxes and click “Continue” (Fig 5).</p>
+<p>You will then be redirected to a page where you need to explicitly grant access to the GEE notebook (Fig 6). Check the two boxes and click “Continue”.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/gee/gee05.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Fig 5. Check the boxes to understand what you are allowing the notebook to access. Then, click “Continue”.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Fig 6. Check the boxes to understand what you are allowing the notebook to access. Then, click “Continue”.</figcaption><p></p>
 </figure>
 </div>
-<p>Finally, you will be redirected to a page that contains an Authorization Code (Fig 6). Copy the code and paste it into the RStudio console (Fig 7).</p>
+<p>Finally, you will be redirected to a page that contains an Authorization Code (Fig 7). Copy the code and paste it into the RStudio console (Fig 8).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/gee/gee06.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Fig 6. Copy the token on this page under “Authorization code”.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Fig 7. Copy the token on this page under “Authorization code”.</figcaption><p></p>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/gee/gee07.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Fig 7. Paste the token in the RStudio console at “Enter verification code”. The token is saved and should last the workshop session.</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Fig 8. Paste the token in the RStudio console at “Enter verification code”. The token is saved and should last the workshop session.</figcaption><p></p>
 </figure>
 </div>
 </section>
