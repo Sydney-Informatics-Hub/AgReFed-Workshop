@@ -9,6 +9,10 @@ Welcome to **Session 1**. This session introduces you to the `dataharvester` pac
 
 Your instructor will briefly introduce the AgReFed Data-Harvester project and get you set up for the remainder of the workshop.
 
+**Join our shared space by clicking the button below**:
+
+[![](https://img.shields.io/badge/Join%20Shared%20Space-RStudio%20Cloud-yellow?style=for-the-badge&logo=appveyor)](https://rstudio.cloud/spaces/298376/join?access_code=X9TVSwtIvU_LvfntcsPi2n-yGcLcjmsGZ7Xeivpa){target="_blank"}
+
 ##  [{{< fa person-chalkboard >}} Demo 1: Authentication]{style="color: green;"}
 
 ::: {.callout-tip icon="false"}
