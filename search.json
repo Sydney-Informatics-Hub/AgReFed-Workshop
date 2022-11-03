@@ -270,7 +270,7 @@
     "href": "rdocs/r01-setup.html#rstudio-cloud",
     "title": "Setting up R",
     "section": "RStudio Cloud",
-    "text": "RStudio Cloud\nRStudio Cloud is a free, web-based RStudio IDE that you can use to run R code in your browser. It is a great way to get started with R without having to install anything on your computer. You can also use it to share your code with others. We encourage you to use RStudio Cloud for the workshop as you do not need to install anything on your computer. If you do not have an RStudio account, follow the steps below.\n\nSetting up RStudio Cloud\nGo to https://rstudio.cloud/ and sign up on the “Cloud Free” Plan.\n\n\n\nSign up to the Cloud Free Plan on RStudio Cloud\n\n\nYou will need to provide an email address and a password. You can also sign up using your Google or Github account – simply click on those buttons, and follow the authentication steps.\n\n\n\n \n\n\n\n\n\n \n\n\n\nYou will be automatically directed to the RStudio Cloud home page, which looks like this:\n\nThe shared space will be activated closer to the workshop date."
+    "text": "RStudio Cloud\nRStudio Cloud is a free, web-based RStudio IDE that you can use to run R code in your browser. It is a great way to get started with R without having to install anything on your computer. You can also use it to share your code with others. We encourage you to use RStudio Cloud for the workshop as you do not need to install anything on your computer. If you do not have an RStudio account, follow the steps below.\n\nSetting up RStudio Cloud\nGo to https://rstudio.cloud/ and sign up on the “Cloud Free” Plan.\n\n\n\nSign up to the Cloud Free Plan on RStudio Cloud\n\n\nYou will need to provide an email address and a password. You can also sign up using your Google or Github account – simply click on those buttons, and follow the authentication steps.\n\n\n\n \n\n\n\n\n\n \n\n\n\nYou will be automatically directed to the RStudio Cloud home page, which looks like this:\n\n\nJoin our shared space by clicking the button below:"
   },
   {
     "objectID": "rdocs/r01-setup.html#need-help",
@@ -291,7 +291,7 @@
     "href": "rdocs/r00-workshop.html",
     "title": "R Workshop",
     "section": "",
-    "text": "The AgReFed Data-Harvester can be run in Python or R.\nThis R workshop is aimed at people who are already familiar with R and RStudio. If you prefer to use Python, see the Python Workshop for details."
+    "text": "The AgReFed Data-Harvester can be run in Python or R.\nThis R workshop is aimed at people who are already familiar with R and RStudio. If you prefer to use Python, see the Python Workshop for details.\nJoin our shared space by clicking the button below:"
   },
   {
     "objectID": "rdocs/r00-workshop.html#how-to-follow-the-sessions",
@@ -326,7 +326,7 @@
     "href": "rdocs/r02-introduction.html",
     "title": " Introduction",
     "section": "",
-    "text": "Welcome to Session 1. This session introduces you to the dataharvester package by showing you how to download files with minimal code input, which is achieved by running the harvest() function.\nYour instructor will briefly introduce the AgReFed Data-Harvester project and get you set up for the remainder of the workshop."
+    "text": "Welcome to Session 1. This session introduces you to the dataharvester package by showing you how to download files with minimal code input, which is achieved by running the harvest() function.\nYour instructor will briefly introduce the AgReFed Data-Harvester project and get you set up for the remainder of the workshop.\nJoin our shared space by clicking the button below:"
   },
   {
     "objectID": "rdocs/r02-introduction.html#fa-person-chalkboard-demo-1-authentication",
