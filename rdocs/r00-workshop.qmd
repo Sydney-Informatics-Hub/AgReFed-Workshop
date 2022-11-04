@@ -10,9 +10,9 @@ This R workshop is aimed at people who are already familiar with R and RStudio. 
 **Please read the [Code of Conduct](/code-of-conduct.qmd), [FAQ](/faq.qmd), and [Setting up](/rdocs/r01-setup.qmd) before joining the workshop.**
 :::
 
-**Join our shared space by clicking the button below**:
+<!-- **Join our shared space by clicking the button below**:
 
-[![](https://img.shields.io/badge/Join%20Shared%20Space-RStudio%20Cloud-yellow?style=for-the-badge&logo=appveyor)](https://rstudio.cloud/spaces/298376/join?access_code=X9TVSwtIvU_LvfntcsPi2n-yGcLcjmsGZ7Xeivpa){target="_blank"}
+[![](https://img.shields.io/badge/Join%20Shared%20Space-RStudio%20Cloud-yellow?style=for-the-badge&logo=appveyor)](https://rstudio.cloud/spaces/298376/join?access_code=X9TVSwtIvU_LvfntcsPi2n-yGcLcjmsGZ7Xeivpa){target="_blank"} -->
 
 ## How to follow the sessions
 
