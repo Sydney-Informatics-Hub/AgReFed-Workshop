@@ -83,17 +83,23 @@ website:
         contents:
           - text: "Introduction"
             href: rdocs/r00-workshop.qmd
-          - text: "Setting up R"
-            href: rdocs/r01-setup.qmd
+          - section: "Setting up"
+            contents:
+              - text: "Google Earth Engine"
+                href: rdocs/r03-google-earth-engine.qmd
+              - text: "RStudio Cloud"
+                href: rdocs/r01-setup-cloud.qmd
+              - text: "RStudio Desktop"
+                href: rdocs/r02-setup-desktop.qmd
           - text: "{{< fa life-ring >}} Troubleshooting"
             href: rdocs/r99-troubleshooting.qmd
           - text: "---"
           - text: "[{{< fa hammer >}} 1: Introduction"
-            href: rdocs/r02-introduction.qmd
+            href: rdocs/r20-introduction.qmd
           - text: "{{< fa hammer >}} 2: Custom Workflows"
-            href: rdocs/r03-basic.qmd
+            href: rdocs/r30-basic.qmd
           - text: "{{< fa hammer >}} 3: Advanced Features"
-            href: rdocs/r04-advanced.qmd
+            href: rdocs/r40-advanced.qmd
 
       # Additional links
       # - section: folder/example.qmd

@@ -1,58 +1,8 @@
 ---
-title: Setting up R
+title: Setting up RStudio Desktop
 ---
 
-## Google Earth Engine
 
-To use Google Earth Engine, you must link an existing Google acccount to the service. Click [here](https://earthengine.google.com/signup/), follow the instructions to log in (or create a Google Account, if you do not already have one). Eventually, you will be asked to fill in a web form.
-
-**Make sure to fill in the form with genuine answers.** In the section asking *"What would you like to accomplish with Earth Engine?"*, provide a reasonable explanation of how you would utilise the geospatial data obtained from Earth Engine in a couple of sentences. A proper description will almost guarantee that you will be approved in minutes.
-
-![Fill in the form, submit and wait for an email confirmation](assets/gee_signup.jpg)
-
-Once you have submitted, you should receive a confirmation via email within minutes (to a couple of hours). This is why signing up now is important - you may not be able to use Google Earth Engine functionality if you sign up during the workshop.
-
-## RStudio Cloud
-
-RStudio Cloud is a free, web-based RStudio IDE that you can use to run R code in your browser. It is a great way to get started with R without having to install anything on your computer. You can also use it to share your code with others. We encourage you to use RStudio Cloud for the workshop as you do not need to install anything on your computer. If you do not have an RStudio account, follow the steps below.
-
-### Setting up RStudio Cloud
-
-Go to [https://rstudio.cloud/](https://rstudio.cloud/) and sign up on the "Cloud Free" Plan. 
-
-![Sign up to the Cloud Free Plan on RStudio Cloud](assets/rstudiocloud_signup.jpg)
-
-You will need to provide an email address and a password. You can also sign up using your Google or Github account -- simply click on those buttons, and follow the authentication steps.
-
-::: {layout="[-20, 60, -20]"}
-![](assets/rstudiocloud_login.jpg)
-:::
-You will be automatically directed to the RStudio Cloud home page, which looks like this:
-
-![](assets/rstudiocloud_projview.jpg)
-
-**The shared space will be activated closer to the workshop date.**
-
-<!-- **Join our shared space by clicking the button below**:
-
-[![](https://img.shields.io/badge/Join%20Shared%20Space-RStudio%20Cloud-yellow?style=for-the-badge&logo=appveyor)](https://rstudio.cloud/spaces/298376/join?access_code=X9TVSwtIvU_LvfntcsPi2n-yGcLcjmsGZ7Xeivpa){target="_blank"} -->
-
-<!-- ::: callout-note
-In the near future, we will be able to provide AgReFed workshop participants with a virtual machine on the Nectar Research Cloud. This will allow you to use RStudio Server on a virtual machine. Instructions will be provided when this is available.
-:::
-
-<!-- ## Binder (optional)
-
-Want to play around with `dataharvester` without an RStudio Cloud account? Launch our Binder instance by clicking on the button below. Binder should only be used in a test environment as Binder instances are not persistent and will be deleted after a period of inactivity.
-
-[![](https://img.shields.io/badge/Launch%20Workshop-Binder-blue?style=for-the-badge&logo=appveyor)](https://mybinder.org/v2/gh/januarharianto/dataharvester_on_binder/HEAD?urlpath=rstudio){target="_blank"}
-
-## RStudio Desktop (optional)
-
-If you prefer to use RStudio Desktop, a setup vignette is available here. Note that we will **not** be able to provide support for RStudio Desktop during the workshop. -->
-
-
-<!-- 
 ::: callout-important
 Choosing this option means that you have decided to install R and RStudio on your computer. **Note** this is not recommended for the workshop as there may be issues to troubleshoot we cannot support. If you are unsure, please use RStudio Cloud.
 
@@ -62,7 +12,7 @@ You must know how to debug issues if you choose to use RStudio Desktop. **Please
 :::{.callout-note appearance="simple" collapse="true"}
 ### **Step 1**: Install/Update R and RStudio
 
- If you already have R and RStudio installed, make sure you have the latest versions. At a minimum, you will need [R v4.21](https://cran.r-project.org/){target="_blank"} and [RStudio v2022.07.2](https://www.rstudio.com/products/rstudio/download/){target="_blank"}.
+ If you already have R and RStudio installed, make sure you have the latest versions. At a minimum, you will need [R v4.1](https://cran.r-project.org/){target="_blank"} and [RStudio v2022.07.2](https://www.rstudio.com/products/rstudio/download/){target="_blank"}.
 :::
 
 :::{.callout-note appearance="simple" collapse="true"}
@@ -100,6 +50,9 @@ During this step, you may be asked to install `r-miniconda`, which is basically 
 
 If you already have Python installed, R may still ask you to install miniconda. This is because miniconda is a separate package from Python, and is not the same as the Python package manager `pip`. Importantly, miniconda is *almost* necessary for Windows users as it allows you to install certain Python *and* non-Python packages without having to install a full version of Python and running installation commands in the command line. These include the [GDAL](https://gdal.org/){target="_blank"} binary which is a translator library for raster and vector geospatial data formats, and the [PROJ](https://proj.org/){target="_blank"} library which is a cartographic projection and coordinate transformation library.
 :::
+
+Note that the above code will try to install the GDAL binary for you when you install a Python package called `reticulate`. If you are a Windows user, you may need to install the GDAL binary manually. You can do this by following the instructions [here](https://gdal.org/download.html){target="_blank"}.
+
 :::
 
 :::{.callout-note appearance="simple" collapse="true"}
@@ -115,7 +68,7 @@ initialise_harvester("r-reticulate", earthengine = TRUE)
 Follow the instructions carefully, as Google Earth Engine requires you to authenticate with a Google account. You will need to copy and paste a link into your browser, and then copy and paste the resulting code back into R.
 
 If you are authenticating from a server environment or RStudio Cloud, you may need to use a different authentication method. See the [Troubleshooting](/rdocs/r99-troubleshooting.qmd) section and look for the section "Google Earth Engine authentication".
-::: -->
+:::
 
 ## Need help?
 
