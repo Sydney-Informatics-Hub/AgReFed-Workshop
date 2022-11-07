@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>AgReFed Data-Harvester -  Advanced features</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../rdocs/r30-basic.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/logo_white.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">SIH-AgReFed Workshop</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="../index.html" aria-current="page"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../pydocs/py00-workshop.html"><i class="fa-brands fa-python" aria-hidden="true"></i> Python Workshop</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../rdocs/r00-workshop.html"><i class="fa-brands fa-r-project" aria-hidden="true"></i> Workshop</a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><i class="fa-brands fa-r-project" aria-hidden="true"></i> Advanced features</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+      <a href="../" class="sidebar-logo-link">
+      <img src="../images/sih_logo.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+      <div class="sidebar-tools-main">
+    <a href="https://www.sydney.edu.au/research/facilities/sydney-informatics-hub.html" title="SIH Website" class="sidebar-tool px-1"><i class="bi bi-globe"></i></a>
+</div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">Home</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../about.html" class="sidebar-item-text sidebar-link">About Us</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../code-of-conduct.html" class="sidebar-item-text sidebar-link">Code of Conduct</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../Settings_Overview.html" class="sidebar-item-text sidebar-link">YAML Overview</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../faq.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> FAQ</a>
+  </div>
+</li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">Python Workshop</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pydocs/py00-workshop.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="px-0"><hr class="sidebar-divider hi "></li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">R Workshop</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rdocs/r00-workshop.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">Setting up</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rdocs/r03-google-earth-engine.html" class="sidebar-item-text sidebar-link">Google Earth Engine</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rdocs/r01-setup-cloud.html" class="sidebar-item-text sidebar-link">RStudio Cloud</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rdocs/r02-setup-desktop.html" class="sidebar-item-text sidebar-link">RStudio Desktop</a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rdocs/r99-troubleshooting.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-life-ring" aria-hidden="true"></i> Troubleshooting</a>
+  </div>
+</li>
+          <li class="px-0"><hr class="sidebar-divider hi "></li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rdocs/r20-introduction.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 1: Introduction</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rdocs/r30-basic.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 2: Custom Workflows</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rdocs/r40-advanced.html" class="sidebar-item-text sidebar-link active"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 3: Advanced Features</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#summary" id="toc-summary" class="nav-link active" data-scroll-target="#summary">Summary</a></li>
+  <li><a href="#fa-person-chalkboard-demo-1-additional-gee-functionality" id="toc-fa-person-chalkboard-demo-1-additional-gee-functionality" class="nav-link" data-scroll-target="#fa-person-chalkboard-demo-1-additional-gee-functionality"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 1: Additional GEE Functionality</span></a>
+  <ul class="collapse">
+  <li><a href="#fa-cloud-sun-cloud-and-shadow-masking" id="toc-fa-cloud-sun-cloud-and-shadow-masking" class="nav-link" data-scroll-target="#fa-cloud-sun-cloud-and-shadow-masking"><i class="fa-solid fa-cloud-sun" aria-hidden="true"></i> Cloud and shadow masking</a></li>
+  <li><a href="#fa-rainbow-spectral-indices" id="toc-fa-rainbow-spectral-indices" class="nav-link" data-scroll-target="#fa-rainbow-spectral-indices"><i class="fa-solid fa-rainbow" aria-hidden="true"></i> Spectral indices</a></li>
+  </ul></li>
+  <li><a href="#fa-person-chalkboard-demo-2-sampling-data-from-images" id="toc-fa-person-chalkboard-demo-2-sampling-data-from-images" class="nav-link" data-scroll-target="#fa-person-chalkboard-demo-2-sampling-data-from-images"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 2: Sampling data from images</span></a>
+  <ul class="collapse">
+  <li><a href="#preparing-your-sample-locations" id="toc-preparing-your-sample-locations" class="nav-link" data-scroll-target="#preparing-your-sample-locations">Preparing your sample locations</a></li>
+  <li><a href="#preparing-your-images" id="toc-preparing-your-images" class="nav-link" data-scroll-target="#preparing-your-images">Preparing your images</a></li>
+  <li><a href="#what-if-i-want-to-sample-images-by-yaml-using-dataharvester" id="toc-what-if-i-want-to-sample-images-by-yaml-using-dataharvester" class="nav-link" data-scroll-target="#what-if-i-want-to-sample-images-by-yaml-using-dataharvester">What if I want to sample images by YAML using <code>dataharvester</code>?</a></li>
+  </ul></li>
+  <li><a href="#fa-keyboard-exercise-1-google-earth-engine-playground" id="toc-fa-keyboard-exercise-1-google-earth-engine-playground" class="nav-link" data-scroll-target="#fa-keyboard-exercise-1-google-earth-engine-playground"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercise 1: Google Earth Engine playground</span></a></li>
+  <li><a href="#fa-keyboard-exercise-2-return-to-yaml-configuration" id="toc-fa-keyboard-exercise-2-return-to-yaml-configuration" class="nav-link" data-scroll-target="#fa-keyboard-exercise-2-return-to-yaml-configuration"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercise 2: Return to YAML configuration</span></a></li>
+  <li><a href="#thank-you" id="toc-thank-you" class="nav-link" data-scroll-target="#thank-you">Thank you</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><i class="fa-brands fa-r-project" aria-hidden="true"></i> Advanced features</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>In <strong>Session 3</strong>, we will cover additional featores of the Google Earth Engine API, including:</p>
+<ul>
+<li>cloud and shadow masking</li>
+<li>spectral indices</li>
+</ul>
+<p>We will also look at sampling points from downloaded images.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+In this session
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Explore data in Google Earth Engine</li>
+<li>Download large images from Google Earth Engine</li>
+<li>Sample point data from rasters</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="fa-person-chalkboard-demo-1-additional-gee-functionality" class="level2">
+<h2 class="anchored" data-anchor-id="fa-person-chalkboard-demo-1-additional-gee-functionality"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 1: Additional GEE Functionality</span></h2>
+<p>An advantage of using Google Earth Engine to access satellite imagery is that it is possible to preprocess the data in the cloud. This means that you can perform complex operations on large datasets without having to download the data to your local machine. In this demo, we will explore some of the additional functionality that is available in <code>dataharvester</code>.</p>
+<section id="fa-cloud-sun-cloud-and-shadow-masking" class="level3">
+<h3 class="anchored" data-anchor-id="fa-cloud-sun-cloud-and-shadow-masking"><i class="fa-solid fa-cloud-sun" aria-hidden="true"></i> Cloud and shadow masking</h3>
+<p>Cloud masking is a process that removes clouds from satellite imagery. This is useful because clouds can obscure the features that we are interested in. If you are directly using the Google Earth Engine API to perform cloud and shadow masking, the process can be <a href="https://developers.google.com/earth-engine/tutorials/community/sentinel-2-s2cloudless">quite lengthy</a>.</p>
+<p>Fortunately, <code>dataharvester</code> provides a simple argument, <code>mask_clouds</code>, that can be used to perform cloud and shadow masking automatically.</p>
+<p>In <code>preprocess_ee()</code>, set <code>mask_clouds = TRUE</code> and to perform cloud masking automatically, using a quality assessment band or a default cloud probability of 60 %. For example, the Sentinel-2 dataset uses a quality assessment band called <code>QA60</code>, and the Landsat 8 dataset uses a quality assessment band called <code>pixel_qa</code>.</p>
+<p>The following datasets support <em>near-instant</em> cloud masking thanks to the utility of the <a href="https://github.com/davemlz/eemont"><code>eemont</code></a> package:</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+View supported datasets for cloud and shadow masking
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>Sentinel-2 MSI: MultiSpectral Instrument, Level-2A</li>
+<li>Sentinel-3 OLCI EFR: Ocean and Land Color Instrument Earth Observation Full Resolution</li>
+<li>Landsat 8 Surface Reflectance Tier 1 and 2</li>
+<li>Landsat 7 Surface Reflectance Tier 1 and 2</li>
+<li>Landsat 5 Surface Reflectance Tier 1 and 2</li>
+<li>Landsat 4 Surface Reflectance Tier 1 and 2</li>
+<li>MCD15A3H.006 MODIS Leaf Area Index/FPAR 4-Day Global 500m</li>
+<li>MOD09GA.006 Terra Surface Reflectance Daily Global 1km and 500m</li>
+<li>MOD09Q1.006 Terra Surface Reflectance 8-Day Global 250m</li>
+<li>MOD09A1.006 Terra Surface Reflectance 8-Day Global 500m</li>
+<li>MOD17A2H.006: Terra Gross Primary Productivity 8-Day Global 500M 500m</li>
+<li>MOD16A2.006: Terra Net Evapotranspiration 8-Day Global 500m</li>
+<li>MOD13Q1.006 Terra Vegetation Indices 16-Day Global 250m</li>
+<li>MOD13A1.006 Terra Vegetation Indices 16-Day Global 500m</li>
+<li>MOD13A2.006 Terra Vegetation Indices 16-Day Global 1km</li>
+<li>MYD09GA.006 Aqua Surface Reflectance Daily Global 1km and 500m</li>
+<li>MYD09Q1.006 Aqua Surface Reflectance 8-Day Global 250m</li>
+<li>MYD09A1.006 Aqua Surface Reflectance 8-Day Global 500m</li>
+<li>MYD17A2H.006: Aqua Gross Primary Productivity 8-Day Global 500M 500m</li>
+<li>MYD13Q1.006 Aqua Vegetation Indices 16-Day Global 250m</li>
+<li>MYD13A1.006 Aqua Vegetation Indices 16-Day Global 500m</li>
+<li>MYD13A2.006 Aqua Vegetation Indices 16-Day Global 1km</li>
+<li>VNP09GA: VIIRS Surface Reflectance Daily 500m and 1km</li>
+<li>VNP13A1: VIIRS Vegetation Indices 16-Day 500m</li>
+</ul>
+</div>
+</div>
+</div>
+<p>Let’s use the same bounding boxes as in the previous session.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Australian</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>llara_nsw <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">149.769</span>, <span class="sc">-</span><span class="fl">30.335</span>, <span class="fl">149.969</span>, <span class="sc">-</span><span class="fl">30.135</span>)  </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>corrigin_wa <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">118.015</span>, <span class="sc">-</span><span class="fl">32.356</span>, <span class="fl">118.215</span>, <span class="sc">-</span><span class="fl">32.156</span>)  </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>nedscorner_vic <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">141.215</span>, <span class="sc">-</span><span class="fl">34.241</span>, <span class="fl">141.415</span>, <span class="sc">-</span><span class="fl">34.0414</span>) </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Earth Engine only</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>atlantis <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">11.10</span>, <span class="fl">21.35</span>, <span class="sc">-</span><span class="fl">11.70</span>, <span class="fl">20.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>First, we will collect satellite imagery from Corrigin, WA using the Sentinel-2 MSI dataset, and see what it looks like. Note that cloud masking is automatically performed by default, so we do not need to specify the <code>mask_clouds</code> argument.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>corrigin <span class="ot">&lt;-</span> <span class="fu">collect_ee</span>(<span class="at">collection =</span> <span class="st">"COPERNICUS/S2_SR"</span>, </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">coords =</span> corrigin_wa,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="st">"2021-11-01"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">end_date =</span> <span class="st">"2021-11-28"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>corrigin <span class="ot">&lt;-</span> <span class="fu">preprocess_ee</span>(<span class="at">object =</span> corrigin)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>corrigin <span class="ot">&lt;-</span> <span class="fu">map_ee</span>(<span class="at">object =</span> corrigin, <span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"B2"</span>, <span class="st">"B3"</span>, <span class="st">"B4"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The image should look something like this:</p>
+<p><img src="assets/corrigin_maskcloud.jpg" class="img-fluid"></p>
+<p>What happens if we disable cloud masking? We can do this by setting the <code>mask_clouds</code> argument to <code>FALSE</code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's use the same `corrigins` object to preprocess without cloud masking</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>corrigin_clouds <span class="ot">&lt;-</span> <span class="fu">preprocess_ee</span>(<span class="at">object =</span> corrigin, <span class="at">mask_clouds =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>corrigin_clouds <span class="ot">&lt;-</span> <span class="fu">map_ee</span>(<span class="at">object =</span> corrigin_clouds, <span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"B2"</span>, <span class="st">"B3"</span>, <span class="st">"B4"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="assets/corrigin_cloud.jpg" class="img-fluid"></p>
+<p>Can you see the difference?</p>
+<section id="when-to-use-cloud-masking" class="level4">
+<h4 class="anchored" data-anchor-id="when-to-use-cloud-masking">When to use cloud masking</h4>
+<p><strong>Cloud masking is enabled by default.</strong></p>
+<p>Depending on your research question, you will need to make a decision about cloud masking and whether it is appropriate. For example, if you want to study how clouds affect your variable, like vegetation, you may want to turn off cloud masking so that clouds are part of the data.</p>
+</section>
+</section>
+<section id="fa-rainbow-spectral-indices" class="level3">
+<h3 class="anchored" data-anchor-id="fa-rainbow-spectral-indices"><i class="fa-solid fa-rainbow" aria-hidden="true"></i> Spectral indices</h3>
+<p>Spectral indices are mathematical combinations of spectral bands that are used to extract information from satellite imagery. For example, the Normalised Difference Vegetation Index (NDVI) is a common spectral index that is used to estimate the amount of vegetation in an area. With spectral indices, information about the spectral properties of the geospatial data can be extracted from the imagery.</p>
+<p>The <code>dataharvester</code> package provides support to a wide collection of spectral indices thanks to <a href="https://awesome-ee-spectral-indices.readthedocs.io/en/latest/">Awesome Spectral Indices</a>, and provides a simple interface to calculate these indices. In the <code>preprocess_ee()</code> function, the <code>spectral</code> argument can be used to specify which spectral indices should be calculated.</p>
+<p>There are a total of <strong>216</strong> spectral indices that are supported Awesome Spectral Indices. Note that the spectral indices are divided into several categories: Vegetation, Burn, Water, Snow, Drought, Urban, Kernel and RADAR.</p>
+<p><code>dataharvester</code> supports automatic calculation of spectral indices for the following datasets:</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+View supported datasets for spectral indices
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>Sentinel-2 MSI: MultiSpectral Instrument, Level-2A</li>
+<li>Sentinel-2 MSI: MultiSpectral Instrument, Level-1C</li>
+<li>Landsat 8 Surface Reflectance Tier 1 and 2</li>
+<li>Landsat 8 Level 2, Collection 2, Tier 1</li>
+<li>Landsat 7 Surface Reflectance Tier 1 and 2</li>
+<li>Landsat 7 Level 2, Collection 2, Tier 1</li>
+<li>Landsat 5 Surface Reflectance Tier 1 and 2</li>
+<li>Landsat 4 Surface Reflectance Tier 1 and 2</li>
+</ul>
+<p>Some MODIS satellite products may also be supported - perhaps try it out and let us know if it works!</p>
+</div>
+</div>
+</div>
+<p>Let’s calculate some spectral indices on <code>nedscorner_vic</code>. We will calculate the Normalised Difference Vegetation Index (<a href="https://www.indexdatabase.de/db/i-single.php?id=58">NDVI</a>), the Normalised Difference Water Index (NDWI; <a href="https://doi.org/10.1080/01431169608948714">McFeeters, 1996</a>), and the Normalised Difference Snow Index (NDSI, <a href="https://doi.org/10.1109/IGARSS.1994.399618">Riggs et al., 1994</a>).</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>neds <span class="ot">&lt;-</span> <span class="fu">collect_ee</span>(<span class="at">collection =</span> <span class="st">"COPERNICUS/S2_SR"</span>, </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">coords =</span> nedscorner_vic,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="st">"2021-11-01"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">end_date =</span> <span class="st">"2021-11-28"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>neds <span class="ot">&lt;-</span> <span class="fu">preprocess_ee</span>(<span class="at">object =</span> neds, <span class="at">spectral =</span> <span class="fu">c</span>(<span class="st">"NDVI"</span>, <span class="st">"NDWI"</span>, <span class="st">"NDSI"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Importantly, when mapping single bands, you should use the <code>bands</code> argument to specify only one band. This will be optimised in the near future.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>neds <span class="ot">&lt;-</span> <span class="fu">map_ee</span>(<span class="at">object =</span> neds, <span class="at">bands =</span> <span class="st">"NDVI"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Once you have previewed one image, you can preview another.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>neds <span class="ot">&lt;-</span> <span class="fu">map_ee</span>(<span class="at">object =</span> neds, <span class="at">bands =</span> <span class="st">"NDWI"</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>neds <span class="ot">&lt;-</span> <span class="fu">map_ee</span>(<span class="at">object =</span> neds, <span class="at">bands =</span> <span class="st">"NDSI"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We will spend some time playing with spectral indices over several locations.</p>
+</section>
+</section>
+<section id="fa-person-chalkboard-demo-2-sampling-data-from-images" class="level2">
+<h2 class="anchored" data-anchor-id="fa-person-chalkboard-demo-2-sampling-data-from-images"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo 2: Sampling data from images</span></h2>
+<p>In many cases, you will want to sample data from the satellite imagery. You have already seen this functionality with the <code>harvest()</code> package.</p>
+<p>Perhaps you have a list of sample locations and you want to extract the satellite data at those locations. Or perhaps you want to extract the satellite data at a regular grid of locations. <code>dataharvester</code> provides a simple interface to sample data from satellite imagery using the <code>extract_values()</code> function.</p>
+<section id="preparing-your-sample-locations" class="level3">
+<h3 class="anchored" data-anchor-id="preparing-your-sample-locations">Preparing your sample locations</h3>
+<p>You will need a list of sample locations/points that you want to extract data from. The function <code>extract_values()</code> accepts a <code>data.frame</code> or <code>matrix</code> object of two columns, where the first column is the longitude (x) and the second column is the latitude (y).</p>
+<!-- If you do not have a sample locations file, you can create one using the `sample_locations()` function. This function will create a regular grid of sample locations within a specified bounding box. -->
+<p>You may already posess a sample locations file. For example, it could be a dataset of sample locations from a field experiment. For this demo, we have one such file called <code>"Pointdata_Llara.csv"</code> that can be used on the <code>llara_nsw</code> bounding box.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>llara <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"Pointdata_Llara.csv"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(llara)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This data file might contain several columns of data, but we only need two columns, which are the longitude and latitude of the sample locations. We can extract these columns using the <code>[, c(x, y)]</code> syntax.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>coordinates <span class="ot">&lt;-</span> llara[, <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="preparing-your-images" class="level3">
+<h3 class="anchored" data-anchor-id="preparing-your-images">Preparing your images</h3>
+<p>You have already done this a couple of times, but for this exercise let’s download more data to sample. We will download from Landsat 8, calculate some spectral indices, and then sample the data.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>llara_img <span class="ot">&lt;-</span> <span class="fu">collect_ee</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">collection =</span> <span class="st">"LANDSAT/LC08/C02/T1_L2"</span>, </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">coords =</span> llara_nsw,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">date =</span> <span class="st">"2018-01-01"</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">end_date =</span> <span class="st">"2019-01-01"</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>llara_img <span class="ot">&lt;-</span> <span class="fu">preprocess_ee</span>(</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">object =</span> llara, </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">mask_clouds =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">reduce =</span> <span class="st">"median"</span>, </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">spectral =</span> <span class="fu">c</span>(<span class="st">"kVARI"</span>, <span class="st">"VrNIRBI"</span>, <span class="st">"MuWIR"</span>))</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>llara_img <span class="ot">&lt;-</span> <span class="fu">download_ee</span>(<span class="at">object =</span> llara, </span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">bands =</span> <span class="fu">c</span>(<span class="st">"kVARI"</span>, <span class="st">"VrNIRBI"</span>, <span class="st">"MuWIR"</span>),</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">scale =</span> <span class="dv">100</span>, </span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">out_path =</span> <span class="st">"llara"</span>)  </span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="fu">extract_values</span>(</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">path =</span> <span class="st">"llara/ee_LAN_20180101_20190101_kVARIVrNIRBIMuWIR_median_100.0m.tif"</span>, </span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">xy_coords =</span> coordinates)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="what-if-i-want-to-sample-images-by-yaml-using-dataharvester" class="level3">
+<h3 class="anchored" data-anchor-id="what-if-i-want-to-sample-images-by-yaml-using-dataharvester">What if I want to sample images by YAML using <code>dataharvester</code>?</h3>
+<p>Good question! We can do this by providing a file that contains the sample locations, and then including the path to this file in the YAML file, as well as the names of the columns that contain the longitude and latitude coordinates. For example, we have a file called <code>"points_llara.csv"</code> in the assets folder, and it can be used like this:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">infile</span><span class="kw">:</span><span class="at"> assets/points_llara.csv</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colname_lat</span><span class="kw">:</span><span class="at"> Lat</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colname_lng</span><span class="kw">:</span><span class="at"> Long</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="at">...</span><span class="co"> # other YAML code</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The <code>harvest()</code> function will sample these locations automatically, and plot the results if <code>plot = TRUE</code>.</p>
+</section>
+</section>
+<section id="fa-keyboard-exercise-1-google-earth-engine-playground" class="level2">
+<h2 class="anchored" data-anchor-id="fa-keyboard-exercise-1-google-earth-engine-playground"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercise 1: Google Earth Engine playground</span></h2>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<i class="fa-solid fa-keyboard" aria-hidden="true"></i> On your own
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Explore Google Earth Engine functionality in <code>dataharvester</code> by yourself. Find a location of interest and download some satellite imagery. Calculate some spectral indices and sample the data.</p>
+</div>
+</div>
+</section>
+<section id="fa-keyboard-exercise-2-return-to-yaml-configuration" class="level2">
+<h2 class="anchored" data-anchor-id="fa-keyboard-exercise-2-return-to-yaml-configuration"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercise 2: Return to YAML configuration</span></h2>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Let’s sample a previously-downloaded group of images using the YAML configuration file. We will add the following lines to the YAML file:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">infile</span><span class="kw">:</span><span class="at"> assets/points_llara.csv</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colname_lat</span><span class="kw">:</span><span class="at"> Lat</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colname_lng</span><span class="kw">:</span><span class="at"> Long</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Then, run the <code>harvest()</code> function with <code>plot = TRUE</code> to preview the results. Where is the file saved to?</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">harvest</span>(<span class="st">"assets/basic_config.yaml"</span>, </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">log_name =</span> <span class="st">"points_multi"</span>, </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">preview =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="thank-you" class="level2">
+<h2 class="anchored" data-anchor-id="thank-you">Thank you</h2>
+<p><strong>This is the end of the workshop!</strong> Thanks for making it this far.</p>
+<p>If you have any questions and/or suggestions, now is the time to make yourself heard. Meanwhile, perhaps there is time to discuss the following:</p>
+<ul>
+<li>What is next for the <code>dataharvester</code> package? Will there be other packages?</li>
+<li>What other data sources would you like to see supported?</li>
+<li>What other functionality would you like to see added?</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../rdocs/r30-basic.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 2: Custom Workflows</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© Sydney Informatics Hub, 2022</div>   
+    <div class="nav-footer-right">Site built with <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+
+</body></html>

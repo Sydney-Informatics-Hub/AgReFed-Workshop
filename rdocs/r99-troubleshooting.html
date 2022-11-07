@@ -92,8 +92,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../rdocs/r02-introduction.html" rel="next">
-<link href="../rdocs/r01-setup.html" rel="prev">
+<link href="../rdocs/r20-introduction.html" rel="next">
+<link href="../rdocs/r02-setup-desktop.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -241,11 +241,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../rdocs/r00-workshop.html" class="sidebar-item-text sidebar-link">Introduction</a>
   </div>
 </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">Setting up</a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../rdocs/r01-setup.html" class="sidebar-item-text sidebar-link">Setting up R</a>
+  <a href="../rdocs/r03-google-earth-engine.html" class="sidebar-item-text sidebar-link">Google Earth Engine</a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rdocs/r01-setup-cloud.html" class="sidebar-item-text sidebar-link">RStudio Cloud</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../rdocs/r02-setup-desktop.html" class="sidebar-item-text sidebar-link">RStudio Desktop</a>
+  </div>
+</li>
+      </ul>
+  </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../rdocs/r99-troubleshooting.html" class="sidebar-item-text sidebar-link active"><i class="fa-solid fa-life-ring" aria-hidden="true"></i> Troubleshooting</a>
@@ -254,17 +274,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../rdocs/r02-introduction.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 1: Introduction</a>
+  <a href="../rdocs/r20-introduction.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 1: Introduction</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../rdocs/r03-basic.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 2: Custom Workflows</a>
+  <a href="../rdocs/r30-basic.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 2: Custom Workflows</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../rdocs/r04-advanced.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 3: Advanced Features</a>
+  <a href="../rdocs/r40-advanced.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 3: Advanced Features</a>
   </div>
 </li>
       </ul>
@@ -353,7 +373,7 @@ Warning
 <p>Unfortunately, this has temporarily broken Google Earth Engine (GEE) authentication on RStudio Cloud (and Binder), as Google Cloud gets confused when we try to authenticate using a cloud service. A workaround is available and documented below.</p>
 </div>
 </div>
-<p>To authenticate with Google Earth Engine (GEE), you will need to have an existing Google account. If you do not have one, you can create one reading the instructions <a href="../rdocs/r01-setup.html">here</a>.</p>
+<p>To authenticate with Google Earth Engine (GEE), you will need to have an existing Google account. If you do not have one, you can create one reading the instructions <a href="../rdocs/r01-setup.qmd">here</a>.</p>
 <p>Once you have an account, authenticate with GEE by running the following code in the RStudio console:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dataharvester)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">authenticate_harvester</span>(<span class="st">"r-reticulate"</span>, </span>
@@ -571,12 +591,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../rdocs/r01-setup.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Setting up R</span>
+      <a href="../rdocs/r02-setup-desktop.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">RStudio Desktop</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../rdocs/r02-introduction.html" class="pagination-link">
+      <a href="../rdocs/r20-introduction.html" class="pagination-link">
         <span class="nav-page-text"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 1: Introduction</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

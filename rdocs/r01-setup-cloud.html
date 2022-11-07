@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>AgReFed Data-Harvester - R Workshop</title>
+<title>AgReFed Data-Harvester - Setting up RStudio Cloud</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../rdocs/r03-google-earth-engine.html" rel="next">
-<link href="../pydocs/py00-workshop.html" rel="prev">
+<link href="../rdocs/r02-setup-desktop.html" rel="next">
+<link href="../rdocs/r03-google-earth-engine.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -102,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">R Workshop</h1>
+      <h1 class="quarto-secondary-nav-title">Setting up RStudio Cloud</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -175,17 +175,17 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../rdocs/r00-workshop.html" class="sidebar-item-text sidebar-link active">Introduction</a>
+  <a href="../rdocs/r00-workshop.html" class="sidebar-item-text sidebar-link">Introduction</a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">Setting up</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Setting up</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../rdocs/r03-google-earth-engine.html" class="sidebar-item-text sidebar-link">Google Earth Engine</a>
@@ -193,7 +193,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../rdocs/r01-setup-cloud.html" class="sidebar-item-text sidebar-link">RStudio Cloud</a>
+  <a href="../rdocs/r01-setup-cloud.html" class="sidebar-item-text sidebar-link active">RStudio Cloud</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -235,12 +235,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#how-to-follow-the-sessions" id="toc-how-to-follow-the-sessions" class="nav-link active" data-scroll-target="#how-to-follow-the-sessions">How to follow the sessions</a>
+  <li><a href="#google-earth-engine" id="toc-google-earth-engine" class="nav-link active" data-scroll-target="#google-earth-engine">Google Earth Engine</a></li>
+  <li><a href="#rstudio-cloud" id="toc-rstudio-cloud" class="nav-link" data-scroll-target="#rstudio-cloud">RStudio Cloud</a>
   <ul class="collapse">
-  <li><a href="#fa-person-chalkboard-demo" id="toc-fa-person-chalkboard-demo" class="nav-link" data-scroll-target="#fa-person-chalkboard-demo"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo</span></a></li>
-  <li><a href="#fa-keyboard-exercises" id="toc-fa-keyboard-exercises" class="nav-link" data-scroll-target="#fa-keyboard-exercises"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercises</span></a></li>
+  <li><a href="#setting-up-rstudio-cloud" id="toc-setting-up-rstudio-cloud" class="nav-link" data-scroll-target="#setting-up-rstudio-cloud">Setting up RStudio Cloud</a></li>
   </ul></li>
-  <li><a href="#join-us" id="toc-join-us" class="nav-link" data-scroll-target="#join-us">Join us</a></li>
+  <li><a href="#need-help" id="toc-need-help" class="nav-link" data-scroll-target="#need-help">Need help?</a></li>
+  <li><a href="#whats-next" id="toc-whats-next" class="nav-link" data-scroll-target="#whats-next">What’s next?</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -249,7 +250,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">R Workshop</h1>
+<h1 class="title d-none d-lg-block">Setting up RStudio Cloud</h1>
 </div>
 
 
@@ -263,64 +264,67 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p><strong>The AgReFed Data-Harvester can be run in Python or R. </strong></p>
-<p>This R workshop is aimed at people who are already familiar with R and RStudio. If you prefer to use Python, see the <a href="../pydocs/py00-workshop.html">Python Workshop</a> for details.</p>
-<div class="callout-important callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="google-earth-engine" class="level2">
+<h2 class="anchored" data-anchor-id="google-earth-engine">Google Earth Engine</h2>
+<p>To use Google Earth Engine, you must link an existing Google acccount to the service. Click <a href="https://earthengine.google.com/signup/">here</a>, follow the instructions to log in (or create a Google Account, if you do not already have one). Eventually, you will be asked to fill in a web form.</p>
+<p><strong>Make sure to fill in the form with genuine answers.</strong> In the section asking <em>“What would you like to accomplish with Earth Engine?”</em>, provide a reasonable explanation of how you would utilise the geospatial data obtained from Earth Engine in a couple of sentences. A proper description will almost guarantee that you will be approved in minutes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/gee_signup.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Fill in the form, submit and wait for an email confirmation</figcaption><p></p>
+</figure>
 </div>
-<div class="callout-caption-container flex-fill">
-Important
+<p>Once you have submitted, you should receive a confirmation via email within minutes (to a couple of hours). This is why signing up now is important - you may not be able to use Google Earth Engine functionality if you sign up during the workshop.</p>
+</section>
+<section id="rstudio-cloud" class="level2">
+<h2 class="anchored" data-anchor-id="rstudio-cloud">RStudio Cloud</h2>
+<p>RStudio Cloud is a free, web-based RStudio IDE that you can use to run R code in your browser. It is a great way to get started with R without having to install anything on your computer. You can also use it to share your code with others. We encourage you to use RStudio Cloud for the workshop as you do not need to install anything on your computer. If you do not have an RStudio account, follow the steps below.</p>
+<section id="setting-up-rstudio-cloud" class="level3">
+<h3 class="anchored" data-anchor-id="setting-up-rstudio-cloud">Setting up RStudio Cloud</h3>
+<p>Go to <a href="https://rstudio.cloud/">https://rstudio.cloud/</a> and sign up on the “Cloud Free” Plan.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/rstudiocloud_signup.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Sign up to the Cloud Free Plan on RStudio Cloud</figcaption><p></p>
+</figure>
+</div>
+<p>You will need to provide an email address and a password. You can also sign up using your Google or Github account – simply click on those buttons, and follow the authentication steps.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 20.0%;justify-content: center;">
+<p>&nbsp;</p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 60.0%;justify-content: center;">
+<p><img src="assets/rstudiocloud_login.jpg" class="img-fluid"></p>
+</div>
+<div class="quarto-figure-spacer quarto-layout-cell" style="flex-basis: 20.0%;justify-content: center;">
+<p>&nbsp;</p>
 </div>
 </div>
-<div class="callout-body-container callout-body">
-<p><strong>Please read the <a href="../code-of-conduct.html">Code of Conduct</a>, <a href="../faq.html">FAQ</a>, and <a href="../rdocs/r01-setup.qmd">Setting up</a> before joining the workshop.</strong></p>
 </div>
-</div>
+<p>You will be automatically directed to the RStudio Cloud home page, which looks like this:</p>
+<p><img src="assets/rstudiocloud_projview.jpg" class="img-fluid"></p>
+<p><strong>The shared space will be activated closer to the workshop date.</strong></p>
 <!-- **Join our shared space by clicking the button below**:
 
 [![](https://img.shields.io/badge/Join%20Shared%20Space-RStudio%20Cloud-yellow?style=for-the-badge&logo=appveyor)](https://rstudio.cloud/spaces/298376/join?access_code=X9TVSwtIvU_LvfntcsPi2n-yGcLcjmsGZ7Xeivpa){target="_blank"} -->
-<section id="how-to-follow-the-sessions" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-follow-the-sessions">How to follow the sessions</h2>
-<section id="fa-person-chalkboard-demo" class="level3">
-<h3 class="anchored" data-anchor-id="fa-person-chalkboard-demo"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo</span></h3>
-<p>When you see this icon <span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i></span>, the content will be demonstrated to you by the instructor. You should follow along and run the code in your own environment as you go.</p>
+<!-- ::: callout-note
+In the near future, we will be able to provide AgReFed workshop participants with a virtual machine on the Nectar Research Cloud. This will allow you to use RStudio Server on a virtual machine. Instructions will be provided when this is available.
+::: -->
+<!-- ## Binder (optional)
+
+Want to play around with `dataharvester` without an RStudio Cloud account? Launch our Binder instance by clicking on the button below. Binder should only be used in a test environment as Binder instances are not persistent and will be deleted after a period of inactivity.
+
+[![](https://img.shields.io/badge/Launch%20Workshop-Binder-blue?style=for-the-badge&logo=appveyor)](https://mybinder.org/v2/gh/januarharianto/dataharvester_on_binder/HEAD?urlpath=rstudio){target="_blank"} -->
 </section>
-<section id="fa-keyboard-exercises" class="level3">
-<h3 class="anchored" data-anchor-id="fa-keyboard-exercises"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercises</span></h3>
-<p>Throughout the workshop, you will be asked to complete some exercises. These will be marked with this icon <span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i></span>. These tasks are designed to help you practice what you have learned. They should take no more than 5 minutes each.</p>
 </section>
+<section id="need-help" class="level2">
+<h2 class="anchored" data-anchor-id="need-help">Need help?</h2>
+<p>If you are stuck at any point, we have a dedicated <a href="../rdocs/r99-troubleshooting.html">Troubleshooting</a> section that you can refer to. This section will be updated as we receive more questions.</p>
 </section>
-<section id="join-us" class="level2">
-<h2 class="anchored" data-anchor-id="join-us">Join us</h2>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Workshop information
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>The next AgReFed Geo-Data Harvester workshop will be run in <strong>early 2023</strong>. Please check back here for details. <!-- <script src="https://cdn.logwork.com/widget/countdown.js"></script>
-<a href="https://logwork.com/countdown-w5fs" class="countdown-timer" data-style="circles" data-timezone="Australia/Sydney" data-date="2022-11-03 13:30">Workshop starts in...</a> --></p>
-</div>
-</div>
-<div class="callout-important callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Please sign up for <strong>Google Earth Engine</strong> access and an <strong>RStudio Cloud</strong> account before the workshop. See <a href="r01-setup.qmd">Setting up R</a> for instructions.</p>
-</div>
-</div>
+<section id="whats-next" class="level2">
+<h2 class="anchored" data-anchor-id="whats-next">What’s next?</h2>
+<p>Now that you have <code>dataharvester</code> installed, you are ready to start the workshop. Workshop links are available in the sidebar. You should also check out the landing page for the <a href="../rdocs/r00-workshop.html">R Workshop</a> for updates.</p>
 
 
 </section>
@@ -426,13 +430,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../pydocs/py00-workshop.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>
+      <a href="../rdocs/r03-google-earth-engine.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Google Earth Engine</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../rdocs/r03-google-earth-engine.html" class="pagination-link">
-        <span class="nav-page-text">Google Earth Engine</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../rdocs/r02-setup-desktop.html" class="pagination-link">
+        <span class="nav-page-text">RStudio Desktop</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>AgReFed Data-Harvester - Code of Conduct</title>
+<title>AgReFed Data-Harvester - Setting up Google Earth Engine</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +23,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./Settings_Overview.html" rel="next">
-<link href="./about.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../rdocs/r01-setup-cloud.html" rel="next">
+<link href="../rdocs/r00-workshop.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,10 +72,10 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./images/logo_white.png" alt="" class="navbar-logo">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/logo_white.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">SIH-AgReFed Workshop</span>
     </a>
   </div>
@@ -85,15 +85,15 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a>
+    <a class="nav-link active" href="../index.html" aria-current="page"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./pydocs/py00-workshop.html"><i class="fa-brands fa-python" aria-hidden="true"></i> Python Workshop</a>
+    <a class="nav-link" href="../pydocs/py00-workshop.html"><i class="fa-brands fa-python" aria-hidden="true"></i> Python Workshop</a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./rdocs/r00-workshop.html"><i class="fa-brands fa-r-project" aria-hidden="true"></i> Workshop</a>
+    <a class="nav-link" href="../rdocs/r00-workshop.html"><i class="fa-brands fa-r-project" aria-hidden="true"></i> Workshop</a>
   </li>  
 </ul>
               <div id="quarto-search" class="" title="Search"></div>
@@ -102,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Code of Conduct</h1>
+      <h1 class="quarto-secondary-nav-title">Setting up Google Earth Engine</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -114,8 +114,8 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="./" class="sidebar-logo-link">
-      <img src="./images/sih_logo.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      <a href="../" class="sidebar-logo-link">
+      <img src="../images/sih_logo.svg" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main">
     <a href="https://www.sydney.edu.au/research/facilities/sydney-informatics-hub.html" title="SIH Website" class="sidebar-tool px-1"><i class="bi bi-globe"></i></a>
@@ -125,27 +125,27 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Home</a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link">Home</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./about.html" class="sidebar-item-text sidebar-link">About Us</a>
+  <a href="../about.html" class="sidebar-item-text sidebar-link">About Us</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./code-of-conduct.html" class="sidebar-item-text sidebar-link active">Code of Conduct</a>
+  <a href="../code-of-conduct.html" class="sidebar-item-text sidebar-link">Code of Conduct</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Settings_Overview.html" class="sidebar-item-text sidebar-link">YAML Overview</a>
+  <a href="../Settings_Overview.html" class="sidebar-item-text sidebar-link">YAML Overview</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./faq.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> FAQ</a>
+  <a href="../faq.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> FAQ</a>
   </div>
 </li>
         <li class="px-0"><hr class="sidebar-divider hi "></li>
@@ -159,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pydocs/py00-workshop.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  <a href="../pydocs/py00-workshop.html" class="sidebar-item-text sidebar-link">Introduction</a>
   </div>
 </li>
       </ul>
@@ -167,61 +167,61 @@ ul.task-list li input[type="checkbox"] {
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">R Workshop</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">R Workshop</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rdocs/r00-workshop.html" class="sidebar-item-text sidebar-link">Introduction</a>
+  <a href="../rdocs/r00-workshop.html" class="sidebar-item-text sidebar-link">Introduction</a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">Setting up</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Setting up</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rdocs/r03-google-earth-engine.html" class="sidebar-item-text sidebar-link">Google Earth Engine</a>
+  <a href="../rdocs/r03-google-earth-engine.html" class="sidebar-item-text sidebar-link active">Google Earth Engine</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rdocs/r01-setup-cloud.html" class="sidebar-item-text sidebar-link">RStudio Cloud</a>
+  <a href="../rdocs/r01-setup-cloud.html" class="sidebar-item-text sidebar-link">RStudio Cloud</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rdocs/r02-setup-desktop.html" class="sidebar-item-text sidebar-link">RStudio Desktop</a>
+  <a href="../rdocs/r02-setup-desktop.html" class="sidebar-item-text sidebar-link">RStudio Desktop</a>
   </div>
 </li>
       </ul>
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rdocs/r99-troubleshooting.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-life-ring" aria-hidden="true"></i> Troubleshooting</a>
+  <a href="../rdocs/r99-troubleshooting.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-life-ring" aria-hidden="true"></i> Troubleshooting</a>
   </div>
 </li>
           <li class="px-0"><hr class="sidebar-divider hi "></li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rdocs/r20-introduction.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 1: Introduction</a>
+  <a href="../rdocs/r20-introduction.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 1: Introduction</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rdocs/r30-basic.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 2: Custom Workflows</a>
+  <a href="../rdocs/r30-basic.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 2: Custom Workflows</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./rdocs/r40-advanced.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 3: Advanced Features</a>
+  <a href="../rdocs/r40-advanced.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 3: Advanced Features</a>
   </div>
 </li>
       </ul>
@@ -238,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Code of Conduct</h1>
+<h1 class="title d-none d-lg-block">Setting up Google Earth Engine</h1>
 </div>
 
 
@@ -252,33 +252,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<div class="callout-important callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>To use Google Earth Engine, you must link an existing Google acccount to the service. Click <a href="https://earthengine.google.com/signup/">here</a>, follow the instructions to log in (or create a Google Account, if you do not already have one). Eventually, you will be asked to fill in a web form.</p>
+<p><strong>Make sure to fill in the form with genuine answers.</strong> In the section asking <em>“What would you like to accomplish with Earth Engine?”</em>, provide a reasonable explanation of how you would utilise the geospatial data obtained from Earth Engine in a couple of sentences. A proper description will almost guarantee that you will be approved in minutes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/gee_signup.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Fill in the form, submit and wait for an email confirmation</figcaption><p></p>
+</figure>
 </div>
-<div class="callout-caption-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Our full Code of Conduct, with incident reporting guidelines, is available <a href="https://pages.github.sydney.edu.au/informatics/sih_codeofconduct/">here</a>.</strong></p>
-</div>
-</div>
-<p>We expect all attendees of our training to follow our code of conduct, including bullying, harassment and discrimination prevention policies.</p>
-<p>In order to foster a positive and professional learning environment we encourage the following kinds of behaviours at all our events and on our platforms:</p>
-<ul>
-<li>Use welcoming and inclusive language</li>
-<li>Be respectful of different viewpoints and experiences</li>
-<li>Gracefully accept constructive criticism</li>
-<li>Focus on what is best for the community</li>
-<li>Show courtesy and respect towards other community members</li>
-</ul>
-<p><strong>Once you have fully read and understood the Code of Conduct, you may proceed by clicking on the relevant workshop link.</strong></p>
-<ul>
-<li><a href="./rdocs/r00-workshop.html">R Workshop</a></li>
-<li><a href="./pydocs/py00-workshop.html">Python Workshop</a></li>
-</ul>
+<p>Once you have submitted, you should receive a confirmation via email within minutes (to a couple of hours). This is why signing up now is important - you may not be able to use Google Earth Engine functionality if you sign up during the workshop.</p>
 
 
 
@@ -383,13 +365,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./about.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">About Us</span>
+      <a href="../rdocs/r00-workshop.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Settings_Overview.html" class="pagination-link">
-        <span class="nav-page-text">YAML Overview</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../rdocs/r01-setup-cloud.html" class="pagination-link">
+        <span class="nav-page-text">RStudio Cloud</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
