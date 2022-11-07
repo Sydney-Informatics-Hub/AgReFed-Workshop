@@ -172,14 +172,7 @@
     "href": "rdocs/r01-setup-cloud.html",
     "title": "Setting up RStudio Cloud",
     "section": "",
-    "text": "To use Google Earth Engine, you must link an existing Google acccount to the service. Click here, follow the instructions to log in (or create a Google Account, if you do not already have one). Eventually, you will be asked to fill in a web form.\nMake sure to fill in the form with genuine answers. In the section asking “What would you like to accomplish with Earth Engine?”, provide a reasonable explanation of how you would utilise the geospatial data obtained from Earth Engine in a couple of sentences. A proper description will almost guarantee that you will be approved in minutes.\n\n\n\nFill in the form, submit and wait for an email confirmation\n\n\nOnce you have submitted, you should receive a confirmation via email within minutes (to a couple of hours). This is why signing up now is important - you may not be able to use Google Earth Engine functionality if you sign up during the workshop."
-  },
-  {
-    "objectID": "rdocs/r01-setup-cloud.html#rstudio-cloud",
-    "href": "rdocs/r01-setup-cloud.html#rstudio-cloud",
-    "title": "Setting up RStudio Cloud",
-    "section": "RStudio Cloud",
-    "text": "RStudio Cloud\nRStudio Cloud is a free, web-based RStudio IDE that you can use to run R code in your browser. It is a great way to get started with R without having to install anything on your computer. You can also use it to share your code with others. We encourage you to use RStudio Cloud for the workshop as you do not need to install anything on your computer. If you do not have an RStudio account, follow the steps below.\n\nSetting up RStudio Cloud\nGo to https://rstudio.cloud/ and sign up on the “Cloud Free” Plan.\n\n\n\nSign up to the Cloud Free Plan on RStudio Cloud\n\n\nYou will need to provide an email address and a password. You can also sign up using your Google or Github account – simply click on those buttons, and follow the authentication steps.\n\n\n\n \n\n\n\n\n\n \n\n\n\nYou will be automatically directed to the RStudio Cloud home page, which looks like this:\n\nThe shared space will be activated closer to the workshop date."
+    "text": "RStudio Cloud is a free, web-based RStudio IDE that you can use to run R code in your browser. It is a great way to get started with R without having to install anything on your computer. You can also use it to share your code with others. We encourage you to use RStudio Cloud for the workshop as you do not need to install anything on your computer. If you do not have an RStudio account, follow the steps below."
   },
   {
     "objectID": "rdocs/r01-setup-cloud.html#need-help",
