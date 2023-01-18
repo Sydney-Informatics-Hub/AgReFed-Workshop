@@ -1,0 +1,35 @@
+colname_lat: Lat
+colname_lng: Long
+infile: ../testdata/Pointdata_Llara.csv
+outpath: ../../dataresults/
+target_bbox: ''
+target_dates: !!python/tuple
+- 2021
+target_res: 6.0
+target_sources:
+  DEA:
+  - landsat_barest_earth
+  DEM:
+  - DEM
+  - Slope
+  - Aspect
+  Landscape:
+  - Slope
+  - Aspect
+  - Relief_300m
+  Radiometric:
+  - radmap2019_grid_dose_terr_awags_rad_2019
+  - radmap2019_grid_dose_terr_filtered_awags_rad_2019
+  SILO:
+    max_temp:
+    - Median
+    min_temp:
+    - Median
+    monthly_rain:
+    - Total
+  SLGA:
+    Bulk_Density:
+    - 0-5cm
+    Clay:
+    - 0-5cm
+temp_res: 365

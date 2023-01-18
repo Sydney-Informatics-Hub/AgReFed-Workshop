@@ -1,0 +1,80 @@
+# AgReFed Data Harvester Project Settings
+# Note: this might be superseded in the next version via interactive settings widget
+
+##### INPUT DATA SPECIFICATIONS #####
+# Path of input directory
+inpath: ../testdata/
+# Filename of Point Locations where data should be extracted (.csv file with Latitude/Longitude or Easting/Northing )
+# accepted formats are .csv, .gpkg, .shp
+infname: ../testdata/Pointdata_Llara.csv
+# Column name of longituduinal (x) coordinates (assuming source crs of EPSG_4326)
+colname_lng: 'Long'
+# Column name of latitudinal (y) coordinates
+colname_lat: 'Lat'
+
+# Projected coordinates (TBD)
+#colname_easting: 'Easting'
+#colname_nothing: 'Northing'
+#source_crs: 'EPSG:8059'
+
+
+##### OUTPUT SPECIFICATIONS #####
+# output directory
+outpath: /data/
+
+## Spatial:
+# target bounding box with format as list: [long_left, lat_bottom, long_right, lat_top] for EPSG:4326
+# or if projected crs is used: [easting_left, northing_bottom, easting_right, northing_top]
+# If None given the bbox will be set at min/max of point data +/- 0.05 deg (180 arcsec):
+target_bbox: None 
+# Resolution [arcsec] at which target data is axtracted, if None given then extract at native resolutions of data
+target_res: None
+# Coordinate reference system (crs), Default: 'EPSG:4326'
+target_crs: 'EPSG:4326'
+
+## Temporal:
+# List of Date-times for which target to extract (as string for years or datetime format: YYYY-MM-DD) :
+target_dates: 
+   - 2019
+   - 2018
+   - 2017
+# Temporal aggregation of data options over: 'year', 'quarter', or 'month'
+target_aggregation: year
+
+
+#### Specify Data Sources to be retrieved ####
+# names of layers (for complete list see overview_data doc):
+#For SILO: mean_temp is calculated by taking the mean of max_temp and min_temp 
+# For RGB data, data is split in 3 values
+# for custom local geo-referenced images, accepted formats are .tif and .nc (TBD)
+
+# Define target layers (will be saved as dictionary in settings)
+# For an overview see (TBD)
+target_sources:
+   SLGA: 
+      names: 
+         - Organic_Carbon
+         - Clay
+         - Depth_of_Soil
+      agfunctions: [mean, mean, mean]
+   SILO:
+      names: 
+         - monthly_rain
+         - max_temp
+         - min_temp
+         - evap_pan
+      agfunctions: [sum, mean, mean, sum] 
+   DEA:
+      names: 
+         - landsat8_nbart_16day
+      agfunctions: [median]
+   DEM:
+      names: 
+         - DEM_1s
+   #CUSTOM:
+      #names: [path_to_images]
+      #agfunction: [mean]
+
+
+
+

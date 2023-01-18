@@ -1,0 +1,132 @@
+#####################################################
+#                                                   #
+#              Settings Data-Harvester              #
+#                                                   #
+# This is the settings file for the notebook.       #
+# For more information on the available Data source #
+# and layers, see README and Data_Overview.md       # 
+#####################################################
+
+##### Input and Output Specifications #####
+
+# Input File:
+infile: ../testdata/Pointdata_Llara.csv
+# Output Path:
+outpath: ../../dataresults/
+# Headername of Latitude in input file:
+colname_lat: Lat
+# Headername of Longitude in input file:
+colname_lng: Long
+
+##### Settings for Spatial and Temporal Specifications #####
+
+# Bounding Box as [lng_min, lat_min, lng_max, lat_max]:
+# if None provided, bounding box will be inferred from input coordinates
+target_bbox: ''
+# Select years:
+target_dates: 
+- 2021
+#- 2020 
+# Spatial Resolution [arcsec]:
+target_res: 6.0
+
+##### Data Selection #####
+
+target_sources:
+  # Satellite data from Digital Earth Australia (DEA) Geoscience Earth Observations
+  DEA:
+  - landsat_barest_earth
+
+  # National Digital Elevation Model (DEM) 1 Second
+  DEM:
+  - DEM
+  #- Slope
+  #- Aspect
+  
+  # Landscape from SLGA
+  Landscape:
+  - Slope
+  - Aspect
+  - Relief_300m
+
+  # Radiometric Data
+  Radiometric:
+  - radmap2019_grid_dose_terr_awags_rad_2019
+  - radmap2019_grid_dose_terr_filtered_awags_rad_2019
+
+  # SILO Climate Database
+  # options for aggregation: Median, Mean, Total
+  SILO:
+    max_temp:
+    - median
+    min_temp:
+    - median
+    monthly_rain:
+    - sum
+
+  # Soil data from Soil and Landscape Grid of Australia (SLGA)
+  # Depth options: 0-5cm, 5-15cm, 15-30cm, 30-60cm, 60-100cm, 100-200cm
+  SLGA:
+    Bulk_Density:
+    - 0-5cm
+    Clay:
+    - 0-5cm
+
+
+ 
+ 
+  # Satellite data layers from Google Earth Engine (GEE)
+  # TODO: Januar try to implement this on ipywidgets
+  GEE:
+  # grouped by methods preprocess(), aggregate() and download()
+    preprocess:
+      # collection as defined in the Earth Engine Catalog
+      # TODO: support a list of collections here
+      collection: LANDSAT/LC09/C02/T1_L2
+      # if supplied, will use 'buffer' and 'bound'. else, will use bbox above
+      # TODO: remove and just use target_bbox
+      coords: 
+      # If date range is supplied, will use below. Else, will use `target_dates`
+      # TODO: will use min and max date so this can be removed, check with Se
+      date: 
+      end_date: 
+      # circular buffer in metres
+      buffer: # numeric
+      # convert buffer into square bounding box instead
+      # TODO: change the name to something like square_bound
+      bound: #True of False
+      mask_clouds: True
+      # TODO: add mask_percentage (low priority)
+      # if null, will download all available images. Else, will reduce to single
+      # composite image based on summary stat provided
+      # https://developers.google.com/earth-engine/apidocs/ee-reducer-first
+      # on the sidebar, it is it called ee.Reducer
+      # TODO: add all summary reducers first, ignore the rest
+      # reduce composites ALL images found in a collection between 2 dates
+      # If none, then all images are saved separately
+      reduce: median
+      # spectral indices to calculate via Awesome Spectral Indices site
+      # https://awesome-ee-spectral-indices.readthedocs.io/en/latest/
+      # The CSV:
+      # https://raw.githubusercontent.com/davemlz/awesome-ee-spectral-indices/main/output/spectral-indices-table.csv
+      # TODO: add all spectral indices
+      spectral:
+        - NDVI
+        - NDWI
+    # TODO: wait for Nate to complete, note activated yet
+    # For aggregate to work, reduce must be set to null, None
+    # So, either use reduce or aggregate, not both
+    aggregate:
+      frequency: year # group data by period. Available: year, month, week
+      method: mean    # summarise group by method
+    download:
+      bands: 
+        - NDVI
+        - SR_B2
+        - SR_B3
+        - SR_B4
+      # TODO: Remove scale, use target_res (which is in arcsecs)
+      # TODO: Take the latitudinal scale, use arc2meter.py
+      scale: 100   # in metres
+      # TODO: don't use this, it's always in tif anyway
+      format: tif  # available: tif, png
