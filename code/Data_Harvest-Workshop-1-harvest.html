@@ -302,7 +302,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#data-harvester-workshop-notebook" id="toc-data-harvester-workshop-notebook" class="nav-link active" data-scroll-target="#data-harvester-workshop-notebook"># DATA HARVESTER WORKSHOP NOTEBOOK</a></li>
+  <li><a href="#session-1---run-harvest" id="toc-session-1---run-harvest" class="nav-link active" data-scroll-target="#session-1---run-harvest"># Session 1 - run harvest</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -311,24 +311,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<section id="data-harvester-workshop-notebook" class="level2">
-<h2 class="anchored" data-anchor-id="data-harvester-workshop-notebook"># DATA HARVESTER WORKSHOP NOTEBOOK</h2>
+<section id="session-1---run-harvest" class="level2">
+<h2 class="anchored" data-anchor-id="session-1---run-harvest"># Session 1 - run harvest</h2>
 <p>The Data Harvester enables researchers with reusable workflows for automatic data extraction from a range of data sources including spatial-temporal processing into useable formats. User provided data is auto-completed with a suitable set of spatial- and temporal-aligned covariates as a ready-made dataset for machine learning and agriculture models. In addition, all requested data layer maps are automatically extracted and aligned for a specific region and time period.</p>
-<p>The main workflow of the Harvester is as follows: 1) Options and user settings (e.g., data layer selections, spatial coverage, temporal constraints, i/o directory names) are defined by the user in the notebook settings menu or can be loaded with a settings yaml file (e.g., settings/settings_v0.2_saved.yaml). All settings are also saved in a yaml file for reusability. 2) The notebook imports settings and all Python modules that include functionality to download and extract data for each data source. After settings are read in, checked, and processed into valid data retrieval (API) queries, all selected data layers are sequentially downloaded and then processed into a clean dataframe table and co-registered raster maps. The entire workflow can be run either completely automatically or individually by selecting only certain process parts in the Notebook.</p>
-<p>Additional data sources can be best added by writing the API handlers and extraction functionalities as separate Python module, which are then imported by the Notebook. Currently the following data sources are supported by the following modules:</p>
-<ul>
-<li>‘getdata_slga.py’: Soil Data from Soil and Landscape Grid of Australia (SLGA)</li>
-<li>‘getdata_landscape’: Landscape data from Soil and Landscape Grid of Australia (SLGA)</li>
-<li>‘getdata_silo.py’: Climate Data from SILO</li>
-<li>’getdata_dem.py: ’National Digital Elevation Model (DEM) 1 Second plus Slope and Apect calculation</li>
-<li>’getdata_dea_nci.py: ’Digital Earth Australia’s (DEA) Geoscience Earth Observations via NCI server</li>
-<li>’getdata_dea.py: ’Digital Earth Australia’s (DEA) Geoscience Earth Observations via Open Web Service server provided by DEA</li>
-<li>‘getdata_radiometric.py’: Geoscience Australia National Geophysical Compilation Sub-collection Radiometrics</li>
-<li>‘getdata_ee.py’: Google Earth Engine API integration handler</li>
-</ul>
-<p>For more details. please see README and the Data Overview page.</p>
-<p>This notebook is part of the Data Harvester project developed for the Agricultural Research Federation (AgReFed).</p>
-<p>Copyright 2022 Sydney Informatics Hub (SIH), The University of Sydney</p>
+<p>The</p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> harvest</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
