@@ -64,12 +64,12 @@ website:
         contents:
           - text: Introduction
             href: pydocs/py00-workshop.qmd
-          # - text: Setting up
-          #   href: pydocs/py01-setup.qmd
-          # - text: W1 Introduction
-          #   href: pydocs/py02-introduction.qmd
-          # - text: W2 Usage
-          #   href: pydocs/py03-basic.qmd
+          - text: Setting up
+            href: pydocs/setup-python
+          - text: W1 Intro and Basic Usage
+            href: pydocs/p10-basic
+          - text: W2 Custom Workflows
+            href: pydocs/py20-advanced
           # - text: W3 Advanced
           #   href: pydocs/py04-advanced.qmd
           # - text: Data Harvester Notebook

@@ -1,0 +1,3 @@
+on 0: 2023-01-20 15:37:41,868 WARNING  - CPLE_NotSupported in 'None' is an unexpected value for PHOTOMETRIC creation option of type string-select.
+on 0: 2023-01-20 15:37:41,872 WARNING  - CPLE_IllegalArg in results_basic/ee_LANDSAT_bfafc43c.tif: PHOTOMETRIC=None value not recognised, ignoring.  Set the Photometric Interpretation as MINISBLACK.
+on 0: 2023-01-20 15:37:43,550 WARNING  - There is no STAC entry for: None
