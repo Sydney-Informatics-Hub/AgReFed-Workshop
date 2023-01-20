@@ -445,7 +445,21 @@
     "href": "pydocs/py00-workshop.html",
     "title": "Python Workshop",
     "section": "",
-    "text": "The Python course is almost complete! We’re still working on the final details, and we’re hoping to have it ready in a couple of weeks.\n\n\n\n\n\n\nPython workshop\n\n\n\nInterested in a Data-Harvester workshop run in  Python? Let us know. We’ll be sending out an email to everyone who signed up for the course when it’s ready to go."
+    "text": "The AgReFed Data-Harvester can be run in Python or R.\nThis Python workshop is aimed at people who are more familiar with Python. If you prefer to use R, see the R Workshop for details.\n– Join our shared space by clicking the button below:\nAgReFed Python Workshop"
+  },
+  {
+    "objectID": "pydocs/py00-workshop.html#how-to-follow-the-sessions",
+    "href": "pydocs/py00-workshop.html#how-to-follow-the-sessions",
+    "title": "Python Workshop",
+    "section": "How to follow the sessions",
+    "text": "How to follow the sessions\n\n Demo\nWhen you see this icon , the content will be demonstrated to you by the instructor. You should follow along and run the code in your own environment as you go.\n\n\n Exercises\nThroughout the workshop, you will be asked to complete some exercises. These will be marked with this icon . These tasks are designed to help you practice what you have learned. They should take no more than 5 minutes each."
+  },
+  {
+    "objectID": "pydocs/py00-workshop.html#join-us",
+    "href": "pydocs/py00-workshop.html#join-us",
+    "title": "Python Workshop",
+    "section": "Join us",
+    "text": "Join us\n\n\n\n\n\n\nImportant\n\n\n\nWe expect our participants to adhere to our Code of Conduct. See the FAQ for more details or contact us at sih.training@sydney.edu.au"
   },
   {
     "objectID": "pydocs/p20-advanced.html",
