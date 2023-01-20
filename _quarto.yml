@@ -69,7 +69,7 @@ website:
           - text: W1 Intro and Basic Usage
             href: pydocs/p10-basic
           - text: W2 Custom Workflows
-            href: pydocs/py20-advanced
+            href: pydocs/p20-advanced
           # - text: W3 Advanced
           #   href: pydocs/py04-advanced.qmd
           # - text: Data Harvester Notebook
