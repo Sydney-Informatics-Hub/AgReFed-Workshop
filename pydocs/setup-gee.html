@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>AgReFed Data-Harvester - Python Workshop</title>
+<title>AgReFed Data-Harvester - Setting up Google Earth Engine</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,7 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../pydocs/setup-python" rel="next">
+<link href="../pydocs/p10-basic" rel="next">
+<link href="../pydocs/setup-python" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -104,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Python Workshop</h1>
+      <h1 class="quarto-secondary-nav-title">Setting up Google Earth Engine</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -161,17 +162,17 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../pydocs/py00-workshop.html" class="sidebar-item-text sidebar-link active">Introduction</a>
+  <a href="../pydocs/py00-workshop.html" class="sidebar-item-text sidebar-link">Introduction</a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">Setting up</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Setting up</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../pydocs/setup-python" class="sidebar-item-text sidebar-link">Python Environment</a>
@@ -179,7 +180,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../pydocs/setup-gee.html" class="sidebar-item-text sidebar-link">Google Earth Engine</a>
+  <a href="../pydocs/setup-gee.html" class="sidebar-item-text sidebar-link active">Google Earth Engine</a>
   </div>
 </li>
       </ul>
@@ -272,12 +273,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#how-to-follow-the-sessions" id="toc-how-to-follow-the-sessions" class="nav-link active" data-scroll-target="#how-to-follow-the-sessions">How to follow the sessions</a>
-  <ul class="collapse">
-  <li><a href="#fa-person-chalkboard-demo" id="toc-fa-person-chalkboard-demo" class="nav-link" data-scroll-target="#fa-person-chalkboard-demo"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo</span></a></li>
-  <li><a href="#fa-keyboard-exercises" id="toc-fa-keyboard-exercises" class="nav-link" data-scroll-target="#fa-keyboard-exercises"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercises</span></a></li>
-  </ul></li>
-  <li><a href="#join-us" id="toc-join-us" class="nav-link" data-scroll-target="#join-us">Join us</a></li>
+  <li><a href="#authorising-your-workstation-with-gee" id="toc-authorising-your-workstation-with-gee" class="nav-link active" data-scroll-target="#authorising-your-workstation-with-gee">Authorising your workstation with GEE</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -286,7 +282,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Python Workshop</h1>
+<h1 class="title d-none d-lg-block">Setting up Google Earth Engine</h1>
 </div>
 
 
@@ -301,49 +297,20 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p><strong>The AgReFed Data-Harvester can be run in Python or R. </strong></p>
-<p>This Python workshop is aimed at people who are more familiar with Python. If you prefer to use R, see the <a href="../rdocs/r00-workshop.html">R Workshop</a> for details.</p>
-<div class="callout-important callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>The Data Harvester utilises the Google Earth Engine API. To use this functionality, you must sign up for the service (with just your normal google account).</p>
+<p>Click <a href="https://earthengine.google.com/signup/">here to sign up to Google Earth Engine</a>, follow the instructions to log in (or create a Google Account, if you do not already have one). Eventually, you will be asked to fill in a web form.</p>
+<p><strong>Make sure to fill in the form with genuine answers.</strong> In the section asking <em>“What would you like to accomplish with Earth Engine?”</em>, provide a reasonable explanation of how you would utilise the geospatial data obtained from Earth Engine in a couple of sentences. A proper description will almost guarantee that you will be approved in minutes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/gee_signup.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Fill in the form, submit and wait for an email confirmation</figcaption><p></p>
+</figure>
 </div>
-<div class="callout-caption-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Please sign up for <strong>Google Earth Engine</strong> access and an account on the <strong><a href="https://jupyterhub.agrefed.cloud.edu.au/">JupyterHub Server</a></strong> before the workshop. See <a href="../pydocs/setup-python">Setting up</a> for instructions.</p>
-</div>
-</div>
-<p>– <strong>Join our shared space by clicking the button below</strong>:</p>
-<p><a href="https://jupyterhub.agrefed.cloud.edu.au/" target="_blank">AgReFed Python Workshop</a></p>
-<section id="how-to-follow-the-sessions" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-follow-the-sessions">How to follow the sessions</h2>
-<section id="fa-person-chalkboard-demo" class="level3">
-<h3 class="anchored" data-anchor-id="fa-person-chalkboard-demo"><span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i> Demo</span></h3>
-<p>When you see this icon <span style="color: green;"><i class="fa-solid fa-person-chalkboard" aria-hidden="true"></i></span>, the content will be demonstrated to you by the instructor. You should follow along and run the code in your own environment as you go.</p>
-</section>
-<section id="fa-keyboard-exercises" class="level3">
-<h3 class="anchored" data-anchor-id="fa-keyboard-exercises"><span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i> Exercises</span></h3>
-<p>Throughout the workshop, you will be asked to complete some exercises. These will be marked with this icon <span style="color: blue;"><i class="fa-solid fa-keyboard" aria-hidden="true"></i></span>. These tasks are designed to help you practice what you have learned. They should take no more than 5 minutes each.</p>
-</section>
-</section>
-<section id="join-us" class="level2">
-<h2 class="anchored" data-anchor-id="join-us">Join us</h2>
-<div class="callout-important callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>We expect our participants to adhere to our <a href="../code-of-conduct.html">Code of Conduct</a>. See the <a href="../faq.html">FAQ</a> for more details or contact us at sih.training@sydney.edu.au</strong></p>
-</div>
-</div>
+<p>Once you have submitted, you should receive a confirmation via email within minutes (to a couple of hours). This is why signing up now is important - you may not be able to use Google Earth Engine functionality if you sign up during the workshop.</p>
+<section id="authorising-your-workstation-with-gee" class="level1">
+<h1>Authorising your workstation with GEE</h1>
+<p>To initialise Google Earth on <em>every unique connection</em> you make with GEE (usually this means once per browser, but if you use an icognito window, or a remote platform like jupyter hub, or colab etc).</p>
+<p>Follows these 8 simple steps….</p>
 
 
 </section>
@@ -484,10 +451,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../pydocs/setup-python" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Python Environment</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../pydocs/setup-python" class="pagination-link">
-        <span class="nav-page-text">Python Environment</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../pydocs/p10-basic" class="pagination-link">
+        <span class="nav-page-text"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 1: Intro and Basic Usage</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
