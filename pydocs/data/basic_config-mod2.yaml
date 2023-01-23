@@ -6,7 +6,7 @@ target_bbox: [149.769345, -30.335861, 149.949173, -30.206271]
 target_res: 6.0
 
 date_min : 2022-10-01
-date_max : 2022-11-30
+date_max : 2022-10-30
 
 target_sources:
   DEA:
@@ -18,7 +18,7 @@ target_sources:
   SLGA:
     Bulk_Density: [0-5cm]
     Clay: [0-5cm]
-  GEE:    
+  GEE:
     preprocess:
       collection: LANDSAT/LC09/C02/T1_L2
       coords: null

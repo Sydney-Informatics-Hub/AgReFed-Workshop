@@ -64,7 +64,7 @@ config_handler.set_global(
 logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s %(message)s",
-    filename="harvest.txt",
+    filename="../harvest.log",
     filemode="w",
 )
 

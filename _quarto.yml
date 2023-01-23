@@ -64,12 +64,19 @@ website:
         contents:
           - text: Introduction
             href: pydocs/py00-workshop.qmd
-          - text: Setting up
-            href: pydocs/setup-python
-          - text: W1 Intro and Basic Usage
+          - section: "Setting up"
+            contents:
+              - text: "Python Environment"
+                href: pydocs/setup-python
+              - text: "Google Earth Engine"
+                href: pydocs/setup-gee.qmd
+
+          - text: "{{< fa hammer >}} 1: Intro and Basic Usage"
             href: pydocs/p10-basic
-          - text: W2 Custom Workflows
+          - text: "{{< fa hammer >}} 2: Advanced harvest configuration"
             href: pydocs/p20-advanced
+          - text: "{{< fa hammer >}} 3: Custom Workflows"
+            href: pydocs/p30-technical
           # - text: W3 Advanced
           #   href: pydocs/py04-advanced.qmd
           # - text: Data Harvester Notebook

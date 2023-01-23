@@ -2,7 +2,7 @@ outpath: results_final/
 target_bbox: [149.769345, -30.335861, 149.949173, -30.206271]
 target_res: 6.0
 date_min : 2022-10-01
-date_max : 2022-11-30
+date_max : 2022-10-30
 
 target_sources:
   DEA: [landsat_barest_earth]
@@ -25,7 +25,7 @@ target_sources:
       scale: 100
       format: tif
       overwrite: false
-      
+
 infile: data/example-site_llara.csv
 colname_lat: Lat
 colname_lng: Long
