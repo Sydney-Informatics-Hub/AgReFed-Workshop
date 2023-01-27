@@ -273,7 +273,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#authorising-your-workstation-with-gee" id="toc-authorising-your-workstation-with-gee" class="nav-link active" data-scroll-target="#authorising-your-workstation-with-gee">Authorising your workstation with GEE</a></li>
+  <li><a href="#authorising-your-workstation-with-gee" id="toc-authorising-your-workstation-with-gee" class="nav-link active" data-scroll-target="#authorising-your-workstation-with-gee">Authorising your workstation with GEE</a>
+  <ul class="collapse">
+  <li><a href="#step-1-initialise" id="toc-step-1-initialise" class="nav-link" data-scroll-target="#step-1-initialise">Step 1: initialise</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -311,8 +314,13 @@ ul.task-list li input[type="checkbox"] {
 <h1>Authorising your workstation with GEE</h1>
 <p>To initialise Google Earth on <em>every unique connection</em> you make with GEE (usually this means once per browser, but if you use an icognito window, or a remote platform like jupyter hub, or colab etc).</p>
 <p>Follows these 8 simple steps….</p>
+<section id="step-1-initialise" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-initialise">Step 1: initialise</h3>
+<p>From within a notebook environment with the <em>eeharvest</em> module installed execute: <code>from eeharvest import harvester   harvester.initialise(auth_mode='notebook')</code> This will generate a url link specific for the device/browser you are on and begin the process of authorising Google Earth Engine. Navigate to the uniquely generated url.</p>
+<p><img src="assets/gee_01.jpg" class="img-fluid"></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
