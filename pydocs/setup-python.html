@@ -20,6 +20,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -281,7 +344,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#setup-the-python-environment" id="toc-setup-the-python-environment" class="nav-link" data-scroll-target="#setup-the-python-environment">Setup the Python environment</a></li>
   <li><a href="#install-geodata-harvester" id="toc-install-geodata-harvester" class="nav-link" data-scroll-target="#install-geodata-harvester">Install geodata-harvester</a></li>
-  <li><a href="#import-to-python-an-go" id="toc-import-to-python-an-go" class="nav-link" data-scroll-target="#import-to-python-an-go">Import to python an go!</a></li>
+  <li><a href="#import-to-python-and-run" id="toc-import-to-python-and-run" class="nav-link" data-scroll-target="#import-to-python-and-run">Import to python and run!</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -299,27 +362,17 @@ ul.task-list li input[type="checkbox"] {
 <p>We will be using an online “Jupyter Hub” python environment for the workshop. This environment contains all the required libraries and packages pre-configured and allows you to use Python “notebooks” on-demand.</p>
 <section id="instructions" class="level3">
 <h3 class="anchored" data-anchor-id="instructions">Instructions</h3>
-<p>Navigate your browser to https://jupyterhub.agrefed.cloud.edu.au.</p>
-<p>Register for account. <em>username</em></p>
-<p>Choose any <em>password</em> ntand this will be set on first login.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<figure class="figure">
-<img src="setup01.png" title="Login Window to Jupyter Hub" class="img-fluid figure-img">
-</figure>
-<p></p><figcaption class="figure-caption">login</figcaption><p></p>
-</figure>
-</div>
-<p>In the right-hand menu, Click on <em>New &gt; Python3 (ipykernel)</em></p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<figure class="figure">
-<img src="setup02.png" title="Launch a new Python Notebook kernel" class="img-fluid figure-img">
-</figure>
-<p></p><figcaption class="figure-caption">launch</figcaption><p></p>
-</figure>
-</div>
-<p>This will launch a new python notebook. You are ready to go!</p>
+<p>Navigate your browser to https://jupyterhub.rc.nectar.org.au/</p>
+<p>Click the <em>Sign in with AAF</em> button.</p>
+<p><img src="assets/ag_01.png" title="Sign in with AAF" class="img-fluid"></p>
+<p>Go through your institutional sign-in process.</p>
+<blockquote class="blockquote">
+<p>If you have no idea what AAF and your institution is not listed, let us know and we can provide an alterante account for the workshop!</p>
+</blockquote>
+<p><img src="assets/ag_02.png" title="AgReFed Python environment" class="img-fluid"></p>
+<p>Select the <em>AgReFed Python environment</em> server option and then click <em>START</em>. The environment has all the dependant software required to run the Geodata Harvester, to see what is installed, see the <em>Local Install</em> section below.</p>
+<p>You should now be in a “Jupyter Lab” interface. Select the <em>Notebook &gt; Python3 (ipykernel)</em> to get started!</p>
+<p><img src="assets/ag_03.png" title="Jupyter Hub" class="img-fluid"></p>
 </section>
 </section>
 <section id="optional-local-install" class="level2">
@@ -327,19 +380,18 @@ ul.task-list li input[type="checkbox"] {
 <section id="setup-the-python-environment" class="level3">
 <h3 class="anchored" data-anchor-id="setup-the-python-environment">Setup the Python environment</h3>
 <p>You will need to install the dependencies for the geodata-harvester this can be done by downloading the environment file from github.</p>
-<pre><code>git clone https://github.com/Sydney-Informatics-Hub/geodata-harvester
-cd geodata-harvester
-conda env create -f environment.yaml -n gdh</code></pre>
+<pre><code>wget https://raw.githubusercontent.com/Sydney-Informatics-Hub/geodata-harvester/main/environment.yaml
+conda env create -f environment.yaml -n gdh
+conda activate gdh</code></pre>
 </section>
 <section id="install-geodata-harvester" class="level3">
 <h3 class="anchored" data-anchor-id="install-geodata-harvester">Install geodata-harvester</h3>
 <pre><code>pip install geodata-harvester</code></pre>
 </section>
-<section id="import-to-python-an-go" class="level3">
-<h3 class="anchored" data-anchor-id="import-to-python-an-go">Import to python an go!</h3>
-<pre><code>import geodata-harvester as dh
-
-dh.harvest.run()</code></pre>
+<section id="import-to-python-and-run" class="level3">
+<h3 class="anchored" data-anchor-id="import-to-python-and-run">Import to python and run!</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geodata<span class="op">-</span>harvester <span class="im">as</span> gh</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>gh.harvest.run()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
