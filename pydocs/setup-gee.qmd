@@ -18,3 +18,13 @@ Once you have submitted, you should receive a confirmation via email within minu
 To initialise Google Earth on *every unique connection* you make with GEE (usually this means once per browser, but if you use an icognito window, or a remote platform like jupyter hub, or colab etc).
 
 Follows these 8 simple steps....
+
+### Step 1: initialise
+From within a notebook environment with the *eeharvest* module installed execute:
+  ```
+  from eeharvest import harvester
+  harvester.initialise(auth_mode='notebook')
+  ```
+  This will generate a url link specific for the device/browser you are on and begin the process of authorising Google Earth Engine. Navigate to the uniquely generated url.
+
+![](assets/gee_01.jpg)
