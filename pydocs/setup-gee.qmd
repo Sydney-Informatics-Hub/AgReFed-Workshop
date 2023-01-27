@@ -17,9 +17,9 @@ Once you have submitted, you should receive a confirmation via email within minu
 
 # Part II: Authorising your workstation with GEE
 
-To initialise Google Earth on *every unique connection* you make with GEE (usually this means once per browser, but if you use an icognito window, or a remote platform like jupyter hub, or colab etc).
+You must authorise the Geodata Harvester to use Google Earth Engine on *every unique connection* (usually this means once per browser, or for any new icognito/private browser windows, or on a remote platform like Jupyter Hub, or Google Colab, etc).
 
-Follows the steps below....
+This can be done in several different ways. For the workshop we will cover the one method in the steps below....
 
 ### Step 1: initialise
 
@@ -32,7 +32,7 @@ harvester.initialise(auth_mode='notebook')
 
 This will generate a url link specific for the device/browser you are on and begin the process of authorising Google Earth Engine. Navigate to the uniquely generated url.
 
-![Click the link.](assets/gee_01.jpg)
+![](assets/gee_01.png)
 
 ### Step 2: Sign in
 
@@ -40,15 +40,15 @@ Sign in to your google account (if not already signed in).
 
 Enter your username.
 
-![](assets/gee_02.jpg)
+![](assets/gee_02.png)
 
 Enter your password.
 
-![](assets/gee_03.jpg)
+![](assets/gee_03.png)
 
 If you have 2-step verification enabled you may be required to verify.
 
-![](assets/gee_04.jpg)
+![](assets/gee_04.png)
 
 ### Step 3: Notebook Authenticator for Google Earth Engine
 
@@ -60,25 +60,25 @@ Selecting *Use read-only scopes* will mean the `geodata-harvester` can only read
 
 Finally, click **GENERATE TOKEN** to begin the access token generation process.
 
-![](assets/gee_05.jpg)
+![](assets/gee_05.png)
 
 
 ### Step 4: Verify the GEE geodata-harvester authentication
 
 Choose the account to use.
 
-![](assets/gee_06.jpg)
+![](assets/gee_06.png)
 
 
 If you trust us, you can click "continue" here to acknowledge this is developed by a third-party.
 
-![](assets/gee_07.jpg)
+![](assets/gee_07.png)
 
 Select what the geodata-harvester has access to, for functionality you just need the *View your Google Earth Engine data* selected. If you make use of storage on Google Cloud, you can select the other option too, but this is not necessary for the workshop.
 
 Finally, click `Continue`.
 
-![](assets/gee_08.jpg)
+![](assets/gee_08.png)
 
 
 ### Step 5: Get your Token!
@@ -87,8 +87,8 @@ The final page provides you with a summary of what you have done and importantly
 
  Keep this token secret, this is kind of like your username/password (albeit, limited to `Google Earth Engine <-> geodata-harvester` usage, and easily revokeable).
 
-![](assets/gee_09.jpg)
+![](assets/gee_09.png)
 
-Paste the token back into the Jupyter Notebook at the `Enter Verification Code:` prompt, and you should be good to go!
+Paste the token back into the Jupyter Notebook at the `Enter Verification Code:` prompt, press Enter, and you should be good to go!
 
-![](assets/gee_09.jpg)
+![](assets/gee_10.png)
