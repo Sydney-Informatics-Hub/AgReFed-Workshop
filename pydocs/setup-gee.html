@@ -273,7 +273,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#part-i-authorising-your-workstation-with-gee" id="toc-part-i-authorising-your-workstation-with-gee" class="nav-link active" data-scroll-target="#part-i-authorising-your-workstation-with-gee">Part I: Authorising your workstation with GEE</a></li>
+  <li><a href="#part-i-signing-up-for-gee" id="toc-part-i-signing-up-for-gee" class="nav-link active" data-scroll-target="#part-i-signing-up-for-gee">Part I: Signing up for GEE</a></li>
   <li><a href="#part-ii-authorising-your-workstation-with-gee" id="toc-part-ii-authorising-your-workstation-with-gee" class="nav-link" data-scroll-target="#part-ii-authorising-your-workstation-with-gee">Part II: Authorising your workstation with GEE</a>
   <ul class="collapse">
   <li><a href="#step-1-initialise" id="toc-step-1-initialise" class="nav-link" data-scroll-target="#step-1-initialise">Step 1: initialise</a></li>
@@ -305,9 +305,9 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="part-i-authorising-your-workstation-with-gee" class="level1">
-<h1>Part I: Authorising your workstation with GEE</h1>
-<p>The Data Harvester utilises the Google Earth Engine API. To use this functionality, you must sign up for the service (with just your normal google account).</p>
+<section id="part-i-signing-up-for-gee" class="level1">
+<h1>Part I: Signing up for GEE</h1>
+<p>The Geodata Harvester utilises the Google Earth Engine API. To use this functionality, you must sign up for the service (with just your normal google account).</p>
 <p>Click <a href="https://earthengine.google.com/signup/">here to sign up to Google Earth Engine</a>, follow the instructions to log in (or create a Google Account, if you do not already have one). Eventually, you will be asked to fill in a web form.</p>
 <p><strong>Make sure to fill in the form with genuine answers.</strong> In the section asking <em>“What would you like to accomplish with Earth Engine?”</em>, provide a reasonable explanation of how you would utilise the geospatial data obtained from Earth Engine in a couple of sentences. A proper description will almost guarantee that you will be approved in minutes.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -328,7 +328,12 @@ ul.task-list li input[type="checkbox"] {
 <pre><code>from eeharvest import harvester
 harvester.initialise(auth_mode='notebook')</code></pre>
 <p>This will generate a url link specific for the device/browser you are on and begin the process of authorising Google Earth Engine. Navigate to the uniquely generated url.</p>
-<p><img src="assets/gee_01.jpg" class="img-fluid"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/gee_01.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Click the link.</figcaption><p></p>
+</figure>
+</div>
 </section>
 <section id="step-2-sign-in" class="level3">
 <h3 class="anchored" data-anchor-id="step-2-sign-in">Step 2: Sign in</h3>
