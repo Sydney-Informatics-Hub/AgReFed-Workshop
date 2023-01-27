@@ -320,30 +320,25 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="part-ii-authorising-your-workstation-with-gee" class="level1">
 <h1>Part II: Authorising your workstation with GEE</h1>
-<p>To initialise Google Earth on <em>every unique connection</em> you make with GEE (usually this means once per browser, but if you use an icognito window, or a remote platform like jupyter hub, or colab etc).</p>
-<p>Follows the steps below….</p>
+<p>You must authorise the Geodata Harvester to use Google Earth Engine on <em>every unique connection</em> (usually this means once per browser, or for any new icognito/private browser windows, or on a remote platform like Jupyter Hub, or Google Colab, etc).</p>
+<p>This can be done in several different ways. For the workshop we will cover the one method in the steps below….</p>
 <section id="step-1-initialise" class="level3">
 <h3 class="anchored" data-anchor-id="step-1-initialise">Step 1: initialise</h3>
 <p>From within a notebook environment with the <em>eeharvest</em> module installed execute</p>
 <pre><code>from eeharvest import harvester
 harvester.initialise(auth_mode='notebook')</code></pre>
 <p>This will generate a url link specific for the device/browser you are on and begin the process of authorising Google Earth Engine. Navigate to the uniquely generated url.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="assets/gee_01.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Click the link.</figcaption><p></p>
-</figure>
-</div>
+<p><img src="assets/gee_01.png" class="img-fluid"></p>
 </section>
 <section id="step-2-sign-in" class="level3">
 <h3 class="anchored" data-anchor-id="step-2-sign-in">Step 2: Sign in</h3>
 <p>Sign in to your google account (if not already signed in).</p>
 <p>Enter your username.</p>
-<p><img src="assets/gee_02.jpg" class="img-fluid"></p>
+<p><img src="assets/gee_02.png" class="img-fluid"></p>
 <p>Enter your password.</p>
-<p><img src="assets/gee_03.jpg" class="img-fluid"></p>
+<p><img src="assets/gee_03.png" class="img-fluid"></p>
 <p>If you have 2-step verification enabled you may be required to verify.</p>
-<p><img src="assets/gee_04.jpg" class="img-fluid"></p>
+<p><img src="assets/gee_04.png" class="img-fluid"></p>
 </section>
 <section id="step-3-notebook-authenticator-for-google-earth-engine" class="level3">
 <h3 class="anchored" data-anchor-id="step-3-notebook-authenticator-for-google-earth-engine">Step 3: Notebook Authenticator for Google Earth Engine</h3>
@@ -351,25 +346,25 @@ harvester.initialise(auth_mode='notebook')</code></pre>
 <p>Make a New Project (call it anything you like, eg. <code>ee-harvester</code>). If you ever want to revoke access, or add more functionality you can use this <em>Google Cloud Platform Project name</em>.</p>
 <p>Selecting <em>Use read-only scopes</em> will mean the <code>geodata-harvester</code> can only read data, and not write to your Google projects (this is fine, as there is no write functionality built in, yet.)</p>
 <p>Finally, click <strong>GENERATE TOKEN</strong> to begin the access token generation process.</p>
-<p><img src="assets/gee_05.jpg" class="img-fluid"></p>
+<p><img src="assets/gee_05.png" class="img-fluid"></p>
 </section>
 <section id="step-4-verify-the-gee-geodata-harvester-authentication" class="level3">
 <h3 class="anchored" data-anchor-id="step-4-verify-the-gee-geodata-harvester-authentication">Step 4: Verify the GEE geodata-harvester authentication</h3>
 <p>Choose the account to use.</p>
-<p><img src="assets/gee_06.jpg" class="img-fluid"></p>
+<p><img src="assets/gee_06.png" class="img-fluid"></p>
 <p>If you trust us, you can click “continue” here to acknowledge this is developed by a third-party.</p>
-<p><img src="assets/gee_07.jpg" class="img-fluid"></p>
+<p><img src="assets/gee_07.png" class="img-fluid"></p>
 <p>Select what the geodata-harvester has access to, for functionality you just need the <em>View your Google Earth Engine data</em> selected. If you make use of storage on Google Cloud, you can select the other option too, but this is not necessary for the workshop.</p>
 <p>Finally, click <code>Continue</code>.</p>
-<p><img src="assets/gee_08.jpg" class="img-fluid"></p>
+<p><img src="assets/gee_08.png" class="img-fluid"></p>
 </section>
 <section id="step-5-get-your-token" class="level3">
 <h3 class="anchored" data-anchor-id="step-5-get-your-token">Step 5: Get your Token!</h3>
 <p>The final page provides you with a summary of what you have done and importantly gives you the <code>Authorization code</code> you need to copy and paste back into your Jupyter Notebook!</p>
 <p>Keep this token secret, this is kind of like your username/password (albeit, limited to <code>Google Earth Engine &lt;-&gt; geodata-harvester</code> usage, and easily revokeable).</p>
-<p><img src="assets/gee_09.jpg" class="img-fluid"></p>
-<p>Paste the token back into the Jupyter Notebook at the <code>Enter Verification Code:</code> prompt, and you should be good to go!</p>
-<p><img src="assets/gee_09.jpg" class="img-fluid"></p>
+<p><img src="assets/gee_09.png" class="img-fluid"></p>
+<p>Paste the token back into the Jupyter Notebook at the <code>Enter Verification Code:</code> prompt, press Enter, and you should be good to go!</p>
+<p><img src="assets/gee_10.png" class="img-fluid"></p>
 
 
 </section>
