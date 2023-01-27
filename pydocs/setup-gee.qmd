@@ -2,9 +2,9 @@
 title: Setting up Google Earth Engine
 ---
 
-# Part I: Authorising your workstation with GEE
+# Part I: Signing up for GEE
 
-The Data Harvester utilises the Google Earth Engine API. To use this functionality, you must sign up for the service (with just your normal google account).
+The Geodata Harvester utilises the Google Earth Engine API. To use this functionality, you must sign up for the service (with just your normal google account).
 
 Click [here to sign up to Google Earth Engine](https://earthengine.google.com/signup/), follow the instructions to log in (or create a Google Account, if you do not already have one). Eventually, you will be asked to fill in a web form.
 
@@ -32,7 +32,7 @@ harvester.initialise(auth_mode='notebook')
 
 This will generate a url link specific for the device/browser you are on and begin the process of authorising Google Earth Engine. Navigate to the uniquely generated url.
 
-![](assets/gee_01.jpg)
+![Click the link.](assets/gee_01.jpg)
 
 ### Step 2: Sign in
 
