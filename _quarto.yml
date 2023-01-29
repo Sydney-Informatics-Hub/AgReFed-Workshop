@@ -72,11 +72,11 @@ website:
                 href: pydocs/setup-gee.qmd
 
           - text: "{{< fa hammer >}} 1: Intro and Basic Usage"
-            href: pydocs/p10-basic
+            href: pydocs/p10-basic.ipynb
           - text: "{{< fa hammer >}} 2: Advanced harvest configuration"
-            href: pydocs/p20-advanced
+            href: pydocs/p20-advanced.ipynb
           - text: "{{< fa hammer >}} 3: Custom Workflows"
-            href: pydocs/p30-technical
+            href: pydocs/p30-technical.ipynb
           # - text: W3 Advanced
           #   href: pydocs/py04-advanced.qmd
           # - text: Data Harvester Notebook
