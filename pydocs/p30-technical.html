@@ -92,6 +92,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../pydocs/p20-advanced.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -218,12 +219,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <li class="px-0"><hr class="sidebar-divider hi "></li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">Python Workshop</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Python Workshop</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../pydocs/py00-workshop.html" class="sidebar-item-text sidebar-link">Introduction</a>
@@ -251,17 +252,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../pydocs/p10-basic" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 1: Intro and Basic Usage</a>
+  <a href="../pydocs/p10-basic.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 1: Intro and Basic Usage</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../pydocs/p20-advanced" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 2: Advanced harvest configuration</a>
+  <a href="../pydocs/p20-advanced.html" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 2: Advanced harvest configuration</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../pydocs/p30-technical" class="sidebar-item-text sidebar-link"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 3: Custom Workflows</a>
+  <a href="../pydocs/p30-technical.html" class="sidebar-item-text sidebar-link active"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 3: Custom Workflows</a>
   </div>
 </li>
       </ul>
@@ -373,7 +374,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="session-3---creating-a-custom-settings-file-and-running-a-harvest" class="level2">
 <h2 class="anchored" data-anchor-id="session-3---creating-a-custom-settings-file-and-running-a-harvest"># Session 3 - Creating a custom settings file and running a harvest</h2>
 <p>The Data Harvester enables researchers with reusable workflows for automatic data extraction from a range of data sources including spatial-temporal processing into useable formats. User provided data is auto-completed with a suitable set of spatial- and temporal-aligned covariates as a ready-made dataset for machine learning and agriculture models. In addition, all requested data layer maps are automatically extracted and aligned for a specific region and time period.</p>
-<p>The main workflow of the Harvester is as follows: 1) Options and user settings (e.g., data layer selections, spatial coverage, temporal constraints, i/o directory names) are defined by the user in the notebook settings menu or can be loaded with a settings yaml file (e.g., settings/settings_v0.2_saved.yaml). All settings are also saved in a yaml file for reusability. 2) The notebook imports settings and all Python modules that include functionality to download and extract data for each data source. After settings are read in, checked, and processed into valid data retrieval (API) queries, all selected data layers are sequentially downloaded and then processed into a clean dataframe table and co-registered raster maps. The entire workflow can be run either completely automatically or individually by selecting only certain process parts in the Notebook.</p>
+<p>The main workflow of the Harvester is as follows:</p>
+<ol type="1">
+<li>Options and user settings (e.g., data layer selections, spatial coverage, temporal constraints, i/o directory names) are defined by the user in the notebook settings menu or can be loaded with a settings yaml file (e.g., settings/settings_v0.2_saved.yaml). All settings are also saved in a yaml file for reusability.</li>
+<li>The notebook imports settings and all Python modules that include functionality to download and extract data for each data source. After settings are read in, checked, and processed into valid data retrieval (API) queries, all selected data layers are sequentially downloaded and then processed into a clean dataframe table and co-registered raster maps. The entire workflow can be run either completely automatically or individually by selecting only certain process parts in the Notebook.</li>
+</ol>
 <p>Additional data sources can be best added by writing the API handlers and extraction functionalities as separate Python module, which are then imported by the Notebook. Currently the following data sources are supported by the following modules:</p>
 <ul>
 <li>‘getdata_slga.py’: Soil Data from Soil and Landscape Grid of Australia (SLGA)</li>
@@ -1855,6 +1860,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../pydocs/p20-advanced.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><i class="fa-solid fa-hammer" aria-hidden="true"></i> 2: Advanced harvest configuration</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
