@@ -10,8 +10,8 @@ markdown:
 ### Workshop information {.unnumbered}
 
 The next AgReFed Geo-Data Harvester workshop will be run in **early 2023**. Please check back here for details.
-<!-- <script src="https://cdn.logwork.com/widget/countdown.js"></script>
-<a href="https://logwork.com/countdown-w5fs" class="countdown-timer" data-style="circles" data-timezone="Australia/Sydney" data-date="2022-11-03 13:30">Workshop starts in...</a> -->
+<script src="https://cdn.logwork.com/widget/countdown.js"></script>
+<a href="https://logwork.com/countdown-w5fs" class="countdown-timer" data-style="circles" data-timezone="Australia/Sydney" data-date="2023-02-02 09:30">Workshop starts in...</a>
 
 :::
 
