@@ -361,85 +361,70 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <hr>
-<p>The Data Harvester enables researchers with reusable workflows for automatic data extraction from a range of data sources. User provided data is auto-completed with a suitable set of spatial- and temporal-aligned covariates as a ready-made dataset for machine learning and agriculture models. In addition, all requested data layer maps are automatically extracted and aligned for a specific region and time period.</p>
+<p>The Geoata Harvester (formerly Data Harvester) enables researchers with reusable workflows for automatic data extraction from a range of data sources. User provided data is auto-completed with a suitable set of spatial- and temporal-aligned covariates as a ready-made dataset for machine learning and agriculture models. In addition, all requested data layer maps are automatically extracted and aligned for a specific region and time period.</p>
 <p>This session introduces you to the <code>geodata_harvester</code> package by showing you how to download files with minimal code input, which is achieved by running the <code>harvest.run()</code> function.</p>
-<p>Let’s test this out. Run the following code block:</p>
+<p>Let’s test this out.</p>
+<p>Firstly we needs the data for today’s workshop. Let’s use a git command to put it onto our server:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Because of the Jupyter Hub Platform we are on, </span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># we need these two lines to find the data harvester</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>sys.path.insert(<span class="dv">0</span>,<span class="st">'geodata_harvester'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>git clone https:<span class="op">//</span>github.com<span class="op">/</span>Sydney<span class="op">-</span>Informatics<span class="op">-</span>Hub<span class="op">/</span>AgReFed<span class="op">-</span>Workshop <span class="op">&amp;&amp;</span> cd AgReFed<span class="op">-</span>Workshop <span class="op">&amp;&amp;</span> git checkout data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geodata_harvester <span class="im">import</span> harvest</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> harvest.run(<span class="st">"data/settings_session1.yaml"</span>, preview<span class="op">=</span><span class="va">True</span>, return_df<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Next, we will have to install the geodata-harvester package on the hosted platform. Run the following code block:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install geodata<span class="op">-</span>harvester</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Now we can simply import the package and execute the <code>harvest.run</code> function:</p>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geodata_harvester <span class="im">as</span> gh</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> gh.harvest.run(<span class="st">"AgReFed-Workshop/data/settings_session1.yaml"</span>, preview<span class="op">=</span><span class="va">True</span>, return_df<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Starting the data harvester -----
-ℹ Found the following 6 sources: ['DEM', 'Landscape', 'Radiometric', 'SILO', 'SLGA', 'GEE']
+ℹ Found the following 5 sources: ['DEM', 'Landscape', 'Radiometric', 'SILO', 'SLGA']
 
 Downloading from API sources -----
-⚑ Earth Engine API already authenticated
-
-⌛ Downloading Google Earth Engine data...
-✔ YAML schema validated
-Running preprocess() -----
-⊙ Applying scale, offset and cloud masks... 0.8s                                                               
-⊙ Calculating spectral indices: NDVI... 0.3s                                                                   
-⊙ Reducing image pixels by median 0.0s                                                                         
-✔ Preprocessing complete
-Running download() -----
-ℹ Band(s) selected: NDVI
-ℹ Setting scale to ~160.2m, converted from 6.0 arcsec at latitude -30.27
-ℹ Setting download dir to results/
-⚑ ee_LANDSAT_bfafc43c.tif already exists, skipping download
-✔ Google Earth Engine download(s) complete
 
 ⌛ Downloading DEM data...
-⊙ Retrieving coverage from WCS server 0.3s                                                                     
-⚑ DEM_SRTM_1_Second_Hydro_Enforced_2023_01_20.tif already exists, skipping download
+⊙ Retrieving coverage from WCS server 0.7s                                                                     
+⊙ Downloading DEM_SRTM_1_Second_Hydro_Enforced_2023_01_31.tif 0.7s                                             
 
 ⌛ Downloading Landscape data...
-⚑ Landscape_Slope.tif already exists, skipping download
-⚑ Landscape_Aspect.tif already exists, skipping download
-⚑ Landscape_Relief_300m.tif already exists, skipping download
+⊙ Downloading Landscape_Slope.tif 3.0s                                                                         
+⊙ Downloading Landscape_Aspect.tif 8.8s                                                                        
+⊙ Downloading Landscape_Relief_300m.tif 1.0s                                                                   
 
 ⌛ Downloading Radiometric data...
-⚑ radmap2019_grid_dose_terr_awags_rad_2019.tif already exists, skipping download
-⚑ radmap2019_grid_dose_terr_filtered_awags_rad_2019.tif already exists, skipping download
+⊙ Downloading radmap2019_grid_dose_terr_awags_rad_2019 1.1s                                                    
+⊙ Downloading radmap2019_grid_dose_terr_filtered_awags_rad_2019 0.9s                                           
 
 ⌛ Downloading SILO data...
-⚑ daily_rain for 2022 already exists, skipping download
-⚑ max_temp for 2022 already exists, skipping download
-⚑ min_temp for 2022 already exists, skipping download
-⚑ monthly_rain for 2022 already exists, skipping download
+⊙ Downloading daily_rain for 2022 39.0s                                                                        
+⊙ Downloading max_temp for 2022 41.5s                                                                          
+⊙ Downloading min_temp for 2022 32.9s                                                                          
+⊙ Downloading monthly_rain for 2022 1.1s                                                                       
+Layer name processing not valid. Choose from: dict_keys(['daily_rain', 'monthly_rain', 'max_temp', 'min_temp', 'vp', 'vp_deficit', 'evap_pan', 'evap_syn', 'evap_comb', 'evap_morton_lake', 'radiation', 'rh_tmax', 'rh_tmin', 'et_short_crop', 'et_tall_crop', 'et_morton_actual', 'et_morton_potential', 'et_morton_wet', 'mslp'])
+Error: Number of filenames does not match number of layernames. Dataframe not updated.
 
 ⌛ Downloading SLGA data...
-⚑ SLGA_Bulk_Density_0-5cm.tif already exists, skipping download
-⚑ SLGA_Bulk_Density_0-5cm_5percentile.tif already exists, skipping download
-⚑ SLGA_Bulk_Density_0-5cm_95percentile.tif already exists, skipping download
-⚑ SLGA_Clay_0-5cm.tif already exists, skipping download
-⚑ SLGA_Clay_0-5cm_5percentile.tif already exists, skipping download
-⚑ SLGA_Clay_0-5cm_95percentile.tif already exists, skipping download
+⊙ Downloading SLGA_Bulk_Density_0-5cm.tif 0.5s                                                                 
+⊙ Downloading SLGA_Bulk_Density_0-5cm_5percentile.tif 5.9s                                                     
+⊙ Downloading SLGA_Bulk_Density_0-5cm_95percentile.tif 0.6s                                                    
+⊙ Downloading SLGA_Clay_0-5cm.tif 10.4s                                                                        
+⊙ Downloading SLGA_Clay_0-5cm_5percentile.tif 5.9s                                                             
+⊙ Downloading SLGA_Clay_0-5cm_95percentile.tif 0.3s                                                            
 
 Extracting data points for example-site_llara.csv  -----
-⊙ • ee_LANDSAT_bfafc43c | pixel size: (91, 126) 0.0s                                                           
-⊙ • DEM_SRTM_1_Second_Hydro_Enforced_2023_01_20 | pixel size: (78, 108) 0.0s                                   
+⊙ • DEM_SRTM_1_Second_Hydro_Enforced_2023_01_31 | pixel size: (78, 108) 0.0s                                   
 ⊙ • Landscape_Slope | pixel size: (78, 108) 0.0s                                                               
 ⊙ • Landscape_Aspect | pixel size: (78, 108) 0.0s                                                              
 ⊙ • Landscape_Relief_300m | pixel size: (78, 108) 0.0s                                                         
 ⊙ • radiometric_radmap2019_grid_dose_terr_awags_rad_2019 | pixel size: (466, 647) 0.0s                         
 ⊙ • radiometric_radmap2019_grid_dose_terr_filtered_awags_rad_2019 | pixel size: (466, 647) 0.0s                
-⊙ • silo_daily_rain_2022-10-01-2022-11-30 | pixel size: (2, 3) 0.0s                                            
-⊙ • silo_max_temp_2022-10-01-2022-11-30 | pixel size: (2, 3) 0.0s                                              
-⊙ • silo_min_temp_2022-10-01-2022-11-30 | pixel size: (2, 3) 0.0s                                              
-⊙ • silo_monthly_rain_2022-10-01-2022-11-30 | pixel size: (2, 3) 0.0s                                          
 ⊙ • SLGA_Bulk_Density_0-5cm | pixel size: (156, 216) 0.0s                                                      
 ⊙ • SLGA_Clay_0-5cm | pixel size: (156, 216) 0.0s                                                              
-✔ Data points extracted to results/results.gpkg</code></pre>
+✔ Data points extracted to output/results.gpkg</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="p10-basic_files/figure-html/cell-3-output-2.png" class="img-fluid"></p>
+<p><img src="p10-basic_files/figure-html/cell-4-output-2.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>

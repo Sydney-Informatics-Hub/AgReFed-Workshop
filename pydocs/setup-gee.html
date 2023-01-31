@@ -344,6 +344,7 @@ harvester.initialise(auth_mode='notebook')</code></pre>
 <h3 class="anchored" data-anchor-id="step-3-notebook-authenticator-for-google-earth-engine">Step 3: Notebook Authenticator for Google Earth Engine</h3>
 <p>Make sure you are using the correct account you want to authorise.</p>
 <p>Make a New Project (call it anything you like, eg. <code>ee-harvester</code>). If you ever want to revoke access, or add more functionality you can use this <em>Google Cloud Platform Project name</em>.</p>
+<p><img src="assets/gee_05b.png" class="img-fluid"></p>
 <p>Selecting <em>Use read-only scopes</em> will mean the <code>geodata-harvester</code> can only read data, and not write to your Google projects (this is fine, as there is no write functionality built in, yet.)</p>
 <p>Finally, click <strong>GENERATE TOKEN</strong> to begin the access token generation process.</p>
 <p><img src="assets/gee_05.png" class="img-fluid"></p>
@@ -354,7 +355,7 @@ harvester.initialise(auth_mode='notebook')</code></pre>
 <p><img src="assets/gee_06.png" class="img-fluid"></p>
 <p>If you trust us, you can click “continue” here to acknowledge this is developed by a third-party.</p>
 <p><img src="assets/gee_07.png" class="img-fluid"></p>
-<p>Select what the geodata-harvester has access to, for functionality you just need the <em>View your Google Earth Engine data</em> selected. If you make use of storage on Google Cloud, you can select the other option too, but this is not necessary for the workshop.</p>
+<p>Select what the geodata-harvester has access to, for functionality you need to select both <em>View your Google Earth Engine data</em> and <em>View your data in Google Cloud Storage</em>.</p>
 <p>Finally, click <code>Continue</code>.</p>
 <p><img src="assets/gee_08.png" class="img-fluid"></p>
 </section>

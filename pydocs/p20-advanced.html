@@ -427,12 +427,10 @@ Relative and absolute path strings
 </div>
 <p>Making sure that your path is correct (and it should be, since you are on the Jupyter Lab server), run the code below:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> sys</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>sys.path.insert(<span class="dv">0</span>,<span class="st">'geodata_harvester'</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geodata_harvester <span class="im">import</span> harvest</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geodata_harvester <span class="im">as</span> gh</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>harvest.run(<span class="st">"data/basic_config.yaml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>gh.harvest.run(<span class="st">"AgReFed-Workshop/data/basic_config.yaml"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Starting the data harvester -----
 ℹ Found the following 1 sources: ['DEA']
@@ -468,8 +466,8 @@ Downloading from API sources -----
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">Clay</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">0-5cm</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Let’s run the above configuration file and preview the output data. You should already have the <code>DEA</code> data downloaded, so the function will only download the new data sources. This time, the argument <code>preview = True</code> will be added to the <code>harvest.run()</code> function, which will allow us to preview the data that will be downloaded.</p>
 <div class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>harvest.run(</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"data/basic_config.yaml"</span>, </span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>gh.harvest.run(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"AgReFed-Workshop/data/basic_config.yaml"</span>, </span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    log_name <span class="op">=</span> <span class="st">"multi_config"</span>, </span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    preview <span class="op">=</span> <span class="va">True</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -579,7 +577,7 @@ Agenda
 <span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">scale</span><span class="kw">:</span><span class="at"> </span><span class="dv">100</span></span>
 <span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">format</span><span class="kw">:</span><span class="at"> tif</span></span>
 <span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">overwrite</span><span class="kw">:</span><span class="at"> </span><span class="ch">False</span></span>
-<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a><span class="fu">infile</span><span class="kw">:</span><span class="at"> data/example-site_llara.csv</span></span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a><span class="fu">infile</span><span class="kw">:</span><span class="at"> AgReFed-Workshop/data/example-site_llara.csv</span></span>
 <span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a><span class="fu">colname_lat</span><span class="kw">:</span><span class="at"> Lat</span></span>
 <span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a><span class="fu">colname_lng</span><span class="kw">:</span><span class="at"> Long</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The configuration will download Landsat 9 images for the year 2021, composite them all to a single image using the <code>median</code> reducer, and calculate the <code>NDVI</code> spectral index. The output image will be downloaded as a GeoTIFF file, with the <code>NDVI</code> spectral index and the RGB bands (<code>SR_B2</code>, <code>SR_B3</code>, <code>SR_B4</code>) includein the raster image.</p>
@@ -686,7 +684,7 @@ Landscape: [Relief_300m, Slope, Aspect]  # &lt;- edit this line
 <span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">format</span><span class="kw">:</span><span class="at"> tif</span></span>
 <span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">overwrite</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
 <span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span>
-<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a><span class="fu">infile</span><span class="kw">:</span><span class="at"> data/example-site_llara.csv</span></span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a><span class="fu">infile</span><span class="kw">:</span><span class="at"> AgReFed-Workshop/data/example-site_llara.csv</span></span>
 <span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="fu">colname_lat</span><span class="kw">:</span><span class="at"> Lat</span></span>
 <span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a><span class="fu">colname_lng</span><span class="kw">:</span><span class="at"> Long</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
