@@ -26,11 +26,27 @@ You should now be in a "Jupyter Lab" interface. Select the *Notebook > Python3 (
 
 ![](assets/ag_03.png "Jupyter Hub")
 
+## Install Geodata Harvester
+
+In the Jupyter notebook install geodata-harvester via pip (recommended)
+
+```python
+!pip install geodata-harvester
+```
+
+You can then import the library via (note the underscore `_` for import of library)
+
+```python
+import geodata_harvester as gh
+gh.harvest.run()
+```
 
 
-# Optional: Local Install
+# Optional: Local Setup
 
-The Geodata-Harvester is available through the *conda* package manager, installation can be accomplished with:
+## Conda install
+
+The Geodata-Harvester is available through the *conda* package manager in the *conda-forge* channel, installation can be accomplished with:
 
 ```
 conda install -c conda-forge geodata_harvester
@@ -45,8 +61,16 @@ gh.harvest.run()
 
 **Note the subtle but important difference in use of an underscore `_` to import the package and the use of a dash `-` to install it!**
 
+## Pip install
 
-## Build the Python environment and use PIP
+Geodata-harvester can be installed via [pypi](https://pypi.org/project/geodata-harvester/), which requires a pre-installation of [gdal](https://pypi.org/project/GDAL/) in your environment (see the buld instructions below). Once gdal is installed, you can install geodata-harvester via
+
+```
+pip install geodata-harvester
+```
+
+
+## Build the Python environment
 
 To build the Geodata Harvester from scratch see the dependencies listed in the [environment file](https://raw.githubusercontent.com/Sydney-Informatics-Hub/geodata-harvester/main/environment.yaml).
 
