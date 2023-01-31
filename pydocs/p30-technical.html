@@ -123,9 +123,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-submit-button-title": "Submit"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 </head>
@@ -405,7 +402,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <section id="import-libraries" class="level2">
 <h2 class="anchored" data-anchor-id="import-libraries">Import libraries</h2>
-<div class="cell" data-execution_count="19">
+<div class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load general python libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
@@ -413,22 +410,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> os.path <span class="im">import</span> exists</span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Load geodata_harvester modules/functions/packages</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># See each python file for detailed options</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> getdata_ee</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> getdata_landscape</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> getdata_radiometric</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> getdata_silo</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> getdata_slga</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> getdata_dea</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> getdata_dem</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> utils</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geodata_harvester.arc2meter <span class="im">import</span> calc_arc2meter</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geodata_harvester.utils <span class="im">import</span> init_logtable, update_logtable</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geodata_harvester.widgets <span class="im">import</span> harvesterwidgets <span class="im">as</span> hw</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> types <span class="im">import</span> SimpleNamespace</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Load geodata_harvester modules/functions/packages</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># See each python file for detailed options</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geodata_harvester <span class="im">as</span> gh</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geodata_harvester <span class="im">import</span> utils</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geodata_harvester.arc2meter <span class="im">import</span> calc_arc2meter</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geodata_harvester.utils <span class="im">import</span> init_logtable, update_logtable</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> geodata_harvester.widgets <span class="im">import</span> harvesterwidgets <span class="im">as</span> hw</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="diy-settings-configuration-file" class="level2">
@@ -440,37 +433,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>display(tab_nest) </span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>time.sleep(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For the automated people you can also run something like...</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># load_settingsfilename = 'data/settings_session1.yaml'</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># settings = hw.load_settings(load_settingsfilename)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Settings loaded:
-----------------
-settings.infile : data/example-site_llara.csv
-settings.outpath : results/
-settings.colname_lat : Lat
-settings.colname_lng : Long
-settings.target_bbox : [149.769345, -30.335861, 149.949173, -30.206271]
-settings.target_res : 6.0
-settings.date_min : 2022-10-01
-settings.time_intervals : 4
-settings.date_max : 2022-11-30
-settings.time_buffer : 7
-settings.target_sources:
-   'DEM': ['DEM']
-   'Landscape': ['Slope', 'Aspect', 'Relief_300m']
-   'Radiometric': ['radmap2019_grid_dose_terr_awags_rad_2019', 'radmap2019_grid_dose_terr_filtered_awags_rad_2019']
-   'SILO': {'daily_rain': 'mean', 'max_temp': 'median', 'min_temp': 'median', 'monthly_rain': 'sum'}
-   'SLGA': {'Bulk_Density': ['0-5cm'], 'Clay': ['0-5cm']}
-   'GEE': {'preprocess': {'collection': 'LANDSAT/LC09/C02/T1_L2', 'coords': None, 'date': datetime.date(2021, 1, 1), 'end_date': datetime.date(2021, 12, 31), 'buffer': None, 'bound': None, 'mask_clouds': True, 'reduce': 'median', 'spectral': 'NDVI'}, 'download': {'bands': 'NDVI', 'scale': 100, 'format': 'tif', 'overwrite': False}}</code></pre>
+<p>When we have finished either loading in the settings file or choosing custom options we can validate the settings with the below code snippet:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> w_load.value <span class="op">==</span> <span class="va">None</span>:</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    dict_settings <span class="op">=</span> hw.eval_widgets(w_settings, names_settings)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Convert settings from dictionary to SimpleNamespace (so all settings names available as settings.xxxname)</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    settings <span class="op">=</span> SimpleNamespace(<span class="op">**</span>dict_settings)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check if output path exists, if not create it:</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    os.makedirs(settings.outpath, exist_ok<span class="op">=</span><span class="va">True</span>) </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Save settings to yaml file:</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    fname_settings <span class="op">=</span> os.path.join(settings.outpath, <span class="st">'settings_saved.yaml'</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    hw.save_dict_settings(dict_settings, fname_settings)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'Settings loaded from </span><span class="sc">{</span>w_load<span class="sc">.</span>value<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    settings <span class="op">=</span> hw.load_settings(w_load.value)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Print settings</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>hw.print_settings(settings)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For the automated people you can also run something like...</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># load_settingsfilename = 'data/settings_session1.yaml'</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># settings = hw.load_settings(load_settingsfilename)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="setup-dataset-of-interest" class="level2">
 <h2 class="anchored" data-anchor-id="setup-dataset-of-interest">Setup dataset of interest</h2>
 <p>Here we are reading in the point locations for which we want to extract data. A custom bounding box for which to extract raster data can be set in the settings file. If no bounding box provided, rasters are extracted for the region given by the point location extent plus an additional padding of 0.05 deg in Lat/Long (see code below).</p>
-<div class="cell" data-execution_count="15">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load in the dataset defining our location of interest as a geopandas dataframe</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>gdfpoints <span class="op">=</span> gpd.read_file(settings.infile)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -480,103 +469,14 @@ settings.target_sources:
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the data looks reasonable</span></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>gdfpoints</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Lat</th>
-      <th>Long</th>
-      <th>geometry</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>-30.264663</td>
-      <td>149.85268</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>-30.265302</td>
-      <td>149.884838</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>-30.265302</td>
-      <td>149.884838</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>-30.278542</td>
-      <td>149.838791</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>-30.275437</td>
-      <td>149.830843</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>77</th>
-      <td>-30.268262</td>
-      <td>149.87615</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th>78</th>
-      <td>-30.257031</td>
-      <td>149.880983</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th>79</th>
-      <td>-30.258505</td>
-      <td>149.891118</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th>80</th>
-      <td>-30.261989</td>
-      <td>149.884329</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <th>81</th>
-      <td>-30.264476</td>
-      <td>149.899156</td>
-      <td>None</td>
-    </tr>
-  </tbody>
-</table>
-<p>82 rows × 3 columns</p>
 </div>
-</div>
-</div>
-<div class="cell" data-execution_count="16">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Info: Selected bounding box: </span><span class="sc">{</span>settings<span class="sc">.</span>target_bbox<span class="sc">}</span><span class="ss">'</span>)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate resolution in meters:</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>lat_center <span class="op">=</span> (settings.target_bbox[<span class="dv">1</span>]<span class="op">+</span>settings.target_bbox[<span class="dv">3</span>])<span class="op">/</span><span class="dv">2</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>xres_meters, yres_meters <span class="op">=</span> calc_arc2meter(settings.target_res, lat_center)</span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Info: </span><span class="sc">{</span>settings<span class="sc">.</span>target_res<span class="sc">}</span><span class="ss"> arcsec resolution corresponds to </span><span class="sc">{</span>xres_meters<span class="sc">:.1f}</span><span class="ss">m x </span><span class="sc">{</span>yres_meters<span class="sc">:.1f}</span><span class="ss">m in x,y direction respectively (at Latitude: </span><span class="sc">{</span>lat_center<span class="sc">:.2f}</span><span class="ss">).'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Info: Selected bounding box: [149.769345, -30.335861, 149.949173, -30.206271]
-Info: 6.0 arcsec resolution corresponds to 160.2m x 185.2m in x,y direction respectively (at Latitude: -30.27).</code></pre>
-</div>
 </div>
 </section>
 <section id="download-and-process-data-from-api-sources" class="level2">
@@ -584,1072 +484,239 @@ Info: 6.0 arcsec resolution corresponds to 160.2m x 185.2m in x,y direction resp
 <p>From here we automatically download and process sequentially a range of data sources as specified in the settings file (see next subsections: SLGA, SILO, DEA, DEM). Note that you may retrieve info and parameter input options for any function easily by running a function/method with a preceeding ‘?’, e.g:</p>
 <pre><code>?getdata_slga.get_slga_layers
 ?utils</code></pre>
-<div class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initiate a dataframe for logging all data output names and layer titles.</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that the log table is later updated with update_logtable(), </span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># which also instantly saves a copy of the table of the current status.</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> init_logtable()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>NameError: name 'init_logtable' is not defined</code></pre>
-</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Initiate a dataframe for logging all data output names and layer titles.</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Note that the log table is later updated with update_logtable(), </span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># which also instantly saves a copy of the table of the current status.</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> init_logtable()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="slga-download" class="level3">
 <h3 class="anchored" data-anchor-id="slga-download">SLGA Download</h3>
 <p>Here we download all requested data layers from the Soil and Landscape Grid of Australia (SLGA) for the given bounding box. Note that for this example we select the top soil (0 - 5cm) only. Optionally other layers and depths including confidence intervals can be extracted as well; for more details and options see getdata_slga.py.</p>
-<div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can set the input options for each function call, and additional parameters may be set</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># too. Check the documentation of each function for full list of options.</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>depth_min, depth_max <span class="op">=</span> getdata_slga.identifier2depthbounds(<span class="bu">list</span>(settings.target_sources[<span class="st">'SLGA'</span>].values())[<span class="dv">0</span>])</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>slga_layernames <span class="op">=</span> <span class="bu">list</span>(settings.target_sources[<span class="st">'SLGA'</span>].keys())</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>fnames_out_slga <span class="op">=</span> getdata_slga.get_slga_layers(</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    slga_layernames, </span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    settings.target_bbox, </span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    settings.outpath, </span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    depth_min <span class="op">=</span> depth_min, </span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    depth_max<span class="op">=</span> depth_max, </span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    get_ci <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>⚑ SLGA_Bulk_Density_0-5cm.tif already exists, skipping download
-⚑ SLGA_Bulk_Density_0-5cm_5percentile.tif already exists, skipping download
-⚑ SLGA_Bulk_Density_0-5cm_95percentile.tif already exists, skipping download
-⚑ SLGA_Clay_0-5cm.tif already exists, skipping download
-⚑ SLGA_Clay_0-5cm_5percentile.tif already exists, skipping download
-⚑ SLGA_Clay_0-5cm_95percentile.tif already exists, skipping download</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can set the input options for each function call, and additional parameters may be set</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># too. Check the documentation of each function for full list of options.</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>depth_min, depth_max <span class="op">=</span> gh.getdata_slga.identifier2depthbounds(<span class="bu">list</span>(settings.target_sources[<span class="st">'SLGA'</span>].values())[<span class="dv">0</span>])</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>slga_layernames <span class="op">=</span> <span class="bu">list</span>(settings.target_sources[<span class="st">'SLGA'</span>].keys())</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>fnames_out_slga <span class="op">=</span> gh.getdata_slga.get_slga_layers(</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    slga_layernames, </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    settings.target_bbox, </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    settings.outpath, </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    depth_min <span class="op">=</span> depth_min, </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    depth_max<span class="op">=</span> depth_max, </span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    get_ci <span class="op">=</span> <span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add download info to log dataframe</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> update_logtable(</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    df_log, </span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    fnames_out_slga, </span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    slga_layernames, </span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'SLGA'</span>, </span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    settings, </span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    layertitles <span class="op">=</span> [], loginfos <span class="op">=</span> <span class="st">'downloaded'</span>)</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>df_log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>layername</th>
-      <th>agfunction</th>
-      <th>dataset</th>
-      <th>layertitle</th>
-      <th>filename_out</th>
-      <th>loginfo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Bulk_Density</td>
-      <td>0-5cm</td>
-      <td>SLGA</td>
-      <td>Bulk_Density_0-5cm</td>
-      <td>../dataresults/SLGA_Bulk_Density_0-5cm.tif</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Clay</td>
-      <td>0-5cm</td>
-      <td>SLGA</td>
-      <td>Clay_0-5cm</td>
-      <td>../dataresults/SLGA_Clay_0-5cm.tif</td>
-      <td>downloaded</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add download info to log dataframe</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> update_logtable(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    df_log, </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    fnames_out_slga, </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    slga_layernames, </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'SLGA'</span>, </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    settings, </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    layertitles <span class="op">=</span> [], loginfos <span class="op">=</span> <span class="st">'downloaded'</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>df_log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="silo-download" class="level3">
 <h3 class="anchored" data-anchor-id="silo-download">SILO Download</h3>
 <p>Here we download climate data layers from SILO and extract raster for the given bounding box and year. For more details see getdata_silo.py</p>
-<div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Each data-source must be handled differently (as the data is stored in different ways)</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Here we must get each layer, one by one. The simplest way is to loop through them.</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get data for each layer</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>outpath <span class="op">=</span> settings.outpath<span class="op">+</span><span class="st">'_silo'</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>silo_layernames <span class="op">=</span> <span class="bu">list</span>(settings.target_sources[<span class="st">'SILO'</span>].keys())</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># run the download</span></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>fnames_out_silo <span class="op">=</span> getdata_silo.get_SILO_layers(</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    silo_layernames, </span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    settings.date_min, </span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    settings.date_max,</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    outpath, </span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    bbox <span class="op">=</span> settings.target_bbox, </span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    format_out <span class="op">=</span> <span class="st">'tif'</span>)</span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Add download info to log dataframe</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TBD</span><span class="co"> need to be tested for multiple years and not only one</span></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(fnames_out_silo) <span class="op">&gt;</span> <span class="bu">len</span>(silo_layernames):</span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">TBD</span><span class="co"> Temporary solution for multiple years:</span></span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>    nyears <span class="op">=</span> <span class="bu">int</span>(<span class="bu">len</span>(fnames_out_silo)<span class="op">/</span><span class="bu">len</span>(silo_layernames))</span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>    silo_layernames <span class="op">=</span> silo_layernames <span class="op">*</span> nyears</span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> update_logtable(df_log, fnames_out_silo, silo_layernames, <span class="st">'SILO'</span>, settings, layertitles <span class="op">=</span> [], loginfos <span class="op">=</span> <span class="st">'downloaded'</span>)</span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>df_log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>⚑ daily_rain for 2022 already exists, skipping download
-⚑ max_temp for 2022 already exists, skipping download
-⚑ min_temp for 2022 already exists, skipping download
-⚑ monthly_rain for 2022 already exists, skipping download</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="8">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>layername</th>
-      <th>agfunction</th>
-      <th>dataset</th>
-      <th>layertitle</th>
-      <th>filename_out</th>
-      <th>loginfo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Bulk_Density</td>
-      <td>0-5cm</td>
-      <td>SLGA</td>
-      <td>Bulk_Density_0-5cm</td>
-      <td>../dataresults/SLGA_Bulk_Density_0-5cm.tif</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Clay</td>
-      <td>0-5cm</td>
-      <td>SLGA</td>
-      <td>Clay_0-5cm</td>
-      <td>../dataresults/SLGA_Clay_0-5cm.tif</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>daily_rain</td>
-      <td>mean</td>
-      <td>SILO</td>
-      <td>daily_rain_mean</td>
-      <td>../dataresults/_silo/silo_daily_rain_2022-10-0...</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>max_temp</td>
-      <td>median</td>
-      <td>SILO</td>
-      <td>max_temp_median</td>
-      <td>../dataresults/_silo/silo_max_temp_2022-10-01-...</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>min_temp</td>
-      <td>median</td>
-      <td>SILO</td>
-      <td>min_temp_median</td>
-      <td>../dataresults/_silo/silo_min_temp_2022-10-01-...</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>monthly_rain</td>
-      <td>sum</td>
-      <td>SILO</td>
-      <td>monthly_rain_sum</td>
-      <td>../dataresults/_silo/silo_monthly_rain_2022-10...</td>
-      <td>downloaded</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Each data-source must be handled differently (as the data is stored in different ways)</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Here we must get each layer, one by one. The simplest way is to loop through them.</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get data for each layer</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>outpath <span class="op">=</span> settings.outpath<span class="op">+</span><span class="st">'_silo'</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>silo_layernames <span class="op">=</span> <span class="bu">list</span>(settings.target_sources[<span class="st">'SILO'</span>].keys())</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># run the download</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>fnames_out_silo <span class="op">=</span> gh.getdata_silo.get_SILO_layers(</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    silo_layernames, </span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    settings.date_min, </span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    settings.date_max,</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    outpath, </span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    bbox <span class="op">=</span> settings.target_bbox, </span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    format_out <span class="op">=</span> <span class="st">'tif'</span>)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Add download info to log dataframe</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TBD</span><span class="co"> need to be tested for multiple years and not only one</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(fnames_out_silo) <span class="op">&gt;</span> <span class="bu">len</span>(silo_layernames):</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">TBD</span><span class="co"> Temporary solution for multiple years:</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    nyears <span class="op">=</span> <span class="bu">int</span>(<span class="bu">len</span>(fnames_out_silo)<span class="op">/</span><span class="bu">len</span>(silo_layernames))</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    silo_layernames <span class="op">=</span> silo_layernames <span class="op">*</span> nyears</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> update_logtable(df_log, fnames_out_silo, silo_layernames, <span class="st">'SILO'</span>, settings, layertitles <span class="op">=</span> [], loginfos <span class="op">=</span> <span class="st">'downloaded'</span>)</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>df_log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="dea-download" class="level3">
 <h3 class="anchored" data-anchor-id="dea-download">DEA Download</h3>
 <p>Here we download satellite data from Digital Earth Australia (DEA) within the given bounding box and for all available image capture dates that are available within the specified year(s). For more details see getdata_dea.py or getdata_dea_nci .py</p>
-<div class="cell" data-scrolled="true" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>dea_layernames <span class="op">=</span> settings.target_sources[<span class="st">'DEA'</span>]</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># These are multiple files, so we put them in a subdirectory to make subsequent processing easier.</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>outpath_dea <span class="op">=</span> os.path.join(settings.outpath,<span class="st">'mvp_dea'</span>)</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>outfnames <span class="op">=</span> getdata_dea.get_dea_layers_daterange(</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    dea_layernames, </span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    settings.date_min,</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    settings.date_max,</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    settings.target_bbox, </span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    settings.target_res, </span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    outpath_dea, </span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    crs <span class="op">=</span> <span class="st">'EPSG:4326'</span>, </span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    format_out <span class="op">=</span> <span class="st">'GeoTIFF'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>⚑ landsat_barest_earth.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download
-⚑ ga_ls_ard_3.tif already exists, skipping download</code></pre>
-</div>
+<div class="cell" data-scrolled="true">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>dea_layernames <span class="op">=</span> settings.target_sources[<span class="st">'DEA'</span>]</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># These are multiple files, so we put them in a subdirectory to make subsequent processing easier.</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>outpath_dea <span class="op">=</span> os.path.join(settings.outpath,<span class="st">'mvp_dea'</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>outfnames <span class="op">=</span> gh.getdata_dea.get_dea_layers_daterange(</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    dea_layernames, </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    settings.date_min,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    settings.date_max,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    settings.target_bbox, </span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    settings.target_res, </span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    outpath_dea, </span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    crs <span class="op">=</span> <span class="st">'EPSG:4326'</span>, </span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    format_out <span class="op">=</span> <span class="st">'GeoTIFF'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="dea-processing" class="level4">
 <h4 class="anchored" data-anchor-id="dea-processing">DEA Processing</h4>
 <p>This aggregates all images for the given year(s) and gnerates a combined image, here for example for the mean and 5th and 95th percentile each.</p>
-<div class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>layer_list <span class="op">=</span> []</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> layername <span class="kw">in</span> dea_layernames:</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> <span class="bu">sum</span>(layername <span class="kw">in</span> s <span class="cf">for</span> s <span class="kw">in</span> outfnames)</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    l <span class="op">=</span> [layername]<span class="op">*</span>s</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    layer_list.append(l)</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>layer_list  <span class="op">=</span> <span class="bu">sum</span>(layer_list, [])</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>layer_titles <span class="op">=</span> [os.path.splitext(x)[<span class="dv">0</span>].split(<span class="st">'/'</span>)[<span class="op">-</span><span class="dv">1</span>] <span class="cf">for</span> x <span class="kw">in</span> outfnames]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>layer_list <span class="op">=</span> []</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> layername <span class="kw">in</span> dea_layernames:</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> <span class="bu">sum</span>(layername <span class="kw">in</span> s <span class="cf">for</span> s <span class="kw">in</span> outfnames)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    l <span class="op">=</span> [layername]<span class="op">*</span>s</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    layer_list.append(l)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>layer_list  <span class="op">=</span> <span class="bu">sum</span>(layer_list, [])</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>layer_titles <span class="op">=</span> [os.path.splitext(x)[<span class="dv">0</span>].split(<span class="st">'/'</span>)[<span class="op">-</span><span class="dv">1</span>] <span class="cf">for</span> x <span class="kw">in</span> outfnames]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add extracted data info to log table</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> update_logtable(</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    df_log, </span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    outfnames, </span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    layer_titles, </span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'DEA'</span>, </span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    settings, </span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    layertitles <span class="op">=</span> layer_titles, </span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    loginfos <span class="op">=</span> <span class="st">'processed'</span>,force<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="co">#print(df_log.layertitle)</span></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>df_log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>layername</th>
-      <th>agfunction</th>
-      <th>dataset</th>
-      <th>layertitle</th>
-      <th>filename_out</th>
-      <th>loginfo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Bulk_Density</td>
-      <td>0-5cm</td>
-      <td>SLGA</td>
-      <td>Bulk_Density_0-5cm</td>
-      <td>../dataresults/SLGA_Bulk_Density_0-5cm.tif</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Clay</td>
-      <td>0-5cm</td>
-      <td>SLGA</td>
-      <td>Clay_0-5cm</td>
-      <td>../dataresults/SLGA_Clay_0-5cm.tif</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>daily_rain</td>
-      <td>mean</td>
-      <td>SILO</td>
-      <td>daily_rain_mean</td>
-      <td>../dataresults/_silo/silo_daily_rain_2022-10-0...</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>max_temp</td>
-      <td>median</td>
-      <td>SILO</td>
-      <td>max_temp_median</td>
-      <td>../dataresults/_silo/silo_max_temp_2022-10-01-...</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>min_temp</td>
-      <td>median</td>
-      <td>SILO</td>
-      <td>min_temp_median</td>
-      <td>../dataresults/_silo/silo_min_temp_2022-10-01-...</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>63</th>
-      <td>ga_ls_ard_3_2022-11-25</td>
-      <td>None</td>
-      <td>DEA</td>
-      <td>ga_ls_ard_3_2022-11-25</td>
-      <td>../dataresults/mvp_dea/ga_ls_ard_3_2022-11-25.tif</td>
-      <td>processed</td>
-    </tr>
-    <tr>
-      <th>64</th>
-      <td>ga_ls_ard_3_2022-11-26</td>
-      <td>None</td>
-      <td>DEA</td>
-      <td>ga_ls_ard_3_2022-11-26</td>
-      <td>../dataresults/mvp_dea/ga_ls_ard_3_2022-11-26.tif</td>
-      <td>processed</td>
-    </tr>
-    <tr>
-      <th>65</th>
-      <td>ga_ls_ard_3_2022-11-27</td>
-      <td>None</td>
-      <td>DEA</td>
-      <td>ga_ls_ard_3_2022-11-27</td>
-      <td>../dataresults/mvp_dea/ga_ls_ard_3_2022-11-27.tif</td>
-      <td>processed</td>
-    </tr>
-    <tr>
-      <th>66</th>
-      <td>ga_ls_ard_3_2022-11-28</td>
-      <td>None</td>
-      <td>DEA</td>
-      <td>ga_ls_ard_3_2022-11-28</td>
-      <td>../dataresults/mvp_dea/ga_ls_ard_3_2022-11-28.tif</td>
-      <td>processed</td>
-    </tr>
-    <tr>
-      <th>67</th>
-      <td>ga_ls_ard_3_2022-11-29</td>
-      <td>None</td>
-      <td>DEA</td>
-      <td>ga_ls_ard_3_2022-11-29</td>
-      <td>../dataresults/mvp_dea/ga_ls_ard_3_2022-11-29.tif</td>
-      <td>processed</td>
-    </tr>
-  </tbody>
-</table>
-<p>68 rows × 6 columns</p>
-</div>
-</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add extracted data info to log table</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> update_logtable(</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    df_log, </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    outfnames, </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    layer_titles, </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'DEA'</span>, </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    settings, </span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    layertitles <span class="op">=</span> layer_titles, </span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    loginfos <span class="op">=</span> <span class="st">'processed'</span>,force<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="co">#print(df_log.layertitle)</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>df_log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 <section id="dem-download" class="level3">
 <h3 class="anchored" data-anchor-id="dem-download">DEM Download</h3>
 <p>Here we download and extract the National Digital Elevation Model (DEM), and also generate slope and aspect rasters from the extracted DEM. For more details see getdata_dem.py</p>
-<div class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>outpath <span class="op">=</span> os.path.join(settings.outpath, <span class="st">"mvp_dem"</span>)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>dem_layernames <span class="op">=</span> settings.target_sources[<span class="st">'DEM'</span>]</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>outfnames <span class="op">=</span> getdata_dem.get_dem_layers(dem_layernames, outpath, settings.target_bbox, settings.target_res)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Add extracted data to log dataframe</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> update_logtable(</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    df_log, </span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    outfnames, </span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    dem_layernames, </span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'DEM'</span>, </span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>    settings, </span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>    layertitles <span class="op">=</span> dem_layernames,</span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    loginfos <span class="op">=</span> <span class="st">'downloaded'</span>)</span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>df_log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>⊙ Retrieving coverage from WCS server 3.6s                                                                     
-⚑ DEM_SRTM_1_Second_Hydro_Enforced_2023_01_17.tif already exists, skipping download</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="12">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>layername</th>
-      <th>agfunction</th>
-      <th>dataset</th>
-      <th>layertitle</th>
-      <th>filename_out</th>
-      <th>loginfo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Bulk_Density</td>
-      <td>0-5cm</td>
-      <td>SLGA</td>
-      <td>Bulk_Density_0-5cm</td>
-      <td>../dataresults/SLGA_Bulk_Density_0-5cm.tif</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Clay</td>
-      <td>0-5cm</td>
-      <td>SLGA</td>
-      <td>Clay_0-5cm</td>
-      <td>../dataresults/SLGA_Clay_0-5cm.tif</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>daily_rain</td>
-      <td>mean</td>
-      <td>SILO</td>
-      <td>daily_rain_mean</td>
-      <td>../dataresults/_silo/silo_daily_rain_2022-10-0...</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>max_temp</td>
-      <td>median</td>
-      <td>SILO</td>
-      <td>max_temp_median</td>
-      <td>../dataresults/_silo/silo_max_temp_2022-10-01-...</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>min_temp</td>
-      <td>median</td>
-      <td>SILO</td>
-      <td>min_temp_median</td>
-      <td>../dataresults/_silo/silo_min_temp_2022-10-01-...</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>64</th>
-      <td>ga_ls_ard_3_2022-11-26</td>
-      <td>None</td>
-      <td>DEA</td>
-      <td>ga_ls_ard_3_2022-11-26</td>
-      <td>../dataresults/mvp_dea/ga_ls_ard_3_2022-11-26.tif</td>
-      <td>processed</td>
-    </tr>
-    <tr>
-      <th>65</th>
-      <td>ga_ls_ard_3_2022-11-27</td>
-      <td>None</td>
-      <td>DEA</td>
-      <td>ga_ls_ard_3_2022-11-27</td>
-      <td>../dataresults/mvp_dea/ga_ls_ard_3_2022-11-27.tif</td>
-      <td>processed</td>
-    </tr>
-    <tr>
-      <th>66</th>
-      <td>ga_ls_ard_3_2022-11-28</td>
-      <td>None</td>
-      <td>DEA</td>
-      <td>ga_ls_ard_3_2022-11-28</td>
-      <td>../dataresults/mvp_dea/ga_ls_ard_3_2022-11-28.tif</td>
-      <td>processed</td>
-    </tr>
-    <tr>
-      <th>67</th>
-      <td>ga_ls_ard_3_2022-11-29</td>
-      <td>None</td>
-      <td>DEA</td>
-      <td>ga_ls_ard_3_2022-11-29</td>
-      <td>../dataresults/mvp_dea/ga_ls_ard_3_2022-11-29.tif</td>
-      <td>processed</td>
-    </tr>
-    <tr>
-      <th>68</th>
-      <td>DEM</td>
-      <td>None</td>
-      <td>DEM</td>
-      <td>DEM</td>
-      <td>../dataresults/mvp_dem/DEM_SRTM_1_Second_Hydro...</td>
-      <td>downloaded</td>
-    </tr>
-  </tbody>
-</table>
-<p>69 rows × 6 columns</p>
-</div>
-</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>outpath <span class="op">=</span> os.path.join(settings.outpath, <span class="st">"mvp_dem"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>dem_layernames <span class="op">=</span> settings.target_sources[<span class="st">'DEM'</span>]</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>outfnames <span class="op">=</span> gh.getdata_dem.get_dem_layers(dem_layernames, outpath, settings.target_bbox, settings.target_res)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Add extracted data to log dataframe</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> update_logtable(</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    df_log, </span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    outfnames, </span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    dem_layernames, </span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'DEM'</span>, </span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    settings, </span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    layertitles <span class="op">=</span> dem_layernames,</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    loginfos <span class="op">=</span> <span class="st">'downloaded'</span>)</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>df_log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="landscape" class="level3">
 <h3 class="anchored" data-anchor-id="landscape">Landscape</h3>
 <p>Download landscape data from Soil and Landscape Grid of Australia (SLGA).</p>
-<div class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download landscape data</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>layernames <span class="op">=</span> settings.target_sources[<span class="st">'Landscape'</span>]</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>layertitles <span class="op">=</span> [<span class="st">'Landscape_'</span> <span class="op">+</span> layername <span class="cf">for</span> layername <span class="kw">in</span> layernames]</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>outfnames <span class="op">=</span> getdata_landscape.get_landscape_layers(</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    layernames, </span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    settings.target_bbox, </span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    settings.outpath, </span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    resolution <span class="op">=</span> settings.target_res)</span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Add extracted data to log dataframe</span></span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> update_logtable(</span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>    df_log, outfnames, </span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>    layernames, </span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Landscape'</span>, </span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    settings, </span>
-<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>    layertitles <span class="op">=</span> layertitles,</span>
-<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>    loginfos <span class="op">=</span> <span class="st">'downloaded'</span>)</span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>df_log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>⚑ Landscape_Slope.tif already exists, skipping download
-⚑ Landscape_Aspect.tif already exists, skipping download
-⚑ Landscape_Relief_300m.tif already exists, skipping download</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="13">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>layername</th>
-      <th>agfunction</th>
-      <th>dataset</th>
-      <th>layertitle</th>
-      <th>filename_out</th>
-      <th>loginfo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Bulk_Density</td>
-      <td>0-5cm</td>
-      <td>SLGA</td>
-      <td>Bulk_Density_0-5cm</td>
-      <td>../dataresults/SLGA_Bulk_Density_0-5cm.tif</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Clay</td>
-      <td>0-5cm</td>
-      <td>SLGA</td>
-      <td>Clay_0-5cm</td>
-      <td>../dataresults/SLGA_Clay_0-5cm.tif</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>daily_rain</td>
-      <td>mean</td>
-      <td>SILO</td>
-      <td>daily_rain_mean</td>
-      <td>../dataresults/_silo/silo_daily_rain_2022-10-0...</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>max_temp</td>
-      <td>median</td>
-      <td>SILO</td>
-      <td>max_temp_median</td>
-      <td>../dataresults/_silo/silo_max_temp_2022-10-01-...</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>min_temp</td>
-      <td>median</td>
-      <td>SILO</td>
-      <td>min_temp_median</td>
-      <td>../dataresults/_silo/silo_min_temp_2022-10-01-...</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>67</th>
-      <td>ga_ls_ard_3_2022-11-29</td>
-      <td>None</td>
-      <td>DEA</td>
-      <td>ga_ls_ard_3_2022-11-29</td>
-      <td>../dataresults/mvp_dea/ga_ls_ard_3_2022-11-29.tif</td>
-      <td>processed</td>
-    </tr>
-    <tr>
-      <th>68</th>
-      <td>DEM</td>
-      <td>None</td>
-      <td>DEM</td>
-      <td>DEM</td>
-      <td>../dataresults/mvp_dem/DEM_SRTM_1_Second_Hydro...</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>69</th>
-      <td>Slope</td>
-      <td>None</td>
-      <td>Landscape</td>
-      <td>Landscape_Slope</td>
-      <td>../dataresults/Landscape_Slope.tif</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>70</th>
-      <td>Aspect</td>
-      <td>None</td>
-      <td>Landscape</td>
-      <td>Landscape_Aspect</td>
-      <td>../dataresults/Landscape_Aspect.tif</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>71</th>
-      <td>Relief_300m</td>
-      <td>None</td>
-      <td>Landscape</td>
-      <td>Landscape_Relief_300m</td>
-      <td>../dataresults/Landscape_Relief_300m.tif</td>
-      <td>downloaded</td>
-    </tr>
-  </tbody>
-</table>
-<p>72 rows × 6 columns</p>
-</div>
-</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download landscape data</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>layernames <span class="op">=</span> settings.target_sources[<span class="st">'Landscape'</span>]</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>layertitles <span class="op">=</span> [<span class="st">'Landscape_'</span> <span class="op">+</span> layername <span class="cf">for</span> layername <span class="kw">in</span> layernames]</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>outfnames <span class="op">=</span> gh.getdata_landscape.get_landscape_layers(</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    layernames, </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    settings.target_bbox, </span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    settings.outpath, </span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    resolution <span class="op">=</span> settings.target_res)</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Add extracted data to log dataframe</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> update_logtable(</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    df_log, outfnames, </span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    layernames, </span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Landscape'</span>, </span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    settings, </span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    layertitles <span class="op">=</span> layertitles,</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    loginfos <span class="op">=</span> <span class="st">'downloaded'</span>)</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>df_log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="radiometrics" class="level3">
 <h3 class="anchored" data-anchor-id="radiometrics">Radiometrics</h3>
 <p>Download maps of Geoscience Australia National Geophysical Compilation Sub-collection Radiometrics</p>
-<div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download radiometrics</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>layernames <span class="op">=</span> settings.target_sources[<span class="st">'Radiometric'</span>]</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>outfnames <span class="op">=</span> getdata_radiometric.get_radiometric_layers(</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    settings.outpath, </span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    layernames, </span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    bbox <span class="op">=</span> settings.target_bbox, </span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    resolution<span class="op">=</span>settings.target_res)</span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a> <span class="co"># Add extracted data to log dataframe</span></span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> update_logtable(</span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>    df_log, outfnames, </span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    layernames, </span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Radiometric'</span>, </span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>    settings, </span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>    layertitles <span class="op">=</span> layernames,</span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>    loginfos <span class="op">=</span> <span class="st">'downloaded'</span>)</span>
-<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>df_log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>⚑ radmap2019_grid_dose_terr_awags_rad_2019.tif already exists, skipping download
-⚑ radmap2019_grid_dose_terr_filtered_awags_rad_2019.tif already exists, skipping download</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="14">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>layername</th>
-      <th>agfunction</th>
-      <th>dataset</th>
-      <th>layertitle</th>
-      <th>filename_out</th>
-      <th>loginfo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Bulk_Density</td>
-      <td>0-5cm</td>
-      <td>SLGA</td>
-      <td>Bulk_Density_0-5cm</td>
-      <td>../dataresults/SLGA_Bulk_Density_0-5cm.tif</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Clay</td>
-      <td>0-5cm</td>
-      <td>SLGA</td>
-      <td>Clay_0-5cm</td>
-      <td>../dataresults/SLGA_Clay_0-5cm.tif</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>daily_rain</td>
-      <td>mean</td>
-      <td>SILO</td>
-      <td>daily_rain_mean</td>
-      <td>../dataresults/_silo/silo_daily_rain_2022-10-0...</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>max_temp</td>
-      <td>median</td>
-      <td>SILO</td>
-      <td>max_temp_median</td>
-      <td>../dataresults/_silo/silo_max_temp_2022-10-01-...</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>min_temp</td>
-      <td>median</td>
-      <td>SILO</td>
-      <td>min_temp_median</td>
-      <td>../dataresults/_silo/silo_min_temp_2022-10-01-...</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>69</th>
-      <td>Slope</td>
-      <td>None</td>
-      <td>Landscape</td>
-      <td>Landscape_Slope</td>
-      <td>../dataresults/Landscape_Slope.tif</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>70</th>
-      <td>Aspect</td>
-      <td>None</td>
-      <td>Landscape</td>
-      <td>Landscape_Aspect</td>
-      <td>../dataresults/Landscape_Aspect.tif</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>71</th>
-      <td>Relief_300m</td>
-      <td>None</td>
-      <td>Landscape</td>
-      <td>Landscape_Relief_300m</td>
-      <td>../dataresults/Landscape_Relief_300m.tif</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>72</th>
-      <td>radmap2019_grid_dose_terr_awags_rad_2019</td>
-      <td>None</td>
-      <td>Radiometric</td>
-      <td>radmap2019_grid_dose_terr_awags_rad_2019</td>
-      <td>../dataresults/radiometric_radmap2019_grid_dos...</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>73</th>
-      <td>radmap2019_grid_dose_terr_filtered_awags_rad_2019</td>
-      <td>None</td>
-      <td>Radiometric</td>
-      <td>radmap2019_grid_dose_terr_filtered_awags_rad_2019</td>
-      <td>../dataresults/radiometric_radmap2019_grid_dos...</td>
-      <td>downloaded</td>
-    </tr>
-  </tbody>
-</table>
-<p>74 rows × 6 columns</p>
-</div>
-</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download radiometrics</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>layernames <span class="op">=</span> settings.target_sources[<span class="st">'Radiometric'</span>]</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>outfnames <span class="op">=</span> gh.getdata_radiometric.get_radiometric_layers(</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    settings.outpath, </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    layernames, </span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    bbox <span class="op">=</span> settings.target_bbox, </span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    resolution<span class="op">=</span>settings.target_res)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a> <span class="co"># Add extracted data to log dataframe</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> update_logtable(</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    df_log, outfnames, </span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    layernames, </span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Radiometric'</span>, </span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    settings, </span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>    layertitles <span class="op">=</span> layernames,</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>    loginfos <span class="op">=</span> <span class="st">'downloaded'</span>)</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>df_log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 <section id="google-earth-engine" class="level2">
 <h2 class="anchored" data-anchor-id="google-earth-engine">Google Earth Engine</h2>
 <p>To connect to Google Earth Engine, you must already have access to the Google Earth Engine API. You can request for access <a href="https://earthengine.google.com/signup/">by clicking here</a>. Once you are authorised, connect to the API using <code>initialise()</code>. A web browser may be invoked to complete the process.</p>
-<div class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the Google Earth Engine API</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>getdata_ee.initialise()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>⊙ Initialising Earth Engine... 5.4s                                                                            
-✔ Earth Engine authenticated</code></pre>
-</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to the Google Earth Engine API</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>gh.getdata_ee.initialise()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="collect-and-preprocess-earth-engine-data" class="level3">
 <h3 class="anchored" data-anchor-id="collect-and-preprocess-earth-engine-data">Collect and preprocess Earth Engine Data</h3>
 <p>Use <code>collect()</code> to define the data object and <code>preprocess()</code> to perform server-side data processing which includes cloud and shadow masking, image reduction and calculation of spectral indices.</p>
-<div class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>gee <span class="op">=</span> settings.target_sources[<span class="st">"GEE"</span>]</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the collection, area of interest and date range</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> getdata_ee.collect(collection<span class="op">=</span>gee[<span class="st">'preprocess'</span>][<span class="st">'collection'</span>],</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>              coords<span class="op">=</span>settings.target_bbox,</span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>              date<span class="op">=</span>gee[<span class="st">"preprocess"</span>][<span class="st">"date"</span>], </span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>              end_date <span class="op">=</span> gee[<span class="st">"preprocess"</span>][<span class="st">"end_date"</span>])</span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform cloud maskng, reduction, and calculate one or more spectral indices</span></span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>img.preprocess(mask_clouds<span class="op">=</span>gee[<span class="st">"preprocess"</span>][<span class="st">"mask_clouds"</span>], </span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>               <span class="bu">reduce</span><span class="op">=</span>gee[<span class="st">"preprocess"</span>][<span class="st">"reduce"</span>], </span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>               spectral<span class="op">=</span>gee[<span class="st">"preprocess"</span>][<span class="st">"spectral"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>ℹ Running preprocess()
-⊙ Applying scale, offset and cloud masks... 0.3s                                                               
-⊙ Computing spectral index: NDVI 0.6s                                                                          
-⊙ Reducing image pixels by median 0.0s                                                                         
-✔ Google Earth Engine preprocessing complete</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="16">
-<pre><code>&lt;ee.image.Image at 0x7f3ea8d00c70&gt;</code></pre>
-</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>gee <span class="op">=</span> settings.target_sources[<span class="st">"GEE"</span>]</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the collection, area of interest and date range</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> gh.getdata_ee.collect(collection<span class="op">=</span>gee[<span class="st">'preprocess'</span>][<span class="st">'collection'</span>],</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>              coords<span class="op">=</span>settings.target_bbox,</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>              date<span class="op">=</span>gee[<span class="st">"preprocess"</span>][<span class="st">"date"</span>], </span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>              end_date <span class="op">=</span> gee[<span class="st">"preprocess"</span>][<span class="st">"end_date"</span>])</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform cloud maskng, reduction, and calculate one or more spectral indices</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>img.preprocess(mask_clouds<span class="op">=</span>gee[<span class="st">"preprocess"</span>][<span class="st">"mask_clouds"</span>], </span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>               <span class="bu">reduce</span><span class="op">=</span>gee[<span class="st">"preprocess"</span>][<span class="st">"reduce"</span>], </span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>               spectral<span class="op">=</span>gee[<span class="st">"preprocess"</span>][<span class="st">"spectral"</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="download" class="level3">
 <h3 class="anchored" data-anchor-id="download">Download</h3>
 <p>Download the data using <code>download()</code> and add to <code>df_log</code>:</p>
-<div class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Downoad data</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>img.download(bands<span class="op">=</span>gee[<span class="st">"download"</span>][<span class="st">"bands"</span>],</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>             scale<span class="op">=</span>gee[<span class="st">"download"</span>][<span class="st">"scale"</span>],</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>             outpath<span class="op">=</span>settings.outpath,</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>             out_format<span class="op">=</span>gee[<span class="st">"download"</span>][<span class="st">"format"</span>])</span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Add to log dataframe</span></span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>outfnames <span class="op">=</span> [settings.outpath <span class="op">+</span> img.filenames]</span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>layernames <span class="op">=</span> [Path(img.filenames).resolve().stem]</span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> update_logtable(</span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>    df_log,</span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>    outfnames,</span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>    layernames,</span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"GEE"</span>,</span>
-<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>    settings,</span>
-<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>    layertitles<span class="op">=</span>[],</span>
-<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>    agfunctions<span class="op">=</span>img.<span class="bu">reduce</span>,</span>
-<span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>    loginfos<span class="op">=</span><span class="st">"downloaded"</span>,</span>
-<span id="cb31-21"><a href="#cb31-21" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb31-22"><a href="#cb31-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-23"><a href="#cb31-23" aria-hidden="true" tabindex="-1"></a>df_log <span class="co"># preview</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>ℹ Running download()
-ℹ Band(s) selected: NDVI
-⚑ ee_LAN_20210101_20211231_NDVI_median_100m.tif already exists, skipping download
-✔ Google Earth Engine download(s) complete</code></pre>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="17">
-
-<div>
-
-<table class="dataframe table table-sm table-striped">
-  <thead>
-    <tr>
-      <th></th>
-      <th>layername</th>
-      <th>agfunction</th>
-      <th>dataset</th>
-      <th>layertitle</th>
-      <th>filename_out</th>
-      <th>loginfo</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Bulk_Density</td>
-      <td>0-5cm</td>
-      <td>SLGA</td>
-      <td>Bulk_Density_0-5cm</td>
-      <td>../dataresults/SLGA_Bulk_Density_0-5cm.tif</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Clay</td>
-      <td>0-5cm</td>
-      <td>SLGA</td>
-      <td>Clay_0-5cm</td>
-      <td>../dataresults/SLGA_Clay_0-5cm.tif</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>daily_rain</td>
-      <td>mean</td>
-      <td>SILO</td>
-      <td>daily_rain_mean</td>
-      <td>../dataresults/_silo/silo_daily_rain_2022-10-0...</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>max_temp</td>
-      <td>median</td>
-      <td>SILO</td>
-      <td>max_temp_median</td>
-      <td>../dataresults/_silo/silo_max_temp_2022-10-01-...</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>min_temp</td>
-      <td>median</td>
-      <td>SILO</td>
-      <td>min_temp_median</td>
-      <td>../dataresults/_silo/silo_min_temp_2022-10-01-...</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>70</th>
-      <td>Aspect</td>
-      <td>None</td>
-      <td>Landscape</td>
-      <td>Landscape_Aspect</td>
-      <td>../dataresults/Landscape_Aspect.tif</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>71</th>
-      <td>Relief_300m</td>
-      <td>None</td>
-      <td>Landscape</td>
-      <td>Landscape_Relief_300m</td>
-      <td>../dataresults/Landscape_Relief_300m.tif</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>72</th>
-      <td>radmap2019_grid_dose_terr_awags_rad_2019</td>
-      <td>None</td>
-      <td>Radiometric</td>
-      <td>radmap2019_grid_dose_terr_awags_rad_2019</td>
-      <td>../dataresults/radiometric_radmap2019_grid_dos...</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>73</th>
-      <td>radmap2019_grid_dose_terr_filtered_awags_rad_2019</td>
-      <td>None</td>
-      <td>Radiometric</td>
-      <td>radmap2019_grid_dose_terr_filtered_awags_rad_2019</td>
-      <td>../dataresults/radiometric_radmap2019_grid_dos...</td>
-      <td>downloaded</td>
-    </tr>
-    <tr>
-      <th>74</th>
-      <td>ee_LAN_20210101_20211231_NDVI_median_100m</td>
-      <td>median</td>
-      <td>GEE</td>
-      <td>ee_LAN_20210101_20211231_NDVI_median_100m_median</td>
-      <td>../dataresults/ee_LAN_20210101_20211231_NDVI_m...</td>
-      <td>downloaded</td>
-    </tr>
-  </tbody>
-</table>
-<p>75 rows × 6 columns</p>
-</div>
-</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Downoad data</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>img.download(bands<span class="op">=</span>gee[<span class="st">"download"</span>][<span class="st">"bands"</span>],</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>             scale<span class="op">=</span>gee[<span class="st">"download"</span>][<span class="st">"scale"</span>],</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>             outpath<span class="op">=</span>settings.outpath,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>             out_format<span class="op">=</span>gee[<span class="st">"download"</span>][<span class="st">"format"</span>])</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Add to log dataframe</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>outfnames <span class="op">=</span> [settings.outpath <span class="op">+</span> img.filenames]</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>layernames <span class="op">=</span> [Path(img.filenames).resolve().stem]</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> update_logtable(</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>    df_log,</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>    outfnames,</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>    layernames,</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"GEE"</span>,</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>    settings,</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>    layertitles<span class="op">=</span>[],</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>    agfunctions<span class="op">=</span>img.<span class="bu">reduce</span>,</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>    loginfos<span class="op">=</span><span class="st">"downloaded"</span>,</span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>df_log <span class="co"># preview</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -1657,81 +724,77 @@ Info: 6.0 arcsec resolution corresponds to 160.2m x 185.2m in x,y direction resp
 <h2 class="anchored" data-anchor-id="save-the-final-log-or-start-from-here-to-re-load-it-in.">Save the final log or start from here to re-load it in.</h2>
 <p>We have now completed the data download section. You may add additional downlods and processing steps to your log file.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save out (or load in) the log file.</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>logfile <span class="op">=</span> settings.outpath<span class="op">+</span><span class="st">'log.csv'</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> exists(logfile):</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(logfile, <span class="st">"exists! Do you want to read it in?</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    user_input <span class="op">=</span> <span class="bu">input</span>(<span class="st">"(y)es / (n)o / (a)bort ? Ansering 'no' will overwrite the current file.</span><span class="ch">\n</span><span class="st">"</span>)</span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> user_input<span class="op">==</span><span class="st">'y'</span>:</span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>        df_log <span class="op">=</span> pd.read_csv(settings.outpath<span class="op">+</span><span class="st">'log.csv'</span>)</span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> user_input <span class="op">==</span><span class="st">'n'</span>: </span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>        df_log.to_csv(settings.outpath<span class="op">+</span><span class="st">'log.csv'</span>,index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(logfile, <span class="st">"saved!"</span>)</span>
-<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Cancelling read/write for log file.</span><span class="ch">\n</span><span class="st">Figure out what you want to do and please try again."</span>)</span>
-<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"No log file found. Saving to"</span>, settings.outpath<span class="op">+</span><span class="st">'log.csv'</span>)</span>
-<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>    df_log.to_csv(settings.outpath<span class="op">+</span><span class="st">'log.csv'</span>,index<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>df_log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>../dataresults/log.csv exists! Do you want to read it in?
-</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save out (or load in) the log file.</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>logfile <span class="op">=</span> settings.outpath<span class="op">+</span><span class="st">'log.csv'</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> exists(logfile):</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(logfile, <span class="st">"exists! Do you want to read it in?</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    user_input <span class="op">=</span> <span class="bu">input</span>(<span class="st">"(y)es / (n)o / (a)bort ? Ansering 'no' will overwrite the current file.</span><span class="ch">\n</span><span class="st">"</span>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> user_input<span class="op">==</span><span class="st">'y'</span>:</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>        df_log <span class="op">=</span> pd.read_csv(settings.outpath<span class="op">+</span><span class="st">'log.csv'</span>)</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">elif</span> user_input <span class="op">==</span><span class="st">'n'</span>: </span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>        df_log.to_csv(settings.outpath<span class="op">+</span><span class="st">'log.csv'</span>,index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(logfile, <span class="st">"saved!"</span>)</span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"Cancelling read/write for log file.</span><span class="ch">\n</span><span class="st">Figure out what you want to do and please try again."</span>)</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"No log file found. Saving to"</span>, settings.outpath<span class="op">+</span><span class="st">'log.csv'</span>)</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    df_log.to_csv(settings.outpath<span class="op">+</span><span class="st">'log.csv'</span>,index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>df_log</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="points-extraction-from-downloadedprocessed-data" class="level2">
 <h2 class="anchored" data-anchor-id="points-extraction-from-downloadedprocessed-data">Points extraction from downloaded/processed data</h2>
 <p>By default point values of all processed layers in df_log are extracted given by the input locations. However, you can select also only certain layers (see in code).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select all processed data</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>df_sel <span class="op">=</span> df_log.copy()</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="co"># or select only the rasters of interest, for example:</span></span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a><span class="co">df_sel = df_log[df_log['layername'].isin(['DEM','Slope',</span></span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="co">'landsat8_nbart_16day_channel0', </span></span>
-<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="co">'Organic_Carbon','Depth_of_Soil',</span></span>
-<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a><span class="co">'mean_temp','monthly_rain'])]</span></span>
-<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>rasters<span class="op">=</span> df_sel[<span class="st">'filename_out'</span>].values.tolist()</span>
-<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>titles <span class="op">=</span> df_sel[<span class="st">'layertitle'</span>].values.tolist()</span>
-<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract datatable from rasters given input coordinates</span></span>
-<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> utils.raster_query(lngs,lats,rasters,titles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select all processed data</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>df_sel <span class="op">=</span> df_log.copy()</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># or select only the rasters of interest, for example:</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="co">df_sel = df_log[df_log['layername'].isin(['DEM','Slope',</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co">'landsat8_nbart_16day_channel0', </span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co">'Organic_Carbon','Depth_of_Soil',</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="co">'mean_temp','monthly_rain'])]</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="co">"""</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>rasters<span class="op">=</span> df_sel[<span class="st">'filename_out'</span>].values.tolist()</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>titles <span class="op">=</span> df_sel[<span class="st">'layertitle'</span>].values.tolist()</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract datatable from rasters given input coordinates</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>gdf <span class="op">=</span> utils.raster_query(lngs,lats,rasters,titles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="inspect-result-dataframe" class="level3">
 <h3 class="anchored" data-anchor-id="inspect-result-dataframe">Inspect result dataframe</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect either entire generated dataframe with </span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="co"># gdf</span></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="co"># or only the first rows</span></span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>gdf.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Inspect either entire generated dataframe with </span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># gdf</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># or only the first rows</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>gdf.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get some general info about result table:</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>gdf.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get some general info about result table:</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>gdf.info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="save-the-results-table" class="level3">
 <h3 class="anchored" data-anchor-id="save-the-results-table">Save the results table</h3>
 <p>Finally, the result dataframe table is saved as a csv file, which can be used now to do some awesome ML. In addition the results are also saved as a geo-spatial referenced geopackage (.gpkg), which can be used again as input for further analysis or to inspect and overlay data on other layers and basemaps. The geopackage is a standard georeferenced file format and can be opened with any geo-spatial package or interactive software (e.g., QGIS, Esri ArcGIS).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the results table to a csv </span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>gdf.to_csv(os.path.join(settings.outpath, <span class="st">"results.csv"</span>), index <span class="op">=</span> <span class="va">True</span>, mode<span class="op">=</span><span class="st">'w'</span>)</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Save also as geopackage</span></span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>gdf.to_file(os.path.join(settings.outpath, <span class="st">"results.gpkg"</span>), driver<span class="op">=</span><span class="st">"GPKG"</span>)</span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: The deprecated warning below is a bug in geopandas and will be fixed in their bext version.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the results table to a csv </span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>gdf.to_csv(os.path.join(settings.outpath, <span class="st">"results.csv"</span>), index <span class="op">=</span> <span class="va">True</span>, mode<span class="op">=</span><span class="st">'w'</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Save also as geopackage</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>gdf.to_file(os.path.join(settings.outpath, <span class="st">"results.gpkg"</span>), driver<span class="op">=</span><span class="st">"GPKG"</span>)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: The deprecated warning below is a bug in geopandas and will be fixed in their bext version.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="overview-plot-of-all-processed-rasters" class="level3">
 <h3 class="anchored" data-anchor-id="overview-plot-of-all-processed-rasters">Overview plot of all processed rasters</h3>
 <p>This provides a quick overview to inspect all processed data layers with an overlay of the requested location points.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot one of that datasets with the points on top</span></span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>utils.plot_rasters(rasters,lngs,lats,titles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot one of that datasets with the points on top</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>utils.plot_rasters(rasters,lngs,lats,titles)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
