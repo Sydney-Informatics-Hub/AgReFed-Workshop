@@ -10,3 +10,5 @@ _site/
 .DS_Store
 code/old
 pydocs/result*
+
+/.luarc.json
