@@ -67,7 +67,7 @@ website:
           - section: "Setting up"
             contents:
               - text: "Python Environment"
-                href: pydocs/setup-python
+                href: pydocs/setup-python.qmd
               - text: "Google Earth Engine"
                 href: pydocs/setup-gee.qmd
 

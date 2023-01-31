@@ -1,17 +1,18 @@
 ---
 title: Python Workshop
 ---
-**The AgReFed Data-Harvester can be run in Python or R. **
+**The AgReFed Geoata-Harvester can be run in Python or R. **
 
 This Python workshop is aimed at people who are more familiar with Python. If you prefer to use R, see the [R Workshop](/rdocs/r00-workshop.qmd) for details.
 
 ::: callout-important
-Please sign up for **Google Earth Engine** access and an account on the **[JupyterHub Server](https://jupyterhub.agrefed.cloud.edu.au/)** before the workshop. See [Setting up](/pydocs/setup-python) for instructions.
+## Pre-Workshop Setup
+Please sign up for **Google Earth Engine** before the workshop. See [the GEE setup pages](/pydocs/setup-gee) for instructions. 
 :::
 
--- **Join our shared space by clicking the button below**:
+-- **Join our hosted virtual Python environment by clicking the button below and signing in with AAF**:
 
-[AgReFed Python Workshop](https://jupyterhub.agrefed.cloud.edu.au/){target="_blank"}
+[AgReFed Python Workshop](https://jupyterhub.rc.nectar.org.au/){target="_blank"}
 
 ## How to follow the sessions
 

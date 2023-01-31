@@ -1,5 +1,5 @@
 ---
-title: "Data-Harvester Workshops"
+title: "Geodata-Harvester Workshops"
 subtitle: "Presented by Sydney Informatics Hub and the Agricultural Research Federation"
 markdown:
     canonical: true
@@ -9,20 +9,20 @@ markdown:
 ::: callout-tip
 ### Workshop information {.unnumbered}
 
-The next AgReFed Geo-Data Harvester workshop will be run in **early 2023**. Please check back here for details.
+The next AgReFed Geodata Harvester workshop will be run on **Feb 2 2023**. Please [register here](https://liveclassroom.zoom.us/j/93139247613?pwd=MTRnYjdHUktoK3dQWDk1MWZFUWFoZz09)
 <!-- <script src="https://cdn.logwork.com/widget/countdown.js"></script>
 <a href="https://logwork.com/countdown-w5fs" class="countdown-timer" data-style="circles" data-timezone="Australia/Sydney" data-date="2022-11-03 13:30">Workshop starts in...</a> -->
 
 :::
 
-::: callout-note
-### Python workshop {.unnumbered}
-**Interested in a Data-Harvester workshop run in {{< fa brands python >}} Python? [Let us know](https://sydney.au1.qualtrics.com/jfe/form/SV_9TUKiEjaNEFPifk).** We'll be sending out an email to everyone who signed up for the course when it's ready to go.
-:::
+# ::: callout-note
+# ### Python workshop {.unnumbered}
+# **Interested in a Data-Harvester workshop run in {{< fa brands python >}} Python? [Let us know](https://sydney.au1.qualtrics.com/jfe/form/SV_9TUKiEjaNEFPifk).** We'll be sending out an email to everyone who signed up for the course when it's ready to go.
+# :::
 
 ## About
 
-Use the AgReFed Data-Harvester to **access, process and download** national (Australian) and global space/time data aimed at agricultural scientists, environmental scientists, ecologists and other researchers.
+Use the AgReFed Geodata-Harvester to **access, process and download** national (Australian) and global space/time data aimed at agricultural scientists, environmental scientists, ecologists and other researchers.
 
 In the workshops, we will show you how to download and summarise geospatial data from a range of sources including:
 
@@ -45,7 +45,7 @@ In addition, we will present some spatial and temporal aggregation, visualisatio
 Hub**](https://www.sydney.edu.au/research/facilities/sydney-informatics-hub.html)
 in collaboration with the [**Agricultural Research
 Federation**](https://www.agrefed.org.au/AgReFedPlatform).  -->
- 
+
 For more information about the workshops, including who these workshops are made for, check the [FAQ](/faq.qmd).
 
 ## Trainers
@@ -57,4 +57,3 @@ For more information about the workshops, including who these workshops are made
 -   *Eden Zhang* (support)
 -   *Darya Vanichkina* (support)
 -   *Thomas Bishop* (support)
-

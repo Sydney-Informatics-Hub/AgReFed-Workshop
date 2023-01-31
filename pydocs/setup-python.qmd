@@ -1,0 +1,68 @@
+---
+title: Setting up Python environment
+---
+
+# Jupyter Hub
+
+We will be using an online "Jupyter Hub" python environment for the workshop. This environment contains all the required libraries and packages pre-configured and allows you to use Python "notebooks" on-demand with a "Jupyter Lab" ide.
+
+## Instructions
+
+Navigate your browser to [https://jupyterhub.rc.nectar.org.au/](https://jupyterhub.rc.nectar.org.au/)
+
+Click the *Sign in with AAF* button.
+
+![](assets/ag_01.png "Sign in with AAF")
+
+Go through your institutional sign-in process.
+
+> If you have no idea what AAF is or your institution is not listed, let us know and we can provide an alternate account for the workshop!
+
+![](assets/ag_02.png "AgReFed Python environment")
+
+Select the *AgReFed Python environment* server option and then click *START*. The environment has all the dependant software required to run the Geodata Harvester.
+
+You should now be in a "Jupyter Lab" interface. Select the *Notebook > Python3 (ipykernel)* to get started!
+
+![](assets/ag_03.png "Jupyter Hub")
+
+
+
+# Optional: Local Install
+
+The Geodata-Harvester is available through the *conda* package manager, installation can be accomplished with:
+
+```
+conda install -c conda-forge geodata_harvester
+```
+
+This will compile and install all the dependencies required. You may now invoke the geodata-harvester directly from a python terminal with:
+
+```python
+import geodata_harvester as gh
+gh.harvest.run()
+```
+
+**Note the subtle but important difference in use of an underscore `_` to import the package and the use of a dash `-` to install it!**
+
+
+## Build the Python environment and use PIP
+
+To build the Geodata Harvester from scratch see the dependencies listed in the [environment file](https://raw.githubusercontent.com/Sydney-Informatics-Hub/geodata-harvester/main/environment.yaml).
+
+To install the dependencies for the Geodata Harvester you may use the environment file directly in conda:
+
+```
+wget https://raw.githubusercontent.com/Sydney-Informatics-Hub/geodata-harvester/main/environment.yaml
+conda env create -f environment.yaml -n gdh
+conda activate gdh
+```
+
+Now you can install the Geodata Harvester from pypi with:
+```
+pip install geodata-harvester
+```
+
+# Source Code
+
+To contribute to the development and to understand how the Geodata Harvester works, visit the [geodata-harvester GitHub repo](https://github.com/Sydney-Informatics-Hub/geodata-harvester).
