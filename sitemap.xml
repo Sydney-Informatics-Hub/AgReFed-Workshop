@@ -2,98 +2,98 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/Data_Overview.html</loc>
-    <lastmod>2023-01-31T04:13:37.248Z</lastmod>
+    <lastmod>2023-01-31T04:18:23.054Z</lastmod>
   </url>
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/rdocs/r00-workshop.html</loc>
-    <lastmod>2023-01-31T04:13:38.028Z</lastmod>
+    <lastmod>2023-01-31T04:18:23.810Z</lastmod>
   </url>
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/rdocs/r30-basic.html</loc>
-    <lastmod>2023-01-31T04:13:38.928Z</lastmod>
+    <lastmod>2023-01-31T04:18:24.690Z</lastmod>
   </url>
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/rdocs/r03-google-earth-engine.html</loc>
-    <lastmod>2023-01-31T04:13:39.348Z</lastmod>
+    <lastmod>2023-01-31T04:18:25.086Z</lastmod>
   </url>
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/rdocs/r99-troubleshooting.html</loc>
-    <lastmod>2023-01-31T04:13:39.992Z</lastmod>
+    <lastmod>2023-01-31T04:18:25.726Z</lastmod>
   </url>
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/rdocs/r02-setup-desktop.html</loc>
-    <lastmod>2023-01-31T04:13:40.632Z</lastmod>
+    <lastmod>2023-01-31T04:18:26.378Z</lastmod>
   </url>
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/rdocs/r01-setup-cloud.html</loc>
-    <lastmod>2023-01-31T04:13:41.040Z</lastmod>
+    <lastmod>2023-01-31T04:18:26.802Z</lastmod>
   </url>
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/rdocs/r40-advanced.html</loc>
-    <lastmod>2023-01-31T04:13:41.804Z</lastmod>
+    <lastmod>2023-01-31T04:18:27.574Z</lastmod>
   </url>
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/rdocs/r20-introduction.html</loc>
-    <lastmod>2023-01-31T04:13:42.584Z</lastmod>
+    <lastmod>2023-01-31T04:18:28.330Z</lastmod>
   </url>
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/index.html</loc>
-    <lastmod>2023-01-31T04:13:43.004Z</lastmod>
+    <lastmod>2023-01-31T04:18:28.754Z</lastmod>
   </url>
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/faq.html</loc>
-    <lastmod>2023-01-31T04:13:43.472Z</lastmod>
+    <lastmod>2023-01-31T04:18:29.178Z</lastmod>
   </url>
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/yaml_config.html</loc>
-    <lastmod>2023-01-31T04:13:43.956Z</lastmod>
+    <lastmod>2023-01-31T04:18:29.634Z</lastmod>
   </url>
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/code/MVP.html</loc>
-    <lastmod>2023-01-31T04:13:44.640Z</lastmod>
+    <lastmod>2023-01-31T04:18:30.262Z</lastmod>
   </url>
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/code/Data_Harvest.html</loc>
-    <lastmod>2023-01-31T04:13:45.448Z</lastmod>
+    <lastmod>2023-01-31T04:18:31.046Z</lastmod>
   </url>
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/code-of-conduct.html</loc>
-    <lastmod>2023-01-31T04:13:45.856Z</lastmod>
+    <lastmod>2023-01-31T04:18:31.430Z</lastmod>
   </url>
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/Settings_Overview.html</loc>
-    <lastmod>2023-01-31T04:13:46.408Z</lastmod>
+    <lastmod>2023-01-31T04:18:31.958Z</lastmod>
   </url>
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/about.html</loc>
-    <lastmod>2023-01-31T04:13:46.840Z</lastmod>
+    <lastmod>2023-01-31T04:18:32.382Z</lastmod>
   </url>
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/pydocs/py00-workshop.html</loc>
-    <lastmod>2023-01-31T04:13:47.264Z</lastmod>
+    <lastmod>2023-01-31T04:18:32.818Z</lastmod>
   </url>
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/pydocs/p20-advanced.html</loc>
-    <lastmod>2023-01-31T04:13:47.920Z</lastmod>
+    <lastmod>2023-01-31T04:18:33.446Z</lastmod>
   </url>
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/pydocs/p10-basic.html</loc>
-    <lastmod>2023-01-31T04:13:48.364Z</lastmod>
+    <lastmod>2023-01-31T04:18:33.870Z</lastmod>
   </url>
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/pydocs/setup-python.html</loc>
-    <lastmod>2023-01-31T04:13:48.820Z</lastmod>
+    <lastmod>2023-01-31T04:18:34.318Z</lastmod>
   </url>
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/pydocs/p30-technical.html</loc>
-    <lastmod>2023-01-31T04:13:49.448Z</lastmod>
+    <lastmod>2023-01-31T04:18:34.922Z</lastmod>
   </url>
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/pydocs/setup-gee.html</loc>
-    <lastmod>2023-01-31T04:13:49.888Z</lastmod>
+    <lastmod>2023-01-31T04:18:35.350Z</lastmod>
   </url>
   <url>
     <loc>https://sydney-informatics-hub.github.io/AgReFed-Workshop/pydocs/Data_Harvest.html</loc>
-    <lastmod>2023-01-31T04:13:50.608Z</lastmod>
+    <lastmod>2023-01-31T04:18:36.054Z</lastmod>
   </url>
 </urlset>
