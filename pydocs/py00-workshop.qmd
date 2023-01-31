@@ -7,12 +7,14 @@ This Python workshop is aimed at people who are more familiar with Python. If yo
 
 ::: callout-important
 ## Pre-Workshop Setup
-Please sign up for **Google Earth Engine** before the workshop. See [the GEE setup pages](/pydocs/setup-gee) for instructions. 
+Please sign up for **Google Earth Engine** before the workshop. See [the GEE setup pages](/pydocs/setup-gee) for instructions.
 :::
 
 -- **Join our hosted virtual Python environment by clicking the button below and signing in with AAF**:
 
 [AgReFed Python Workshop](https://jupyterhub.rc.nectar.org.au/){target="_blank"}
+
+We will be following along these notes navigable in the left hand menu. Get started by [setting up Google Earth Engine](/pydocs/setup-gee) and [get a working Python Environemnt](/pydocs/setup-python). Then launch into the sessions with [1-Intro and Basic Usage](/pydocs/p10-basic).
 
 ## How to follow the sessions
 

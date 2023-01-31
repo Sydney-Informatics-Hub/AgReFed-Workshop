@@ -28,10 +28,10 @@ You should now be in a "Jupyter Lab" interface. Select the *Notebook > Python3 (
 
 ## Install Geodata Harvester
 
-In the Jupyter notebook install geodata-harvester via pip (recommended)
+In the Jupyter notebook install geodata-harvester via conda (recommended)
 
 ```python
-!pip install geodata-harvester
+!conda install -c conda-forge geodata-harvester --yes
 ```
 
 You can then import the library via (note the underscore `_` for import of library)
