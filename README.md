@@ -1,9 +1,13 @@
 
-[![Render and Publish](https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop/actions/workflows/quarto-publish.yml/badge.svg)](https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop/actions/workflows/quarto-publish.yml)
-
-# AgReFed Data-Harvester -- Workshops
+# AgReFed Geodata-Harvester -- Workshops
 
 https://sydney-informatics-hub.github.io/AgReFed-Workshop/
+
+
+## Data Repo
+
+If you can see this repo, you are on the `data` branch. This just hosts the data used in the workshop!
+Switch to `main` for the content.
 
 ## Students
 
