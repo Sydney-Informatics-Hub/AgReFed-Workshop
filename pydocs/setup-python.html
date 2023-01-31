@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>AgReFed Data-Harvester – setup-python</title>
+<title>AgReFed Data-Harvester - Setting up Python environment</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -168,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"></h1>
+      <h1 class="quarto-secondary-nav-title">Setting up Python environment</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -336,85 +336,99 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#setting-up" id="toc-setting-up" class="nav-link active" data-scroll-target="#setting-up">Setting up</a>
-  <ul class="collapse">
-  <li><a href="#jupyter-hub" id="toc-jupyter-hub" class="nav-link" data-scroll-target="#jupyter-hub">Jupyter Hub</a>
+  <li><a href="#jupyter-hub" id="toc-jupyter-hub" class="nav-link active" data-scroll-target="#jupyter-hub">Jupyter Hub</a>
   <ul class="collapse">
   <li><a href="#instructions" id="toc-instructions" class="nav-link" data-scroll-target="#instructions">Instructions</a></li>
+  <li><a href="#install-geodata-harvester" id="toc-install-geodata-harvester" class="nav-link" data-scroll-target="#install-geodata-harvester">Install Geodata Harvester</a></li>
   </ul></li>
-  <li><a href="#install" id="toc-install" class="nav-link" data-scroll-target="#install">Install</a></li>
-  <li><a href="#optional-local-install" id="toc-optional-local-install" class="nav-link" data-scroll-target="#optional-local-install">Optional: Local Install</a>
+  <li><a href="#optional-local-setup" id="toc-optional-local-setup" class="nav-link" data-scroll-target="#optional-local-setup">Optional: Local Setup</a>
   <ul class="collapse">
-  <li><a href="#conda-install" id="toc-conda-install" class="nav-link" data-scroll-target="#conda-install">Conda Install</a></li>
-  <li><a href="#pip-install" id="toc-pip-install" class="nav-link" data-scroll-target="#pip-install">Pip Install</a></li>
-  <li><a href="#local-development-environment" id="toc-local-development-environment" class="nav-link" data-scroll-target="#local-development-environment">Local development environment</a></li>
+  <li><a href="#conda-install" id="toc-conda-install" class="nav-link" data-scroll-target="#conda-install">Conda install</a></li>
+  <li><a href="#pip-install" id="toc-pip-install" class="nav-link" data-scroll-target="#pip-install">Pip install</a></li>
+  <li><a href="#build-the-python-environment" id="toc-build-the-python-environment" class="nav-link" data-scroll-target="#build-the-python-environment">Build the Python environment</a></li>
   </ul></li>
-  </ul></li>
+  <li><a href="#source-code" id="toc-source-code" class="nav-link" data-scroll-target="#source-code">Source Code</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/Sydney-Informatics-Hub/AgReFed-Workshop/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Setting up Python environment</h1>
+</div>
 
 
-<section id="setting-up" class="level1">
-<h1>Setting up</h1>
-<section id="jupyter-hub" class="level2">
-<h2 class="anchored" data-anchor-id="jupyter-hub">Jupyter Hub</h2>
-<p>We will be using an online “Jupyter Hub” python environment for the workshop. This environment contains all the required libraries and packages pre-configured and allows you to use Python “notebooks” on-demand.</p>
-<section id="instructions" class="level3">
-<h3 class="anchored" data-anchor-id="instructions">Instructions</h3>
-<p>Navigate your browser to https://jupyterhub.rc.nectar.org.au/</p>
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="jupyter-hub" class="level1">
+<h1>Jupyter Hub</h1>
+<p>We will be using an online “Jupyter Hub” python environment for the workshop. This environment contains all the required libraries and packages pre-configured and allows you to use Python “notebooks” on-demand with a “Jupyter Lab” ide.</p>
+<section id="instructions" class="level2">
+<h2 class="anchored" data-anchor-id="instructions">Instructions</h2>
+<p>Navigate your browser to <a href="https://jupyterhub.rc.nectar.org.au/">https://jupyterhub.rc.nectar.org.au/</a></p>
 <p>Click the <em>Sign in with AAF</em> button.</p>
 <p><img src="assets/ag_01.png" title="Sign in with AAF" class="img-fluid"></p>
 <p>Go through your institutional sign-in process.</p>
 <blockquote class="blockquote">
-<p>If you have no idea what AAF and your institution is not listed, let us know and we can provide an alterante account for the workshop!</p>
+<p>If you have no idea what AAF is or your institution is not listed, let us know and we can provide an alternate account for the workshop!</p>
 </blockquote>
 <p><img src="assets/ag_02.png" title="AgReFed Python environment" class="img-fluid"></p>
-<p>Select the <em>AgReFed Python environment</em> server option and then click <em>START</em>. The environment has all the dependant software required to run the Geodata Harvester, to see what is installed, see the <em>Local Install</em> section below.</p>
+<p>Select the <em>AgReFed Python environment</em> server option and then click <em>START</em>. The environment has all the dependant software required to run the Geodata Harvester.</p>
 <p>You should now be in a “Jupyter Lab” interface. Select the <em>Notebook &gt; Python3 (ipykernel)</em> to get started!</p>
 <p><img src="assets/ag_03.png" title="Jupyter Hub" class="img-fluid"></p>
 </section>
-</section>
-<section id="install" class="level2">
-<h2 class="anchored" data-anchor-id="install">Install</h2>
-<p>in the Jupyter notebook install geodata-harvester via pip (recommended)</p>
+<section id="install-geodata-harvester" class="level2">
+<h2 class="anchored" data-anchor-id="install-geodata-harvester">Install Geodata Harvester</h2>
+<p>In the Jupyter notebook install geodata-harvester via pip (recommended)</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install geodata<span class="op">-</span>harvester</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>You can then import the library via (note the underscore <code>_</code> for import of library):</p>
+<p>You can then import the library via (note the underscore <code>_</code> for import of library)</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geodata_harvester <span class="im">as</span> gh</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>gh.harvest.run()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="optional-local-install" class="level2">
-<h2 class="anchored" data-anchor-id="optional-local-install">Optional: Local Install</h2>
-<section id="conda-install" class="level3">
-<h3 class="anchored" data-anchor-id="conda-install">Conda Install</h3>
-<p>The package geodata-harvester is available via the conda-forge channel:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install geodata-harvester <span class="at">-c</span> conda-forge</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>or in a Jupyter notebook as:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>conda install geodata<span class="op">-</span>harvester <span class="op">-</span>c conda<span class="op">-</span>forge <span class="op">--</span>yes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="pip-install" class="level3">
-<h3 class="anchored" data-anchor-id="pip-install">Pip Install</h3>
-<p>Geodata-harvester can be installed via pypi, which requires a pre-installation of gdal (see, e.g., <a href="https://pypi.org/project/GDAL/">pypi.org/project/GDAL/installation guide</a>) in your environment. Once gdal is installed, you can install geodata-harvester via</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install geodata-harvester</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>or in a Jupyter notebook as:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install geodata<span class="op">-</span>harvester</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>The geodata-harvester library can then be imported via, e.g.:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geodata_harvester <span class="im">as</span> gh</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>gh.harvest.run()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="optional-local-setup" class="level1">
+<h1>Optional: Local Setup</h1>
+<section id="conda-install" class="level2">
+<h2 class="anchored" data-anchor-id="conda-install">Conda install</h2>
+<p>The Geodata-Harvester is available through the <em>conda</em> package manager in the <em>conda-forge</em> channel, installation can be accomplished with:</p>
+<pre><code>conda install -c conda-forge geodata_harvester</code></pre>
+<p>This will compile and install all the dependencies required. You may now invoke the geodata-harvester directly from a python terminal with:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geodata_harvester <span class="im">as</span> gh</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>gh.harvest.run()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Note the subtle but important difference in use of an underscore <code>_</code> to import the package and the use of a dash <code>-</code> to install it!</strong></p>
 </section>
-<section id="local-development-environment" class="level3">
-<h3 class="anchored" data-anchor-id="local-development-environment">Local development environment</h3>
-<p>If you like to develop Data Harvester locally, it is recommended to setup a virtual environment for the installation, e.g., via conda miniforge. This can be done by downloading the environment file from github.</p>
+<section id="pip-install" class="level2">
+<h2 class="anchored" data-anchor-id="pip-install">Pip install</h2>
+<p>Geodata-harvester can be installed via <a href="https://pypi.org/project/geodata-harvester/">pypi</a>, which requires a pre-installation of <a href="https://pypi.org/project/GDAL/">gdal</a> in your environment (see the buld instructions below). Once gdal is installed, you can install geodata-harvester via</p>
+<pre><code>pip install geodata-harvester</code></pre>
+</section>
+<section id="build-the-python-environment" class="level2">
+<h2 class="anchored" data-anchor-id="build-the-python-environment">Build the Python environment</h2>
+<p>To build the Geodata Harvester from scratch see the dependencies listed in the <a href="https://raw.githubusercontent.com/Sydney-Informatics-Hub/geodata-harvester/main/environment.yaml">environment file</a>.</p>
+<p>To install the dependencies for the Geodata Harvester you may use the environment file directly in conda:</p>
 <pre><code>wget https://raw.githubusercontent.com/Sydney-Informatics-Hub/geodata-harvester/main/environment.yaml
 conda env create -f environment.yaml -n gdh
 conda activate gdh</code></pre>
-
-
+<p>Now you can install the Geodata Harvester from pypi with:</p>
+<pre><code>pip install geodata-harvester</code></pre>
 </section>
 </section>
+<section id="source-code" class="level1">
+<h1>Source Code</h1>
+<p>To contribute to the development and to understand how the Geodata Harvester works, visit the <a href="https://github.com/Sydney-Informatics-Hub/geodata-harvester">geodata-harvester GitHub repo</a>.</p>
+
+
 </section>
 
 </main> <!-- /main -->
