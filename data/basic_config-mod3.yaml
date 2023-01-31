@@ -26,6 +26,6 @@ target_sources:
       format: tif
       overwrite: false
 
-infile: data/example-site_llara.csv
+infile: AgReFed-Workshop/data/example-site_llara.csv
 colname_lat: Lat
 colname_lng: Long

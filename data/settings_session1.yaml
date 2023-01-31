@@ -2,7 +2,7 @@
 
 # Output path relative to code execution location
 infile: AgReFed-Workshop/data/example-site_llara.csv
-outpath: AgReFed-Workshop/output/
+outpath: output/
 colname_lat: Lat
 colname_lng: Long
 
@@ -27,11 +27,11 @@ target_sources:
   - radmap2019_grid_dose_terr_filtered_awags_rad_2019
   SILO:
     daily_rain: mean
-    max_temp: median
-    min_temp: median
-    monthly_rain: sum
-    processing:
-      aggregate_rasters : ['mean']
+    # max_temp: median
+    # min_temp: median
+    # monthly_rain: sum
+    # processing:
+      # aggregate_rasters : ['mean']
   SLGA:
     Bulk_Density: [0-5cm]
     Clay: [0-5cm]
