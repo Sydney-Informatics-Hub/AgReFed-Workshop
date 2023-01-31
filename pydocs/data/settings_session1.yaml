@@ -2,7 +2,7 @@
 
 # Output path relative to code execution location
 infile: data/example-site_llara.csv
-outpath: results/
+outpath: output/
 colname_lat: Lat
 colname_lng: Long
 
@@ -16,9 +16,9 @@ time_intervals : 4
 time_buffer : 7
 
 target_sources:
-  DEA:
-  - landsat_barest_earth
-  - ga_ls_ard_3
+  # DEA:
+  # - landsat_barest_earth
+  # - ga_ls_ard_3
   DEM:
   - DEM
   Landscape: [Slope, Aspect, Relief_300m]
@@ -30,8 +30,8 @@ target_sources:
     max_temp: median
     min_temp: median
     monthly_rain: sum
-    processing:
-      aggregate_rasters : ['mean']
+    # processing:
+      # aggregate_rasters : ['mean']
   SLGA:
     Bulk_Density: [0-5cm]
     Clay: [0-5cm]

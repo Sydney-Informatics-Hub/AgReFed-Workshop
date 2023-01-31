@@ -46,7 +46,7 @@ gh.harvest.run()
 
 ## Conda install
 
-The Geodata-Harvester is available through the *conda* package manager in the *conda-forge* channel, installation can be accomplished with:
+The Geodata-Harvester is available through the *conda* package manager in the [conda-forge](https://anaconda.org/conda-forge/geodata-harvester) channel, installation can be accomplished with:
 
 ```
 conda install -c conda-forge geodata_harvester
