@@ -388,7 +388,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </header>
 
 <hr>
-<p>The Data Harvester enables researchers with reusable workflows for automatic data extraction from a range of data sources including spatial-temporal processing into useable formats. User provided data is auto-completed with a suitable set of spatial- and temporal-aligned covariates as a ready-made dataset for machine learning and agriculture models. In addition, all requested data layer maps are automatically extracted and aligned for a specific region and time period.</p>
+<p>The Geodata Harvester enables researchers with reusable workflows for automatic data extraction from a range of data sources including spatial-temporal processing into useable formats. User provided data is auto-completed with a suitable set of spatial- and temporal-aligned covariates as a ready-made dataset for machine learning and agriculture models. In addition, all requested data layer maps are automatically extracted and aligned for a specific region and time period.</p>
 <p>The main workflow of the Harvester is as follows:</p>
 <ol type="1">
 <li>Options and user settings (e.g., data layer selections, spatial coverage, temporal constraints, i/o directory names) are defined by the user in the notebook settings menu or can be loaded with a settings yaml file (e.g., settings/settings_v0.2_saved.yaml). All settings are also saved in a yaml file for reusability.</li>
@@ -432,7 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="diy-settings-configuration-file" class="level2">
 <h2 class="anchored" data-anchor-id="diy-settings-configuration-file">DIY settings configuration file</h2>
-<p>Let’s start with loading all user settings and options as specified in the settings file. For this example we provide a template file <code>data/settings_session1.yaml</code>. You can use the default settings in this file. Or you may changed the file directly, or point to a new file. Or override any of the defaults throughout this notebook. This is the core piece of the Data Harvester that makes the data collection reproduceable. You could give the settings file to someone else and they will end up with the same data collections.</p>
+<p>Let’s start with loading all user settings and options as specified in the settings file. For this example we provide a template file <code>data/settings_session3.yaml</code>. You can use the default settings in this file. Or you may changed the file directly, or point to a new file. Or override any of the defaults throughout this notebook. This is the core piece of the Geodata Harvester that makes the data collection reproduceable. You could give the settings file to someone else and they will end up with the same data collections.</p>
 <div class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Build your own settings file with interactive widgets</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>tab_nest, w_settings, names_settings, w_load <span class="op">=</span> hw.gen_maintab()</span>
@@ -696,7 +696,7 @@ Info: 6.0 arcsec resolution corresponds to 160.2m x 185.2m in x,y direction resp
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Each data-source must be handled differently (as the data is stored in different ways)</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Here we must get each layer, one by one. The simplest way is to loop through them.</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get data for each layer</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>outpath <span class="op">=</span> settings.outpath<span class="op">+</span><span class="st">'_silo'</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>outpath <span class="op">=</span> settings.outpath<span class="op">+</span><span class="st">'/silo'</span></span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>silo_layernames <span class="op">=</span> <span class="bu">list</span>(settings.target_sources[<span class="st">'SILO'</span>].keys())</span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># run the download</span></span>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>fnames_out_silo <span class="op">=</span> gh.getdata_silo.get_SILO_layers(</span>
@@ -2209,13 +2209,13 @@ for (let c of document.getElementsByClassName("ee-toggle")) {
 <div class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Downoad data</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>img.download(bands<span class="op">=</span>gee[<span class="st">"download"</span>][<span class="st">"bands"</span>],</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>             scale<span class="op">=</span>gee[<span class="st">"download"</span>][<span class="st">"scale"</span>],</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>             scale<span class="op">=</span><span class="dv">100</span>, <span class="co">#gee["download"]["scale"],</span></span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>             outpath<span class="op">=</span>settings.outpath,</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>             out_format<span class="op">=</span>gee[<span class="st">"download"</span>][<span class="st">"format"</span>])</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>             out_format<span class="op">=</span>tif) <span class="co">#gee["download"]["format"])</span></span>
 <span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Add to log dataframe</span></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>outfnames <span class="op">=</span> [settings.outpath <span class="op">+</span> img.filenames]</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>outfnames <span class="op">=</span> [settings.outpath <span class="op">+</span> <span class="st">'/'</span> <span class="op">+</span> img.filenames]</span>
 <span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>layernames <span class="op">=</span> [Path(img.filenames).resolve().stem]</span>
 <span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>df_log <span class="op">=</span> update_logtable(</span>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>AgReFed Data-Harvester - Session 2 - running a harvest with a settings.yaml file</title>
+<title>AgReFed Data-Harvester - Session 2 - Modifying a settings.yaml file for a harvest</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -168,7 +168,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Session 2 - running a harvest with a settings.yaml file</h1>
+      <h1 class="quarto-secondary-nav-title">Session 2 - Modifying a settings.yaml file for a harvest</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -353,7 +353,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Session 2 - running a harvest with a settings.yaml file</h1>
+<h1 class="title d-none d-lg-block">Session 2 - Modifying a settings.yaml file for a harvest</h1>
 </div>
 
 
@@ -396,12 +396,12 @@ What is YAML?
 </div>
 <section id="basic-usage" class="level4">
 <h4 class="anchored" data-anchor-id="basic-usage">Basic usage</h4>
-<p>Below is the YAML file for <code>basic_config.yaml</code> which can be found in the <code>data</code> folder on the Jupyter Hub Server:</p>
+<p>Below is the YAML file for <code>basic_config.yaml</code> which can be found in the <code>AgReFed-Workshop/data</code> folder on the Jupyter Hub Server:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">outpath</span><span class="kw">:</span><span class="at"> results_basic/</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">target_bbox</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="fl">149.769345</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.335861</span><span class="kw">,</span><span class="at"> </span><span class="fl">149.949173</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.206271</span><span class="kw">]</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">target_res</span><span class="kw">:</span><span class="at"> </span><span class="fl">6.0</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date_min </span><span class="kw">:</span><span class="at"> 2022-10-01</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date_max </span><span class="kw">:</span><span class="at"> 2022-11-30</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date_max </span><span class="kw">:</span><span class="at"> 2022-10-30</span></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">target_sources</span><span class="kw">:</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">DEA</span><span class="kw">:</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> landsat_barest_earth</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -418,8 +418,8 @@ Relative and absolute path strings
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>A relative path is a path that is relative to the current working directory. For example, if you are working in the top level home directory, the path to the <code>basic_config.yaml</code> file, stored in the <code>data</code> folder, is <code>data/basic_config.yaml</code>.</p>
-<p>An absolute path is a path that starts from the root directory. For example, the absolute path to the <code>basic_config.yaml</code> file might be <code>/home/jovyan/data/basic_config.yaml</code> (note: this is not the actual path to the file).</p>
+<p>A relative path is a path that is relative to the current working directory. For example, if you are working in the top level home directory, the path to the <code>basic_config.yaml</code> file, stored in the <code>data</code> folder, is <code>AgReFed-Workshop/data/basic_config.yaml</code>.</p>
+<p>An absolute path is a path that starts from the root directory. For example, the absolute path to the <code>basic_config.yaml</code> file might be <code>/home/jovyan/AgReFed-Workshop/data/basic_config.yaml</code> (note: this is not the actual path to the file).</p>
 <p><strong>Both paths point to the same file.</strong></p>
 <p>Relative paths are useful when you are working in a project directory, as they are shorter and easier to remember. Relative paths also allow you to share your code with others, as they will not need to change the path in the configuration file as long as they are working in the same folder. Absolute paths are useful when you are working in a different directory, or when you are working on a local machine.</p>
 </div>
@@ -506,7 +506,7 @@ Downloading from API sources -----
 🎉 🎉 🎉 Harvest complete 🎉 🎉 🎉</code></pre>
 </div>
 </div>
-<p>You should see a figure similar to the one above. Explore the <code>basic_results</code> folder that has been generated. Can you see the log file in there too?</p>
+<p>You should see a figure similar to the one above. Explore the <code>results_basic</code> folder that has been generated. Can you see the log file in there too?</p>
 </section>
 </section>
 <section id="fa-person-chalkboard-google-earth-engine" class="level2">
@@ -530,7 +530,7 @@ Agenda
 </div>
 <section id="initialise-gee" class="level3">
 <h3 class="anchored" data-anchor-id="initialise-gee">Initialise GEE</h3>
-<p>The first step is to make sure you have a Google Earth Engine account. If you had not already set one up with your Google account, <a href="https://earthengine.google.com/signup/">please follow these instructions</a>. In the next step we must do is authorise the geodata_harvester to use the Google Earth Engine API. This is a labourious step, but if you follow the prompts on screen 1-by-1 the process is okay. <a href="../pydocs/setup-gee.html">See a preview of the process here</a>. Then run the following code to do it for yourself:</p>
+<p>The first step is to make sure you have a Google Earth Engine account. If you had not already set one up with your Google account, <a href="https://earthengine.google.com/signup/">please follow these instructions</a>. In the next step we must do is authorise the geodata_harvester to use the Google Earth Engine API. This is a labourious step, but if you follow the prompts on screen 1-by-1 the process is okay. <a href="https://sydney-informatics-hub.github.io/AgReFed-Workshop/pydocs/setup-gee.html#part-ii-authorising-your-workstation-with-gee">See a preview of the process here</a>. Then run the following code to do it for yourself:</p>
 <div class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> eeharvest <span class="im">import</span> harvester</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>harvester.initialise(auth_mode<span class="op">=</span><span class="st">'notebook'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -549,7 +549,7 @@ Agenda
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">target_bbox</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="fl">149.769345</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.335861</span><span class="kw">,</span><span class="at"> </span><span class="fl">149.949173</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.206271</span><span class="kw">]</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">target_res</span><span class="kw">:</span><span class="at"> </span><span class="fl">6.0</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date_min </span><span class="kw">:</span><span class="at"> 2022-10-01</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date_max </span><span class="kw">:</span><span class="at"> 2022-11-30</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date_max </span><span class="kw">:</span><span class="at"> 2022-10-30</span></span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">target_sources</span><span class="kw">:</span></span>
 <span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">DEA</span><span class="kw">:</span></span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> landsat_barest_earth</span></span>
@@ -581,6 +581,14 @@ Agenda
 <span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a><span class="fu">colname_lat</span><span class="kw">:</span><span class="at"> Lat</span></span>
 <span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a><span class="fu">colname_lng</span><span class="kw">:</span><span class="at"> Long</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The configuration will download Landsat 9 images for the year 2021, composite them all to a single image using the <code>median</code> reducer, and calculate the <code>NDVI</code> spectral index. The output image will be downloaded as a GeoTIFF file, with the <code>NDVI</code> spectral index and the RGB bands (<code>SR_B2</code>, <code>SR_B3</code>, <code>SR_B4</code>) includein the raster image.</p>
+<p>Run the harvest as before:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>gh.harvest.run(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"AgReFed-Workshop/data/basic_config.yaml"</span>, </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    log_name <span class="op">=</span> <span class="st">"multi_config"</span>, </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    preview <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 <section id="fa-keyboard-exercise-1-adding-even-more-sources" class="level2">
@@ -656,37 +664,37 @@ Landscape: [Relief_300m, Slope, Aspect]  # &lt;- edit this line
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Note that this is one possible solution, out of many. Your instructor may discuss other possible solutions.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">outpath</span><span class="kw">:</span><span class="at"> results_final/</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">target_bbox</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="fl">149.769345</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.335861</span><span class="kw">,</span><span class="at"> </span><span class="fl">149.949173</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.206271</span><span class="kw">]</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">target_res</span><span class="kw">:</span><span class="at"> </span><span class="fl">6.0</span></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date_min </span><span class="kw">:</span><span class="at"> 2022-10-01</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date_max </span><span class="kw">:</span><span class="at"> 2022-11-30</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="fu">target_sources</span><span class="kw">:</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">DEA</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">landsat_barest_earth</span><span class="kw">]</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">DEM</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">DEM</span><span class="kw">]</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">Landscape</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">Relief_300m</span><span class="kw">,</span><span class="at"> Slope</span><span class="kw">,</span><span class="at"> Aspect</span><span class="kw">]</span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">SILO</span><span class="kw">:</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">monthly_rain</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">sum</span><span class="kw">]</span></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">max_temp</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">sum</span><span class="kw">]</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">SLGA</span><span class="kw">:</span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">Bulk_Density</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">0-5cm</span><span class="kw">]</span></span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">Clay</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">0-5cm</span><span class="kw">]</span></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">GEE</span><span class="kw">:</span></span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">preprocess</span><span class="kw">:</span></span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">collection</span><span class="kw">:</span><span class="at"> COPERNICUS/S2_SR</span><span class="co"> # edit from LANDSAT/LC09/C02/T1_L2</span></span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">mask_clouds</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">reduce</span><span class="kw">:</span><span class="at"> median</span></span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">spectral</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">NDVI</span><span class="kw">]</span></span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">download</span><span class="kw">:</span></span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">bands</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">NDVI</span><span class="kw">]</span></span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">scale</span><span class="kw">:</span><span class="at"> </span><span class="dv">100</span></span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">format</span><span class="kw">:</span><span class="at"> tif</span></span>
-<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">overwrite</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
-<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span>
-<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a><span class="fu">infile</span><span class="kw">:</span><span class="at"> AgReFed-Workshop/data/example-site_llara.csv</span></span>
-<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="fu">colname_lat</span><span class="kw">:</span><span class="at"> Lat</span></span>
-<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a><span class="fu">colname_lng</span><span class="kw">:</span><span class="at"> Long</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">outpath</span><span class="kw">:</span><span class="at"> results_final/</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">target_bbox</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="fl">149.769345</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.335861</span><span class="kw">,</span><span class="at"> </span><span class="fl">149.949173</span><span class="kw">,</span><span class="at"> </span><span class="fl">-30.206271</span><span class="kw">]</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">target_res</span><span class="kw">:</span><span class="at"> </span><span class="fl">6.0</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date_min </span><span class="kw">:</span><span class="at"> 2022-10-01</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">date_max </span><span class="kw">:</span><span class="at"> 2022-10-30</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="fu">target_sources</span><span class="kw">:</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">DEA</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">landsat_barest_earth</span><span class="kw">]</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">DEM</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">DEM</span><span class="kw">]</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">Landscape</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">Relief_300m</span><span class="kw">,</span><span class="at"> Slope</span><span class="kw">,</span><span class="at"> Aspect</span><span class="kw">]</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">SILO</span><span class="kw">:</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">monthly_rain</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">sum</span><span class="kw">]</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">max_temp</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">sum</span><span class="kw">]</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">SLGA</span><span class="kw">:</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">Bulk_Density</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">0-5cm</span><span class="kw">]</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">Clay</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">0-5cm</span><span class="kw">]</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">GEE</span><span class="kw">:</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">preprocess</span><span class="kw">:</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">collection</span><span class="kw">:</span><span class="at"> COPERNICUS/S2_SR</span><span class="co"> # edit from LANDSAT/LC09/C02/T1_L2</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">mask_clouds</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">reduce</span><span class="kw">:</span><span class="at"> median</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">spectral</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">NDVI</span><span class="kw">]</span></span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">download</span><span class="kw">:</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">bands</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="at">NDVI</span><span class="kw">]</span></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">scale</span><span class="kw">:</span><span class="at"> </span><span class="dv">100</span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">format</span><span class="kw">:</span><span class="at"> tif</span></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">overwrite</span><span class="kw">:</span><span class="at"> </span><span class="ch">false</span></span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a><span class="fu">infile</span><span class="kw">:</span><span class="at"> AgReFed-Workshop/data/example-site_llara.csv</span></span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a><span class="fu">colname_lat</span><span class="kw">:</span><span class="at"> Lat</span></span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a><span class="fu">colname_lng</span><span class="kw">:</span><span class="at"> Long</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
