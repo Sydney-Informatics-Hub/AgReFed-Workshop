@@ -7,21 +7,12 @@ title: Settings Overview
 The following documentation outlines the available settings for the Data Harvester
 
 ## Table of Contents
-- [Overview and Description of Settings for the AgReFed Data-Harvester](#overview-and-description-of-settings-for-the-agrefed-data-harvester)
-  - [Table of Contents](#table-of-contents)
-  - [YAML File Format](#yaml-file-format)
-  - [Jupyter Settings Widget (Python only)](#jupyter-settings-widget-python-only)
-  - [Settings Validation](#settings-validation)
-  - [Input and Output Settings](#input-and-output-settings)
-  - [Spatial and Temporal Settings](#spatial-and-temporal-settings)
-  - [Data Selection Settings](#data-selection-settings)
-    - [Satellite data from Digital Earth Australia:](#satellite-data-from-digital-earth-australia)
-    - [Digital Elevation Model (DEM):](#digital-elevation-model-dem)
-    - [Landscape from SLGA](#landscape-from-slga)
-    - [Radiometric](#radiometric)
-    - [SILO Climate Database](#silo-climate-database)
-    - [Soil data from SLGA](#soil-data-from-slga)
-    - [Google Earth Engine  Data](#google-earth-engine--data)
+- [YAML File Format](#yaml-file-format)
+- [Jupyter Settings Widget](#jupyter-settings-widget)
+- [Settings Validation](#settings-validation)
+- [Input and Output Settings](#input-and-output-settings)
+- [Spatial and Temporal Settings](#spatial-and-temporal-settings)
+- [Data Selection Settings](#data-selection-settings)
 
 
 ## YAML File Format
@@ -31,7 +22,7 @@ Templates for the .yaml settings file are provided in the folder `settings`. Mor
 
 
 
-## Jupyter Settings Widget (Python only)
+## Jupyter Settings Widget
 Alternatively, settings can be selected in the interactive widget of the Jupyter Notebook, which also automatically saves all settings for a run in a .yaml file as well. The interactive widgets are powered by ipywidgets and are currently supported for the Jupyter Notebooks. The widget also allows the user to load a saved .yaml file.
 
 Note for developers: To make changes to the functionality of the widgets (e.g, extending with new settings or options), please see the script `harvesterwidgets.py` in the folder `widgets`.
@@ -40,7 +31,7 @@ Note for developers: To make changes to the functionality of the widgets (e.g, e
 ## Settings Validation 
 The settings file can be validated and checked for correct options (e.g. valid schema, data types, and data ranges) via the function `validate` in `validate_settings.py`, e.g.:
 ```python
-fname_settings = 'settings_v0.3.yaml'
+fname_settings = 'settings_harvest.yaml'
 import validate_settings
 validate_settings.validate(fname_settings)
 ```
@@ -91,15 +82,20 @@ TBD:
 #Bounding Box as (lng_min, lat_min, lng_max, lat_max):
 target_bbox: ''
 
-#Select years:
-target_dates:
-  - 2021
+#Select start date:
+date_min: : 2023-01-10
+
+#Select end date:
+date_min: : 2023-01-01
 
 #Spatial Resolution [in arcsec]:
 target_res: 6.0
 
-#Temporal Resolution [in days, from 1 to 365 days], TBD
-temp_res: 365
+#Temporal buffer window (in days)
+temp_buffer: 2
+
+# Number of time interval slices in given date range
+temp_intervals: 4
 ```
 
 
@@ -134,9 +130,7 @@ Each soil attribute has six depth layers (plus their upper and lower confidence 
 
 ### Google Earth Engine  Data
 
-An overview of the available Google Earth Engine (GEE) data is provided in [Data Overview GEE](Earth_Engine_Data_Overview.md) 
-
-Documentation of options: TBD
+An overview of the available Google Earth Engine (GEE) data and options is provided in [Data Overview GEE](Earth_Engine_Data_Overview.md) 
 
 
 **Example:**
@@ -186,23 +180,17 @@ target_sources:
       ### collection as defined in the Earth Engine Catalog
       collection: LANDSAT/LC09/C02/T1_L2
 
-      #### if supplied, will use 'buffer' and 'bound'. else, will use bbox above
-      coords: [149.769345, -30.335861]
-
-      #### If date range is supplied, will use below. Else, will use `target_dates`
-      date: 2021-01-01
-      end_date: 2021-12-31
-
-      #### circular buffer in metres
+      #### circular buffer in metres (optional)
       buffer: null
 
-      #### convert buffer into square bounding box instead
+      #### convert buffer into square bounding box instead (optional)
       bound: null
 
       #### cloud masking option
       mask_clouds: True
 
-      #### if null, will download all available images. Else, will reduce to single
+      #### Set probability for mask cloud (between 0 to 1), optional
+      mask_probability: null
 
       #### composite image based on summary stat provided
       reduce: median
@@ -211,12 +199,6 @@ target_sources:
       spectral:
         - NDVI
         - NDWI
-    aggregate:
-      
-      #### group data by period. Available: year, month, week
-      frequency: year 
-      #### summarise group by method
-      method: mean  
 
     download:
       bands: 
