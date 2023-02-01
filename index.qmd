@@ -6,20 +6,16 @@ markdown:
 ---
 
 
-::: callout-tip
-### Workshop information {.unnumbered}
-
-The next AgReFed Geodata Harvester workshop will be run on **Feb 2 2023**. Please [register here](https://liveclassroom.zoom.us/j/93139247613?pwd=MTRnYjdHUktoK3dQWDk1MWZFUWFoZz09)
-<!-- <script src="https://cdn.logwork.com/widget/countdown.js"></script>
-<a href="https://logwork.com/countdown-w5fs" class="countdown-timer" data-style="circles" data-timezone="Australia/Sydney" data-date="2022-11-03 13:30">Workshop starts in...</a> -->
-
-:::
-
-## About
+Welcome to the AgReFed Geodata-Harvester Workshop pages.
 
 Use the AgReFed Geodata-Harvester to **access, process and download** national (Australian) and global space/time data aimed at agricultural scientists, environmental scientists, ecologists and other researchers.
 
-In the workshops, we will show you how to download and summarise geospatial data from a range of sources including:
+* Geodata-Harvester [with Python Workshop](/pydocs/py00-workshop).
+* Geodata-Harvester [with R Workshop](/rdocs/r00-workshop).
+
+Learn more about the project at the [Geodata-Harvester Homepage](https://sydney-informatics-hub.github.io/geodata-harvester/) and contribute to the source code at our [Code Repository](https://github.com/Sydney-Informatics-Hub/geodata-harvester).
+
+In the workshops, you can learn how to download and summarise geospatial data from a range of sources including:
 
 <!-- 1. **Data retrieval:** access and download a diverse range of geospatial and soil data sources and APIs
 2.  **Processing:** Spatial and temporal processing of data, which include image reduction/composition, access to satellite collections, cloud/shadow masking and calculation of spectral indices
@@ -34,7 +30,7 @@ Exercises will involve data retrieval from national/global datasets including: -
 -   [GSKY Data Server for DEA Geoscience Earth Observations](https://is.gd/zFHxfD)
 -   [Google Earth Engine](https://is.gd/VdO3Jx)
 
-In addition, we will present some spatial and temporal aggregation, visualisation, and simple summary techniques.
+In addition, learn the simple spatial and temporal aggregation, visualisation, and summary techniques availble with the Geodata-Harvester.
 
 <!-- Workshops are presented by the [**Sydney Informatics
 Hub**](https://www.sydney.edu.au/research/facilities/sydney-informatics-hub.html)
